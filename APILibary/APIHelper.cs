@@ -15,6 +15,7 @@ namespace APILibary
 
         public static void InitializeClient()
         {
+            Console.WriteLine("Hello1");
             APIClient = new HttpClient();
             APIClient.DefaultRequestHeaders.Accept.Clear();
             APIClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));

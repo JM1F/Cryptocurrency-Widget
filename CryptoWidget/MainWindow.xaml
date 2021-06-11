@@ -10,8 +10,8 @@
         WindowStyle="None"
         BorderBrush="Black"
         BorderThickness="1"
-        AllowsTransparency="True"
-        ResizeMode="CanResizeWithGrip">
+        AllowsTransparency="True">
+
     <Grid>
         <TextBlock x:Name="NameData" Margin="82,33,10,108"/>
 

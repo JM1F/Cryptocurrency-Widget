@@ -34,6 +34,8 @@ namespace CryptoWidget
             NameData.Text = data2[0].Name;
             PriceData1h.Text = Convert.ToString(data2[0].price_change_percentage_1h_in_currency);
             PriceData24h.Text = Convert.ToString(data2[0].price_change_percentage_24h_in_currency);
+            string PriceData1y = Convert.ToString(data2[0].price_change_percentage_1y_in_currency);
+            Console.WriteLine(PriceData1y);
         }
         private async void Window_Loaded(object sender, RoutedEventArgs e)
         {

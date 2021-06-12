@@ -90,23 +90,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <Resource Include="resources\Montserrat-Black.ttf" />
-    <Resource Include="resources\Montserrat-BlackItalic.ttf" />
-    <Resource Include="resources\Montserrat-Bold.ttf" />
-    <Resource Include="resources\Montserrat-BoldItalic.ttf" />
-    <Resource Include="resources\Montserrat-ExtraBold.ttf" />
-    <Resource Include="resources\Montserrat-ExtraBoldItalic.ttf" />
-    <Resource Include="resources\Montserrat-ExtraLight.ttf" />
-    <Resource Include="resources\Montserrat-ExtraLightItalic.ttf" />
-    <Resource Include="resources\Montserrat-Italic.ttf" />
-    <Resource Include="resources\Montserrat-Light.ttf" />
-    <Resource Include="resources\Montserrat-LightItalic.ttf" />
-    <Resource Include="resources\Montserrat-MediumItalic.ttf" />
-    <Resource Include="resources\Montserrat-Regular.ttf" />
-    <Resource Include="resources\Montserrat-SemiBold.ttf" />
-    <Resource Include="resources\Montserrat-SemiBoldItalic.ttf" />
-    <Resource Include="resources\Montserrat-Thin.ttf" />
-    <Resource Include="resources\Montserrat-ThinItalic.ttf" />
+    <Resource Include="resources\Montserrat-Medium.ttf" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -116,9 +100,6 @@
       <Project>{EF0F706A-E68B-4655-9E34-AF945E617F66}</Project>
       <Name>APILibary</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="resources\OFL.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

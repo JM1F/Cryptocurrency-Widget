@@ -8,25 +8,34 @@
         mc:Ignorable="d" Loaded="Window_Loaded"
         Title="MainWindow" Height="300" Width="250" WindowStartupLocation="CenterScreen"
         WindowStyle="None"
-        BorderBrush="Black"
-        BorderThickness="1"
+        
+        BorderThickness="0"
         AllowsTransparency="True">
 
-    <Grid>
-        <TextBlock x:Name="NameData" Margin="82,33,10,108"/>
 
-        <TextBlock x:Name="PriceData1h" Margin="10,66,156,206" RenderTransformOrigin="0.512,1.769">asdsdasdasd</TextBlock>
-        <TextBlock x:Name="PriceData24h" Margin="25,194,0,30" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" Width="111">
-            <TextBlock.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleX="-1"/>
-                    <SkewTransform AngleY="29.333"/>
-                    <RotateTransform Angle="0.264"/>
-                    <TranslateTransform X="0.144" Y="-31.186"/>
-                </TransformGroup>
-            </TextBlock.RenderTransform>asdasd</TextBlock>
-        <Rectangle x:Name="titleBar" Fill="black" HorizontalAlignment="Left" Height="66" Stroke="Black" VerticalAlignment="Top" Width="248" MouseDown="titleBar_MouseDown"/>
-        <Button x:Name="exitButton" Content="Exit " HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="163,40,0,0" Click="exitButton_Click"/>
+    <Grid Background="#161616 ">
+
+        <ScrollViewer HorizontalAlignment="Left" Margin="0,40,0,0" Width="250" RenderTransformOrigin="-0.425,0.265" VerticalScrollBarVisibility="Auto">
+            <Grid Height="3000">
+                <TextBlock x:Name="NameData" Margin="104,0,0,2848"/>
+                <TextBlock x:Name="PriceData24h" Margin="93,158,0,2766" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" Width="111">
+                    <TextBlock.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="-1"/>
+                            <SkewTransform AngleY="29.333"/>
+                            <RotateTransform Angle="0.264"/>
+                            <TranslateTransform X="0.144" Y="-31.186"/>
+                        </TransformGroup>
+                    </TextBlock.RenderTransform><Run Text="asdasd"/></TextBlock>
+                <TextBlock x:Name="PriceData1h" Margin="10,66,139,2906" RenderTransformOrigin="0.512,1.769"><Run Text="asdsdasdasd"/></TextBlock>
+            </Grid>
+        </ScrollViewer>
+        <Border BorderThickness="0,0,0,10" Background="#282828 " Margin="0,0,0,249">
+            <Rectangle x:Name="titleBar" Fill="#111111" HorizontalAlignment="Left" Height="40" Stroke="#111111" VerticalAlignment="Top" Width="250" MouseDown="titleBar_MouseDown"/>
+        </Border>
+        <TextBlock x:Name="title" HorizontalAlignment="Left" TextWrapping="Wrap" Text="CRYPTOCURRENCY WIDGET" VerticalAlignment="Top" Width="250" TextAlignment="Center" Foreground="white" FontSize="14"  FontFamily="./resources/#Montserrat Medium" Margin="0,10,0,0" Focusable="False" FontStyle="Normal"/>
+        <Rectangle x:Name="invisibleGrabBar"  HorizontalAlignment="Left" Height="40"  VerticalAlignment="Top" Width="250" MouseDown="titleBar_MouseDown" Fill="Black" Opacity="0.001"/>
+        <Button x:Name="exitButton" Content="X" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="12" Margin="220,0,0,290" Click="exitButton_Click" Height="10"/>
 
     </Grid>
 </Window>

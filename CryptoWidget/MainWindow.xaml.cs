@@ -56,7 +56,10 @@ namespace CryptoWidget
         {
             this.Close();
         }
+        private void Minimisebutton_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
 
-        
     }
 }

@@ -111,199 +111,72 @@
         </Style>
 
 
+        <Style x:Key="scroll_thumb_style" TargetType="Thumb">
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="OverridesDefaultStyle" Value="true"/>
+            <Setter Property="IsTabStop" Value="false"/>
+            <Setter Property="Focusable" Value="false"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+                <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Thumb">
+                        <Rectangle x:Name="thumbSlider"  Width="7"  Fill="#282828 " RadiusX="5" RadiusY="5" Opacity="0.4">
+                        </Rectangle>
+                        <ControlTemplate.Triggers>
+                            <EventTrigger RoutedEvent="MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation To="1" Duration="0:0:0.3" Storyboard.TargetName="thumbSlider" Storyboard.TargetProperty="Opacity"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="MouseLeave">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation To="0.4" Duration="0:0:0.3" Storyboard.TargetName="thumbSlider" Storyboard.TargetProperty="Opacity"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </ControlTemplate.Triggers>
+                        
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
         <Style TargetType="{x:Type ScrollBar}">
             <Setter Property="Stylus.IsPressAndHoldEnabled" Value="false"/>
             <Setter Property="Stylus.IsFlicksEnabled" Value="false"/>
-            
-            <Setter Property="Foreground" Value="red"/>
-            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="BorderBrush" Value="Black"/>
             <Setter Property="Width" Value="20"/>
+
+            <Setter Property="MinHeight" Value="{Binding Height, RelativeSource={RelativeSource Self}}"/>
             <Setter Property="MinWidth" Value="{Binding Width, RelativeSource={RelativeSource Self}}"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type ScrollBar}">
-                        <Grid x:Name="Bg" SnapsToDevicePixels="true">
-                            <Grid.RowDefinitions>
-                                <RowDefinition MaxHeight="{DynamicResource {x:Static SystemParameters.VerticalScrollBarButtonHeightKey}}"/>
-                                <RowDefinition Height="0.00001*"/>
-                                <RowDefinition MaxHeight="{DynamicResource {x:Static SystemParameters.VerticalScrollBarButtonHeightKey}}"/>
-                            </Grid.RowDefinitions>
-                            <Border
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            Grid.Row="1"
-                            Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}" />
-                            <RepeatButton x:Name="PART_LineUpButton"
-                            Command="{x:Static ScrollBar.LineUpCommand}"
-                            IsEnabled="{TemplateBinding IsMouseOver}">
-
-                                <Path x:Name="ArrowTop"
-                                Data="M 0,4 C0,4 0,6 0,6 0,6 3.5,2.5 3.5,2.5 3.5,2.5 7,6 7,6 7,6 7,4 7,4 7,4 3.5,0.5 3.5,0.5 3.5,0.5 0,4 0,4 z"
-                                Stretch="Uniform"
-                                Margin="3,4,3,3"
-                                Fill="red" />
-                            </RepeatButton>
+                        <Grid x:Name="Bg" >
                             <Track x:Name="PART_Track"
                             IsDirectionReversed="true"
                             IsEnabled="{TemplateBinding IsMouseOver}"
-                            Grid.Row="1">
-                                <Track.DecreaseRepeatButton>
-                                    <RepeatButton Command="{x:Static ScrollBar.PageUpCommand}" />
-                                </Track.DecreaseRepeatButton>
-                                <Track.IncreaseRepeatButton>
-                                    <RepeatButton Command="{x:Static ScrollBar.PageDownCommand}" />
-                                </Track.IncreaseRepeatButton>
-                                <Track.Thumb>
-                                    <Thumb  />
+                            Grid.Row="1" >
+                                <Track.Thumb >
+                                    <Thumb Style="{DynamicResource scroll_thumb_style}"/>
+                                    
                                 </Track.Thumb>
                             </Track>
-                            <RepeatButton x:Name="PART_LineDownButton"
-                            Command="{x:Static ScrollBar.LineDownCommand}"
-                            IsEnabled="{TemplateBinding IsMouseOver}"
-                            Grid.Row="2">
-
-                                <Path x:Name="ArrowBottom"
-                                Data="M 0,2.5 C0,2.5 0,0.5 0,0.5 0,0.5 3.5,4 3.5,4 3.5,4 7,0.5 7,0.5 7,0.5 7,2.5 7,2.5 7,2.5 3.5,6 3.5,6 3.5,6 0,2.5 0,2.5 z"
-                                Stretch="Uniform"
-                                Margin="3,4,3,3"
-                                Fill="red" />
-                            </RepeatButton>
+                            
                         </Grid>
-                        <ControlTemplate.Triggers>
-                            <MultiDataTrigger>
-                                <MultiDataTrigger.Conditions>
-                                    <Condition Binding="{Binding ElementName=PART_LineDownButton, Path=IsMouseOver}" Value="true" />
-                                    <Condition Binding="{Binding ElementName=PART_LineDownButton, Path=IsPressed}" Value="true" />
-                                </MultiDataTrigger.Conditions>
-                                <Setter TargetName="ArrowBottom" Property="Fill" Value="blue" />
-                            </MultiDataTrigger>
-                            <MultiDataTrigger>
-                                <MultiDataTrigger.Conditions>
-                                    <Condition Binding="{Binding ElementName=PART_LineUpButton, Path=IsMouseOver}" Value="true" />
-                                    <Condition Binding="{Binding ElementName=PART_LineUpButton, Path=IsPressed}" Value="true" />
-                                </MultiDataTrigger.Conditions>
-                                <Setter TargetName="ArrowTop" Property="Fill" Value="blue" />
-                            </MultiDataTrigger>
-                            <MultiDataTrigger>
-                                <MultiDataTrigger.Conditions>
-                                    <Condition Binding="{Binding ElementName=PART_LineDownButton, Path=IsMouseOver}" Value="true" />
-                                    <Condition Binding="{Binding ElementName=PART_LineDownButton, Path=IsPressed}" Value="false" />
-                                </MultiDataTrigger.Conditions>
-                                <Setter TargetName="ArrowBottom" Property="Fill" Value="blue" />
-                            </MultiDataTrigger>
-                            <MultiDataTrigger>
-                                <MultiDataTrigger.Conditions>
-                                    <Condition Binding="{Binding ElementName=PART_LineUpButton, Path=IsMouseOver}" Value="true" />
-                                    <Condition Binding="{Binding ElementName=PART_LineUpButton, Path=IsPressed}" Value="false" />
-                                </MultiDataTrigger.Conditions>
-                                <Setter TargetName="ArrowTop" Property="Fill" Value="blue" />
-                            </MultiDataTrigger>
-                            <Trigger Property="IsEnabled" Value="false">
-                                <Setter TargetName="ArrowTop" Property="Fill" Value="blue" />
-                                <Setter TargetName="ArrowBottom" Property="Fill" Value="blue" />
-                            </Trigger>
-                        </ControlTemplate.Triggers>
+                        
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
-            <Style.Triggers>
-                <Trigger Property="Orientation" Value="Horizontal">
-                    <Setter Property="Width" Value="Auto"/>
-                    <Setter Property="MinWidth" Value="0"/>
-                    <Setter Property="Height" Value="{DynamicResource {x:Static SystemParameters.HorizontalScrollBarHeightKey}}"/>
-                    <Setter Property="MinHeight" Value="{DynamicResource {x:Static SystemParameters.HorizontalScrollBarHeightKey}}"/>
-                    <Setter Property="BorderThickness" Value="0,1" />
-                    <Setter Property="Template">
-                        <Setter.Value>
-                            <ControlTemplate TargetType="{x:Type ScrollBar}">
-                                <Grid x:Name="Bg" SnapsToDevicePixels="true">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition MaxWidth="{DynamicResource {x:Static SystemParameters.HorizontalScrollBarButtonWidthKey}}"/>
-                                        <ColumnDefinition Width="0.00001*"/>
-                                        <ColumnDefinition MaxWidth="{DynamicResource {x:Static SystemParameters.HorizontalScrollBarButtonWidthKey}}"/>
-                                    </Grid.ColumnDefinitions>
-                                    <Border
-                                    BorderThickness="{TemplateBinding BorderThickness}"
-                                    Grid.Column="1"
-                                    Background="{TemplateBinding Background}"
-                                    BorderBrush="{TemplateBinding BorderBrush}" />
-                                    <RepeatButton x:Name="PART_LineLeftButton"
-                                    Command="{x:Static ScrollBar.LineLeftCommand}"
-                                    IsEnabled="{TemplateBinding IsMouseOver}">
-
-                                        <Path x:Name="ArrowLeft"
-                                        Data="M 3.18,7 C3.18,7 5,7 5,7 5,7 1.81,3.5 1.81,3.5 1.81,3.5 5,0 5,0 5,0 3.18,0 3.18,0 3.18,0 0,3.5 0,3.5 0,3.5 3.18,7 3.18,7 z"
-                                        Stretch="Uniform"
-                                        Margin="3"
-                                        Fill="red" />
-                                    </RepeatButton>
-                                    <Track x:Name="PART_Track"
-                                    Grid.Column="1"
-                                    IsEnabled="{TemplateBinding IsMouseOver}">
-                                        <Track.DecreaseRepeatButton>
-                                            <RepeatButton Command="{x:Static ScrollBar.PageLeftCommand}" />
-                                        </Track.DecreaseRepeatButton>
-                                        <Track.IncreaseRepeatButton>
-                                            <RepeatButton Command="{x:Static ScrollBar.PageRightCommand}"/>
-                                        </Track.IncreaseRepeatButton>
-                                        <Track.Thumb>
-                                            <Thumb  />
-                                        </Track.Thumb>
-                                    </Track>
-                                    <RepeatButton x:Name="PART_LineRightButton"
-                                    Grid.Column="2"
-                                    Command="{x:Static ScrollBar.LineRightCommand}"
-                                    IsEnabled="{TemplateBinding IsMouseOver}">
-
-                                        <Path x:Name="ArrowRight"
-                                        Data="M 1.81,7 C1.81,7 0,7 0,7 0,7 3.18,3.5 3.18,3.5 3.18,3.5 0,0 0,0 0,0 1.81,0 1.81,0 1.81,0 5,3.5 5,3.5 5,3.5 1.81,7 1.81,7 z"
-                                        Stretch="Uniform"
-                                        Margin="3"
-                                    Fill="Orange" />
-                                    </RepeatButton>
-                                </Grid>
-                                <ControlTemplate.Triggers>
-                                    <MultiDataTrigger>
-                                        <MultiDataTrigger.Conditions>
-                                            <Condition Binding="{Binding ElementName=PART_LineRightButton, Path=IsMouseOver}" Value="true" />
-                                            <Condition Binding="{Binding ElementName=PART_LineRightButton, Path=IsPressed}" Value="true" />
-                                        </MultiDataTrigger.Conditions>
-                                        <Setter TargetName="ArrowRight" Property="Fill" Value="orange" />
-                                    </MultiDataTrigger>
-                                    <MultiDataTrigger>
-                                        <MultiDataTrigger.Conditions>
-                                            <Condition Binding="{Binding ElementName=PART_LineLeftButton, Path=IsMouseOver}" Value="true" />
-                                            <Condition Binding="{Binding ElementName=PART_LineLeftButton, Path=IsPressed}" Value="true" />
-                                        </MultiDataTrigger.Conditions>
-                                        <Setter TargetName="ArrowLeft" Property="Fill" Value="orange" />
-                                    </MultiDataTrigger>
-                                    <MultiDataTrigger>
-                                        <MultiDataTrigger.Conditions>
-                                            <Condition Binding="{Binding ElementName=PART_LineRightButton, Path=IsMouseOver}" Value="true" />
-                                            <Condition Binding="{Binding ElementName=PART_LineRightButton, Path=IsPressed}" Value="false" />
-                                        </MultiDataTrigger.Conditions>
-                                        <Setter TargetName="ArrowRight" Property="Fill" Value="orange" />
-                                    </MultiDataTrigger>
-                                    <MultiDataTrigger>
-                                        <MultiDataTrigger.Conditions>
-                                            <Condition Binding="{Binding ElementName=PART_LineLeftButton, Path=IsMouseOver}" Value="true" />
-                                            <Condition Binding="{Binding ElementName=PART_LineLeftButton, Path=IsPressed}" Value="false" />
-                                        </MultiDataTrigger.Conditions>
-                                        <Setter TargetName="ArrowLeft" Property="Fill" Value="orange" />
-                                    </MultiDataTrigger>
-                                    <Trigger Property="IsEnabled" Value="false">
-                                        <Setter TargetName="ArrowLeft" Property="Fill" Value="orange" />
-                                        <Setter TargetName="ArrowRight" Property="Fill" Value="orange" />
-                                    </Trigger>
-                                </ControlTemplate.Triggers>
-                            </ControlTemplate>
-                        </Setter.Value>
-                    </Setter>
-                </Trigger>
-            </Style.Triggers>
+           
         </Style>
 
-
+        
     </Window.Resources>
 
 
@@ -315,11 +188,11 @@
             <Rectangle Fill="#282828 " Margin="-20,20,-20,239">
             </Rectangle>
             
-            <ScrollViewer HorizontalAlignment="Left" Margin="-21,29,-19,11" Width="250" RenderTransformOrigin="-0.425,0.265" VerticalScrollBarVisibility="Auto" >
+            <ScrollViewer  VerticalScrollBarVisibility="Auto" Margin="-20,27,-20,-1" BorderThickness="0" Background="Transparent" >
                 
-                <Grid Height="Auto">
-                    <TextBlock x:Name="NameData" Margin="14,96,91,2752"/>
-                    <TextBlock x:Name="PriceData24h" Margin="93,158,0,2766" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" Width="111">
+                <Grid Height="420" >
+                    <TextBlock x:Name="NameData" Margin="7,13,98,204"/>
+                    <TextBlock x:Name="PriceData24h" Margin="109,73,0,141" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" Width="111">
                         <TextBlock.RenderTransform>
                             <TransformGroup>
                                 <ScaleTransform ScaleX="-1"/>
@@ -328,7 +201,7 @@
                                 <TranslateTransform X="0.144" Y="-31.186"/>
                             </TransformGroup>
                         </TextBlock.RenderTransform><Run Text="asdasd"/></TextBlock>
-                    <TextBlock x:Name="PriceData1h" Margin="10,66,139,2906" RenderTransformOrigin="0.512,1.769"><Run Text="asdsdasdasd"/></TextBlock>
+                    <TextBlock x:Name="PriceData1h" Margin="173,7,-24,208" RenderTransformOrigin="0.512,1.769"><Run Text="asdsdasdasd"/></TextBlock>
                 </Grid>
                 
             </ScrollViewer>
@@ -337,7 +210,7 @@
 
             </Border>
 
-            <TextBlock x:Name="title" HorizontalAlignment="Left" TextWrapping="Wrap" Text="CRYPTOCURRENCY WIDGET" VerticalAlignment="Top" Width="204" TextAlignment="Center" Foreground="white" FontSize="13"  FontFamily="./resources/#Montserrat Medium" Margin="-19,-7,0,0" Focusable="False" FontStyle="Normal" Height="14"/>
+            <TextBlock x:Name="title" HorizontalAlignment="Left" TextWrapping="Wrap" Text="CRYPTOCURRENCY WIDGET" VerticalAlignment="Top" Width="204" TextAlignment="Center" Foreground="white" FontSize="13"  FontFamily="./resources/#Montserrat Medium" Margin="-19,-8,0,0" Focusable="False" FontStyle="Normal" Height="14"/>
 
 
 

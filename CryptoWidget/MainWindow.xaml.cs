@@ -23,12 +23,13 @@ namespace CryptoWidget
     /// </summary>
     public partial class MainWindow : Window
     {
+        public string PCP1H { get; set; }
         public MainWindow()
         {
             APIHelper.InitializeClient();
             InitializeComponent();
             
-            
+
         }
         public async Task GetDataAsync()
         {
@@ -36,9 +37,10 @@ namespace CryptoWidget
 
             NameData.Text = data2[0].Name;
             Console.WriteLine(data2);
-            PriceData1h.Text = Convert.ToString(data2[0].price_change_percentage_1h_in_currency);
+            PCP1H = Convert.ToString(data2[0].price_change_percentage_1h_in_currency);
             PriceData24h.Text = Convert.ToString(data2[0].price_change_percentage_24h_in_currency);
             string PriceData1y = Convert.ToString(data2[0].price_change_percentage_1y_in_currency);
+            
         }
 
        
@@ -49,7 +51,10 @@ namespace CryptoWidget
             await GetDataAsync();
            
             this.DataContext = new Model();
+            
         }
+
+
         private void titleBar_MouseDown(object sender, MouseButtonEventArgs e)
         {
             this.DragMove();

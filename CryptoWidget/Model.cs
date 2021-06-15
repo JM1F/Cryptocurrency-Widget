@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Timers;
 
 
+
 namespace CryptoWidget
 {
     public class Model : INotifyPropertyChanged
@@ -25,27 +26,28 @@ namespace CryptoWidget
         
         public Model()
         {
-            
             setTimer();
         }
+        public string PCP1H { get; set; }
 
         private static System.Timers.Timer atimer;
-
-
-
+        
         public void setTimer()
         {
-            atimer = new System.Timers.Timer(10000);
+            atimer = new System.Timers.Timer(1000);
             atimer.Elapsed += atimer_Elapsed;
             atimer.AutoReset = true;
             atimer.Enabled = true;
         }
-
+        
         private async void atimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
-            Console.WriteLine("Hello");
             var data2 = await dataLoad.LoadData();
 
+            PCP1H = data2[0].price_change_percentage_1h_in_currency;
+            Console.WriteLine(data2[0].price_change_percentage_1h_in_currency);
+            OnPropertyChanged("PCP1H");
+            
         }
     }
 }

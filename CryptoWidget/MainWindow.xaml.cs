@@ -25,27 +25,30 @@ namespace CryptoWidget
     {
         public MainWindow()
         {
-            InitializeComponent();
             APIHelper.InitializeClient();
+            InitializeComponent();
+            
             
         }
-        private async Task GetData()
+        public async Task GetDataAsync()
         {
             var data2 = await dataLoad.LoadData();
 
             NameData.Text = data2[0].Name;
+            Console.WriteLine(data2);
             PriceData1h.Text = Convert.ToString(data2[0].price_change_percentage_1h_in_currency);
             PriceData24h.Text = Convert.ToString(data2[0].price_change_percentage_24h_in_currency);
             string PriceData1y = Convert.ToString(data2[0].price_change_percentage_1y_in_currency);
-            
-
         }
 
        
 
         private async void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            await GetData();
+        {     
+            
+            await GetDataAsync();
+           
+            this.DataContext = new Model();
         }
         private void titleBar_MouseDown(object sender, MouseButtonEventArgs e)
         {

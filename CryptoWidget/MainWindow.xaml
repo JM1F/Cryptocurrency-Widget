@@ -191,8 +191,8 @@
             <ScrollViewer  VerticalScrollBarVisibility="Auto" Margin="-20,27,-20,-1" BorderThickness="0" Background="Transparent" >
                 
                 <Grid Height="420" >
-                    <TextBlock x:Name="NameData" Margin="7,13,98,204"/>
-                    <TextBlock x:Name="PriceData24h" Margin="109,73,0,141" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" Width="111">
+                    <TextBlock Foreground="White" x:Name="NameData" Margin="7,13,98,204"/>
+                    <TextBlock  Foreground="White" x:Name="PriceData24h" Margin="109,73,0,141" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" Width="111">
                         <TextBlock.RenderTransform>
                             <TransformGroup>
                                 <ScaleTransform ScaleX="-1"/>
@@ -201,7 +201,7 @@
                                 <TranslateTransform X="0.144" Y="-31.186"/>
                             </TransformGroup>
                         </TextBlock.RenderTransform><Run Text="asdasd"/></TextBlock>
-                    <TextBlock x:Name="PriceData1h" Margin="173,7,-24,208" RenderTransformOrigin="0.512,1.769"><Run Text="asdsdasdasd"/></TextBlock>
+                    <TextBlock Foreground="White" x:Name="PriceData1h" Margin="13,124,136,91" RenderTransformOrigin="0.512,1.769"><Run Text="asdsdasdasd"/></TextBlock>
                 </Grid>
                 
             </ScrollViewer>

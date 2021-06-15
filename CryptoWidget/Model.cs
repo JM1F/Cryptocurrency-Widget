@@ -24,8 +24,9 @@ namespace CryptoWidget
             this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         
-        public Model()
+        public  Model()
         {
+            
             setTimer();
         }
         public string PCP1H { get; set; }
@@ -34,7 +35,7 @@ namespace CryptoWidget
         
         public void setTimer()
         {
-            atimer = new System.Timers.Timer(1000);
+            atimer = new System.Timers.Timer(10000);
             atimer.Elapsed += atimer_Elapsed;
             atimer.AutoReset = true;
             atimer.Enabled = true;

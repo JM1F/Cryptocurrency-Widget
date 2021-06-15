@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace APILibary
 {
-    public class ReturnModel : INotifyPropertyChanged
+    public class ReturnModel
     {
         
         public string Name { get; set; }
@@ -17,7 +17,5 @@ namespace APILibary
         public string price_change_percentage_7d_in_currency { get; set; }
         public string price_change_percentage_30d_in_currency { get; set; }
         public string price_change_percentage_1y_in_currency { get; set; }
-
-        public event PropertyChangedEventHandler PropertyChanged;
     }
 }

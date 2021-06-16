@@ -30,19 +30,36 @@ namespace CryptoWidget
             APIHelper.InitializeClient();
             InitializeComponent();
             this.DataContext = new Model();
-
+            
         }
         public async Task GetDataAsync()
         {
+            ColorPriceCheck n = new ColorPriceCheck();
+
             var data2 = await dataLoad.LoadData();
 
             NameData.Text = data2[0].Name;
-            Console.WriteLine(data2);
+
+
             
-            //PriceData1h.Text = Convert.ToString(data2[0].price_change_percentage_1h_in_currency);
+            PriceData1h.Text = Convert.ToString(data2[0].price_change_percentage_1h_in_currency);
+            string PriceData1hString = Convert.ToString(data2[0].price_change_percentage_1h_in_currency);
+            PriceData1h.Foreground = new BrushConverter().ConvertFromString(n.ColourCheck(PriceData1hString)) as SolidColorBrush;
+
+            
             PriceData24h.Text = Convert.ToString(data2[0].price_change_percentage_24h_in_currency);
-            string PriceData1y = Convert.ToString(data2[0].price_change_percentage_1y_in_currency);
+
+            PriceData7d.Text = Convert.ToString(data2[0].price_change_percentage_7d_in_currency);
+
             
+
+            PriceData30d.Text = Convert.ToString(data2[0].price_change_percentage_30d_in_currency);
+            PriceData30d.Foreground = new BrushConverter().ConvertFromString(n.ColourCheck(data2[0].price_change_percentage_30d_in_currency)) as SolidColorBrush;
+            
+
+            PriceData1y.Text = Convert.ToString(data2[0].price_change_percentage_1y_in_currency);
+            PriceData1y.Foreground = new BrushConverter().ConvertFromString(n.ColourCheck(data2[0].price_change_percentage_1y_in_currency)) as SolidColorBrush;
+
         }
 
         private async void Window_Loaded(object sender, RoutedEventArgs e)

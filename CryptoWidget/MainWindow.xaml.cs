@@ -25,6 +25,7 @@ namespace CryptoWidget
     public partial class MainWindow : Window
     {
         
+        
         public MainWindow()
         {
             APIHelper.InitializeClient();
@@ -84,5 +85,18 @@ namespace CryptoWidget
             this.WindowState = WindowState.Minimized;
         }
 
+        public void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+ 
+
+            SubWindow btcwindow = new SubWindow();
+            
+            btcwindow.ShowDialog();
+            
+
+
+        }
+    
     }
 }

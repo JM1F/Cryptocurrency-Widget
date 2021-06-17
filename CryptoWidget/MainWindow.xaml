@@ -181,11 +181,13 @@
 
 
     <Border CornerRadius="15" BorderThickness="20" BorderBrush="#161616">
-
-        <Grid Background="#161616 ">
+        
+        <Grid Name="HomeView" Background="#161616 ">
+           
             <Rectangle Fill="#282828 " Margin="-20,20,-20,239">
             </Rectangle>
 
+            
             <ScrollViewer  VerticalScrollBarVisibility="Auto" Margin="-20,27,-20,-1" BorderThickness="0" Background="Transparent" >
 
                 <Grid Height="420" >
@@ -194,12 +196,16 @@
                     <TextBlock Foreground="{Binding Path=PCP30DCOLOUR, Mode=TwoWay}" x:Name="PriceData30d" Margin="108,42,-3,175" Text="{Binding Path=PCP30D, Mode=TwoWay}"/>
                     <TextBlock  Foreground="White" x:Name="PriceData24h" Margin="120,120,0,110" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" Width="110" Text="{Binding Path=PCP24H, Mode=TwoWay}"/>
                     <TextBlock Foreground="white" x:Name="PriceData7d" Margin="120,97,-15,120" Text="{Binding Path=PCP7D, Mode=TwoWay}"/>
+                    <Button Margin="84,177,37,206" Click="Button_Click"/>
                     
                     <TextBlock Foreground="{Binding Path=PCP1HCOLOUR, Mode=TwoWay}" x:Name="PriceData1h" Margin="17,114,132,101" RenderTransformOrigin="0.512,1.769" Text="{Binding Path=PCP1H, Mode=TwoWay}"/>
                 </Grid>
 
             </ScrollViewer>
 
+            
+            
+         
             <Border CornerRadius="15,15,0,0" BorderThickness="20" BorderBrush="#111111" Margin="-20,-20,-20,240">
 
             </Border>
@@ -231,6 +237,15 @@
                     </Style>
                 </Button.Resources>
             </Button>
+
+            
+
         </Grid>
     </Border>
 </Window>
+    
+    
+
+    
+    
+

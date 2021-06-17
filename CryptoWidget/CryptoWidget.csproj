@@ -110,5 +110,11 @@
       <Name>APILibary</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\bitcoin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ethereum.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

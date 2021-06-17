@@ -88,15 +88,23 @@ namespace CryptoWidget
         public void Button_Click(object sender, RoutedEventArgs e)
         {
 
- 
-
-            SubWindow btcwindow = new SubWindow();
+            SubWindow btcwindow = new SubWindow("bitcoin");
             
             btcwindow.ShowDialog();
-            
+
+        }
+        public void Button_Click2(object sender, RoutedEventArgs e)
+        {
+
+
+
+            SubWindow ethwindow = new SubWindow("ethereum");
+
+            ethwindow.ShowDialog();
+
 
 
         }
-    
+
     }
 }

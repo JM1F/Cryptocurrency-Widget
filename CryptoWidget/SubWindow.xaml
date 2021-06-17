@@ -9,12 +9,102 @@
         WindowStyle="None"
         AllowsTransparency="True"
         Background="Transparent"
-        ResizeMode="NoResize">
-    <Border CornerRadius="5" BorderThickness="20" BorderBrush="#161616">
-        <Grid Background="#161616 ">
-            <Border  CornerRadius="15,15,0,0" BorderThickness="20"  Margin="-20,-20,-20,125" RenderTransformOrigin="0.5,1.467">
-                <Rectangle x:Name="invisibleGrabBar"  HorizontalAlignment="Left" Height="30"  VerticalAlignment="Top" Width="150" MouseDown="titleBar_MouseDown" Fill="Black" Opacity="0.001" Margin="-20,-20,-20,-10"/>
-            </Border>
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterOwner"
+        
+        Loaded="Window_Loaded">
+
+    <Window.Resources>
+        <Button x:Key="exitButton_hover" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="13" Margin="237,0,0,287"  Height="13" BorderThickness="0" Background="red" Foreground="white"  />
+
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" SnapsToDevicePixels="true" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
+        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+        <Style x:Key="exitButton" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="3,-1,1,0" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Height="14" Width="9"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="#cc1a2c"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#cc1a2c"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="#931320"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="maroon"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </Window.Resources>
+    <Border CornerRadius="5" BorderThickness="20" BorderBrush="#282828 ">
+        <Grid Background="#282828">
+
+
+
+
+            <Image Margin="-20,-19,70,84" Name="CoinImage" Width="60" Height="70" MaxHeight="70" MaxWidth="60" Stretch="None"/>
+            <TextBlock Name="Cointitle" Text="{Binding CoinName}" Foreground="White" Margin="40,-3,-1,113" TextAlignment="Center" FontSize="14" FontFamily="./resources/#Montserrat Medium" TextDecorations="Underline"/>
+            <TextBlock Text="Price" Foreground="White" Margin="62,20,22,100" TextAlignment="Center" FontSize="10" FontFamily="./resources/#Montserrat Medium"/>
+
+
+            <Rectangle Margin="-15,57,-15,77" Fill="#545454"/>
+
+
+
+
+
+
+            <Rectangle x:Name="invisibleGrabBar"  HorizontalAlignment="Left" Height="30"  VerticalAlignment="Top" Width="150" MouseDown="titleBar_MouseDown" Fill="Black" Opacity="0.001" Margin="-20,-20,-20,-10"/>
+            <Button x:Name="exitButton"  Click="exitButton_Click" BorderThickness="1" BorderBrush="#161616"  Background="#111111" Foreground="white"  Style="{DynamicResource exitButton}" Margin="110,-15,-15,135" >
+                <TextBlock Text="X" Margin="-4,0,-2,-1" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Width="15" Height="15" FontFamily="./resources/#Montserrat Medium"/>
+
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="30"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+
+
         </Grid>
     </Border>
 </Window>

@@ -196,9 +196,10 @@
                     <TextBlock Foreground="{Binding Path=PCP30DCOLOUR, Mode=TwoWay}" x:Name="PriceData30d" Margin="108,42,-3,175" Text="{Binding Path=PCP30D, Mode=TwoWay}"/>
                     <TextBlock  Foreground="White" x:Name="PriceData24h" Margin="120,120,0,110" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" Width="110" Text="{Binding Path=PCP24H, Mode=TwoWay}"/>
                     <TextBlock Foreground="white" x:Name="PriceData7d" Margin="120,97,-15,120" Text="{Binding Path=PCP7D, Mode=TwoWay}"/>
-                    <Button Margin="84,177,37,206" Click="Button_Click"/>
+                    <Button Margin="84,177,91,206" Click="Button_Click"/>
                     
                     <TextBlock Foreground="{Binding Path=PCP1HCOLOUR, Mode=TwoWay}" x:Name="PriceData1h" Margin="17,114,132,101" RenderTransformOrigin="0.512,1.769" Text="{Binding Path=PCP1H, Mode=TwoWay}"/>
+                    <Button Margin="15,177,154,206" Click="Button_Click2"/>
                 </Grid>
 
             </ScrollViewer>

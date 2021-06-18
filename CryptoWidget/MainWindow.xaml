@@ -79,6 +79,7 @@
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
             <Setter Property="Padding" Value="1"/>
+
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
@@ -115,23 +116,28 @@
             <Setter Property="IsTabStop" Value="false"/>
             <Setter Property="Focusable" Value="false"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Background" Value="Transparent"/>
+
+
             <Setter Property="Template">
+
                 <Setter.Value>
                     <ControlTemplate TargetType="Thumb">
-                        <Rectangle x:Name="thumbSlider"  Width="7"  Fill="#282828 " RadiusX="5" RadiusY="5" Opacity="0.4">
+                        <Rectangle x:Name="thumbSlider"  Width="8"  Fill="#282828 " RadiusX="5" RadiusY="5" Opacity="0.4">
                         </Rectangle>
                         <ControlTemplate.Triggers>
                             <EventTrigger RoutedEvent="MouseEnter">
                                 <BeginStoryboard>
                                     <Storyboard>
-                                        <DoubleAnimation To="1" Duration="0:0:0.3" Storyboard.TargetName="thumbSlider" Storyboard.TargetProperty="Opacity"/>
+                                       
+                                        <DoubleAnimation To="0.4" Duration="0:0:0.3" Storyboard.TargetName="thumbSlider" Storyboard.TargetProperty="Opacity"/>
                                     </Storyboard>
                                 </BeginStoryboard>
                             </EventTrigger>
                             <EventTrigger RoutedEvent="MouseLeave">
                                 <BeginStoryboard>
                                     <Storyboard>
-                                        <DoubleAnimation To="0.4" Duration="0:0:0.3" Storyboard.TargetName="thumbSlider" Storyboard.TargetProperty="Opacity"/>
+                                        <DoubleAnimation To="1" Duration="0:0:0.3" Storyboard.TargetName="thumbSlider" Storyboard.TargetProperty="Opacity"/>
                                     </Storyboard>
                                 </BeginStoryboard>
                             </EventTrigger>
@@ -148,18 +154,21 @@
             <Setter Property="OverridesDefaultStyle" Value="True"/>
             <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="BorderBrush" Value="Black"/>
-            <Setter Property="Width" Value="20"/>
+            <Setter Property="Width" Value="18"/>
+            <Setter Property="Background" Value="red"/>
+            <Setter Property="Foreground" Value="red"/>
+
 
             <Setter Property="MinHeight" Value="{Binding Height, RelativeSource={RelativeSource Self}}"/>
             <Setter Property="MinWidth" Value="{Binding Width, RelativeSource={RelativeSource Self}}"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type ScrollBar}">
-                        <Grid x:Name="Bg" >
-                            <Track x:Name="PART_Track"
-                            IsDirectionReversed="true"
+                        <Grid x:Name="Bg" Background="Transparent" Margin="1,0,0,0">
+                            <Track x:Name="PART_Track" 
+                            IsDirectionReversed="true"  
                             IsEnabled="{TemplateBinding IsMouseOver}"
-                            Grid.Row="1" >
+                            Grid.Row="1">
                                 <Track.Thumb >
                                     <Thumb Style="{DynamicResource scroll_thumb_style}"/>
 
@@ -174,6 +183,112 @@
 
         </Style>
 
+        <Style x:Key="BTCButton" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="#545454"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#545454"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="#313131"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#313131"/>
+                            </Trigger>
+
+                            <EventTrigger RoutedEvent="MouseEnter">
+                                <BeginStoryboard>
+
+                                    <Storyboard>
+                                        
+                                        <DoubleAnimation To="0.7" Duration="0:0:0.3"  Storyboard.TargetProperty="Opacity"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="MouseLeave">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation To="1" Duration="0:0:0.3"  Storyboard.TargetProperty="Opacity"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="ETHButton" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="#545454"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#545454"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="#313131"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#313131"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                            <EventTrigger RoutedEvent="MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation To="0.7" Duration="0:0:0.3"  Storyboard.TargetProperty="Opacity"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="MouseLeave">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation To="1" Duration="0:0:0.3"  Storyboard.TargetProperty="Opacity"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
 
     </Window.Resources>
 
@@ -181,46 +296,85 @@
 
 
     <Border CornerRadius="15" BorderThickness="20" BorderBrush="#161616">
-        
+
         <Grid Name="HomeView" Background="#161616 ">
-           
-            <Rectangle Fill="#282828 " Margin="-20,20,-20,239">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="31*"/>
+                <RowDefinition Height="99*"/>
+            </Grid.RowDefinitions>
+
+            <Rectangle Fill="#282828 " Margin="-20,20,-20,40.667">
             </Rectangle>
 
-            
-            <ScrollViewer  VerticalScrollBarVisibility="Auto" Margin="-20,27,-20,-1" BorderThickness="0" Background="Transparent" >
 
-                <Grid Height="420" >
-                    <TextBlock Foreground="White" x:Name="NameData" Margin="7,13,98,204"/>
-                    <TextBlock Foreground="{Binding Path=PCP1YCOLOUR, Mode=TwoWay}" x:Name="PriceData1y" Margin="111,20,-6,197" Text="{Binding Path=PCP1Y, Mode=TwoWay}"/>
-                    <TextBlock Foreground="{Binding Path=PCP30DCOLOUR, Mode=TwoWay}" x:Name="PriceData30d" Margin="108,42,-3,175" Text="{Binding Path=PCP30D, Mode=TwoWay}"/>
-                    <TextBlock  Foreground="White" x:Name="PriceData24h" Margin="120,120,0,110" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" Width="110" Text="{Binding Path=PCP24H, Mode=TwoWay}"/>
-                    <TextBlock Foreground="white" x:Name="PriceData7d" Margin="120,97,-15,120" Text="{Binding Path=PCP7D, Mode=TwoWay}"/>
-                    <Button Margin="84,177,91,206" Click="Button_Click"/>
-                    
-                    <TextBlock Foreground="{Binding Path=PCP1HCOLOUR, Mode=TwoWay}" x:Name="PriceData1h" Margin="17,114,132,101" RenderTransformOrigin="0.512,1.769" Text="{Binding Path=PCP1H, Mode=TwoWay}"/>
-                    <Button Margin="15,177,154,206" Click="Button_Click2"/>
+            <ScrollViewer  VerticalScrollBarVisibility="Auto" BorderThickness="0" Background="Transparent" Grid.RowSpan="2" Foreground="Transparent" Margin="-20,26,-20,10" >
+
+                <Grid Height="420" Width="250" >
+
+
+
+
+
+
+
+                    <Button x:Name="BTCBUTTON" Click="Button_ClickBTC" Margin="18,2,18,357" BorderThickness="0" Background="Transparent" Style="{DynamicResource BTCButton}">
+                        <Grid Width="223" Height="60">
+                            <TextBlock Text="Bitcoin" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameData" Margin="65,7,49,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
+
+                            <TextBlock TextAlignment="Center" Foreground="{Binding Path=PCP24HCOLOUR, Mode=TwoWay}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24h" Margin="61,44,108,0" Text="{Binding Path=PCP24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="BTCPriceName" Margin="142,44,27,0" Text="{Binding Path=BTCPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+
+
+                            <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
+                            <TextBlock Foreground="White" Margin="158,32,41,17" Text="Price" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
+
+                            <Image Source="/Images/bitcoin.png" Margin="0,0,163,0">
+
+                            </Image>
+                        </Grid>
+                    </Button>
+                    <Rectangle  Fill="#545454" Margin="25,68,25,351" RenderTransformOrigin="0.5,0.5"/>
+
+                    <Button Click="Button_ClickETH" Margin="18,75,18,284" BorderThickness="0" Background="Transparent" Style="{DynamicResource ETHButton}">
+                        <Grid Width="223" Height="60">
+                            <TextBlock Text="Ethereum" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameDataETH" Margin="65,7,49,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
+
+                            <TextBlock TextAlignment="Center" Foreground="{Binding Path=ETH24HCOLOUR, Mode=TwoWay}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hETH" Margin="61,44,108,0" Text="{Binding Path=ETH24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="ETHPriceName" Margin="142,44,27,0" Text="{Binding Path=ETHPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+
+
+                            <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
+                            <TextBlock Foreground="White" Margin="158,32,41,17" Text="Price" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
+
+                            <Image Source="/Images/ethereum.png" Margin="0,0,163,0" Stretch="None">
+
+                            </Image>
+                        </Grid>
+                    </Button>
+                    <Rectangle  Fill="#545454" Margin="25,142,25,277" RenderTransformOrigin="0.5,0.5"/>
+
                 </Grid>
-
             </ScrollViewer>
 
-            
-            
-         
-            <Border CornerRadius="15,15,0,0" BorderThickness="20" BorderBrush="#111111" Margin="-20,-20,-20,240">
+
+
+
+            <Border CornerRadius="15,15,0,0" BorderThickness="20" BorderBrush="#111111" Margin="-20,-20,-20,41.667">
 
             </Border>
 
-            <TextBlock x:Name="title" HorizontalAlignment="Left" TextWrapping="Wrap" Text="CRYPTOCURRENCY WIDGET" VerticalAlignment="Top" Width="204" TextAlignment="Center" Foreground="white" FontSize="13"  FontFamily="./resources/#Montserrat Medium" Margin="-19,-8,0,0" Focusable="False" FontStyle="Normal" Height="14"/>
+            <TextBlock x:Name="title" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Cryptocurrency Widget" VerticalAlignment="Top" Width="234" TextAlignment="Left" Foreground="white" FontSize="14"  FontFamily="./resources/#Montserrat Medium" Margin="-4,-8,-20,0" Focusable="False" FontStyle="Normal" Height="20"/>
 
 
 
-            <Border  CornerRadius="15,15,0,0" BorderThickness="20"  Margin="-20,-20,-20,240">
+            <Border  CornerRadius="15,15,0,0" BorderThickness="20"  Margin="-20,-20,-20,41.667">
                 <Rectangle x:Name="invisibleGrabBar"  HorizontalAlignment="Left" Height="40"  VerticalAlignment="Top" Width="250" MouseDown="titleBar_MouseDown" Fill="Black" Opacity="0.001" Margin="-20,-20,-20,-19"/>
             </Border>
 
 
-            <Button x:Name="exitButton"  Margin="203,-17,-8,262" Click="exitButton_Click" BorderThickness="1" BorderBrush="#282828"  Background="#111111" Foreground="white"  Style="{DynamicResource exitButton}" >
+            <Button x:Name="exitButton"  Margin="203,-17,-8,63.667" Click="exitButton_Click" BorderThickness="1" BorderBrush="#282828"  Background="#111111" Foreground="white"  Style="{DynamicResource exitButton}" >
                 <TextBlock Text="X" Margin="-4,0,-2,-1" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Width="15" Height="15" FontFamily="./resources/#Montserrat Medium"/>
 
                 <Button.Resources>
@@ -230,7 +384,7 @@
                 </Button.Resources>
             </Button>
 
-            <Button x:Name="minimiseButton" Click="Minimisebutton_Click" Width="15" Height="15" Margin="185,-17,10,262" Foreground="White" BorderBrush="#282828" Background="#111111" Style="{DynamicResource minimiseButton}">
+            <Button x:Name="minimiseButton" Click="Minimisebutton_Click" Width="15" Height="15" Margin="185,-17,10,63.667" Foreground="White" BorderBrush="#282828" Background="#111111" Style="{DynamicResource minimiseButton}">
                 <TextBlock Text="_" Width="15" Height="43" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" FontSize="18"/>
                 <Button.Resources>
                     <Style TargetType="Border">
@@ -239,7 +393,7 @@
                 </Button.Resources>
             </Button>
 
-            
+
 
         </Grid>
     </Border>

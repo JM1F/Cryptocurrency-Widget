@@ -36,30 +36,19 @@ namespace CryptoWidget
         public async Task GetDataAsync()
         {
             ColorPriceCheck n = new ColorPriceCheck();
+            StringSolver stringSolver = new StringSolver();
 
             var data2 = await dataLoad.LoadData();
 
-            NameData.Text = data2[0].Name;
-
-
-            
-            PriceData1h.Text = Convert.ToString(data2[0].price_change_percentage_1h_in_currency);
-            string PriceData1hString = Convert.ToString(data2[0].price_change_percentage_1h_in_currency);
-            PriceData1h.Foreground = new BrushConverter().ConvertFromString(n.ColourCheck(PriceData1hString)) as SolidColorBrush;
-
-            
-            PriceData24h.Text = Convert.ToString(data2[0].price_change_percentage_24h_in_currency);
-
-            PriceData7d.Text = Convert.ToString(data2[0].price_change_percentage_7d_in_currency);
-
+            BTCPriceName.Text = ("£" + data2[0].current_price);
             
 
-            PriceData30d.Text = Convert.ToString(data2[0].price_change_percentage_30d_in_currency);
-            PriceData30d.Foreground = new BrushConverter().ConvertFromString(n.ColourCheck(data2[0].price_change_percentage_30d_in_currency)) as SolidColorBrush;
-            
+            PriceData24h.Text = stringSolver.ShortenStringData(data2[0].price_change_percentage_24h_in_currency);
+            PriceData24h.Foreground = new BrushConverter().ConvertFromString(n.ColourCheck(data2[0].price_change_percentage_24h_in_currency)) as SolidColorBrush;
 
-            PriceData1y.Text = Convert.ToString(data2[0].price_change_percentage_1y_in_currency);
-            PriceData1y.Foreground = new BrushConverter().ConvertFromString(n.ColourCheck(data2[0].price_change_percentage_1y_in_currency)) as SolidColorBrush;
+            ETHPriceName.Text = ("£" + data2[1].current_price);
+            PriceData24hETH.Text = stringSolver.ShortenStringData(data2[1].price_change_percentage_24h_in_currency);
+            PriceData24hETH.Foreground = new BrushConverter().ConvertFromString(n.ColourCheck(data2[1].price_change_percentage_24h_in_currency)) as SolidColorBrush;
 
         }
 
@@ -85,7 +74,7 @@ namespace CryptoWidget
             this.WindowState = WindowState.Minimized;
         }
 
-        public void Button_Click(object sender, RoutedEventArgs e)
+        public void Button_ClickBTC(object sender, RoutedEventArgs e)
         {
 
             SubWindow btcwindow = new SubWindow("bitcoin");
@@ -93,7 +82,7 @@ namespace CryptoWidget
             btcwindow.ShowDialog();
 
         }
-        public void Button_Click2(object sender, RoutedEventArgs e)
+        public void Button_ClickETH(object sender, RoutedEventArgs e)
         {
 
 

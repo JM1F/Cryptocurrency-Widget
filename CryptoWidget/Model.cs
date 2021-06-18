@@ -28,11 +28,20 @@ namespace CryptoWidget
             
             setTimer();
         }
+        public string BTCPRICE { get; set; }
+        public string ETH24H { get; set; }
+        public string ETH24HCOLOUR { get; set; }
+
+        public string ETHPRICE { get; set; }
         public string PCP1H { get; set; }
         public string PCP1HCOLOUR { get; set; }
+
         public string PCP24H { get; set; }
+        public string PCP24HCOLOUR { get; set; }
         public string PCP7D { get; set; }
+
         public string PCP30D { get; set; }
+
         public string PCP30DCOLOUR { get; set; }
         public string PCP1Y { get; set; }
         public string PCP1YCOLOUR { get; set; }
@@ -43,6 +52,7 @@ namespace CryptoWidget
         private static System.Timers.Timer atimer;
 
         ColorPriceCheck n = new ColorPriceCheck();
+        StringSolver stringSolver = new StringSolver();
 
         public void setTimer()
         {
@@ -58,36 +68,24 @@ namespace CryptoWidget
 
             var data2 = await dataLoad.LoadData();
 
+            BTCPRICE = ("£" + data2[0].current_price);
             
-            PCP1H = data2[0].price_change_percentage_1h_in_currency;
-            PCP1HCOLOUR = n.ColourCheck(PCP1H);
 
-            Console.WriteLine(data2[0].price_change_percentage_30d_in_currency);
+            PCP24H = stringSolver.ShortenStringData(data2[0].price_change_percentage_24h_in_currency);
+            PCP24HCOLOUR = n.ColourCheck(PCP24H);
 
-            PCP24H = data2[0].price_change_percentage_24h_in_currency;
-            PCP7D = data2[0].price_change_percentage_7d_in_currency;
-
-
-            PCP30D = data2[0].price_change_percentage_30d_in_currency;
-            PCP30DCOLOUR = n.ColourCheck(PCP30D);
-
-            PCP1Y = data2[0].price_change_percentage_1y_in_currency;
-            PCP1YCOLOUR = n.ColourCheck(PCP1Y);
-
-
-
-            OnPropertyChanged("PCP1H");
-            OnPropertyChanged("PCP1HCOLOUR");
-
+            OnPropertyChanged("BTCPRICE");
             OnPropertyChanged("PCP24H");
+            OnPropertyChanged("PCP24HCOLOUR");
 
-            OnPropertyChanged("PCP7D");
+            ETHPRICE = ("£" + data2[1].current_price);
+            ETH24H = stringSolver.ShortenStringData(data2[1].price_change_percentage_24h_in_currency);
+            ETH24HCOLOUR = n.ColourCheck(ETH24H);
 
-            OnPropertyChanged("PCP30D");
-            OnPropertyChanged("PCP30DCOLOUR");
+            OnPropertyChanged("ETHPRICE");
+            OnPropertyChanged("ETH24H");
+            OnPropertyChanged("ETH24HCOLOUR");
 
-            OnPropertyChanged("PCP1Y");
-            OnPropertyChanged("PCP1YCOLOUR");
         }
         
     }

@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:CryptoWidget"
+        xmlns:local="clr-namespace:CryptoWidget" d:DataContext="{d:DesignInstance Type=local:ModelSubWindow}"
         mc:Ignorable="d"
         Title="SubWindow" Height="175" Width="150"
         WindowStyle="None"
@@ -12,7 +12,8 @@
         ResizeMode="NoResize"
         WindowStartupLocation="CenterOwner"
         
-        Loaded="Window_Loaded">
+        Loaded="Window_Loaded"
+        >
 
     <Window.Resources>
         <Button x:Key="exitButton_hover" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="13" Margin="237,0,0,287"  Height="13" BorderThickness="0" Background="red" Foreground="white"  />
@@ -81,9 +82,9 @@
 
 
             <Image Margin="-20,-19,70,84" Name="CoinImage" Width="60" Height="70" MaxHeight="70" MaxWidth="60" Stretch="None"/>
-            <TextBlock Name="Cointitle" Text="{Binding CoinName}" Foreground="White" Margin="40,-3,-1,113" TextAlignment="Center" FontSize="14" FontFamily="./resources/#Montserrat Medium" TextDecorations="Underline"/>
+            <TextBlock Name="Cointitle"  Foreground="White" Margin="40,-3,-1,113" TextAlignment="Center" FontSize="14" FontFamily="./resources/#Montserrat Medium" TextDecorations="Underline"/>
             <TextBlock Text="Price" Foreground="White" Margin="62,20,22,100" TextAlignment="Center" FontSize="10" FontFamily="./resources/#Montserrat Medium"/>
-
+            <TextBlock  Name="CoinPriceID" Margin="41,36,0,83" FontFamily="./resources/#Montserrat Medium" TextAlignment="Center" Text="{Binding CoinPrice, Mode=TwoWay}" Foreground="White"/>
 
             <Rectangle Margin="-15,57,-15,77" Fill="#545454"/>
 
@@ -93,7 +94,7 @@
 
 
             <Rectangle x:Name="invisibleGrabBar"  HorizontalAlignment="Left" Height="30"  VerticalAlignment="Top" Width="150" MouseDown="titleBar_MouseDown" Fill="Black" Opacity="0.001" Margin="-20,-20,-20,-10"/>
-            <Button x:Name="exitButton"  Click="exitButton_Click" BorderThickness="1" BorderBrush="#161616"  Background="#111111" Foreground="white"  Style="{DynamicResource exitButton}" Margin="110,-15,-15,135" >
+            <Button x:Name="exitButton" Click="exitButton_Click" BorderThickness="1" BorderBrush="#161616"  Background="#111111" Foreground="white"  Style="{DynamicResource exitButton}" Margin="110,-15,-15,135" >
                 <TextBlock Text="X" Margin="-4,0,-2,-1" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Width="15" Height="15" FontFamily="./resources/#Montserrat Medium"/>
 
                 <Button.Resources>

@@ -38,8 +38,12 @@ namespace CryptoWidget
         public string PCP1YCOLOUR { get; set; }
 
 
+
+
         private static System.Timers.Timer atimer;
+
         ColorPriceCheck n = new ColorPriceCheck();
+
         public void setTimer()
         {
             atimer = new System.Timers.Timer(10000);

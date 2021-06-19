@@ -118,5 +118,8 @@
   <ItemGroup>
     <Resource Include="Images\ethereum.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\cardano.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

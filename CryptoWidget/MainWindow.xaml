@@ -353,7 +353,28 @@
                             </Image>
                         </Grid>
                     </Button>
+                    
+                    
                     <Rectangle  Fill="#545454" Margin="25,142,25,277" RenderTransformOrigin="0.5,0.5"/>
+
+                    <Button Click="Button_ClickADA" Margin="18,149,18,210" BorderThickness="0" Background="Transparent" Style="{DynamicResource ETHButton}">
+                        <Grid Width="223" Height="60">
+                            <TextBlock Text="Cardano" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameDataADA" Margin="65,7,49,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
+
+                            <TextBlock TextAlignment="Center" Foreground="{Binding Path=ADA24HCOLOUR, Mode=TwoWay}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hADA" Margin="61,44,108,0" Text="{Binding Path=ADA24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="ADAPriceName" Margin="142,44,27,0" Text="{Binding Path=ADAPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+
+
+                            <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
+                            <TextBlock Foreground="White" Margin="158,32,41,17" Text="Price" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
+
+                            <Image Source="/Images/cardano.png" Margin="0,0,163,0" Stretch="None">
+
+                            </Image>
+                        </Grid>
+                    </Button>
+
 
                 </Grid>
             </ScrollViewer>

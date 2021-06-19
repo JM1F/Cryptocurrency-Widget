@@ -41,14 +41,16 @@ namespace CryptoWidget
             var data2 = await dataLoad.LoadData();
 
             BTCPriceName.Text = ("£" + data2[0].current_price);
-            
-
             PriceData24h.Text = stringSolver.ShortenStringData(data2[0].price_change_percentage_24h_in_currency);
             PriceData24h.Foreground = new BrushConverter().ConvertFromString(n.ColourCheck(data2[0].price_change_percentage_24h_in_currency)) as SolidColorBrush;
 
             ETHPriceName.Text = ("£" + data2[1].current_price);
             PriceData24hETH.Text = stringSolver.ShortenStringData(data2[1].price_change_percentage_24h_in_currency);
             PriceData24hETH.Foreground = new BrushConverter().ConvertFromString(n.ColourCheck(data2[1].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+
+            ADAPriceName.Text = ("£" + data2[4].current_price);
+            PriceData24hADA.Text = stringSolver.ShortenStringData(data2[4].price_change_percentage_24h_in_currency);
+            PriceData24hADA.Foreground = new BrushConverter().ConvertFromString(n.ColourCheck(data2[4].price_change_percentage_24h_in_currency)) as SolidColorBrush;
 
         }
 
@@ -90,6 +92,18 @@ namespace CryptoWidget
             SubWindow ethwindow = new SubWindow("ethereum");
 
             ethwindow.ShowDialog();
+
+
+
+        }
+        public void Button_ClickADA(object sender, RoutedEventArgs e)
+        {
+
+
+
+            SubWindow adawindow = new SubWindow("cardano");
+
+            adawindow.ShowDialog();
 
 
 

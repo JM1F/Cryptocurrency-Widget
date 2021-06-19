@@ -59,6 +59,12 @@ namespace CryptoWidget
 
                 Console.WriteLine(CoinPrice);
             }
+            else if (CoinCodeName == "cardano")
+            {
+                CoinPrice = Convert.ToString("£" + data2[4].current_price);
+                OnPropertyChanged("CoinPrice");
+                Console.WriteLine(CoinPrice);
+            }
 
         }
         

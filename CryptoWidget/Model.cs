@@ -29,10 +29,16 @@ namespace CryptoWidget
             setTimer();
         }
         public string BTCPRICE { get; set; }
+
+
         public string ETH24H { get; set; }
         public string ETH24HCOLOUR { get; set; }
-
         public string ETHPRICE { get; set; }
+
+        public string ADA24H { get; set; }
+        public string ADA24HCOLOUR { get; set; }
+        public string ADAPRICE { get; set; }
+
         public string PCP1H { get; set; }
         public string PCP1HCOLOUR { get; set; }
 
@@ -69,22 +75,26 @@ namespace CryptoWidget
             var data2 = await dataLoad.LoadData();
 
             BTCPRICE = ("£" + data2[0].current_price);
-            
-
             PCP24H = stringSolver.ShortenStringData(data2[0].price_change_percentage_24h_in_currency);
             PCP24HCOLOUR = n.ColourCheck(PCP24H);
-
             OnPropertyChanged("BTCPRICE");
             OnPropertyChanged("PCP24H");
             OnPropertyChanged("PCP24HCOLOUR");
 
+
             ETHPRICE = ("£" + data2[1].current_price);
             ETH24H = stringSolver.ShortenStringData(data2[1].price_change_percentage_24h_in_currency);
             ETH24HCOLOUR = n.ColourCheck(ETH24H);
-
             OnPropertyChanged("ETHPRICE");
             OnPropertyChanged("ETH24H");
             OnPropertyChanged("ETH24HCOLOUR");
+
+            ADAPRICE = ("£" + data2[4].current_price);
+            ADA24H = stringSolver.ShortenStringData(data2[4].price_change_percentage_24h_in_currency);
+            ADA24HCOLOUR = n.ColourCheck(ADA24H);
+            OnPropertyChanged("ADAPRICE");
+            OnPropertyChanged("ADA24H");
+            OnPropertyChanged("ADA24HCOLOUR");
 
         }
         

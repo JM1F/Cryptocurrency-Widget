@@ -60,6 +60,12 @@ namespace CryptoWidget
                 Cointitle.Text = "Cardano";
                 CoinPriceID.Text = Convert.ToString("£" + data2[4].current_price);
             }
+            else if (CoinCodeName == "binancecoin")
+            {
+                CoinImage.Source = new BitmapImage(new Uri("Images/binancecoin.png", UriKind.Relative));
+                Cointitle.Text = "Binance";
+                CoinPriceID.Text = Convert.ToString("£" + data2[3].current_price);
+            }
         }
 
 

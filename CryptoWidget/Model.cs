@@ -39,6 +39,10 @@ namespace CryptoWidget
         public string ADA24HCOLOUR { get; set; }
         public string ADAPRICE { get; set; }
 
+        public string BNB24H { get; set; }
+        public string BNB24HCOLOUR { get; set; }
+        public string BNBPRICE { get; set; }
+
         public string PCP1H { get; set; }
         public string PCP1HCOLOUR { get; set; }
 
@@ -95,6 +99,13 @@ namespace CryptoWidget
             OnPropertyChanged("ADAPRICE");
             OnPropertyChanged("ADA24H");
             OnPropertyChanged("ADA24HCOLOUR");
+
+            BNBPRICE = ("£" + data2[3].current_price);
+            BNB24H = stringSolver.ShortenStringData(data2[3].price_change_percentage_24h_in_currency);
+            BNB24HCOLOUR = n.ColourCheck(BNB24H);
+            OnPropertyChanged("BNBPRICE");
+            OnPropertyChanged("BNB24H");
+            OnPropertyChanged("BNB24HCOLOUR");
 
         }
         

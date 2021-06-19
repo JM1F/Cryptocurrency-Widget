@@ -121,5 +121,8 @@
   <ItemGroup>
     <Resource Include="Images\cardano.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\binancecoin.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

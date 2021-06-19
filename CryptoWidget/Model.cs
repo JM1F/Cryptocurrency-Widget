@@ -29,7 +29,8 @@ namespace CryptoWidget
             setTimer();
         }
         public string BTCPRICE { get; set; }
-
+        public string PCP24H { get; set; }
+        public string PCP24HCOLOUR { get; set; }
 
         public string ETH24H { get; set; }
         public string ETH24HCOLOUR { get; set; }
@@ -43,18 +44,12 @@ namespace CryptoWidget
         public string BNB24HCOLOUR { get; set; }
         public string BNBPRICE { get; set; }
 
-        public string PCP1H { get; set; }
-        public string PCP1HCOLOUR { get; set; }
+       
 
-        public string PCP24H { get; set; }
-        public string PCP24HCOLOUR { get; set; }
-        public string PCP7D { get; set; }
+        
+      
 
-        public string PCP30D { get; set; }
-
-        public string PCP30DCOLOUR { get; set; }
-        public string PCP1Y { get; set; }
-        public string PCP1YCOLOUR { get; set; }
+        
 
 
 

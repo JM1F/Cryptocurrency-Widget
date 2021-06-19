@@ -44,12 +44,15 @@ namespace CryptoWidget
         public string BNB24HCOLOUR { get; set; }
         public string BNBPRICE { get; set; }
 
-       
+        public string DOGE24H { get; set; }
+        public string DOGE24HCOLOUR { get; set; }
+        public string DOGEPRICE { get; set; }
 
-        
-      
 
-        
+
+
+
+
 
 
 
@@ -98,6 +101,13 @@ namespace CryptoWidget
             BNBPRICE = ("£" + data2[3].current_price);
             BNB24H = stringSolver.ShortenStringData(data2[3].price_change_percentage_24h_in_currency);
             BNB24HCOLOUR = n.ColourCheck(BNB24H);
+            OnPropertyChanged("BNBPRICE");
+            OnPropertyChanged("BNB24H");
+            OnPropertyChanged("BNB24HCOLOUR");
+
+            DOGEPRICE = ("£" + data2[5].current_price);
+            DOGE24H = stringSolver.ShortenStringData(data2[5].price_change_percentage_24h_in_currency);
+            DOGE24HCOLOUR = n.ColourCheck(DOGE24H);
             OnPropertyChanged("BNBPRICE");
             OnPropertyChanged("BNB24H");
             OnPropertyChanged("BNB24HCOLOUR");

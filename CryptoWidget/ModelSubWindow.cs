@@ -157,6 +157,27 @@ namespace CryptoWidget
                 CoinPrice1YColour = n.ColourCheck(CoinPrice1Y);
 
             }
+            else if (CoinCodeName == "dogecoin")
+            {
+                CoinPrice = Convert.ToString("£" + data2[5].current_price);
+
+                CoinPriceATH = ("£" + data2[5].ath);
+
+                CoinPrice1H = stringSolver.ShortenStringData(data2[5].price_change_percentage_1h_in_currency);
+                CoinPrice1HColour = n.ColourCheck(CoinPrice1H);
+
+                CoinPrice24H = stringSolver.ShortenStringData(data2[5].price_change_percentage_24h_in_currency);
+                CoinPrice24HColour = n.ColourCheck(CoinPrice24H);
+
+                CoinPrice7D = stringSolver.ShortenStringData(data2[5].price_change_percentage_7d_in_currency);
+                CoinPrice7DColour = n.ColourCheck(CoinPrice7D);
+
+                CoinPrice30D = stringSolver.ShortenStringData(data2[5].price_change_percentage_30d_in_currency);
+                CoinPrice30DColour = n.ColourCheck(CoinPrice30D);
+
+                CoinPrice1Y = stringSolver.ShortenStringData(data2[5].price_change_percentage_1y_in_currency);
+                CoinPrice1YColour = n.ColourCheck(CoinPrice1Y);
+            }
 
             OnPropertyChanged("CoinPrice");
 

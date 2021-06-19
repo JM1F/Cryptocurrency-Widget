@@ -56,6 +56,10 @@ namespace CryptoWidget
             PriceData24hBNB.Text = stringSolver.ShortenStringData(data2[3].price_change_percentage_24h_in_currency);
             PriceData24hBNB.Foreground = new BrushConverter().ConvertFromString(n.ColourCheck(data2[3].price_change_percentage_24h_in_currency)) as SolidColorBrush;
 
+            DOGEPriceName.Text = ("£" + data2[5].current_price);
+            PriceData24hDOGE.Text = stringSolver.ShortenStringData(data2[5].price_change_percentage_24h_in_currency);
+            PriceData24hDOGE.Foreground = new BrushConverter().ConvertFromString(n.ColourCheck(data2[5].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+
         }
 
         private async void Window_Loaded(object sender, RoutedEventArgs e)
@@ -105,6 +109,12 @@ namespace CryptoWidget
             SubWindow bnbwindow = new SubWindow("binancecoin");
 
             bnbwindow.ShowDialog();
+        }
+        public void Button_ClickDOGE(object sender, RoutedEventArgs e)
+        {
+            SubWindow dogewindow = new SubWindow("dogecoin");
+
+            dogewindow.ShowDialog();
         }
 
     }

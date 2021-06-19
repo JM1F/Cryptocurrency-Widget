@@ -307,17 +307,17 @@
             </Rectangle>
 
 
-            <ScrollViewer  VerticalScrollBarVisibility="Auto" BorderThickness="0" Background="Transparent" Grid.RowSpan="2" Foreground="Transparent" Margin="-20,26,-20,10" >
+            <ScrollViewer  VerticalScrollBarVisibility="Auto" BorderThickness="0" Background="Transparent" Grid.RowSpan="2" Foreground="Transparent" Margin="-20,26,-20,7">
 
-                <Grid Height="420" Width="250" >
-
-
+                <Grid Height="674" Width="250" >
 
 
 
 
 
-                    <Button x:Name="BTCBUTTON" Click="Button_ClickBTC" Margin="18,2,18,357" BorderThickness="0" Background="Transparent" Style="{DynamicResource BTCButton}">
+
+
+                    <Button x:Name="BTCBUTTON" Click="Button_ClickBTC" Margin="18,2,18,611" BorderThickness="0" Background="Transparent" Style="{DynamicResource BTCButton}">
                         <Grid Width="223" Height="60">
                             <TextBlock Text="Bitcoin" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameData" Margin="65,7,49,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
 
@@ -334,9 +334,9 @@
                             </Image>
                         </Grid>
                     </Button>
-                    <Rectangle  Fill="#545454" Margin="25,68,25,351" RenderTransformOrigin="0.5,0.5"/>
+                    <Rectangle  Fill="#545454" Margin="25,68,25,605" />
 
-                    <Button Click="Button_ClickETH" Margin="18,75,18,284" BorderThickness="0" Background="Transparent" Style="{DynamicResource ETHButton}">
+                    <Button Click="Button_ClickETH" Margin="18,75,18,538" BorderThickness="0" Background="Transparent" Style="{DynamicResource ETHButton}">
                         <Grid Width="223" Height="60">
                             <TextBlock Text="Ethereum" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameDataETH" Margin="65,7,49,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
 
@@ -355,9 +355,9 @@
                     </Button>
                     
                     
-                    <Rectangle  Fill="#545454" Margin="25,142,25,277" RenderTransformOrigin="0.5,0.5"/>
+                    <Rectangle  Fill="#545454" Margin="25,142,25,531" RenderTransformOrigin="0.5,0.5"/>
 
-                    <Button Click="Button_ClickADA" Margin="18,149,18,210" BorderThickness="0" Background="Transparent" Style="{DynamicResource ETHButton}">
+                    <Button Click="Button_ClickADA" Margin="18,149,18,464" BorderThickness="0" Background="Transparent" Style="{DynamicResource ETHButton}">
                         <Grid Width="223" Height="60">
                             <TextBlock Text="Cardano" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameDataADA" Margin="65,7,49,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
 
@@ -375,9 +375,9 @@
                         </Grid>
                     </Button>
 
-                    <Rectangle  Fill="#545454" Margin="25,216,25,203" RenderTransformOrigin="0.5,0.5"/>
+                    <Rectangle  Fill="#545454" Margin="25,216,25,457" RenderTransformOrigin="0.5,0.5"/>
 
-                    <Button Click="Button_ClickBNB" Margin="18,223,18,136" BorderThickness="0" Background="Transparent" Style="{DynamicResource ETHButton}">
+                    <Button Click="Button_ClickBNB" Margin="18,223,18,390" BorderThickness="0" Background="Transparent" Style="{DynamicResource ETHButton}">
                         <Grid Width="223" Height="60">
                             <TextBlock Text="Binance Coin" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameDataBNB" Margin="65,7,49,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
 
@@ -395,9 +395,9 @@
                         </Grid>
                     </Button>
 
-                    <Rectangle  Fill="#545454" Margin="25,290,25,129" RenderTransformOrigin="0.5,0.5"/>
+                    <Rectangle  Fill="#545454" Margin="25,290,25,383" RenderTransformOrigin="0.5,0.5"/>
 
-                    <Button Click="Button_ClickDOGE" Margin="18,297,18,62" BorderThickness="0" Background="Transparent" Style="{DynamicResource ETHButton}">
+                    <Button Click="Button_ClickDOGE" Margin="18,297,18,316" BorderThickness="0" Background="Transparent" Style="{DynamicResource ETHButton}">
                         <Grid Width="223" Height="60">
                             <TextBlock Text="Dogecoin" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameDataDOGE" Margin="65,7,49,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
 
@@ -414,9 +414,69 @@
                             </Image>
                         </Grid>
                     </Button>
+                    
+                    
+                    <Rectangle  Fill="#545454" Margin="25,364,25,309" RenderTransformOrigin="0.5,0.5"/>
 
-                    <Rectangle  Fill="#545454" Margin="25,364,25,55" RenderTransformOrigin="0.5,0.5"/>
+                    <Button Click="Button_ClickXRP" Margin="18,371,18,242" BorderThickness="0" Background="Transparent" Style="{DynamicResource ETHButton}">
+                        <Grid Width="223" Height="60">
+                            <TextBlock Text="XRP" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameDataXRP" Margin="65,7,49,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
 
+                            <TextBlock TextAlignment="Center" Foreground="{Binding Path=XRP24HCOLOUR, Mode=TwoWay}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hXRP" Margin="61,44,108,0" Text="{Binding Path=XRP24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="XRPPriceName" Margin="142,44,19,0" Text="{Binding Path=XRPPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+
+
+                            <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
+                            <TextBlock Foreground="White" Margin="158,32,41,17" Text="Price" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
+
+                            <Image Source="/Images/ripple.png" Margin="0,0,163,0" Stretch="None">
+
+                            </Image>
+                        </Grid>
+                    </Button>
+
+                    <Rectangle  Fill="#545454" Margin="25,438,25,235" RenderTransformOrigin="0.5,0.5"/>
+
+                    <Button Click="Button_ClickDOT" Margin="18,445,18,168" BorderThickness="0" Background="Transparent" Style="{DynamicResource ETHButton}">
+                        <Grid Width="223" Height="60">
+                            <TextBlock Text="Polkadot" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameDataDOT" Margin="65,7,49,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
+
+                            <TextBlock TextAlignment="Center" Foreground="{Binding Path=DOT24HCOLOUR, Mode=TwoWay}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hDOT" Margin="61,44,108,0" Text="{Binding Path=DOT24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="DOTPriceName" Margin="142,44,19,0" Text="{Binding Path=DOTPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+
+
+                            <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
+                            <TextBlock Foreground="White" Margin="158,32,41,17" Text="Price" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
+
+                            <Image Source="/Images/polkadot.png" Margin="0,0,163,0" Stretch="None">
+
+                            </Image>
+                        </Grid>
+                    </Button>
+
+                    <Rectangle  Fill="#545454" Margin="25,512,25,161" RenderTransformOrigin="0.5,0.5"/>
+
+                    <Button Click="Button_ClickBTCCASH" Margin="18,520,18,93" BorderThickness="0" Background="Transparent" Style="{DynamicResource ETHButton}">
+                        <Grid Width="223" Height="60">
+                            <TextBlock Text="Bitcoin Cash" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameDataBTCCASH" Margin="65,7,49,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
+
+                            <TextBlock TextAlignment="Center" Foreground="{Binding Path=BTCCASH24HCOLOUR, Mode=TwoWay}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hBTCCASH" Margin="61,44,108,0" Text="{Binding Path=BTCCASH24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="BTCCASHPriceName" Margin="142,44,19,0" Text="{Binding Path=BTCCASHPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+
+
+                            <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
+                            <TextBlock Foreground="White" Margin="158,32,41,17" Text="Price" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
+
+                            <Image Source="/Images/bitcoincash.png" Margin="0,0,163,0" Stretch="None">
+
+                            </Image>
+                        </Grid>
+                    </Button>
+
+                    <Rectangle  Fill="#545454" Margin="25,586,25,87" RenderTransformOrigin="0.5,0.5"/>
                 </Grid>
             </ScrollViewer>
 

@@ -116,7 +116,7 @@
             <TextBlock Name="CoinPriceID24H" Text="{Binding CoinPrice24H, Mode=TwoWay}" Margin="38,91,29,32" FontSize="10" Foreground="{Binding CoinPrice24HColour}" Background="Transparent" FontFamily="./resources/#Montserrat Medium" TextAlignment="Center"/>
             <TextBlock Name="CoinPriceID7D" Text="{Binding CoinPrice7D, Mode=TwoWay}" Margin="38,106,29,17" FontSize="10" Foreground="{Binding CoinPrice7DColour}" Background="Transparent" FontFamily="./resources/#Montserrat Medium" TextAlignment="Center"/>
             <TextBlock Name="CoinPriceID30D" Text="{Binding CoinPrice30D, Mode=TwoWay}" Margin="38,121,29,2" FontSize="10" Foreground="{Binding CoinPrice30DColour}" Background="Transparent" FontFamily="./resources/#Montserrat Medium" TextAlignment="Center"/>
-            <TextBlock Name="CoinPriceID1Y" Text="{Binding CoinPrice1Y, Mode=TwoWay}" Margin="38,136,29,-13" FontSize="10" Foreground="{Binding CoinPrice1YColour}" Background="Transparent" FontFamily="./resources/#Montserrat Medium" TextAlignment="Center"/>
+            <TextBlock Name="CoinPriceID1Y" Text="{Binding CoinPrice1Y, Mode=TwoWay}" Margin="38,136,17,-13" FontSize="10" Foreground="{Binding CoinPrice1YColour}" Background="Transparent" FontFamily="./resources/#Montserrat Medium" TextAlignment="Center"/>
 
             <TextBlock x:Name="CoinPriceIDATH" Text="{Binding CoinPriceATH, Mode=TwoWay}" Margin="81,76,-19,47" FontSize="10" Foreground="White" Background="Transparent" FontFamily="./resources/#Montserrat Medium" TextAlignment="Center"/>
 

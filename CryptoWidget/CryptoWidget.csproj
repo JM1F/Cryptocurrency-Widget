@@ -127,5 +127,14 @@
   <ItemGroup>
     <Resource Include="Images\dogecoin.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ripple.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\polkadot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\bitcoincash.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

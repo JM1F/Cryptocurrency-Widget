@@ -48,6 +48,17 @@ namespace CryptoWidget
         public string DOGE24HCOLOUR { get; set; }
         public string DOGEPRICE { get; set; }
 
+        public string XRP24H { get; set; }
+        public string XRP24HCOLOUR { get; set; }
+        public string XRPPRICE { get; set; }
+
+        public string DOT24H { get; set; }
+        public string DOT24HCOLOUR { get; set; }
+        public string DOTPRICE { get; set; }
+
+        public string BTCCASH24H { get; set; }
+        public string BTCCASH24HCOLOUR { get; set; }
+        public string BTCCASHPRICE { get; set; }
 
 
 
@@ -108,9 +119,30 @@ namespace CryptoWidget
             DOGEPRICE = ("£" + data2[5].current_price);
             DOGE24H = stringSolver.ShortenStringData(data2[5].price_change_percentage_24h_in_currency);
             DOGE24HCOLOUR = n.ColourCheck(DOGE24H);
-            OnPropertyChanged("BNBPRICE");
-            OnPropertyChanged("BNB24H");
-            OnPropertyChanged("BNB24HCOLOUR");
+            OnPropertyChanged("DOGEPRICE");
+            OnPropertyChanged("DOGE24H");
+            OnPropertyChanged("DOGE24HCOLOUR");
+
+            XRPPRICE = ("£" + data2[6].current_price);
+            XRP24H = stringSolver.ShortenStringData(data2[6].price_change_percentage_24h_in_currency);
+            XRP24HCOLOUR = n.ColourCheck(XRP24H);
+            OnPropertyChanged("XRPPRICE");
+            OnPropertyChanged("XRP24H");
+            OnPropertyChanged("XRP24HCOLOUR");
+
+            DOTPRICE = ("£" + data2[8].current_price);
+            DOT24H = stringSolver.ShortenStringData(data2[8].price_change_percentage_24h_in_currency);
+            DOT24HCOLOUR = n.ColourCheck(DOT24H);
+            OnPropertyChanged("DOTPRICE");
+            OnPropertyChanged("DOT24H");
+            OnPropertyChanged("DOT24HCOLOUR");
+
+            BTCCASHPRICE = ("£" + data2[9].current_price);
+            BTCCASH24H = stringSolver.ShortenStringData(data2[9].price_change_percentage_24h_in_currency);
+            BTCCASH24HCOLOUR = n.ColourCheck(BTCCASH24H);
+            OnPropertyChanged("BTCCASHPRICE");
+            OnPropertyChanged("BTCCASH24H");
+            OnPropertyChanged("BTCCASH24HCOLOUR");
 
         }
         

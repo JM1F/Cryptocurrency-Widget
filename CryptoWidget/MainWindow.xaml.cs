@@ -60,6 +60,20 @@ namespace CryptoWidget
             PriceData24hDOGE.Text = stringSolver.ShortenStringData(data2[5].price_change_percentage_24h_in_currency);
             PriceData24hDOGE.Foreground = new BrushConverter().ConvertFromString(n.ColourCheck(data2[5].price_change_percentage_24h_in_currency)) as SolidColorBrush;
 
+            XRPPriceName.Text = ("£" + data2[6].current_price);
+            PriceData24hXRP.Text = stringSolver.ShortenStringData(data2[6].price_change_percentage_24h_in_currency);
+            PriceData24hXRP.Foreground = new BrushConverter().ConvertFromString(n.ColourCheck(data2[6].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+
+            DOTPriceName.Text = ("£" + data2[8].current_price);
+            PriceData24hDOT.Text = stringSolver.ShortenStringData(data2[8].price_change_percentage_24h_in_currency);
+            PriceData24hDOT.Foreground = new BrushConverter().ConvertFromString(n.ColourCheck(data2[8].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+
+
+            BTCCASHPriceName.Text = ("£" + data2[9].current_price);
+            PriceData24hBTCCASH.Text = stringSolver.ShortenStringData(data2[9].price_change_percentage_24h_in_currency);
+            PriceData24hBTCCASH.Foreground = new BrushConverter().ConvertFromString(n.ColourCheck(data2[9].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+
+
         }
 
         private async void Window_Loaded(object sender, RoutedEventArgs e)
@@ -115,6 +129,24 @@ namespace CryptoWidget
             SubWindow dogewindow = new SubWindow("dogecoin");
 
             dogewindow.ShowDialog();
+        }
+        public void Button_ClickXRP(object sender, RoutedEventArgs e)
+        {
+            SubWindow xrpwindow = new SubWindow("xrp");
+
+            xrpwindow.ShowDialog();
+        }
+        public void Button_ClickDOT(object sender, RoutedEventArgs e)
+        {
+            SubWindow polkadotwindow = new SubWindow("polkadot");
+
+            polkadotwindow.ShowDialog();
+        }
+        public void Button_ClickBTCCASH(object sender, RoutedEventArgs e)
+        {
+            SubWindow bitcoincashwindow = new SubWindow("bitcoincash");
+
+            bitcoincashwindow.ShowDialog();
         }
 
     }

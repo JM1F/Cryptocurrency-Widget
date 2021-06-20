@@ -129,7 +129,7 @@
                             <EventTrigger RoutedEvent="MouseEnter">
                                 <BeginStoryboard>
                                     <Storyboard>
-                                       
+
                                         <DoubleAnimation To="0.4" Duration="0:0:0.3" Storyboard.TargetName="thumbSlider" Storyboard.TargetProperty="Opacity"/>
                                     </Storyboard>
                                 </BeginStoryboard>
@@ -183,61 +183,8 @@
 
         </Style>
 
-        <Style x:Key="BTCButton" TargetType="{x:Type Button}">
-            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
-            <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="BorderThickness" Value="1"/>
-            <Setter Property="HorizontalContentAlignment" Value="Center"/>
-            <Setter Property="VerticalContentAlignment" Value="Center"/>
-            <Setter Property="Padding" Value="1"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type Button}">
-                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
-                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
-                        </Border>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsDefaulted" Value="true">
-                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
-                            </Trigger>
-                            
-                            <Trigger Property="IsEnabled" Value="false">
-                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
-                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
-                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
-                            </Trigger>
-                            <Trigger Property="IsMouseOver" Value="true">
-                                <Setter Property="Background" TargetName="border" Value="#545454"/>
-                                <Setter Property="BorderBrush" TargetName="border" Value="#545454"/>
-                            </Trigger>
-                            <Trigger Property="IsPressed" Value="true">
-                                <Setter Property="Background" TargetName="border" Value="#313131"/>
-                                <Setter Property="BorderBrush" TargetName="border" Value="#313131"/>
-                            </Trigger>
-
-                            <EventTrigger RoutedEvent="MouseEnter">
-                                <BeginStoryboard>
-
-                                    <Storyboard>
-                                        
-                                        <DoubleAnimation To="0.7" Duration="0:0:0.3"  Storyboard.TargetProperty="Opacity"/>
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </EventTrigger>
-                            <EventTrigger RoutedEvent="MouseLeave">
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <DoubleAnimation To="1" Duration="0:0:0.3"  Storyboard.TargetProperty="Opacity"/>
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </EventTrigger>
-                            
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-        <Style x:Key="ETHButton" TargetType="{x:Type Button}">
+        
+        <Style x:Key="MainButtons" TargetType="{x:Type Button}">
             <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
             <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
             <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
@@ -288,6 +235,22 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        
+        
+        <Style x:Key="HyperlinkStyle" TargetType="{x:Type TextBlock}">
+            <Setter Property="TextWrapping" Value="NoWrap"/>
+            <Setter Property="TextTrimming" Value="None"/>
+            <Style.Resources>
+                <Style TargetType="Hyperlink">
+                    
+                    <Setter Property="Foreground" Value="{Binding Foreground,RelativeSource={RelativeSource FindAncestor,AncestorType=TextBlock}}"/>
+                    <Setter Property="TextDecorations" Value="{Binding TextDecorations,RelativeSource={RelativeSource FindAncestor,AncestorType=TextBlock}}"/>
+                    <Setter Property="FontFamily" Value="{Binding FontFamily,RelativeSource={RelativeSource FindAncestor,AncestorType=TextBlock}}"/>
+                    
+                </Style>
+            </Style.Resources>
+
+        </Style>
 
 
     </Window.Resources>
@@ -311,13 +274,7 @@
 
                 <Grid Height="674" Width="250" >
 
-
-
-
-
-
-
-                    <Button x:Name="BTCBUTTON" Click="Button_ClickBTC" Margin="18,2,18,611" BorderThickness="0" Background="Transparent" Style="{DynamicResource BTCButton}">
+                    <Button x:Name="BTCBUTTON" Click="Button_ClickBTC" Margin="18,2,18,611" BorderThickness="0" Background="Transparent" Style="{DynamicResource MainButtons}">
                         <Grid Width="223" Height="60">
                             <TextBlock Text="Bitcoin" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameData" Margin="65,7,49,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
 
@@ -336,7 +293,7 @@
                     </Button>
                     <Rectangle  Fill="#545454" Margin="25,68,25,605" />
 
-                    <Button Click="Button_ClickETH" Margin="18,75,18,538" BorderThickness="0" Background="Transparent" Style="{DynamicResource ETHButton}">
+                    <Button Click="Button_ClickETH" Margin="18,75,18,538" BorderThickness="0" Background="Transparent" Style="{DynamicResource MainButtons}">
                         <Grid Width="223" Height="60">
                             <TextBlock Text="Ethereum" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameDataETH" Margin="65,7,49,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
 
@@ -353,11 +310,11 @@
                             </Image>
                         </Grid>
                     </Button>
-                    
-                    
+
+
                     <Rectangle  Fill="#545454" Margin="25,142,25,531" RenderTransformOrigin="0.5,0.5"/>
 
-                    <Button Click="Button_ClickADA" Margin="18,149,18,464" BorderThickness="0" Background="Transparent" Style="{DynamicResource ETHButton}">
+                    <Button Click="Button_ClickADA" Margin="18,149,18,464" BorderThickness="0" Background="Transparent" Style="{DynamicResource MainButtons}">
                         <Grid Width="223" Height="60">
                             <TextBlock Text="Cardano" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameDataADA" Margin="65,7,49,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
 
@@ -377,7 +334,7 @@
 
                     <Rectangle  Fill="#545454" Margin="25,216,25,457" RenderTransformOrigin="0.5,0.5"/>
 
-                    <Button Click="Button_ClickBNB" Margin="18,223,18,390" BorderThickness="0" Background="Transparent" Style="{DynamicResource ETHButton}">
+                    <Button Click="Button_ClickBNB" Margin="18,223,18,390" BorderThickness="0" Background="Transparent" Style="{DynamicResource MainButtons}">
                         <Grid Width="223" Height="60">
                             <TextBlock Text="Binance Coin" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameDataBNB" Margin="65,7,49,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
 
@@ -397,7 +354,7 @@
 
                     <Rectangle  Fill="#545454" Margin="25,290,25,383" RenderTransformOrigin="0.5,0.5"/>
 
-                    <Button Click="Button_ClickDOGE" Margin="18,297,18,316" BorderThickness="0" Background="Transparent" Style="{DynamicResource ETHButton}">
+                    <Button Click="Button_ClickDOGE" Margin="18,297,18,316" BorderThickness="0" Background="Transparent" Style="{DynamicResource MainButtons}">
                         <Grid Width="223" Height="60">
                             <TextBlock Text="Dogecoin" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameDataDOGE" Margin="65,7,49,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
 
@@ -414,11 +371,11 @@
                             </Image>
                         </Grid>
                     </Button>
-                    
-                    
+
+
                     <Rectangle  Fill="#545454" Margin="25,364,25,309" RenderTransformOrigin="0.5,0.5"/>
 
-                    <Button Click="Button_ClickXRP" Margin="18,371,18,242" BorderThickness="0" Background="Transparent" Style="{DynamicResource ETHButton}">
+                    <Button Click="Button_ClickXRP" Margin="18,371,18,242" BorderThickness="0" Background="Transparent" Style="{DynamicResource MainButtons}">
                         <Grid Width="223" Height="60">
                             <TextBlock Text="XRP" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameDataXRP" Margin="65,7,49,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
 
@@ -438,7 +395,7 @@
 
                     <Rectangle  Fill="#545454" Margin="25,438,25,235" RenderTransformOrigin="0.5,0.5"/>
 
-                    <Button Click="Button_ClickDOT" Margin="18,445,18,168" BorderThickness="0" Background="Transparent" Style="{DynamicResource ETHButton}">
+                    <Button Click="Button_ClickDOT" Margin="18,445,18,168" BorderThickness="0" Background="Transparent" Style="{DynamicResource MainButtons}">
                         <Grid Width="223" Height="60">
                             <TextBlock Text="Polkadot" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameDataDOT" Margin="65,7,49,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
 
@@ -458,7 +415,7 @@
 
                     <Rectangle  Fill="#545454" Margin="25,512,25,161" RenderTransformOrigin="0.5,0.5"/>
 
-                    <Button Click="Button_ClickBTCCASH" Margin="18,520,18,93" BorderThickness="0" Background="Transparent" Style="{DynamicResource ETHButton}">
+                    <Button Click="Button_ClickBTCCASH" Margin="18,520,18,93" BorderThickness="0" Background="Transparent" Style="{DynamicResource MainButtons}">
                         <Grid Width="223" Height="60">
                             <TextBlock Text="Bitcoin Cash" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameDataBTCCASH" Margin="65,7,49,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
 
@@ -476,7 +433,17 @@
                         </Grid>
                     </Button>
 
+
+
                     <Rectangle  Fill="#545454" Margin="25,586,25,87" RenderTransformOrigin="0.5,0.5"/>
+
+                    <TextBlock Foreground="White" FontFamily="./resources/#Montserrat Medium" Margin="25,592,126,60" TextDecorations="None" Style="{DynamicResource HyperlinkStyle}">
+                        <Hyperlink NavigateUri="https://github.com/JM1F/Cryptocurrency-Widget/issues" RequestNavigate="Hyperlink_RequestNavigate">
+                            Request/Issues
+                        </Hyperlink>
+                    </TextBlock>
+
+
                 </Grid>
             </ScrollViewer>
 

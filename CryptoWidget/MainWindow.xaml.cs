@@ -15,7 +15,7 @@ using System.Windows.Navigation;
 using System.Threading;
 using System.IO;
 using System.Reflection;
-
+using System.Diagnostics;
 
 namespace CryptoWidget
 {
@@ -149,5 +149,10 @@ namespace CryptoWidget
             bitcoincashwindow.ShowDialog();
         }
 
+        private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
+        {
+            Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri));
+            e.Handled = true;
+        }
     }
 }

@@ -48,7 +48,7 @@ namespace CryptoWidget
 
         public void setTimer()
         {
-            atimer = new System.Timers.Timer(1000);
+            atimer = new System.Timers.Timer(60000);
             atimer.Elapsed += atimer_Elapsed;
             atimer.AutoReset = true;
             atimer.Enabled = true;
@@ -56,198 +56,210 @@ namespace CryptoWidget
 
         public async void atimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
-            var data2 = await dataLoad.LoadData();
+            var CoinAPIData = await dataLoad.LoadData();
             ColorPriceCheck n = new ColorPriceCheck();
             StringSolver stringSolver = new StringSolver();
+            APIDataChecker aPIDataChecker = new APIDataChecker();
 
 
             if (CoinCodeName == "bitcoin")
             {
-                CoinPrice = Convert.ToString("£" + data2[0].current_price);
+                int index = aPIDataChecker.IndexCheck(CoinAPIData, "Bitcoin");
+                CoinPrice = Convert.ToString("£" + CoinAPIData[0].current_price);
 
-                CoinPriceATH = ("£" + data2[0].ath);
+                CoinPriceATH = ("£" + CoinAPIData[index].ath);
 
-                CoinPrice1H = stringSolver.ShortenStringData(data2[0].price_change_percentage_1h_in_currency);
+                CoinPrice1H = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_1h_in_currency);
                 CoinPrice1HColour = n.ColourCheck(CoinPrice1H);
 
-                CoinPrice24H = stringSolver.ShortenStringData(data2[0].price_change_percentage_24h_in_currency);
+                CoinPrice24H = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_24h_in_currency);
                 CoinPrice24HColour = n.ColourCheck(CoinPrice24H);
 
-                CoinPrice7D = stringSolver.ShortenStringData(data2[0].price_change_percentage_7d_in_currency);
+                CoinPrice7D = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_7d_in_currency);
                 CoinPrice7DColour = n.ColourCheck(CoinPrice7D);
 
-                CoinPrice30D = stringSolver.ShortenStringData(data2[0].price_change_percentage_30d_in_currency);
+                CoinPrice30D = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_30d_in_currency);
                 CoinPrice30DColour = n.ColourCheck(CoinPrice30D);
 
-                CoinPrice1Y = stringSolver.ShortenStringData(data2[0].price_change_percentage_1y_in_currency);
+                CoinPrice1Y = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_1y_in_currency);
                 CoinPrice1YColour = n.ColourCheck(CoinPrice1Y);
 
                 
 
-                Console.WriteLine(CoinPrice);
+                
             }
             else if (CoinCodeName == "ethereum")
             {
-                CoinPrice = Convert.ToString("£" + data2[1].current_price);
+                int index = aPIDataChecker.IndexCheck(CoinAPIData, "Ethereum");
 
-                CoinPriceATH = ("£" + data2[1].ath);
+                CoinPrice = Convert.ToString("£" + CoinAPIData[index].current_price);
 
-                CoinPrice1H = stringSolver.ShortenStringData(data2[1].price_change_percentage_1h_in_currency);
+                CoinPriceATH = ("£" + CoinAPIData[index].ath);
+
+                CoinPrice1H = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_1h_in_currency);
                 CoinPrice1HColour = n.ColourCheck(CoinPrice1H);
 
-                CoinPrice24H = stringSolver.ShortenStringData(data2[1].price_change_percentage_24h_in_currency);
+                CoinPrice24H = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_24h_in_currency);
                 CoinPrice24HColour = n.ColourCheck(CoinPrice24H);
 
-                CoinPrice7D = stringSolver.ShortenStringData(data2[1].price_change_percentage_7d_in_currency);
+                CoinPrice7D = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_7d_in_currency);
                 CoinPrice7DColour = n.ColourCheck(CoinPrice7D);
 
-                CoinPrice30D = stringSolver.ShortenStringData(data2[1].price_change_percentage_30d_in_currency);
+                CoinPrice30D = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_30d_in_currency);
                 CoinPrice30DColour = n.ColourCheck(CoinPrice30D);
 
-                CoinPrice1Y = stringSolver.ShortenStringData(data2[1].price_change_percentage_1y_in_currency);
+                CoinPrice1Y = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_1y_in_currency);
                 CoinPrice1YColour = n.ColourCheck(CoinPrice1Y);
 
                 
 
-                Console.WriteLine(CoinPrice);
+                
             }
             else if (CoinCodeName == "cardano")
             {
-                CoinPrice = Convert.ToString("£" + data2[4].current_price);
+
+                int index = aPIDataChecker.IndexCheck(CoinAPIData, "Cardano");
+
+                CoinPrice = Convert.ToString("£" + CoinAPIData[index].current_price);
 
 
-                CoinPriceATH = ("£" + data2[4].ath);
+                CoinPriceATH = ("£" + CoinAPIData[index].ath);
 
-                CoinPrice1H = stringSolver.ShortenStringData(data2[4].price_change_percentage_1h_in_currency);
+                CoinPrice1H = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_1h_in_currency);
                 CoinPrice1HColour = n.ColourCheck(CoinPrice1H);
 
-                CoinPrice24H = stringSolver.ShortenStringData(data2[4].price_change_percentage_24h_in_currency);
+                CoinPrice24H = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_24h_in_currency);
                 CoinPrice24HColour = n.ColourCheck(CoinPrice24H);
 
-                CoinPrice7D = stringSolver.ShortenStringData(data2[4].price_change_percentage_7d_in_currency);
+                CoinPrice7D = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_7d_in_currency);
                 CoinPrice7DColour = n.ColourCheck(CoinPrice7D);
 
-                CoinPrice30D = stringSolver.ShortenStringData(data2[4].price_change_percentage_30d_in_currency);
+                CoinPrice30D = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_30d_in_currency);
                 CoinPrice30DColour = n.ColourCheck(CoinPrice30D);
 
-                CoinPrice1Y = stringSolver.ShortenStringData(data2[4].price_change_percentage_1y_in_currency);
+                CoinPrice1Y = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_1y_in_currency);
                 CoinPrice1YColour = n.ColourCheck(CoinPrice1Y);
 
 
             }
             else if (CoinCodeName == "binancecoin")
             {
-                CoinPrice = Convert.ToString("£" + data2[3].current_price);
+                int index = aPIDataChecker.IndexCheck(CoinAPIData, "Binance Coin");
+                CoinPrice = Convert.ToString("£" + CoinAPIData[index].current_price);
 
-                CoinPriceATH = ("£" + data2[3].ath);
+                CoinPriceATH = ("£" + CoinAPIData[index].ath);
 
-                CoinPrice1H = stringSolver.ShortenStringData(data2[3].price_change_percentage_1h_in_currency);
+                CoinPrice1H = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_1h_in_currency);
                 CoinPrice1HColour = n.ColourCheck(CoinPrice1H);
 
-                CoinPrice24H = stringSolver.ShortenStringData(data2[3].price_change_percentage_24h_in_currency);
+                CoinPrice24H = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_24h_in_currency);
                 CoinPrice24HColour = n.ColourCheck(CoinPrice24H);
 
-                CoinPrice7D = stringSolver.ShortenStringData(data2[3].price_change_percentage_7d_in_currency);
+                CoinPrice7D = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_7d_in_currency);
                 CoinPrice7DColour = n.ColourCheck(CoinPrice7D);
 
-                CoinPrice30D = stringSolver.ShortenStringData(data2[3].price_change_percentage_30d_in_currency);
+                CoinPrice30D = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_30d_in_currency);
                 CoinPrice30DColour = n.ColourCheck(CoinPrice30D);
 
-                CoinPrice1Y = stringSolver.ShortenStringData(data2[3].price_change_percentage_1y_in_currency);
+                CoinPrice1Y = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_1y_in_currency);
                 CoinPrice1YColour = n.ColourCheck(CoinPrice1Y);
 
             }
             else if (CoinCodeName == "dogecoin")
             {
-                CoinPrice = Convert.ToString("£" + data2[5].current_price);
+                int index = aPIDataChecker.IndexCheck(CoinAPIData, "Dogecoin");
+                CoinPrice = Convert.ToString("£" + CoinAPIData[index].current_price);
 
-                CoinPriceATH = ("£" + data2[5].ath);
+                CoinPriceATH = ("£" + CoinAPIData[index].ath);
 
-                CoinPrice1H = stringSolver.ShortenStringData(data2[5].price_change_percentage_1h_in_currency);
+                CoinPrice1H = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_1h_in_currency);
                 CoinPrice1HColour = n.ColourCheck(CoinPrice1H);
 
-                CoinPrice24H = stringSolver.ShortenStringData(data2[5].price_change_percentage_24h_in_currency);
+                CoinPrice24H = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_24h_in_currency);
                 CoinPrice24HColour = n.ColourCheck(CoinPrice24H);
 
-                CoinPrice7D = stringSolver.ShortenStringData(data2[5].price_change_percentage_7d_in_currency);
+                CoinPrice7D = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_7d_in_currency);
                 CoinPrice7DColour = n.ColourCheck(CoinPrice7D);
 
-                CoinPrice30D = stringSolver.ShortenStringData(data2[5].price_change_percentage_30d_in_currency);
+                CoinPrice30D = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_30d_in_currency);
                 CoinPrice30DColour = n.ColourCheck(CoinPrice30D);
 
-                CoinPrice1Y = stringSolver.ShortenStringData(data2[5].price_change_percentage_1y_in_currency);
+                CoinPrice1Y = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_1y_in_currency);
                 CoinPrice1YColour = n.ColourCheck(CoinPrice1Y);
             }
             else if (CoinCodeName == "xrp")
             {
-                CoinPrice = Convert.ToString("£" + data2[6].current_price);
+                int index = aPIDataChecker.IndexCheck(CoinAPIData, "XRP");
+                CoinPrice = Convert.ToString("£" + CoinAPIData[6].current_price);
 
-                CoinPriceATH = ("£" + data2[6].ath);
+                CoinPriceATH = ("£" + CoinAPIData[index].ath);
 
-                CoinPrice1H = stringSolver.ShortenStringData(data2[6].price_change_percentage_1h_in_currency);
+                CoinPrice1H = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_1h_in_currency);
                 CoinPrice1HColour = n.ColourCheck(CoinPrice1H);
 
-                CoinPrice24H = stringSolver.ShortenStringData(data2[6].price_change_percentage_24h_in_currency);
+                CoinPrice24H = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_24h_in_currency);
                 CoinPrice24HColour = n.ColourCheck(CoinPrice24H);
 
-                CoinPrice7D = stringSolver.ShortenStringData(data2[6].price_change_percentage_7d_in_currency);
+                CoinPrice7D = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_7d_in_currency);
                 CoinPrice7DColour = n.ColourCheck(CoinPrice7D);
 
-                CoinPrice30D = stringSolver.ShortenStringData(data2[6].price_change_percentage_30d_in_currency);
+                CoinPrice30D = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_30d_in_currency);
                 CoinPrice30DColour = n.ColourCheck(CoinPrice30D);
 
-                CoinPrice1Y = stringSolver.ShortenStringData(data2[6].price_change_percentage_1y_in_currency);
+                CoinPrice1Y = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_1y_in_currency);
                 CoinPrice1YColour = n.ColourCheck(CoinPrice1Y);
             }
             else if (CoinCodeName == "polkadot")
             {
-                CoinPrice = Convert.ToString("£" + data2[8].current_price);
+                int index = aPIDataChecker.IndexCheck(CoinAPIData, "Polkadot");
+                CoinPrice = Convert.ToString("£" + CoinAPIData[index].current_price);
 
-                CoinPriceATH = ("£" + data2[8].ath);
+                CoinPriceATH = ("£" + CoinAPIData[index].ath);
 
-                CoinPrice1H = stringSolver.ShortenStringData(data2[8].price_change_percentage_1h_in_currency);
+                CoinPrice1H = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_1h_in_currency);
                 CoinPrice1HColour = n.ColourCheck(CoinPrice1H);
 
-                CoinPrice24H = stringSolver.ShortenStringData(data2[8].price_change_percentage_24h_in_currency);
+                CoinPrice24H = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_24h_in_currency);
                 CoinPrice24HColour = n.ColourCheck(CoinPrice24H);
 
-                CoinPrice7D = stringSolver.ShortenStringData(data2[8].price_change_percentage_7d_in_currency);
+                CoinPrice7D = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_7d_in_currency);
                 CoinPrice7DColour = n.ColourCheck(CoinPrice7D);
 
-                CoinPrice30D = stringSolver.ShortenStringData(data2[8].price_change_percentage_30d_in_currency);
+                CoinPrice30D = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_30d_in_currency);
                 CoinPrice30DColour = n.ColourCheck(CoinPrice30D);
 
-                if (data2[8].price_change_percentage_1y_in_currency == null)
+                if (CoinAPIData[8].price_change_percentage_1y_in_currency == null)
                 {
                     CoinPrice1Y = "N/A";
                     CoinPrice1YColour = "White";
                 }
                 else
                 {
-                    CoinPrice1Y = stringSolver.ShortenStringData(data2[8].price_change_percentage_1y_in_currency);
+                    CoinPrice1Y = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_1y_in_currency);
                     CoinPrice1YColour = n.ColourCheck(CoinPrice1Y);
                 }
                 
             }
             else if (CoinCodeName == "bitcoincash")
             {
-                CoinPrice = Convert.ToString("£" + data2[9].current_price);
+                int BTCCASHINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Bitcoin Cash");
+                CoinPrice = Convert.ToString("£" + CoinAPIData[BTCCASHINDEX].current_price);
 
-                CoinPriceATH = ("£" + data2[9].ath);
+                CoinPriceATH = ("£" + CoinAPIData[BTCCASHINDEX].ath);
 
-                CoinPrice1H = stringSolver.ShortenStringData(data2[9].price_change_percentage_1h_in_currency);
+                CoinPrice1H = stringSolver.ShortenStringData(CoinAPIData[BTCCASHINDEX].price_change_percentage_1h_in_currency);
                 CoinPrice1HColour = n.ColourCheck(CoinPrice1H);
 
-                CoinPrice24H = stringSolver.ShortenStringData(data2[9].price_change_percentage_24h_in_currency);
+                CoinPrice24H = stringSolver.ShortenStringData(CoinAPIData[BTCCASHINDEX].price_change_percentage_24h_in_currency);
                 CoinPrice24HColour = n.ColourCheck(CoinPrice24H);
 
-                CoinPrice7D = stringSolver.ShortenStringData(data2[9].price_change_percentage_7d_in_currency);
+                CoinPrice7D = stringSolver.ShortenStringData(CoinAPIData[BTCCASHINDEX].price_change_percentage_7d_in_currency);
                 CoinPrice7DColour = n.ColourCheck(CoinPrice7D);
 
-                CoinPrice30D = stringSolver.ShortenStringData(data2[9].price_change_percentage_30d_in_currency);
+                CoinPrice30D = stringSolver.ShortenStringData(CoinAPIData[BTCCASHINDEX].price_change_percentage_30d_in_currency);
                 CoinPrice30DColour = n.ColourCheck(CoinPrice30D);
 
-                CoinPrice1Y = stringSolver.ShortenStringData(data2[9].price_change_percentage_1y_in_currency);
+                CoinPrice1Y = stringSolver.ShortenStringData(CoinAPIData[BTCCASHINDEX].price_change_percentage_1y_in_currency);
                 CoinPrice1YColour = n.ColourCheck(CoinPrice1Y);
             }
 

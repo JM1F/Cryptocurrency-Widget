@@ -72,10 +72,11 @@ namespace CryptoWidget
 
         ColorPriceCheck n = new ColorPriceCheck();
         StringSolver stringSolver = new StringSolver();
+        APIDataChecker aPIDataChecker = new APIDataChecker();
 
         public void setTimer()
         {
-            atimer = new System.Timers.Timer(10000);
+            atimer = new System.Timers.Timer(60000);
             atimer.Elapsed += atimer_Elapsed;
             atimer.AutoReset = true;
             atimer.Enabled = true;
@@ -85,60 +86,75 @@ namespace CryptoWidget
         {
             
 
-            var data2 = await dataLoad.LoadData();
+            var CoinAPIData = await dataLoad.LoadData();
 
-            BTCPRICE = ("£" + data2[0].current_price);
-            PCP24H = stringSolver.ShortenStringData(data2[0].price_change_percentage_24h_in_currency);
+            int BTCINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Bitcoin");
+
+            BTCPRICE = ("£" + CoinAPIData[BTCINDEX].current_price);
+            PCP24H = stringSolver.ShortenStringData(CoinAPIData[BTCINDEX].price_change_percentage_24h_in_currency);
             PCP24HCOLOUR = n.ColourCheck(PCP24H);
             OnPropertyChanged("BTCPRICE");
             OnPropertyChanged("PCP24H");
             OnPropertyChanged("PCP24HCOLOUR");
 
+            int ETHINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Ethereum");
 
-            ETHPRICE = ("£" + data2[1].current_price);
-            ETH24H = stringSolver.ShortenStringData(data2[1].price_change_percentage_24h_in_currency);
+            ETHPRICE = ("£" + CoinAPIData[ETHINDEX].current_price);
+            ETH24H = stringSolver.ShortenStringData(CoinAPIData[ETHINDEX].price_change_percentage_24h_in_currency);
             ETH24HCOLOUR = n.ColourCheck(ETH24H);
             OnPropertyChanged("ETHPRICE");
             OnPropertyChanged("ETH24H");
             OnPropertyChanged("ETH24HCOLOUR");
 
-            ADAPRICE = ("£" + data2[4].current_price);
-            ADA24H = stringSolver.ShortenStringData(data2[4].price_change_percentage_24h_in_currency);
+            int ADAINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Cardano");
+
+            ADAPRICE = ("£" + CoinAPIData[ADAINDEX].current_price);
+            ADA24H = stringSolver.ShortenStringData(CoinAPIData[ADAINDEX].price_change_percentage_24h_in_currency);
             ADA24HCOLOUR = n.ColourCheck(ADA24H);
             OnPropertyChanged("ADAPRICE");
             OnPropertyChanged("ADA24H");
             OnPropertyChanged("ADA24HCOLOUR");
 
-            BNBPRICE = ("£" + data2[3].current_price);
-            BNB24H = stringSolver.ShortenStringData(data2[3].price_change_percentage_24h_in_currency);
+            int BNBINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Binance Coin");
+
+            BNBPRICE = ("£" + CoinAPIData[BNBINDEX].current_price);
+            BNB24H = stringSolver.ShortenStringData(CoinAPIData[BNBINDEX].price_change_percentage_24h_in_currency);
             BNB24HCOLOUR = n.ColourCheck(BNB24H);
             OnPropertyChanged("BNBPRICE");
             OnPropertyChanged("BNB24H");
             OnPropertyChanged("BNB24HCOLOUR");
 
-            DOGEPRICE = ("£" + data2[5].current_price);
-            DOGE24H = stringSolver.ShortenStringData(data2[5].price_change_percentage_24h_in_currency);
+            int DOGEINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Dogecoin");
+
+            DOGEPRICE = ("£" + CoinAPIData[DOGEINDEX].current_price);
+            DOGE24H = stringSolver.ShortenStringData(CoinAPIData[DOGEINDEX].price_change_percentage_24h_in_currency);
             DOGE24HCOLOUR = n.ColourCheck(DOGE24H);
             OnPropertyChanged("DOGEPRICE");
             OnPropertyChanged("DOGE24H");
             OnPropertyChanged("DOGE24HCOLOUR");
 
-            XRPPRICE = ("£" + data2[6].current_price);
-            XRP24H = stringSolver.ShortenStringData(data2[6].price_change_percentage_24h_in_currency);
+            int XRPINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "XRP");
+
+            XRPPRICE = ("£" + CoinAPIData[XRPINDEX].current_price);
+            XRP24H = stringSolver.ShortenStringData(CoinAPIData[XRPINDEX].price_change_percentage_24h_in_currency);
             XRP24HCOLOUR = n.ColourCheck(XRP24H);
             OnPropertyChanged("XRPPRICE");
             OnPropertyChanged("XRP24H");
             OnPropertyChanged("XRP24HCOLOUR");
 
-            DOTPRICE = ("£" + data2[8].current_price);
-            DOT24H = stringSolver.ShortenStringData(data2[8].price_change_percentage_24h_in_currency);
+            int DOTINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Polkadot");
+
+            DOTPRICE = ("£" + CoinAPIData[DOTINDEX].current_price);
+            DOT24H = stringSolver.ShortenStringData(CoinAPIData[DOTINDEX].price_change_percentage_24h_in_currency);
             DOT24HCOLOUR = n.ColourCheck(DOT24H);
             OnPropertyChanged("DOTPRICE");
             OnPropertyChanged("DOT24H");
             OnPropertyChanged("DOT24HCOLOUR");
 
-            BTCCASHPRICE = ("£" + data2[9].current_price);
-            BTCCASH24H = stringSolver.ShortenStringData(data2[9].price_change_percentage_24h_in_currency);
+            int BTCCASHINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Bitcoin Cash");
+
+            BTCCASHPRICE = ("£" + CoinAPIData[BTCCASHINDEX].current_price);
+            BTCCASH24H = stringSolver.ShortenStringData(CoinAPIData[BTCCASHINDEX].price_change_percentage_24h_in_currency);
             BTCCASH24HCOLOUR = n.ColourCheck(BTCCASH24H);
             OnPropertyChanged("BTCCASHPRICE");
             OnPropertyChanged("BTCCASH24H");

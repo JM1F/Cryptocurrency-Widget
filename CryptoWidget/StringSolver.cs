@@ -16,7 +16,7 @@ namespace CryptoWidget
             decimal DecimalData = decimal.Parse(StringData);
 
             string NewStringData = DecimalData.ToString("F");
-            Console.WriteLine(NewStringData);
+           
 
             if (Convert.ToString(NewStringData[0]) == "-")
             {

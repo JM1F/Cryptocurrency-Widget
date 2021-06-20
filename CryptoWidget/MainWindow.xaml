@@ -159,7 +159,7 @@
             <Setter Property="Foreground" Value="red"/>
 
 
-            <Setter Property="MinHeight" Value="{Binding Height, RelativeSource={RelativeSource Self}}"/>
+            
             <Setter Property="MinWidth" Value="{Binding Width, RelativeSource={RelativeSource Self}}"/>
             <Setter Property="Template">
                 <Setter.Value>
@@ -278,7 +278,7 @@
                         <Grid Width="223" Height="60">
                             <TextBlock Text="Bitcoin" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameData" Margin="65,7,49,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="{Binding Path=PCP24HCOLOUR, Mode=TwoWay}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24h" Margin="61,44,108,0" Text="{Binding Path=PCP24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="{Binding Path=PCP24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24h" Margin="61,44,108,0" Text="{Binding Path=PCP24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
                             <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="BTCPriceName" Margin="142,44,27,0" Text="{Binding Path=BTCPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
@@ -297,7 +297,7 @@
                         <Grid Width="223" Height="60">
                             <TextBlock Text="Ethereum" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameDataETH" Margin="65,7,49,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="{Binding Path=ETH24HCOLOUR, Mode=TwoWay}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hETH" Margin="61,44,108,0" Text="{Binding Path=ETH24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="{Binding Path=ETH24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hETH" Margin="61,44,108,0" Text="{Binding Path=ETH24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
                             <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="ETHPriceName" Margin="142,44,27,0" Text="{Binding Path=ETHPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
@@ -318,7 +318,7 @@
                         <Grid Width="223" Height="60">
                             <TextBlock Text="Cardano" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameDataADA" Margin="65,7,49,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="{Binding Path=ADA24HCOLOUR, Mode=TwoWay}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hADA" Margin="61,44,108,0" Text="{Binding Path=ADA24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="{Binding Path=ADA24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hADA" Margin="61,44,108,0" Text="{Binding Path=ADA24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
                             <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="ADAPriceName" Margin="142,44,27,0" Text="{Binding Path=ADAPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
@@ -338,7 +338,7 @@
                         <Grid Width="223" Height="60">
                             <TextBlock Text="Binance Coin" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameDataBNB" Margin="65,7,49,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="{Binding Path=BNB24HCOLOUR, Mode=TwoWay}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hBNB" Margin="61,44,108,0" Text="{Binding Path=BNB24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="{Binding Path=BNB24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hBNB" Margin="61,44,108,0" Text="{Binding Path=BNB24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
                             <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="BNBPriceName" Margin="142,44,27,0" Text="{Binding Path=BNBPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
@@ -358,7 +358,7 @@
                         <Grid Width="223" Height="60">
                             <TextBlock Text="Dogecoin" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameDataDOGE" Margin="65,7,49,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="{Binding Path=DOGE24HCOLOUR, Mode=TwoWay}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hDOGE" Margin="61,44,108,0" Text="{Binding Path=DOGE24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="{Binding Path=DOGE24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hDOGE" Margin="61,44,108,0" Text="{Binding Path=DOGE24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
                             <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="DOGEPriceName" Margin="142,44,19,0" Text="{Binding Path=DOGEPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
@@ -379,7 +379,7 @@
                         <Grid Width="223" Height="60">
                             <TextBlock Text="XRP" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameDataXRP" Margin="65,7,49,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="{Binding Path=XRP24HCOLOUR, Mode=TwoWay}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hXRP" Margin="61,44,108,0" Text="{Binding Path=XRP24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="{Binding Path=XRP24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hXRP" Margin="61,44,108,0" Text="{Binding Path=XRP24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
                             <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="XRPPriceName" Margin="142,44,19,0" Text="{Binding Path=XRPPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
@@ -399,7 +399,7 @@
                         <Grid Width="223" Height="60">
                             <TextBlock Text="Polkadot" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameDataDOT" Margin="65,7,49,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="{Binding Path=DOT24HCOLOUR, Mode=TwoWay}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hDOT" Margin="61,44,108,0" Text="{Binding Path=DOT24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="{Binding Path=DOT24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hDOT" Margin="61,44,108,0" Text="{Binding Path=DOT24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
                             <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="DOTPriceName" Margin="142,44,19,0" Text="{Binding Path=DOTPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
@@ -419,7 +419,7 @@
                         <Grid Width="223" Height="60">
                             <TextBlock Text="Bitcoin Cash" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameDataBTCCASH" Margin="65,7,49,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="{Binding Path=BTCCASH24HCOLOUR, Mode=TwoWay}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hBTCCASH" Margin="61,44,108,0" Text="{Binding Path=BTCCASH24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="{Binding Path=BTCCASH24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hBTCCASH" Margin="61,44,108,0" Text="{Binding Path=BTCCASH24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
                             <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="BTCCASHPriceName" Margin="142,44,19,0" Text="{Binding Path=BTCCASHPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 

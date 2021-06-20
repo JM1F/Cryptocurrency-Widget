@@ -58,6 +58,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="APIDataChecker.cs" />
     <Compile Include="ModelSubWindow.cs" />
     <Compile Include="StringSolver.cs" />
     <Compile Include="SubWindow.xaml.cs">

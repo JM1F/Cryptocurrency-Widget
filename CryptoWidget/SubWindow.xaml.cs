@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -28,11 +29,13 @@ namespace CryptoWidget
 
         public SubWindow(string CoinType)
         {
-            this.Owner = App.Current.MainWindow;
-            CoinCodeName = CoinType;
-            this.DataContext = new ModelSubWindow(CoinCodeName);
-            InitializeComponent();
 
+            CoinCodeName = CoinType;
+            this.Owner = App.Current.MainWindow;
+
+            this.DataContext = new ModelSubWindow(CoinCodeName);
+
+            InitializeComponent();
 
         }
         public async Task GetBeginningData()
@@ -46,6 +49,8 @@ namespace CryptoWidget
 
             if (CoinCodeName == "bitcoin")
             {
+
+
                 int index = aPIDataChecker.IndexCheck(CoinAPIData, "Bitcoin");
 
                 CoinImage.Source = new BitmapImage(new Uri("Images/bitcoin.png", UriKind.Relative));
@@ -261,7 +266,8 @@ namespace CryptoWidget
         {
 
             await GetBeginningData();
-
+            
+            
         }
 
         private void titleBar_MouseDown(object sender, MouseButtonEventArgs e)
@@ -273,6 +279,7 @@ namespace CryptoWidget
         {
             this.Close();
             ModelSubWindow.atimer.Stop();
+            
         }
     }
 }

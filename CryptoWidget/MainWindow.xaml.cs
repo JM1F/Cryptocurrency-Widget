@@ -25,10 +25,25 @@ namespace CryptoWidget
     public partial class MainWindow : Window
     {
         
-        
+
+        Mutex WindowMutex = new Mutex(true, "817c2420-b9e5-4ea2-973d-33a28ef33ea6");
+
         public MainWindow()
         {
+            
+            if (!WindowMutex.WaitOne(TimeSpan.Zero, false))
+            {
+                Close();
+            }
+            else
+            {
+                WindowMutex.ReleaseMutex();
+            }
+
+           
+            
             APIHelper.InitializeClient();
+            
             InitializeComponent();
             this.DataContext = new Model();
             
@@ -117,17 +132,15 @@ namespace CryptoWidget
 
         public void Button_ClickBTC(object sender, RoutedEventArgs e)
         {
-
             SubWindow btcwindow = new SubWindow("bitcoin");
-            
             btcwindow.ShowDialog();
-
         }
         public void Button_ClickETH(object sender, RoutedEventArgs e)
         {
+           
             SubWindow ethwindow = new SubWindow("ethereum");
-
             ethwindow.ShowDialog();
+
         }
         public void Button_ClickADA(object sender, RoutedEventArgs e)
         {

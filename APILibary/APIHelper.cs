@@ -8,6 +8,9 @@ using System.Net.Http.Headers;
 
 namespace APILibary
 {
+    /// <summary>
+    /// API Helper class that initlializes a new HttpClient that is ready for json data. 
+    /// </summary>
     public static class APIHelper
     {
 

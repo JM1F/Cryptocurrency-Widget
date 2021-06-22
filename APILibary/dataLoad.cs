@@ -7,14 +7,20 @@ using System.Threading.Tasks;
 
 namespace APILibary
 {
+    /// <summary>
+    /// Class for API call.
+    /// API data provided by coingecko.com
+    /// </summary>
     public class dataLoad
     {
         public static async Task<IList<ReturnModel>> LoadData()
         {
+            // API URL 
             string URL = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=gbp&order=market_cap_desc&per_page=15&sparkline=false&price_change_percentage=1h%2C24h%2C7d%2C30d%2C1y";
 
             using (HttpResponseMessage response = await APIHelper.APIClient.GetAsync(URL))
             {
+                // Check if API call successful
                 if (response.IsSuccessStatusCode)
                 {
                     IList<ReturnModel> NewData = await response.Content.ReadAsAsync<IList<ReturnModel>>();

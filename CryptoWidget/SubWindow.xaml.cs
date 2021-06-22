@@ -23,42 +23,52 @@ namespace CryptoWidget
     /// </summary>
     public partial class SubWindow : Window
     {
-
+        // Coin name for sub window type.
         public static string CoinCodeName;
 
-
+        /// <summary>
+        /// SubWindow Initialize class
+        /// </summary>
+        /// <param name="CoinType"></param>
         public SubWindow(string CoinType)
         {
-
+            // Set the variable to parameter CoinType
             CoinCodeName = CoinType;
-            this.Owner = App.Current.MainWindow;
 
+            this.Owner = App.Current.MainWindow;
+            // Set data context to the model for the sub window.
             this.DataContext = new ModelSubWindow(CoinCodeName);
 
             InitializeComponent();
-
         }
+        /// <summary>
+        /// Gets the data at the beginning for the sub window.
+        /// </summary>
+        /// <returns></returns>
         public async Task GetBeginningData()
         {
+            // Call API data
             var CoinAPIData = await dataLoad.LoadData();
-
+            // Calls classes for the checks the data have to go through.
             ColorPriceCheck n = new ColorPriceCheck();
             StringSolver stringSolver = new StringSolver();
             APIDataChecker aPIDataChecker = new APIDataChecker();
             BrushConverter brushConverter = new BrushConverter();
 
+            // Checks the coin code name
             if (CoinCodeName == "bitcoin")
             {
 
-
+                // Checks index of coin.
                 int index = aPIDataChecker.IndexCheck(CoinAPIData, "Bitcoin");
-
+                // Set the image to current coin.
                 CoinImage.Source = new BitmapImage(new Uri("Images/bitcoin.png", UriKind.Relative));
+                
                 Cointitle.Text = "Bitcoin";
                 CoinPriceID.Text = Convert.ToString("£" + CoinAPIData[index].current_price);
 
                 
-
+                // Sets sub window elements.
                 CoinPriceIDATH.Text = "£" + CoinAPIData[index].ath;
 
                 CoinPriceID1H.Text = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_1h_in_currency);
@@ -79,6 +89,7 @@ namespace CryptoWidget
             }
             else if (CoinCodeName == "ethereum")
             {
+                // Repeat...
                 int index = aPIDataChecker.IndexCheck(CoinAPIData, "Ethereum");
                 CoinImage.Source = new BitmapImage(new Uri("Images/ethereum.png", UriKind.Relative));
                 Cointitle.Text = "Ethereum";
@@ -260,7 +271,11 @@ namespace CryptoWidget
         }
 
 
-
+        /// <summary>
+        /// Checks to see when the window is loaded and gets the beginning data.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         public async void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -269,12 +284,21 @@ namespace CryptoWidget
             
             
         }
+        /// <summary>
+        /// allows you to drag the titlebar when clicked.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void titleBar_MouseDown(object sender, MouseButtonEventArgs e)
         {
             this.DragMove();
         }
-
+        /// <summary>
+        /// Allows you to exit the window when the exit button is clicked.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void exitButton_Click(object sender, RoutedEventArgs e)
         {
             this.Close();

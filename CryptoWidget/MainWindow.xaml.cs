@@ -25,12 +25,16 @@ namespace CryptoWidget
     public partial class MainWindow : Window
     {
         
-
+        // Generate mutex
         Mutex WindowMutex = new Mutex(true, "817c2420-b9e5-4ea2-973d-33a28ef33ea6");
 
+
+        /// <summary>
+        /// Main window Initialize
+        /// </summary>
         public MainWindow()
         {
-            
+            // Check if window already open, if so close current attempt to start up.
             if (!WindowMutex.WaitOne(TimeSpan.Zero, false))
             {
                 Close();
@@ -39,28 +43,36 @@ namespace CryptoWidget
             {
                 WindowMutex.ReleaseMutex();
             }
-
-           
-            
             APIHelper.InitializeClient();
-            
             InitializeComponent();
             this.DataContext = new Model();
             
         }
+        /// <summary>
+        /// Gets data from API and changes button sytles and content depending on what button data is required.
+        /// </summary>
+        /// <returns></returns>
         public async Task GetDataAsync()
         {
+            // Calls classes for the checks the data have to go through.
             ColorPriceCheck n = new ColorPriceCheck();
             StringSolver stringSolver = new StringSolver();
             APIDataChecker aPIDataChecker = new APIDataChecker();
 
+            // Loads data
             var CoinAPIData = await dataLoad.LoadData();
 
+            
+            // Searches for index of specific coin, so if market cap flips coin can still be displayed.
             int BTCINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Bitcoin");
-
+            // Sets starting text to the current price
             BTCPriceName.Text = ("£" + CoinAPIData[BTCINDEX].current_price);
+            // ShortenStringData cuts down the long decimal places from the api and sets the text to the 24 hour price change.
             PriceData24h.Text = stringSolver.ShortenStringData(CoinAPIData[BTCINDEX].price_change_percentage_24h_in_currency);
+            // Checks to see if the colour of the price is minus (red) or plus (green).
             PriceData24h.Foreground = new BrushConverter().ConvertFromString(n.ColourCheck(CoinAPIData[BTCINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+
+            // Repeats for all current coins on the widget.
 
             int ETHINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Ethereum");
 
@@ -108,27 +120,45 @@ namespace CryptoWidget
 
         }
 
+        /// <summary>
+        /// when the window is loaded the data is called.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void Window_Loaded(object sender, RoutedEventArgs e)
         {     
-            
-            await GetDataAsync();
-           
+            await GetDataAsync();  
         }
 
-
+        /// <summary>
+        /// Allows you to drag the title bar at the top around.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void titleBar_MouseDown(object sender, MouseButtonEventArgs e)
         {
             this.DragMove();
         }
-
+        /// <summary>
+        /// Closes the window when the exit button is clicked.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void exitButton_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
+        /// <summary>
+        /// Minimises the window when the minimise button is clicked.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Minimisebutton_Click(object sender, RoutedEventArgs e)
         {
             this.WindowState = WindowState.Minimized;
         }
+
+        // Seperate buttons for the coins. When they are clicked a sub window is opened with the specific details.
 
         public void Button_ClickBTC(object sender, RoutedEventArgs e)
         {
@@ -178,7 +208,11 @@ namespace CryptoWidget
 
             bitcoincashwindow.ShowDialog();
         }
-
+        /// <summary>
+        /// Handles the hyperlink request when clicked.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
         {
             Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri));

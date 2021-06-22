@@ -12,12 +12,17 @@ using System.Timers;
 
 namespace CryptoWidget
 {
+    /// <summary>
+    /// Model data for the main window to update the data.
+    /// </summary>
     public class Model : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-
-
+        /// <summary>
+        /// Checks if the property has changed.
+        /// </summary>
+        /// <param name="propertyName"></param>
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
@@ -25,9 +30,11 @@ namespace CryptoWidget
         
         public Model()
         {
-            
+            //Starts Timer
             setTimer();
         }
+
+        // Sets variables for each coin
         public string BTCPRICE { get; set; }
         public string PCP24H { get; set; }
         public string PCP24HCOLOUR { get; set; }
@@ -74,25 +81,35 @@ namespace CryptoWidget
         StringSolver stringSolver = new StringSolver();
         APIDataChecker aPIDataChecker = new APIDataChecker();
 
+        /// <summary>
+        /// Set up for a minute timer.
+        /// </summary>
         public void setTimer()
         {
             atimer = new System.Timers.Timer(60000);
+            // When the timer elapses atimer_Elapsed is called.
             atimer.Elapsed += atimer_Elapsed;
             atimer.AutoReset = true;
             atimer.Enabled = true;
         }
-        
+        /// <summary>
+        /// Updates data for the buttons in the main window.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void atimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
-            
-
+            // Call API
             var CoinAPIData = await dataLoad.LoadData();
 
+            // Check index for coin.
             int BTCINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Bitcoin");
 
+            // Sets updated variables for all MainWindow elemetns.
             BTCPRICE = ("£" + CoinAPIData[BTCINDEX].current_price);
             PCP24H = stringSolver.ShortenStringData(CoinAPIData[BTCINDEX].price_change_percentage_24h_in_currency);
             PCP24HCOLOUR = n.ColourCheck(PCP24H);
+            // Calls OnPropertyChanged for all variables to update the data element in MainWindow.
             OnPropertyChanged("BTCPRICE");
             OnPropertyChanged("PCP24H");
             OnPropertyChanged("PCP24HCOLOUR");

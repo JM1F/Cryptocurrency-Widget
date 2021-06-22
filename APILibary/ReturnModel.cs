@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace APILibary
 {
+    /// <summary>
+    /// Return Model for the API calls.
+    /// </summary>
     public class ReturnModel
     {
         public string current_price { get; set; }

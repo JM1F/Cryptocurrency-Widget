@@ -10,21 +10,31 @@ using System.Windows;
 
 namespace CryptoWidget
 {
+    /// <summary>
+    /// Model data for the sub window to update the data.
+    /// Very similar to the Model.cs for the MainWindow.
+    /// </summary>
     public class ModelSubWindow : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
+
+        /// <summary>
+        /// Checks if the property has changed.
+        /// </summary>
+        /// <param name="propertyName"></param>
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
+        
         public ModelSubWindow(string data)
         {
             CoinCodeName = data;
-
+            // Starts timer.
             setTimer();
         }
+        // Variables set fo different coins.
         public string CoinCodeName { get; set; }
 
 
@@ -45,18 +55,28 @@ namespace CryptoWidget
 
         public static System.Timers.Timer atimer;
 
-
+        /// <summary>
+        /// Set up for a minute timer.
+        /// </summary>
         public void setTimer()
         {
             atimer = new System.Timers.Timer(60000);
+            // When the timer elapses atimer_Elapsed is called.
             atimer.Elapsed += atimer_Elapsed;
             atimer.AutoReset = true;
             atimer.Enabled = true;
         }
-
+        /// <summary>
+        /// atimer_Elapsed for the Sub window.
+        /// Similar to the Model for MainWindow.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public async void atimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
+            /// Call API
             var CoinAPIData = await dataLoad.LoadData();
+
             ColorPriceCheck n = new ColorPriceCheck();
             StringSolver stringSolver = new StringSolver();
             APIDataChecker aPIDataChecker = new APIDataChecker();
@@ -64,8 +84,11 @@ namespace CryptoWidget
 
             if (CoinCodeName == "bitcoin")
             {
+                // Check index for coin.
                 int index = aPIDataChecker.IndexCheck(CoinAPIData, "Bitcoin");
-                CoinPrice = Convert.ToString("£" + CoinAPIData[0].current_price);
+
+                // Sets updated variables for all MainWindow elemetns.
+                CoinPrice = Convert.ToString("£" + CoinAPIData[index].current_price);
 
                 CoinPriceATH = ("£" + CoinAPIData[index].ath);
 
@@ -90,6 +113,7 @@ namespace CryptoWidget
             }
             else if (CoinCodeName == "ethereum")
             {
+                // Repeat...
                 int index = aPIDataChecker.IndexCheck(CoinAPIData, "Ethereum");
 
                 CoinPrice = Convert.ToString("£" + CoinAPIData[index].current_price);

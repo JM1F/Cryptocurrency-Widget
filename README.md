@@ -40,4 +40,6 @@ If you want to submit a request for a new Cryptocurrency to be added to the widg
 
 ![image](https://user-images.githubusercontent.com/71614127/123338073-262c6900-d540-11eb-8c93-bdf75b692163.png)
 
+## Download
 
+* You can download the widget ***<ins>[HERE](https://github.com/JM1F/Cryptocurrency-Widget/releases/download/v1.0/CryptoWidget.zip)</ins>***

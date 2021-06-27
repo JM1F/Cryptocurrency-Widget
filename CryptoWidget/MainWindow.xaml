@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:cryptowidget="clr-namespace:CryptoWidget" d:DataContext="{d:DesignInstance Type=cryptowidget:Model}"
         mc:Ignorable="d" Loaded="Window_Loaded"
-        Title="MainWindow" Height="300" Width="250" WindowStartupLocation="CenterScreen"
+        Title="CryptoWidget" Height="300" Width="250" WindowStartupLocation="CenterScreen"
         WindowStyle="None"
         AllowsTransparency="True"
         Background="Transparent"

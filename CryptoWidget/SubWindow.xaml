@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CryptoWidget" d:DataContext="{d:DesignInstance Type=local:ModelSubWindow}"
         mc:Ignorable="d"
-        Title="SubWindow" Height="175" Width="150"
+        Title="SubCoinWindow" Height="175" Width="150"
         WindowStyle="None"
         AllowsTransparency="True"
         Background="Transparent"

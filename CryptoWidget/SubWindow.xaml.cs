@@ -268,6 +268,42 @@ namespace CryptoWidget
                 CoinPriceID1Y.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[BTCCASHINDEX].price_change_percentage_1y_in_currency)) as SolidColorBrush;
 
             }
+            else if (CoinCodeName == "uniswap")
+            {
+                int UNIINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Uniswap");
+
+                CoinImage.Source = new BitmapImage(new Uri("Images/uniswap.png", UriKind.Relative));
+                Cointitle.Text = "Uniswap";
+                CoinPriceID.Text = Convert.ToString("£" + CoinAPIData[UNIINDEX].current_price);
+
+                CoinPriceIDATH.Text = ("£" + CoinAPIData[UNIINDEX].ath);
+
+                CoinPriceID1H.Text = stringSolver.ShortenStringData(CoinAPIData[UNIINDEX].price_change_percentage_1h_in_currency);
+                CoinPriceID1H.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[UNIINDEX].price_change_percentage_1h_in_currency)) as SolidColorBrush;
+
+                CoinPriceID24H.Text = stringSolver.ShortenStringData(CoinAPIData[UNIINDEX].price_change_percentage_24h_in_currency);
+                CoinPriceID24H.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[UNIINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+
+                CoinPriceID7D.Text = stringSolver.ShortenStringData(CoinAPIData[UNIINDEX].price_change_percentage_7d_in_currency);
+                CoinPriceID7D.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[UNIINDEX].price_change_percentage_7d_in_currency)) as SolidColorBrush;
+
+                CoinPriceID30D.Text = stringSolver.ShortenStringData(CoinAPIData[UNIINDEX].price_change_percentage_30d_in_currency);
+                CoinPriceID30D.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[UNIINDEX].price_change_percentage_30d_in_currency)) as SolidColorBrush;
+
+                if (CoinAPIData[8].price_change_percentage_1y_in_currency == null)
+                {
+                    CoinPriceID1Y.Text = "N/A";
+                    Brush DOTColour = brushConverter.ConvertFrom("#DF5F67") as SolidColorBrush;
+                    CoinPriceID1Y.Foreground = DOTColour;
+                }
+                else
+                {
+                    CoinPriceID1Y.Text = stringSolver.ShortenStringData(CoinAPIData[UNIINDEX].price_change_percentage_1y_in_currency);
+                    CoinPriceID1Y.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[UNIINDEX].price_change_percentage_1y_in_currency)) as SolidColorBrush;
+                }
+
+               
+            }
         }
 
 

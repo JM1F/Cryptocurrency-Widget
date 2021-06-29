@@ -67,7 +67,9 @@ namespace CryptoWidget
         public string BTCCASH24HCOLOUR { get; set; }
         public string BTCCASHPRICE { get; set; }
 
-
+        public string UNI24H { get; set; }
+        public string UNI24HCOLOUR { get; set; }
+        public string UNIPRICE { get; set; }
 
 
 
@@ -176,6 +178,15 @@ namespace CryptoWidget
             OnPropertyChanged("BTCCASHPRICE");
             OnPropertyChanged("BTCCASH24H");
             OnPropertyChanged("BTCCASH24HCOLOUR");
+
+            int UNIINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Uniswap");
+
+            UNIPRICE = ("£" + CoinAPIData[UNIINDEX].current_price);
+            UNI24H = stringSolver.ShortenStringData(CoinAPIData[UNIINDEX].price_change_percentage_24h_in_currency);
+            UNI24HCOLOUR = n.ColourCheck(UNI24H);
+            OnPropertyChanged("UNIPRICE");
+            OnPropertyChanged("UNI24H");
+            OnPropertyChanged("UNI24HCOLOUR");
 
         }
         

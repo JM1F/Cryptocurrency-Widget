@@ -110,7 +110,7 @@
         </Style>
 
 
-        <Style x:Key="scroll_thumb_style" TargetType="Thumb">
+        <Style x:Key="scroll_thumb_style" TargetType="Thumb" >
             <Setter Property="SnapsToDevicePixels" Value="True"/>
             <Setter Property="OverridesDefaultStyle" Value="true"/>
             <Setter Property="IsTabStop" Value="false"/>
@@ -122,8 +122,8 @@
             <Setter Property="Template">
 
                 <Setter.Value>
-                    <ControlTemplate TargetType="Thumb">
-                        <Rectangle x:Name="thumbSlider"  Width="8"  Fill="#282828 " RadiusX="5" RadiusY="5" Opacity="0.4">
+                    <ControlTemplate TargetType="Thumb" >
+                        <Rectangle x:Name="thumbSlider"  Width="8"  Fill="#282828 " RadiusX="5" RadiusY="5"  >
                         </Rectangle>
                         <ControlTemplate.Triggers>
                             <EventTrigger RoutedEvent="MouseEnter">
@@ -164,13 +164,13 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type ScrollBar}">
-                        <Grid x:Name="Bg" Background="Transparent" Margin="1,0,0,0">
+                        <Grid x:Name="Bg" Background="Transparent" Margin="1,0,0,20">
                             <Track x:Name="PART_Track" 
                             IsDirectionReversed="true"  
                             IsEnabled="{TemplateBinding IsMouseOver}"
-                            Grid.Row="1">
+                            Grid.Row="0" Margin="0,0,0,65">
                                 <Track.Thumb >
-                                    <Thumb Style="{DynamicResource scroll_thumb_style}"/>
+                                    <Thumb Style="{DynamicResource scroll_thumb_style}" Margin="4,0,5,-84"/>
 
                                 </Track.Thumb>
                             </Track>
@@ -272,10 +272,10 @@
 
             <ScrollViewer  VerticalScrollBarVisibility="Auto" BorderThickness="0" Background="Transparent" Grid.RowSpan="2" Foreground="Transparent" Margin="-20,26,-20,7">
 
-                <Grid Height="674" Width="250" >
+                <Grid Height="2250" Width="250" >
 
-                    <Button x:Name="BTCBUTTON" Click="Button_ClickBTC" Margin="18,2,18,611" BorderThickness="0" Background="Transparent" Style="{DynamicResource MainButtons}">
-                        <Grid Width="223" Height="60">
+                    <Button x:Name="BTCBUTTON" Click="Button_ClickBTC" Height="61" Margin="18,1,18,2187" BorderThickness="0" Background="Transparent" Style="{DynamicResource MainButtons}">
+                        <Grid Width="223" Height="61">
                             <TextBlock Text="Bitcoin" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameData" Margin="65,7,49,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
 
                             <TextBlock TextAlignment="Center" Foreground="{Binding Path=PCP24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24h" Margin="61,44,108,0" Text="{Binding Path=PCP24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
@@ -291,9 +291,9 @@
                             </Image>
                         </Grid>
                     </Button>
-                    <Rectangle  Fill="#545454" Margin="25,68,25,605" />
+                    <Rectangle  Fill="#545454" Margin="25,69,25,2180" Height="1"/>
 
-                    <Button Click="Button_ClickETH" Margin="18,75,18,538" BorderThickness="0" Background="Transparent" Style="{DynamicResource MainButtons}">
+                    <Button Click="Button_ClickETH" Height="61" Margin="18,75,18,2114" BorderThickness="0" Background="Transparent" Style="{DynamicResource MainButtons}">
                         <Grid Width="223" Height="60">
                             <TextBlock Text="Ethereum" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameDataETH" Margin="65,7,49,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
 
@@ -312,9 +312,9 @@
                     </Button>
 
 
-                    <Rectangle  Fill="#545454" Margin="25,142,25,531" RenderTransformOrigin="0.5,0.5"/>
+                    <Rectangle  Fill="#545454" Height="1" Margin="25,142,25,2107" RenderTransformOrigin="0.5,0.5"/>
 
-                    <Button Click="Button_ClickADA" Margin="18,149,18,464" BorderThickness="0" Background="Transparent" Style="{DynamicResource MainButtons}">
+                    <Button Click="Button_ClickADA" Height="61" Margin="18,149,18,2040" BorderThickness="0" Background="Transparent" Style="{DynamicResource MainButtons}">
                         <Grid Width="223" Height="60">
                             <TextBlock Text="Cardano" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameDataADA" Margin="65,7,49,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
 
@@ -332,9 +332,9 @@
                         </Grid>
                     </Button>
 
-                    <Rectangle  Fill="#545454" Margin="25,216,25,457" RenderTransformOrigin="0.5,0.5"/>
+                    <Rectangle  Fill="#545454" Height="1" Margin="25,216,25,2033" RenderTransformOrigin="0.5,0.5"/>
 
-                    <Button Click="Button_ClickBNB" Margin="18,223,18,390" BorderThickness="0" Background="Transparent" Style="{DynamicResource MainButtons}">
+                    <Button Click="Button_ClickBNB" Height="61" Margin="18,223,18,1966" BorderThickness="0" Background="Transparent" Style="{DynamicResource MainButtons}">
                         <Grid Width="223" Height="60">
                             <TextBlock Text="Binance Coin" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameDataBNB" Margin="65,7,49,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
 
@@ -352,9 +352,9 @@
                         </Grid>
                     </Button>
 
-                    <Rectangle  Fill="#545454" Margin="25,290,25,383" RenderTransformOrigin="0.5,0.5"/>
+                    <Rectangle  Fill="#545454" Height="1" Margin="25,290,25,1959" RenderTransformOrigin="0.5,0.5"/>
 
-                    <Button Click="Button_ClickDOGE" Margin="18,297,18,316" BorderThickness="0" Background="Transparent" Style="{DynamicResource MainButtons}">
+                    <Button Click="Button_ClickDOGE" Height="61" Margin="18,297,18,1892" BorderThickness="0" Background="Transparent" Style="{DynamicResource MainButtons}">
                         <Grid Width="223" Height="60">
                             <TextBlock Text="Dogecoin" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameDataDOGE" Margin="65,7,49,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
 
@@ -373,9 +373,9 @@
                     </Button>
 
 
-                    <Rectangle  Fill="#545454" Margin="25,364,25,309" RenderTransformOrigin="0.5,0.5"/>
+                    <Rectangle  Fill="#545454" Height="1" Margin="25,364,25,1885" RenderTransformOrigin="0.5,0.5"/>
 
-                    <Button Click="Button_ClickXRP" Margin="18,371,18,242" BorderThickness="0" Background="Transparent" Style="{DynamicResource MainButtons}">
+                    <Button Click="Button_ClickXRP" Height="61" Margin="18,371,18,1818" BorderThickness="0" Background="Transparent" Style="{DynamicResource MainButtons}">
                         <Grid Width="223" Height="60">
                             <TextBlock Text="XRP" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameDataXRP" Margin="65,7,49,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
 
@@ -393,9 +393,9 @@
                         </Grid>
                     </Button>
 
-                    <Rectangle  Fill="#545454" Margin="25,438,25,235" RenderTransformOrigin="0.5,0.5"/>
+                    <Rectangle  Fill="#545454" Height="1" Margin="25,438,25,1811" RenderTransformOrigin="0.5,0.5"/>
 
-                    <Button Click="Button_ClickDOT" Margin="18,445,18,168" BorderThickness="0" Background="Transparent" Style="{DynamicResource MainButtons}">
+                    <Button Click="Button_ClickDOT" Height="61" Margin="18,445,18,1744" BorderThickness="0" Background="Transparent" Style="{DynamicResource MainButtons}">
                         <Grid Width="223" Height="60">
                             <TextBlock Text="Polkadot" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameDataDOT" Margin="65,7,49,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
 
@@ -413,9 +413,9 @@
                         </Grid>
                     </Button>
 
-                    <Rectangle  Fill="#545454" Margin="25,512,25,161" RenderTransformOrigin="0.5,0.5"/>
+                    <Rectangle  Fill="#545454" Height="1" Margin="25,512,25,1737" RenderTransformOrigin="0.5,0.5"/>
 
-                    <Button Click="Button_ClickBTCCASH" Margin="18,520,18,93" BorderThickness="0" Background="Transparent" Style="{DynamicResource MainButtons}">
+                    <Button Click="Button_ClickBTCCASH" Height="61" Margin="18,519,18,1670" BorderThickness="0" Background="Transparent" Style="{DynamicResource MainButtons}">
                         <Grid Width="223" Height="60">
                             <TextBlock Text="Bitcoin Cash" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameDataBTCCASH" Margin="65,7,49,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
 
@@ -433,11 +433,30 @@
                         </Grid>
                     </Button>
 
+                    <Rectangle  Fill="#545454" Height="1" Margin="25,586,25,1663" RenderTransformOrigin="0.5,0.5"/>
+
+                    <Button Click="Button_ClickUNI" Height="61" Margin="18,593,18,1596" BorderThickness="0" Background="Transparent" Style="{DynamicResource MainButtons}">
+                        <Grid Width="223" Height="60">
+                            <TextBlock Text="Uniswap" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameDataUNI" Margin="65,7,49,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
+
+                            <TextBlock TextAlignment="Center" Foreground="{Binding Path=UNI24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hUNI" Margin="61,44,108,0" Text="{Binding Path=UNI24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="UNIPriceName" Margin="142,44,19,0" Text="{Binding Path=UNIPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
 
-                    <Rectangle  Fill="#545454" Margin="25,586,25,87" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
+                            <TextBlock Foreground="White" Margin="158,32,41,17" Text="Price" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
 
-                    <TextBlock Foreground="White" FontFamily="./resources/#Montserrat Medium" Margin="25,592,126,60" TextDecorations="None" Style="{DynamicResource HyperlinkStyle}">
+                            <Image Source="/Images/uniswap.png" Margin="0,0,163,0" Stretch="None">
+
+                            </Image>
+                        </Grid>
+                    </Button>
+
+                    <Rectangle  Fill="#545454" Height="1" Margin="25,660,25,1589" RenderTransformOrigin="0.5,0.5"/>
+
+
+                    <TextBlock Foreground="White" FontFamily="./resources/#Montserrat Medium" Margin="25,2160,126,60" TextDecorations="None" Style="{DynamicResource HyperlinkStyle}">
                         <Hyperlink NavigateUri="https://github.com/JM1F/Cryptocurrency-Widget/issues" RequestNavigate="Hyperlink_RequestNavigate">
                             Request/Issues
                         </Hyperlink>

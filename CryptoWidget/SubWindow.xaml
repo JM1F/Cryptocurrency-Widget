@@ -10,10 +10,8 @@
         AllowsTransparency="True"
         Background="Transparent"
         ResizeMode="NoResize"
-        WindowStartupLocation="CenterOwner"
-        
-        Loaded="Window_Loaded"
-        >
+        WindowStartupLocation="CenterOwner"  
+        Loaded="Window_Loaded" >
 
     <Window.Resources>
         <Button x:Key="exitButton_hover" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="13" Margin="237,0,0,287"  Height="13" BorderThickness="0" Background="red" Foreground="white"  />

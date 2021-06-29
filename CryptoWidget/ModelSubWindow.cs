@@ -255,7 +255,7 @@ namespace CryptoWidget
                 if (CoinAPIData[8].price_change_percentage_1y_in_currency == null)
                 {
                     CoinPrice1Y = "N/A";
-                    CoinPrice1YColour = "White";
+                    
                 }
                 else
                 {
@@ -285,6 +285,38 @@ namespace CryptoWidget
 
                 CoinPrice1Y = stringSolver.ShortenStringData(CoinAPIData[BTCCASHINDEX].price_change_percentage_1y_in_currency);
                 CoinPrice1YColour = n.ColourCheck(CoinPrice1Y);
+            }
+            else if (CoinCodeName == "uniswap")
+            {
+                int UNIINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Uniswap");
+                CoinPrice = Convert.ToString("£" + CoinAPIData[UNIINDEX].current_price);
+
+                CoinPriceATH = ("£" + CoinAPIData[UNIINDEX].ath);
+
+                CoinPrice1H = stringSolver.ShortenStringData(CoinAPIData[UNIINDEX].price_change_percentage_1h_in_currency);
+                CoinPrice1HColour = n.ColourCheck(CoinPrice1H);
+
+                CoinPrice24H = stringSolver.ShortenStringData(CoinAPIData[UNIINDEX].price_change_percentage_24h_in_currency);
+                CoinPrice24HColour = n.ColourCheck(CoinPrice24H);
+
+                CoinPrice7D = stringSolver.ShortenStringData(CoinAPIData[UNIINDEX].price_change_percentage_7d_in_currency);
+                CoinPrice7DColour = n.ColourCheck(CoinPrice7D);
+
+                CoinPrice30D = stringSolver.ShortenStringData(CoinAPIData[UNIINDEX].price_change_percentage_30d_in_currency);
+                CoinPrice30DColour = n.ColourCheck(CoinPrice30D);
+
+                if (CoinAPIData[UNIINDEX].price_change_percentage_1y_in_currency == null)
+                {
+                    CoinPrice1Y = "N/A";
+                   
+                }
+                else
+                {
+                    CoinPrice1Y = stringSolver.ShortenStringData(CoinAPIData[UNIINDEX].price_change_percentage_1y_in_currency);
+                    CoinPrice1YColour = n.ColourCheck(CoinPrice1Y);
+                }
+
+                
             }
 
             OnPropertyChanged("CoinPrice");

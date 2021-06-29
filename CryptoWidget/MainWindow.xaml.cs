@@ -117,7 +117,11 @@ namespace CryptoWidget
             PriceData24hBTCCASH.Text = stringSolver.ShortenStringData(CoinAPIData[BTCCASHINDEX].price_change_percentage_24h_in_currency);
             PriceData24hBTCCASH.Foreground = new BrushConverter().ConvertFromString(n.ColourCheck(CoinAPIData[BTCCASHINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
 
+            int UNIINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Uniswap");
 
+            UNIPriceName.Text = ("£" + CoinAPIData[UNIINDEX].current_price);
+            PriceData24hUNI.Text = stringSolver.ShortenStringData(CoinAPIData[UNIINDEX].price_change_percentage_24h_in_currency);
+            PriceData24hUNI.Foreground = new BrushConverter().ConvertFromString(n.ColourCheck(CoinAPIData[UNIINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
         }
 
         /// <summary>
@@ -208,12 +212,18 @@ namespace CryptoWidget
 
             bitcoincashwindow.ShowDialog();
         }
-        /// <summary>
-        /// Handles the hyperlink request when clicked.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
+        public void Button_ClickUNI(object sender, RoutedEventArgs e)
+        {
+            SubWindow uniswapwindow = new SubWindow("uniswap");
+
+            uniswapwindow.ShowDialog();
+        }
+            /// <summary>
+            /// Handles the hyperlink request when clicked.
+            /// </summary>
+            /// <param name="sender"></param>
+            /// <param name="e"></param>
+            private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
         {
             Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri));
             e.Handled = true;

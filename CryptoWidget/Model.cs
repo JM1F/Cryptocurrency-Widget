@@ -87,6 +87,10 @@ namespace CryptoWidget
         public string ETHC24HCOLOUR { get; set; }
         public string ETHCPRICE { get; set; }
 
+        public string MATIC24H { get; set; }
+        public string MATIC24HCOLOUR { get; set; }
+        public string MATICPRICE { get; set; }
+
 
 
 
@@ -237,6 +241,15 @@ namespace CryptoWidget
             OnPropertyChanged("ETHCPRICE");
             OnPropertyChanged("ETHC24H");
             OnPropertyChanged("ETHC24HCOLOUR");
+
+            int MATICINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Polygon");
+
+            MATICPRICE = ("£" + CoinAPIData[MATICINDEX].current_price);
+            MATIC24H = stringSolver.ShortenStringData(CoinAPIData[MATICINDEX].price_change_percentage_24h_in_currency);
+            MATIC24HCOLOUR = n.ColourCheck(MATIC24H);
+            OnPropertyChanged("MATICPRICE");
+            OnPropertyChanged("MATIC24H");
+            OnPropertyChanged("MATIC24HCOLOUR");
         }
         
     }

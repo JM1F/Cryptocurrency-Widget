@@ -200,5 +200,8 @@
   <ItemGroup>
     <Resource Include="Images\ethereumclassic.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\polygon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -146,6 +146,14 @@ namespace CryptoWidget
             ETHCPriceName.Text = ("£" + CoinAPIData[ETHCINDEX].current_price);
             PriceData24hETHC.Text = stringSolver.ShortenStringData(CoinAPIData[ETHCINDEX].price_change_percentage_24h_in_currency);
             PriceData24hETHC.Foreground = new BrushConverter().ConvertFromString(n.ColourCheck(CoinAPIData[ETHCINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+
+            int MATICINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Polygon");
+
+            MATICPriceName.Text = ("£" + CoinAPIData[MATICINDEX].current_price);
+            PriceData24hMATIC.Text = stringSolver.ShortenStringData(CoinAPIData[MATICINDEX].price_change_percentage_24h_in_currency);
+            PriceData24hMATIC.Foreground = new BrushConverter().ConvertFromString(n.ColourCheck(CoinAPIData[MATICINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+
+
         }
 
         /// <summary>
@@ -265,6 +273,12 @@ namespace CryptoWidget
             SubWindow ethereumclassicwindow = new SubWindow("ethereumclassic");
 
             ethereumclassicwindow.ShowDialog();
+        }
+        public void Button_ClickMATIC(object sender, RoutedEventArgs e)
+        {
+            SubWindow polygonwindow = new SubWindow("polygon");
+
+            polygonwindow.ShowDialog();
         }
         /// <summary>
         /// Handles the hyperlink request when clicked.

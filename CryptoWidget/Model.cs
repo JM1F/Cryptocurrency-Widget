@@ -83,7 +83,9 @@ namespace CryptoWidget
         public string LINK24HCOLOUR { get; set; }
         public string LINKPRICE { get; set; }
 
-
+        public string ETHC24H { get; set; }
+        public string ETHC24HCOLOUR { get; set; }
+        public string ETHCPRICE { get; set; }
 
 
 
@@ -226,6 +228,15 @@ namespace CryptoWidget
             OnPropertyChanged("LINKPRICE");
             OnPropertyChanged("LINK24H");
             OnPropertyChanged("LINK24HCOLOUR");
+
+            int ETHCINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Ethereum Classic");
+
+            ETHCPRICE = ("£" + CoinAPIData[ETHCINDEX].current_price);
+            ETHC24H = stringSolver.ShortenStringData(CoinAPIData[ETHCINDEX].price_change_percentage_24h_in_currency);
+            ETHC24HCOLOUR = n.ColourCheck(ETHC24H);
+            OnPropertyChanged("ETHCPRICE");
+            OnPropertyChanged("ETHC24H");
+            OnPropertyChanged("ETHC24HCOLOUR");
         }
         
     }

@@ -197,5 +197,8 @@
   <ItemGroup>
     <Resource Include="Images\chainlink.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ethereumclassic.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

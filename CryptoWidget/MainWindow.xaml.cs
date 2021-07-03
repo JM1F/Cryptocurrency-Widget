@@ -140,6 +140,12 @@ namespace CryptoWidget
             LINKPriceName.Text = ("£" + CoinAPIData[LINKINDEX].current_price);
             PriceData24hLINK.Text = stringSolver.ShortenStringData(CoinAPIData[LINKINDEX].price_change_percentage_24h_in_currency);
             PriceData24hLINK.Foreground = new BrushConverter().ConvertFromString(n.ColourCheck(CoinAPIData[LINKINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+
+            int ETHCINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Ethereum Classic");
+
+            ETHCPriceName.Text = ("£" + CoinAPIData[ETHCINDEX].current_price);
+            PriceData24hETHC.Text = stringSolver.ShortenStringData(CoinAPIData[ETHCINDEX].price_change_percentage_24h_in_currency);
+            PriceData24hETHC.Foreground = new BrushConverter().ConvertFromString(n.ColourCheck(CoinAPIData[ETHCINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
         }
 
         /// <summary>
@@ -253,6 +259,12 @@ namespace CryptoWidget
             SubWindow chainlinkwindow = new SubWindow("chainlink");
 
             chainlinkwindow.ShowDialog();
+        }
+        public void Button_ClickETHC(object sender, RoutedEventArgs e)
+        {
+            SubWindow ethereumclassicwindow = new SubWindow("ethereumclassic");
+
+            ethereumclassicwindow.ShowDialog();
         }
         /// <summary>
         /// Handles the hyperlink request when clicked.

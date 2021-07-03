@@ -122,6 +122,18 @@ namespace CryptoWidget
             UNIPriceName.Text = ("£" + CoinAPIData[UNIINDEX].current_price);
             PriceData24hUNI.Text = stringSolver.ShortenStringData(CoinAPIData[UNIINDEX].price_change_percentage_24h_in_currency);
             PriceData24hUNI.Foreground = new BrushConverter().ConvertFromString(n.ColourCheck(CoinAPIData[UNIINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+
+            int SOLINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Solana");
+
+            SOLPriceName.Text = ("£" + CoinAPIData[SOLINDEX].current_price);
+            PriceData24hSOL.Text = stringSolver.ShortenStringData(CoinAPIData[SOLINDEX].price_change_percentage_24h_in_currency);
+            PriceData24hSOL.Foreground = new BrushConverter().ConvertFromString(n.ColourCheck(CoinAPIData[SOLINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+
+            int LTCINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Litecoin");
+
+            LTCPriceName.Text = ("£" + CoinAPIData[LTCINDEX].current_price);
+            PriceData24hLTC.Text = stringSolver.ShortenStringData(CoinAPIData[LTCINDEX].price_change_percentage_24h_in_currency);
+            PriceData24hLTC.Foreground = new BrushConverter().ConvertFromString(n.ColourCheck(CoinAPIData[LTCINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
         }
 
         /// <summary>
@@ -218,12 +230,24 @@ namespace CryptoWidget
 
             uniswapwindow.ShowDialog();
         }
-            /// <summary>
-            /// Handles the hyperlink request when clicked.
-            /// </summary>
-            /// <param name="sender"></param>
-            /// <param name="e"></param>
-            private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
+        public void Button_ClickSOL(object sender, RoutedEventArgs e)
+        {
+            SubWindow solanawindow = new SubWindow("solana");
+
+            solanawindow.ShowDialog();
+        }
+        public void Button_ClickLTC(object sender, RoutedEventArgs e)
+        {
+            SubWindow litecoinwindow = new SubWindow("litecoin");
+
+            litecoinwindow.ShowDialog();
+        }
+        /// <summary>
+        /// Handles the hyperlink request when clicked.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
         {
             Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri));
             e.Handled = true;

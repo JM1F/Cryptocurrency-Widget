@@ -318,6 +318,50 @@ namespace CryptoWidget
 
                 
             }
+            else if (CoinCodeName == "solana")
+            {
+                int SOLINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Solana");
+                CoinPrice = Convert.ToString("£" + CoinAPIData[SOLINDEX].current_price);
+
+                CoinPriceATH = ("£" + CoinAPIData[SOLINDEX].ath);
+
+                CoinPrice1H = stringSolver.ShortenStringData(CoinAPIData[SOLINDEX].price_change_percentage_1h_in_currency);
+                CoinPrice1HColour = n.ColourCheck(CoinPrice1H);
+
+                CoinPrice24H = stringSolver.ShortenStringData(CoinAPIData[SOLINDEX].price_change_percentage_24h_in_currency);
+                CoinPrice24HColour = n.ColourCheck(CoinPrice24H);
+
+                CoinPrice7D = stringSolver.ShortenStringData(CoinAPIData[SOLINDEX].price_change_percentage_7d_in_currency);
+                CoinPrice7DColour = n.ColourCheck(CoinPrice7D);
+
+                CoinPrice30D = stringSolver.ShortenStringData(CoinAPIData[SOLINDEX].price_change_percentage_30d_in_currency);
+                CoinPrice30DColour = n.ColourCheck(CoinPrice30D);
+
+                CoinPrice1Y = stringSolver.ShortenStringData(CoinAPIData[SOLINDEX].price_change_percentage_1y_in_currency);
+                CoinPrice1YColour = n.ColourCheck(CoinPrice1Y);
+            }
+            else if (CoinCodeName == "litecoin")
+            {
+                int LTCINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Litecoin");
+                CoinPrice = Convert.ToString("£" + CoinAPIData[LTCINDEX].current_price);
+
+                CoinPriceATH = ("£" + CoinAPIData[LTCINDEX].ath);
+
+                CoinPrice1H = stringSolver.ShortenStringData(CoinAPIData[LTCINDEX].price_change_percentage_1h_in_currency);
+                CoinPrice1HColour = n.ColourCheck(CoinPrice1H);
+
+                CoinPrice24H = stringSolver.ShortenStringData(CoinAPIData[LTCINDEX].price_change_percentage_24h_in_currency);
+                CoinPrice24HColour = n.ColourCheck(CoinPrice24H);
+
+                CoinPrice7D = stringSolver.ShortenStringData(CoinAPIData[LTCINDEX].price_change_percentage_7d_in_currency);
+                CoinPrice7DColour = n.ColourCheck(CoinPrice7D);
+
+                CoinPrice30D = stringSolver.ShortenStringData(CoinAPIData[LTCINDEX].price_change_percentage_30d_in_currency);
+                CoinPrice30DColour = n.ColourCheck(CoinPrice30D);
+
+                CoinPrice1Y = stringSolver.ShortenStringData(CoinAPIData[LTCINDEX].price_change_percentage_1y_in_currency);
+                CoinPrice1YColour = n.ColourCheck(CoinPrice1Y);
+            }
 
             OnPropertyChanged("CoinPrice");
 

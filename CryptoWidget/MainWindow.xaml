@@ -455,6 +455,46 @@
 
                     <Rectangle  Fill="#545454" Height="1" Margin="25,660,25,1589" RenderTransformOrigin="0.5,0.5"/>
 
+                    <Button Click="Button_ClickSOL" Height="61" Margin="18,667,18,1522" BorderThickness="0" Background="Transparent" Style="{DynamicResource MainButtons}">
+                        <Grid Width="223" Height="60">
+                            <TextBlock Text="Solana" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameDataSOL" Margin="65,7,49,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
+
+                            <TextBlock TextAlignment="Center" Foreground="{Binding Path=SOL24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hSOL" Margin="61,44,108,0" Text="{Binding Path=SOL24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="SOLPriceName" Margin="142,44,19,0" Text="{Binding Path=SOLPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+
+
+                            <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
+                            <TextBlock Foreground="White" Margin="158,32,41,17" Text="Price" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
+
+                            <Image Source="/Images/solana.png" Margin="0,0,163,0" Stretch="None">
+
+                            </Image>
+                        </Grid>
+                    </Button>
+
+                    <Rectangle  Fill="#545454" Height="1" Margin="25,734,25,1515" RenderTransformOrigin="0.5,0.5"/>
+
+                    <Button Click="Button_ClickLTC" Height="61" Margin="18,741,18,1448" BorderThickness="0" Background="Transparent" Style="{DynamicResource MainButtons}">
+                        <Grid Width="223" Height="60">
+                            <TextBlock Text="Litecoin" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameDataLTC" Margin="65,7,49,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
+
+                            <TextBlock TextAlignment="Center" Foreground="{Binding Path=LTC24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hLTC" Margin="61,44,108,0" Text="{Binding Path=LTC24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="LTCPriceName" Margin="142,44,19,0" Text="{Binding Path=LTCPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+
+
+                            <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
+                            <TextBlock Foreground="White" Margin="158,32,41,17" Text="Price" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
+
+                            <Image Source="/Images/litecoin.png" Margin="0,0,163,0" Stretch="None">
+
+                            </Image>
+                        </Grid>
+                    </Button>
+
+                    <Rectangle  Fill="#545454" Height="1" Margin="25,808,25,1441" RenderTransformOrigin="0.5,0.5"/>
+
 
                     <TextBlock Foreground="White" FontFamily="./resources/#Montserrat Medium" Margin="25,2160,126,60" TextDecorations="None" Style="{DynamicResource HyperlinkStyle}">
                         <Hyperlink NavigateUri="https://github.com/JM1F/Cryptocurrency-Widget/issues" RequestNavigate="Hyperlink_RequestNavigate">

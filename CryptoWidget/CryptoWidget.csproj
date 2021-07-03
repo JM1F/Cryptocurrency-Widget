@@ -188,5 +188,11 @@
   <ItemGroup>
     <Resource Include="Images\uniswap.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\solana.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\litecoin.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

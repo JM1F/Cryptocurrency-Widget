@@ -71,6 +71,14 @@ namespace CryptoWidget
         public string UNI24HCOLOUR { get; set; }
         public string UNIPRICE { get; set; }
 
+        public string SOL24H { get; set; }
+        public string SOL24HCOLOUR { get; set; }
+        public string SOLPRICE { get; set; }
+
+        public string LTC24H { get; set; }
+        public string LTC24HCOLOUR { get; set; }
+        public string LTCPRICE { get; set; }
+
 
 
 
@@ -188,6 +196,23 @@ namespace CryptoWidget
             OnPropertyChanged("UNI24H");
             OnPropertyChanged("UNI24HCOLOUR");
 
+            int SOLINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Solana");
+
+            SOLPRICE = ("£" + CoinAPIData[SOLINDEX].current_price);
+            SOL24H = stringSolver.ShortenStringData(CoinAPIData[SOLINDEX].price_change_percentage_24h_in_currency);
+            SOL24HCOLOUR = n.ColourCheck(SOL24H);
+            OnPropertyChanged("SOLPRICE");
+            OnPropertyChanged("SOL24H");
+            OnPropertyChanged("SOL24HCOLOUR");
+
+            int LTCINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Litecoin");
+
+            LTCPRICE = ("£" + CoinAPIData[LTCINDEX].current_price);
+            LTC24H = stringSolver.ShortenStringData(CoinAPIData[LTCINDEX].price_change_percentage_24h_in_currency);
+            LTC24HCOLOUR = n.ColourCheck(LTC24H);
+            OnPropertyChanged("LTCPRICE");
+            OnPropertyChanged("LTC24H");
+            OnPropertyChanged("LTC24HCOLOUR");
         }
         
     }

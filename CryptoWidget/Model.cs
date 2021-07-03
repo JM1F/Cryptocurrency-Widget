@@ -79,6 +79,10 @@ namespace CryptoWidget
         public string LTC24HCOLOUR { get; set; }
         public string LTCPRICE { get; set; }
 
+        public string LINK24H { get; set; }
+        public string LINK24HCOLOUR { get; set; }
+        public string LINKPRICE { get; set; }
+
 
 
 
@@ -213,6 +217,15 @@ namespace CryptoWidget
             OnPropertyChanged("LTCPRICE");
             OnPropertyChanged("LTC24H");
             OnPropertyChanged("LTC24HCOLOUR");
+
+            int LINKINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Chainlink");
+
+            LINKPRICE = ("£" + CoinAPIData[LINKINDEX].current_price);
+            LINK24H = stringSolver.ShortenStringData(CoinAPIData[LINKINDEX].price_change_percentage_24h_in_currency);
+            LINK24HCOLOUR = n.ColourCheck(LINK24H);
+            OnPropertyChanged("LINKPRICE");
+            OnPropertyChanged("LINK24H");
+            OnPropertyChanged("LINK24HCOLOUR");
         }
         
     }

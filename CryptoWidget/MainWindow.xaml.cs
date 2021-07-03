@@ -134,6 +134,12 @@ namespace CryptoWidget
             LTCPriceName.Text = ("£" + CoinAPIData[LTCINDEX].current_price);
             PriceData24hLTC.Text = stringSolver.ShortenStringData(CoinAPIData[LTCINDEX].price_change_percentage_24h_in_currency);
             PriceData24hLTC.Foreground = new BrushConverter().ConvertFromString(n.ColourCheck(CoinAPIData[LTCINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+
+            int LINKINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Chainlink");
+
+            LINKPriceName.Text = ("£" + CoinAPIData[LINKINDEX].current_price);
+            PriceData24hLINK.Text = stringSolver.ShortenStringData(CoinAPIData[LINKINDEX].price_change_percentage_24h_in_currency);
+            PriceData24hLINK.Foreground = new BrushConverter().ConvertFromString(n.ColourCheck(CoinAPIData[LINKINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
         }
 
         /// <summary>
@@ -241,6 +247,12 @@ namespace CryptoWidget
             SubWindow litecoinwindow = new SubWindow("litecoin");
 
             litecoinwindow.ShowDialog();
+        }
+        public void Button_ClickLINK(object sender, RoutedEventArgs e)
+        {
+            SubWindow chainlinkwindow = new SubWindow("chainlink");
+
+            chainlinkwindow.ShowDialog();
         }
         /// <summary>
         /// Handles the hyperlink request when clicked.

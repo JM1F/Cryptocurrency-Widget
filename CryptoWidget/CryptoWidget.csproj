@@ -194,5 +194,8 @@
   <ItemGroup>
     <Resource Include="Images\litecoin.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\chainlink.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -159,6 +159,18 @@ namespace CryptoWidget
             PriceData24hWBTC.Text = stringSolver.ShortenStringData(CoinAPIData[WBTCINDEX].price_change_percentage_24h_in_currency);
             PriceData24hWBTC.Foreground = new BrushConverter().ConvertFromString(n.ColourCheck(CoinAPIData[WBTCINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
 
+            int ICPINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Internet Computer");
+
+            ICPPriceName.Text = ("£" + CoinAPIData[ICPINDEX].current_price);
+            PriceData24hICP.Text = stringSolver.ShortenStringData(CoinAPIData[ICPINDEX].price_change_percentage_24h_in_currency);
+            PriceData24hICP.Foreground = new BrushConverter().ConvertFromString(n.ColourCheck(CoinAPIData[ICPINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+
+            int THETAINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Theta Network");
+
+            THETAPriceName.Text = ("£" + CoinAPIData[THETAINDEX].current_price);
+            PriceData24hTHETA.Text = stringSolver.ShortenStringData(CoinAPIData[THETAINDEX].price_change_percentage_24h_in_currency);
+            PriceData24hTHETA.Foreground = new BrushConverter().ConvertFromString(n.ColourCheck(CoinAPIData[THETAINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+
         }
 
         /// <summary>
@@ -290,6 +302,18 @@ namespace CryptoWidget
             SubWindow wrappedbitcoinwindow = new SubWindow("wrappedbitcoin");
 
             wrappedbitcoinwindow.ShowDialog();
+        }
+        public void Button_ClickICP(object sender, RoutedEventArgs e)
+        {
+            SubWindow interentcomputerwindow = new SubWindow("internetcomputer");
+
+            interentcomputerwindow.ShowDialog();
+        }
+        public void Button_ClickTHETA(object sender, RoutedEventArgs e)
+        {
+            SubWindow thetawindow = new SubWindow("theta");
+
+            thetawindow.ShowDialog();
         }
         /// <summary>
         /// Handles the hyperlink request when clicked.

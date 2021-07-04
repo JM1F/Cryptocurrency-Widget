@@ -575,6 +575,46 @@
 
                     <Rectangle  Fill="#545454" Height="1" Margin="25,1104,25,1145" RenderTransformOrigin="0.5,0.5"/>
 
+                    <Button Click="Button_ClickICP" Height="61" Margin="18,1111,18,1078" BorderThickness="0" Background="Transparent" Style="{DynamicResource MainButtons}">
+                        <Grid Width="223" Height="60">
+                            <TextBlock Text="Internet Computer" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameDataICP" Margin="57,7,9,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
+
+                            <TextBlock TextAlignment="Center" Foreground="{Binding Path=ICP24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hICP" Margin="61,44,108,0" Text="{Binding Path=ICP24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="ICPPriceName" Margin="142,44,19,0" Text="{Binding Path=ICPPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+
+
+                            <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
+                            <TextBlock Foreground="White" Margin="158,32,41,17" Text="Price" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
+
+                            <Image Source="/Images/internetcomputer.png" Margin="0,0,163,0" Stretch="None">
+
+                            </Image>
+                        </Grid>
+                    </Button>
+
+                    <Rectangle  Fill="#545454" Height="1" Margin="25,1178,25,1071" RenderTransformOrigin="0.5,0.5"/>
+
+                    <Button Click="Button_ClickTHETA" Height="61" Margin="18,1185,18,1004" BorderThickness="0" Background="Transparent" Style="{DynamicResource MainButtons}">
+                        <Grid Width="223" Height="60">
+                            <TextBlock Text="Theta" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameDataTHETA" Margin="65,7,9,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
+
+                            <TextBlock TextAlignment="Center" Foreground="{Binding Path=THETA24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hTHETA" Margin="61,44,108,0" Text="{Binding Path=THETA24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="THETAPriceName" Margin="142,44,19,0" Text="{Binding Path=THETAPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+
+
+                            <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
+                            <TextBlock Foreground="White" Margin="158,32,41,17" Text="Price" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
+
+                            <Image Source="/Images/theta.png" Margin="0,0,163,0" Stretch="None">
+
+                            </Image>
+                        </Grid>
+                    </Button>
+
+                    <Rectangle  Fill="#545454" Height="1" Margin="25,1252,25,997" RenderTransformOrigin="0.5,0.5"/>
+
                     <TextBlock Foreground="White" FontFamily="./resources/#Montserrat Medium" Margin="25,2160,126,60" TextDecorations="None" Style="{DynamicResource HyperlinkStyle}">
                         <Hyperlink NavigateUri="https://github.com/JM1F/Cryptocurrency-Widget/issues" RequestNavigate="Hyperlink_RequestNavigate">
                             Request/Issues

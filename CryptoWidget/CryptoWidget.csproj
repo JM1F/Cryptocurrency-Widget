@@ -206,5 +206,11 @@
   <ItemGroup>
     <Resource Include="Images\wrappedbitcoin.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\internetcomputer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\theta.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -95,7 +95,13 @@ namespace CryptoWidget
         public string WBTC24HCOLOUR { get; set; }
         public string WBTCPRICE { get; set; }
 
+        public string ICP24H { get; set; }
+        public string ICP24HCOLOUR { get; set; }
+        public string ICPPRICE { get; set; }
 
+        public string THETA24H { get; set; }
+        public string THETA24HCOLOUR { get; set; }
+        public string THETAPRICE { get; set; }
 
 
 
@@ -263,6 +269,24 @@ namespace CryptoWidget
             OnPropertyChanged("WBTCPRICE");
             OnPropertyChanged("WBTC24H");
             OnPropertyChanged("WBTC24HCOLOUR");
+
+            int ICPINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Internet Computer");
+
+            ICPPRICE = ("£" + CoinAPIData[ICPINDEX].current_price);
+            ICP24H = stringSolver.ShortenStringData(CoinAPIData[ICPINDEX].price_change_percentage_24h_in_currency);
+            ICP24HCOLOUR = n.ColourCheck(ICP24H);
+            OnPropertyChanged("ICPPRICE");
+            OnPropertyChanged("ICP24H");
+            OnPropertyChanged("ICP24HCOLOUR");
+
+            int THETAINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Theta Network");
+
+            THETAPRICE = ("£" + CoinAPIData[THETAINDEX].current_price);
+            THETA24H = stringSolver.ShortenStringData(CoinAPIData[THETAINDEX].price_change_percentage_24h_in_currency);
+            THETA24HCOLOUR = n.ColourCheck(THETA24H);
+            OnPropertyChanged("THETAPRICE");
+            OnPropertyChanged("THETA24H");
+            OnPropertyChanged("THETA24HCOLOUR");
         }
         
     }

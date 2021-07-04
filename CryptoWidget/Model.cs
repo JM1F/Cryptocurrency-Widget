@@ -91,6 +91,10 @@ namespace CryptoWidget
         public string MATIC24HCOLOUR { get; set; }
         public string MATICPRICE { get; set; }
 
+        public string WBTC24H { get; set; }
+        public string WBTC24HCOLOUR { get; set; }
+        public string WBTCPRICE { get; set; }
+
 
 
 
@@ -250,6 +254,15 @@ namespace CryptoWidget
             OnPropertyChanged("MATICPRICE");
             OnPropertyChanged("MATIC24H");
             OnPropertyChanged("MATIC24HCOLOUR");
+
+            int WBTCINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Wrapped Bitcoin");
+
+            WBTCPRICE = ("£" + CoinAPIData[WBTCINDEX].current_price);
+            WBTC24H = stringSolver.ShortenStringData(CoinAPIData[WBTCINDEX].price_change_percentage_24h_in_currency);
+            WBTC24HCOLOUR = n.ColourCheck(WBTC24H);
+            OnPropertyChanged("WBTCPRICE");
+            OnPropertyChanged("WBTC24H");
+            OnPropertyChanged("WBTC24HCOLOUR");
         }
         
     }

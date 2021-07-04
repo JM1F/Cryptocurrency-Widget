@@ -203,5 +203,8 @@
   <ItemGroup>
     <Resource Include="Images\polygon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\wrappedbitcoin.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

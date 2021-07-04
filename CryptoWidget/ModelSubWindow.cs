@@ -428,6 +428,28 @@ namespace CryptoWidget
                 CoinPrice1Y = stringSolver.ShortenStringData(CoinAPIData[MATICINDEX].price_change_percentage_1y_in_currency);
                 CoinPrice1YColour = n.ColourCheck(CoinPrice1Y);
             }
+            else if (CoinCodeName == "wrappedbitcoin")
+            {
+                int WBTCINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Wrapped Bitcoin");
+                CoinPrice = Convert.ToString("£" + CoinAPIData[WBTCINDEX].current_price);
+
+                CoinPriceATH = ("£" + CoinAPIData[WBTCINDEX].ath);
+
+                CoinPrice1H = stringSolver.ShortenStringData(CoinAPIData[WBTCINDEX].price_change_percentage_1h_in_currency);
+                CoinPrice1HColour = n.ColourCheck(CoinPrice1H);
+
+                CoinPrice24H = stringSolver.ShortenStringData(CoinAPIData[WBTCINDEX].price_change_percentage_24h_in_currency);
+                CoinPrice24HColour = n.ColourCheck(CoinPrice24H);
+
+                CoinPrice7D = stringSolver.ShortenStringData(CoinAPIData[WBTCINDEX].price_change_percentage_7d_in_currency);
+                CoinPrice7DColour = n.ColourCheck(CoinPrice7D);
+
+                CoinPrice30D = stringSolver.ShortenStringData(CoinAPIData[WBTCINDEX].price_change_percentage_30d_in_currency);
+                CoinPrice30DColour = n.ColourCheck(CoinPrice30D);
+
+                CoinPrice1Y = stringSolver.ShortenStringData(CoinAPIData[WBTCINDEX].price_change_percentage_1y_in_currency);
+                CoinPrice1YColour = n.ColourCheck(CoinPrice1Y);
+            }
 
 
             OnPropertyChanged("CoinPrice");

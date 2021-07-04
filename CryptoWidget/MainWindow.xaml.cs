@@ -153,6 +153,11 @@ namespace CryptoWidget
             PriceData24hMATIC.Text = stringSolver.ShortenStringData(CoinAPIData[MATICINDEX].price_change_percentage_24h_in_currency);
             PriceData24hMATIC.Foreground = new BrushConverter().ConvertFromString(n.ColourCheck(CoinAPIData[MATICINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
 
+            int WBTCINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Wrapped Bitcoin");
+
+            WBTCPriceName.Text = ("£" + CoinAPIData[MATICINDEX].current_price);
+            PriceData24hWBTC.Text = stringSolver.ShortenStringData(CoinAPIData[WBTCINDEX].price_change_percentage_24h_in_currency);
+            PriceData24hWBTC.Foreground = new BrushConverter().ConvertFromString(n.ColourCheck(CoinAPIData[WBTCINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
 
         }
 
@@ -279,6 +284,12 @@ namespace CryptoWidget
             SubWindow polygonwindow = new SubWindow("polygon");
 
             polygonwindow.ShowDialog();
+        }
+        public void Button_ClickWBTC(object sender, RoutedEventArgs e)
+        {
+            SubWindow wrappedbitcoinwindow = new SubWindow("wrappedbitcoin");
+
+            wrappedbitcoinwindow.ShowDialog();
         }
         /// <summary>
         /// Handles the hyperlink request when clicked.

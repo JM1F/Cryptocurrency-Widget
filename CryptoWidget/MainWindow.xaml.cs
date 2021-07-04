@@ -55,7 +55,7 @@ namespace CryptoWidget
         public async Task GetDataAsync()
         {
             // Calls classes for the checks the data have to go through.
-            ColorPriceCheck n = new ColorPriceCheck();
+            ColorPriceCheck colourCheck = new ColorPriceCheck();
             StringSolver stringSolver = new StringSolver();
             APIDataChecker aPIDataChecker = new APIDataChecker();
 
@@ -70,7 +70,7 @@ namespace CryptoWidget
             // ShortenStringData cuts down the long decimal places from the api and sets the text to the 24 hour price change.
             PriceData24h.Text = stringSolver.ShortenStringData(CoinAPIData[BTCINDEX].price_change_percentage_24h_in_currency);
             // Checks to see if the colour of the price is minus (red) or plus (green).
-            PriceData24h.Foreground = new BrushConverter().ConvertFromString(n.ColourCheck(CoinAPIData[BTCINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+            PriceData24h.Foreground = new BrushConverter().ConvertFromString(colourCheck.ColourCheck(CoinAPIData[BTCINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
 
             // Repeats for all current coins on the widget.
 
@@ -78,128 +78,134 @@ namespace CryptoWidget
 
             ETHPriceName.Text = ("£" + CoinAPIData[ETHINDEX].current_price);
             PriceData24hETH.Text = stringSolver.ShortenStringData(CoinAPIData[ETHINDEX].price_change_percentage_24h_in_currency);
-            PriceData24hETH.Foreground = new BrushConverter().ConvertFromString(n.ColourCheck(CoinAPIData[ETHINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+            PriceData24hETH.Foreground = new BrushConverter().ConvertFromString(colourCheck.ColourCheck(CoinAPIData[ETHINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
 
             int ADAINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Cardano");
 
             ADAPriceName.Text = ("£" + CoinAPIData[ADAINDEX].current_price);
             PriceData24hADA.Text = stringSolver.ShortenStringData(CoinAPIData[ADAINDEX].price_change_percentage_24h_in_currency);
-            PriceData24hADA.Foreground = new BrushConverter().ConvertFromString(n.ColourCheck(CoinAPIData[ADAINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+            PriceData24hADA.Foreground = new BrushConverter().ConvertFromString(colourCheck.ColourCheck(CoinAPIData[ADAINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
 
 
             int BNBINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Binance Coin");
 
             BNBPriceName.Text = ("£" + CoinAPIData[BNBINDEX].current_price);
             PriceData24hBNB.Text = stringSolver.ShortenStringData(CoinAPIData[BNBINDEX].price_change_percentage_24h_in_currency);
-            PriceData24hBNB.Foreground = new BrushConverter().ConvertFromString(n.ColourCheck(CoinAPIData[BNBINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+            PriceData24hBNB.Foreground = new BrushConverter().ConvertFromString(colourCheck.ColourCheck(CoinAPIData[BNBINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
 
             int DOGEINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Dogecoin");
 
             DOGEPriceName.Text = ("£" + CoinAPIData[DOGEINDEX].current_price);
             PriceData24hDOGE.Text = stringSolver.ShortenStringData(CoinAPIData[DOGEINDEX].price_change_percentage_24h_in_currency);
-            PriceData24hDOGE.Foreground = new BrushConverter().ConvertFromString(n.ColourCheck(CoinAPIData[DOGEINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+            PriceData24hDOGE.Foreground = new BrushConverter().ConvertFromString(colourCheck.ColourCheck(CoinAPIData[DOGEINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
 
             int XRPINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "XRP");
 
             XRPPriceName.Text = ("£" + CoinAPIData[XRPINDEX].current_price);
             PriceData24hXRP.Text = stringSolver.ShortenStringData(CoinAPIData[XRPINDEX].price_change_percentage_24h_in_currency);
-            PriceData24hXRP.Foreground = new BrushConverter().ConvertFromString(n.ColourCheck(CoinAPIData[XRPINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+            PriceData24hXRP.Foreground = new BrushConverter().ConvertFromString(colourCheck.ColourCheck(CoinAPIData[XRPINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
 
             int DOTINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Polkadot");
 
             DOTPriceName.Text = ("£" + CoinAPIData[DOTINDEX].current_price);
             PriceData24hDOT.Text = stringSolver.ShortenStringData(CoinAPIData[DOTINDEX].price_change_percentage_24h_in_currency);
-            PriceData24hDOT.Foreground = new BrushConverter().ConvertFromString(n.ColourCheck(CoinAPIData[DOTINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+            PriceData24hDOT.Foreground = new BrushConverter().ConvertFromString(colourCheck.ColourCheck(CoinAPIData[DOTINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
 
             int BTCCASHINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Bitcoin Cash");
 
             BTCCASHPriceName.Text = ("£" + CoinAPIData[BTCCASHINDEX].current_price);
             PriceData24hBTCCASH.Text = stringSolver.ShortenStringData(CoinAPIData[BTCCASHINDEX].price_change_percentage_24h_in_currency);
-            PriceData24hBTCCASH.Foreground = new BrushConverter().ConvertFromString(n.ColourCheck(CoinAPIData[BTCCASHINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+            PriceData24hBTCCASH.Foreground = new BrushConverter().ConvertFromString(colourCheck.ColourCheck(CoinAPIData[BTCCASHINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
 
             int UNIINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Uniswap");
 
             UNIPriceName.Text = ("£" + CoinAPIData[UNIINDEX].current_price);
             PriceData24hUNI.Text = stringSolver.ShortenStringData(CoinAPIData[UNIINDEX].price_change_percentage_24h_in_currency);
-            PriceData24hUNI.Foreground = new BrushConverter().ConvertFromString(n.ColourCheck(CoinAPIData[UNIINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+            PriceData24hUNI.Foreground = new BrushConverter().ConvertFromString(colourCheck.ColourCheck(CoinAPIData[UNIINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
 
             int SOLINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Solana");
 
             SOLPriceName.Text = ("£" + CoinAPIData[SOLINDEX].current_price);
             PriceData24hSOL.Text = stringSolver.ShortenStringData(CoinAPIData[SOLINDEX].price_change_percentage_24h_in_currency);
-            PriceData24hSOL.Foreground = new BrushConverter().ConvertFromString(n.ColourCheck(CoinAPIData[SOLINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+            PriceData24hSOL.Foreground = new BrushConverter().ConvertFromString(colourCheck.ColourCheck(CoinAPIData[SOLINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
 
             int LTCINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Litecoin");
 
             LTCPriceName.Text = ("£" + CoinAPIData[LTCINDEX].current_price);
             PriceData24hLTC.Text = stringSolver.ShortenStringData(CoinAPIData[LTCINDEX].price_change_percentage_24h_in_currency);
-            PriceData24hLTC.Foreground = new BrushConverter().ConvertFromString(n.ColourCheck(CoinAPIData[LTCINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+            PriceData24hLTC.Foreground = new BrushConverter().ConvertFromString(colourCheck.ColourCheck(CoinAPIData[LTCINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
 
             int LINKINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Chainlink");
 
             LINKPriceName.Text = ("£" + CoinAPIData[LINKINDEX].current_price);
             PriceData24hLINK.Text = stringSolver.ShortenStringData(CoinAPIData[LINKINDEX].price_change_percentage_24h_in_currency);
-            PriceData24hLINK.Foreground = new BrushConverter().ConvertFromString(n.ColourCheck(CoinAPIData[LINKINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+            PriceData24hLINK.Foreground = new BrushConverter().ConvertFromString(colourCheck.ColourCheck(CoinAPIData[LINKINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
 
             int ETHCINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Ethereum Classic");
 
             ETHCPriceName.Text = ("£" + CoinAPIData[ETHCINDEX].current_price);
             PriceData24hETHC.Text = stringSolver.ShortenStringData(CoinAPIData[ETHCINDEX].price_change_percentage_24h_in_currency);
-            PriceData24hETHC.Foreground = new BrushConverter().ConvertFromString(n.ColourCheck(CoinAPIData[ETHCINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+            PriceData24hETHC.Foreground = new BrushConverter().ConvertFromString(colourCheck.ColourCheck(CoinAPIData[ETHCINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
 
             int MATICINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Polygon");
 
             MATICPriceName.Text = ("£" + CoinAPIData[MATICINDEX].current_price);
             PriceData24hMATIC.Text = stringSolver.ShortenStringData(CoinAPIData[MATICINDEX].price_change_percentage_24h_in_currency);
-            PriceData24hMATIC.Foreground = new BrushConverter().ConvertFromString(n.ColourCheck(CoinAPIData[MATICINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+            PriceData24hMATIC.Foreground = new BrushConverter().ConvertFromString(colourCheck.ColourCheck(CoinAPIData[MATICINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
 
             int WBTCINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Wrapped Bitcoin");
 
             WBTCPriceName.Text = ("£" + CoinAPIData[MATICINDEX].current_price);
             PriceData24hWBTC.Text = stringSolver.ShortenStringData(CoinAPIData[WBTCINDEX].price_change_percentage_24h_in_currency);
-            PriceData24hWBTC.Foreground = new BrushConverter().ConvertFromString(n.ColourCheck(CoinAPIData[WBTCINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+            PriceData24hWBTC.Foreground = new BrushConverter().ConvertFromString(colourCheck.ColourCheck(CoinAPIData[WBTCINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
 
             int ICPINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Internet Computer");
 
             ICPPriceName.Text = ("£" + CoinAPIData[ICPINDEX].current_price);
             PriceData24hICP.Text = stringSolver.ShortenStringData(CoinAPIData[ICPINDEX].price_change_percentage_24h_in_currency);
-            PriceData24hICP.Foreground = new BrushConverter().ConvertFromString(n.ColourCheck(CoinAPIData[ICPINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+            PriceData24hICP.Foreground = new BrushConverter().ConvertFromString(colourCheck.ColourCheck(CoinAPIData[ICPINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
 
             int THETAINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Theta Network");
 
             THETAPriceName.Text = ("£" + CoinAPIData[THETAINDEX].current_price);
             PriceData24hTHETA.Text = stringSolver.ShortenStringData(CoinAPIData[THETAINDEX].price_change_percentage_24h_in_currency);
-            PriceData24hTHETA.Foreground = new BrushConverter().ConvertFromString(n.ColourCheck(CoinAPIData[THETAINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+            PriceData24hTHETA.Foreground = new BrushConverter().ConvertFromString(colourCheck.ColourCheck(CoinAPIData[THETAINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
 
             int XLMINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Stellar");
 
             XLMPriceName.Text = ("£" + CoinAPIData[XLMINDEX].current_price);
             PriceData24hXLM.Text = stringSolver.ShortenStringData(CoinAPIData[XLMINDEX].price_change_percentage_24h_in_currency);
-            PriceData24hXLM.Foreground = new BrushConverter().ConvertFromString(n.ColourCheck(CoinAPIData[XLMINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+            PriceData24hXLM.Foreground = new BrushConverter().ConvertFromString(colourCheck.ColourCheck(CoinAPIData[XLMINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
 
             int VETINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "VeChain");
 
             VETPriceName.Text = ("£" + CoinAPIData[VETINDEX].current_price);
             PriceData24hVET.Text = stringSolver.ShortenStringData(CoinAPIData[VETINDEX].price_change_percentage_24h_in_currency);
-            PriceData24hVET.Foreground = new BrushConverter().ConvertFromString(n.ColourCheck(CoinAPIData[VETINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+            PriceData24hVET.Foreground = new BrushConverter().ConvertFromString(colourCheck.ColourCheck(CoinAPIData[VETINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
 
             int DAIINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Dai");
 
             DAIPriceName.Text = ("£" + CoinAPIData[DAIINDEX].current_price);
             PriceData24hDAI.Text = stringSolver.ShortenStringData(CoinAPIData[DAIINDEX].price_change_percentage_24h_in_currency);
-            PriceData24hDAI.Foreground = new BrushConverter().ConvertFromString(n.ColourCheck(CoinAPIData[DAIINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+            PriceData24hDAI.Foreground = new BrushConverter().ConvertFromString(colourCheck.ColourCheck(CoinAPIData[DAIINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
 
             int FILINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Filecoin");
 
             FILPriceName.Text = ("£" + CoinAPIData[FILINDEX].current_price);
             PriceData24hFIL.Text = stringSolver.ShortenStringData(CoinAPIData[FILINDEX].price_change_percentage_24h_in_currency);
-            PriceData24hFIL.Foreground = new BrushConverter().ConvertFromString(n.ColourCheck(CoinAPIData[FILINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+            PriceData24hFIL.Foreground = new BrushConverter().ConvertFromString(colourCheck.ColourCheck(CoinAPIData[FILINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
 
             int TRXINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "TRON");
 
             TRXPriceName.Text = ("£" + CoinAPIData[TRXINDEX].current_price);
             PriceData24hTRX.Text = stringSolver.ShortenStringData(CoinAPIData[TRXINDEX].price_change_percentage_24h_in_currency);
-            PriceData24hTRX.Foreground = new BrushConverter().ConvertFromString(n.ColourCheck(CoinAPIData[TRXINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+            PriceData24hTRX.Foreground = new BrushConverter().ConvertFromString(colourCheck.ColourCheck(CoinAPIData[TRXINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+
+            int SHIBINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Shiba Inu");
+
+            SHIBPriceName.Text = ("£" + CoinAPIData[SHIBINDEX].current_price);
+            PriceData24hSHIB.Text = stringSolver.ShortenStringData(CoinAPIData[SHIBINDEX].price_change_percentage_24h_in_currency);
+            PriceData24hSHIB.Foreground = new BrushConverter().ConvertFromString(colourCheck.ColourCheck(CoinAPIData[SHIBINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
 
         }
 
@@ -374,6 +380,12 @@ namespace CryptoWidget
             SubWindow tronwindow = new SubWindow("tron");
 
             tronwindow.ShowDialog();
+        }
+        public void Button_ClickSHIB(object sender, RoutedEventArgs e)
+        {
+            SubWindow shibainuwindow = new SubWindow("shibainu");
+
+            shibainuwindow.ShowDialog();
         }
         /// <summary>
         /// Handles the hyperlink request when clicked.

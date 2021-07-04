@@ -50,7 +50,7 @@ namespace CryptoWidget
             // Call API data
             var CoinAPIData = await dataLoad.LoadData();
             // Calls classes for the checks the data have to go through.
-            ColorPriceCheck n = new ColorPriceCheck();
+            ColorPriceCheck colourCheck = new ColorPriceCheck();
             StringSolver stringSolver = new StringSolver();
             APIDataChecker aPIDataChecker = new APIDataChecker();
             BrushConverter brushConverter = new BrushConverter();
@@ -73,19 +73,19 @@ namespace CryptoWidget
 
                 CoinPriceID1H.Text = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_1h_in_currency);
                 
-                CoinPriceID1H.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[index].price_change_percentage_1h_in_currency)) as SolidColorBrush;
+                CoinPriceID1H.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[index].price_change_percentage_1h_in_currency)) as SolidColorBrush;
 
                 CoinPriceID24H.Text = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_24h_in_currency);
-                CoinPriceID24H.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[index].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+                CoinPriceID24H.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[index].price_change_percentage_24h_in_currency)) as SolidColorBrush;
 
                 CoinPriceID7D.Text = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_7d_in_currency);
-                CoinPriceID7D.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[index].price_change_percentage_7d_in_currency)) as SolidColorBrush;
+                CoinPriceID7D.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[index].price_change_percentage_7d_in_currency)) as SolidColorBrush;
 
                 CoinPriceID30D.Text = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_30d_in_currency);
-                CoinPriceID30D.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[index].price_change_percentage_30d_in_currency)) as SolidColorBrush;
+                CoinPriceID30D.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[index].price_change_percentage_30d_in_currency)) as SolidColorBrush;
 
                 CoinPriceID1Y.Text = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_1y_in_currency);
-                CoinPriceID1Y.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[index].price_change_percentage_1y_in_currency)) as SolidColorBrush;
+                CoinPriceID1Y.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[index].price_change_percentage_1y_in_currency)) as SolidColorBrush;
             }
             else if (CoinCodeName == "ethereum")
             {
@@ -98,19 +98,19 @@ namespace CryptoWidget
                 CoinPriceIDATH.Text = ("£" + CoinAPIData[index].ath);
 
                 CoinPriceID1H.Text = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_1h_in_currency);
-                CoinPriceID1H.Foreground = (SolidColorBrush)brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[index].price_change_percentage_1h_in_currency));
+                CoinPriceID1H.Foreground = (SolidColorBrush)brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[index].price_change_percentage_1h_in_currency));
 
                 CoinPriceID24H.Text = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_24h_in_currency);
-                CoinPriceID24H.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[index].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+                CoinPriceID24H.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[index].price_change_percentage_24h_in_currency)) as SolidColorBrush;
 
                 CoinPriceID7D.Text = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_7d_in_currency);
-                CoinPriceID7D.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[index].price_change_percentage_7d_in_currency)) as SolidColorBrush;
+                CoinPriceID7D.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[index].price_change_percentage_7d_in_currency)) as SolidColorBrush;
 
                 CoinPriceID30D.Text = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_30d_in_currency);
-                CoinPriceID30D.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[index].price_change_percentage_30d_in_currency)) as SolidColorBrush;
+                CoinPriceID30D.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[index].price_change_percentage_30d_in_currency)) as SolidColorBrush;
 
                 CoinPriceID1Y.Text = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_1y_in_currency);
-                CoinPriceID1Y.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[index].price_change_percentage_1y_in_currency)) as SolidColorBrush;
+                CoinPriceID1Y.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[index].price_change_percentage_1y_in_currency)) as SolidColorBrush;
             }
             else if (CoinCodeName == "cardano")
             {
@@ -123,19 +123,19 @@ namespace CryptoWidget
                 CoinPriceIDATH.Text = ("£" + CoinAPIData[index].ath);
 
                 CoinPriceID1H.Text = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_1h_in_currency);
-                CoinPriceID1H.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[index].price_change_percentage_1h_in_currency)) as SolidColorBrush;
+                CoinPriceID1H.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[index].price_change_percentage_1h_in_currency)) as SolidColorBrush;
 
                 CoinPriceID24H.Text = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_24h_in_currency);
-                CoinPriceID24H.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[index].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+                CoinPriceID24H.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[index].price_change_percentage_24h_in_currency)) as SolidColorBrush;
 
                 CoinPriceID7D.Text = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_7d_in_currency);
-                CoinPriceID7D.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[index].price_change_percentage_7d_in_currency)) as SolidColorBrush;
+                CoinPriceID7D.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[index].price_change_percentage_7d_in_currency)) as SolidColorBrush;
 
                 CoinPriceID30D.Text = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_30d_in_currency);
-                CoinPriceID30D.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[index].price_change_percentage_30d_in_currency)) as SolidColorBrush;
+                CoinPriceID30D.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[index].price_change_percentage_30d_in_currency)) as SolidColorBrush;
 
                 CoinPriceID1Y.Text = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_1y_in_currency);
-                CoinPriceID1Y.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[index].price_change_percentage_1y_in_currency)) as SolidColorBrush;
+                CoinPriceID1Y.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[index].price_change_percentage_1y_in_currency)) as SolidColorBrush;
             }
             else if (CoinCodeName == "binancecoin")
             {
@@ -147,19 +147,19 @@ namespace CryptoWidget
                 CoinPriceIDATH.Text = ("£" + CoinAPIData[index].ath);
 
                 CoinPriceID1H.Text = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_1h_in_currency);
-                CoinPriceID1H.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[index].price_change_percentage_1h_in_currency)) as SolidColorBrush;
+                CoinPriceID1H.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[index].price_change_percentage_1h_in_currency)) as SolidColorBrush;
 
                 CoinPriceID24H.Text = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_24h_in_currency);
-                CoinPriceID24H.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[index].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+                CoinPriceID24H.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[index].price_change_percentage_24h_in_currency)) as SolidColorBrush;
 
                 CoinPriceID7D.Text = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_7d_in_currency);
-                CoinPriceID7D.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[index].price_change_percentage_7d_in_currency)) as SolidColorBrush;
+                CoinPriceID7D.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[index].price_change_percentage_7d_in_currency)) as SolidColorBrush;
 
                 CoinPriceID30D.Text = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_30d_in_currency);
-                CoinPriceID30D.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[index].price_change_percentage_30d_in_currency)) as SolidColorBrush;
+                CoinPriceID30D.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[index].price_change_percentage_30d_in_currency)) as SolidColorBrush;
 
                 CoinPriceID1Y.Text = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_1y_in_currency);
-                CoinPriceID1Y.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[index].price_change_percentage_1y_in_currency)) as SolidColorBrush;
+                CoinPriceID1Y.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[index].price_change_percentage_1y_in_currency)) as SolidColorBrush;
             }
             else if (CoinCodeName == "dogecoin")
             {
@@ -171,19 +171,19 @@ namespace CryptoWidget
                 CoinPriceIDATH.Text = ("£" + CoinAPIData[index].ath);
 
                 CoinPriceID1H.Text = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_1h_in_currency);
-                CoinPriceID1H.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[index].price_change_percentage_1h_in_currency)) as SolidColorBrush;
+                CoinPriceID1H.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[index].price_change_percentage_1h_in_currency)) as SolidColorBrush;
 
                 CoinPriceID24H.Text = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_24h_in_currency);
-                CoinPriceID24H.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[index].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+                CoinPriceID24H.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[index].price_change_percentage_24h_in_currency)) as SolidColorBrush;
 
                 CoinPriceID7D.Text = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_7d_in_currency);
-                CoinPriceID7D.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[index].price_change_percentage_7d_in_currency)) as SolidColorBrush;
+                CoinPriceID7D.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[index].price_change_percentage_7d_in_currency)) as SolidColorBrush;
 
                 CoinPriceID30D.Text = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_30d_in_currency);
-                CoinPriceID30D.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[index].price_change_percentage_30d_in_currency)) as SolidColorBrush;
+                CoinPriceID30D.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[index].price_change_percentage_30d_in_currency)) as SolidColorBrush;
 
                 CoinPriceID1Y.Text = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_1y_in_currency);
-                CoinPriceID1Y.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[index].price_change_percentage_1y_in_currency)) as SolidColorBrush;
+                CoinPriceID1Y.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[index].price_change_percentage_1y_in_currency)) as SolidColorBrush;
             }
             else if (CoinCodeName == "xrp")
             {
@@ -195,19 +195,19 @@ namespace CryptoWidget
                 CoinPriceIDATH.Text = ("£" + CoinAPIData[index].ath);
 
                 CoinPriceID1H.Text = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_1h_in_currency);
-                CoinPriceID1H.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[index].price_change_percentage_1h_in_currency)) as SolidColorBrush;
+                CoinPriceID1H.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[index].price_change_percentage_1h_in_currency)) as SolidColorBrush;
 
                 CoinPriceID24H.Text = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_24h_in_currency);
-                CoinPriceID24H.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[index].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+                CoinPriceID24H.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[index].price_change_percentage_24h_in_currency)) as SolidColorBrush;
 
                 CoinPriceID7D.Text = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_7d_in_currency);
-                CoinPriceID7D.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[index].price_change_percentage_7d_in_currency)) as SolidColorBrush;
+                CoinPriceID7D.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[index].price_change_percentage_7d_in_currency)) as SolidColorBrush;
 
                 CoinPriceID30D.Text = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_30d_in_currency);
-                CoinPriceID30D.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[index].price_change_percentage_30d_in_currency)) as SolidColorBrush;
+                CoinPriceID30D.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[index].price_change_percentage_30d_in_currency)) as SolidColorBrush;
 
                 CoinPriceID1Y.Text = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_1y_in_currency);
-                CoinPriceID1Y.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[index].price_change_percentage_1y_in_currency)) as SolidColorBrush;
+                CoinPriceID1Y.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[index].price_change_percentage_1y_in_currency)) as SolidColorBrush;
             }
             else if (CoinCodeName == "polkadot")
             {
@@ -218,16 +218,16 @@ namespace CryptoWidget
                 CoinPriceIDATH.Text = ("£" + CoinAPIData[8].ath);
 
                 CoinPriceID1H.Text = stringSolver.ShortenStringData(CoinAPIData[8].price_change_percentage_1h_in_currency);
-                CoinPriceID1H.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[8].price_change_percentage_1h_in_currency)) as SolidColorBrush;
+                CoinPriceID1H.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[8].price_change_percentage_1h_in_currency)) as SolidColorBrush;
 
                 CoinPriceID24H.Text = stringSolver.ShortenStringData(CoinAPIData[8].price_change_percentage_24h_in_currency);
-                CoinPriceID24H.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[8].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+                CoinPriceID24H.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[8].price_change_percentage_24h_in_currency)) as SolidColorBrush;
 
                 CoinPriceID7D.Text = stringSolver.ShortenStringData(CoinAPIData[8].price_change_percentage_7d_in_currency);
-                CoinPriceID7D.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[8].price_change_percentage_7d_in_currency)) as SolidColorBrush;
+                CoinPriceID7D.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[8].price_change_percentage_7d_in_currency)) as SolidColorBrush;
 
                 CoinPriceID30D.Text = stringSolver.ShortenStringData(CoinAPIData[8].price_change_percentage_30d_in_currency);
-                CoinPriceID30D.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[8].price_change_percentage_30d_in_currency)) as SolidColorBrush;
+                CoinPriceID30D.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[8].price_change_percentage_30d_in_currency)) as SolidColorBrush;
 
                 if (CoinAPIData[8].price_change_percentage_1y_in_currency == null)
                 {
@@ -238,7 +238,7 @@ namespace CryptoWidget
                 else
                 {
                     CoinPriceID1Y.Text = stringSolver.ShortenStringData(CoinAPIData[8].price_change_percentage_1y_in_currency);
-                    CoinPriceID1Y.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[8].price_change_percentage_1y_in_currency)) as SolidColorBrush;
+                    CoinPriceID1Y.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[8].price_change_percentage_1y_in_currency)) as SolidColorBrush;
                 }
                 
             }
@@ -253,19 +253,19 @@ namespace CryptoWidget
                 CoinPriceIDATH.Text = ("£" + CoinAPIData[BTCCASHINDEX].ath);
 
                 CoinPriceID1H.Text = stringSolver.ShortenStringData(CoinAPIData[BTCCASHINDEX].price_change_percentage_1h_in_currency);
-                CoinPriceID1H.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[BTCCASHINDEX].price_change_percentage_1h_in_currency)) as SolidColorBrush;
+                CoinPriceID1H.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[BTCCASHINDEX].price_change_percentage_1h_in_currency)) as SolidColorBrush;
 
                 CoinPriceID24H.Text = stringSolver.ShortenStringData(CoinAPIData[BTCCASHINDEX].price_change_percentage_24h_in_currency);
-                CoinPriceID24H.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[BTCCASHINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+                CoinPriceID24H.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[BTCCASHINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
 
                 CoinPriceID7D.Text = stringSolver.ShortenStringData(CoinAPIData[BTCCASHINDEX].price_change_percentage_7d_in_currency);
-                CoinPriceID7D.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[BTCCASHINDEX].price_change_percentage_7d_in_currency)) as SolidColorBrush;
+                CoinPriceID7D.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[BTCCASHINDEX].price_change_percentage_7d_in_currency)) as SolidColorBrush;
 
                 CoinPriceID30D.Text = stringSolver.ShortenStringData(CoinAPIData[BTCCASHINDEX].price_change_percentage_30d_in_currency);
-                CoinPriceID30D.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[BTCCASHINDEX].price_change_percentage_30d_in_currency)) as SolidColorBrush;
+                CoinPriceID30D.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[BTCCASHINDEX].price_change_percentage_30d_in_currency)) as SolidColorBrush;
 
                 CoinPriceID1Y.Text = stringSolver.ShortenStringData(CoinAPIData[BTCCASHINDEX].price_change_percentage_1y_in_currency);
-                CoinPriceID1Y.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[BTCCASHINDEX].price_change_percentage_1y_in_currency)) as SolidColorBrush;
+                CoinPriceID1Y.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[BTCCASHINDEX].price_change_percentage_1y_in_currency)) as SolidColorBrush;
 
             }
             else if (CoinCodeName == "uniswap")
@@ -279,16 +279,16 @@ namespace CryptoWidget
                 CoinPriceIDATH.Text = ("£" + CoinAPIData[UNIINDEX].ath);
 
                 CoinPriceID1H.Text = stringSolver.ShortenStringData(CoinAPIData[UNIINDEX].price_change_percentage_1h_in_currency);
-                CoinPriceID1H.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[UNIINDEX].price_change_percentage_1h_in_currency)) as SolidColorBrush;
+                CoinPriceID1H.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[UNIINDEX].price_change_percentage_1h_in_currency)) as SolidColorBrush;
 
                 CoinPriceID24H.Text = stringSolver.ShortenStringData(CoinAPIData[UNIINDEX].price_change_percentage_24h_in_currency);
-                CoinPriceID24H.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[UNIINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+                CoinPriceID24H.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[UNIINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
 
                 CoinPriceID7D.Text = stringSolver.ShortenStringData(CoinAPIData[UNIINDEX].price_change_percentage_7d_in_currency);
-                CoinPriceID7D.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[UNIINDEX].price_change_percentage_7d_in_currency)) as SolidColorBrush;
+                CoinPriceID7D.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[UNIINDEX].price_change_percentage_7d_in_currency)) as SolidColorBrush;
 
                 CoinPriceID30D.Text = stringSolver.ShortenStringData(CoinAPIData[UNIINDEX].price_change_percentage_30d_in_currency);
-                CoinPriceID30D.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[UNIINDEX].price_change_percentage_30d_in_currency)) as SolidColorBrush;
+                CoinPriceID30D.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[UNIINDEX].price_change_percentage_30d_in_currency)) as SolidColorBrush;
 
                 if (CoinAPIData[8].price_change_percentage_1y_in_currency == null)
                 {
@@ -299,7 +299,7 @@ namespace CryptoWidget
                 else
                 {
                     CoinPriceID1Y.Text = stringSolver.ShortenStringData(CoinAPIData[UNIINDEX].price_change_percentage_1y_in_currency);
-                    CoinPriceID1Y.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[UNIINDEX].price_change_percentage_1y_in_currency)) as SolidColorBrush;
+                    CoinPriceID1Y.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[UNIINDEX].price_change_percentage_1y_in_currency)) as SolidColorBrush;
                 }
 
                
@@ -315,19 +315,19 @@ namespace CryptoWidget
                 CoinPriceIDATH.Text = ("£" + CoinAPIData[SOLINDEX].ath);
 
                 CoinPriceID1H.Text = stringSolver.ShortenStringData(CoinAPIData[SOLINDEX].price_change_percentage_1h_in_currency);
-                CoinPriceID1H.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[SOLINDEX].price_change_percentage_1h_in_currency)) as SolidColorBrush;
+                CoinPriceID1H.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[SOLINDEX].price_change_percentage_1h_in_currency)) as SolidColorBrush;
 
                 CoinPriceID24H.Text = stringSolver.ShortenStringData(CoinAPIData[SOLINDEX].price_change_percentage_24h_in_currency);
-                CoinPriceID24H.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[SOLINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+                CoinPriceID24H.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[SOLINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
 
                 CoinPriceID7D.Text = stringSolver.ShortenStringData(CoinAPIData[SOLINDEX].price_change_percentage_7d_in_currency);
-                CoinPriceID7D.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[SOLINDEX].price_change_percentage_7d_in_currency)) as SolidColorBrush;
+                CoinPriceID7D.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[SOLINDEX].price_change_percentage_7d_in_currency)) as SolidColorBrush;
 
                 CoinPriceID30D.Text = stringSolver.ShortenStringData(CoinAPIData[SOLINDEX].price_change_percentage_30d_in_currency);
-                CoinPriceID30D.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[SOLINDEX].price_change_percentage_30d_in_currency)) as SolidColorBrush;
+                CoinPriceID30D.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[SOLINDEX].price_change_percentage_30d_in_currency)) as SolidColorBrush;
 
                 CoinPriceID1Y.Text = stringSolver.ShortenStringData(CoinAPIData[SOLINDEX].price_change_percentage_1y_in_currency);
-                CoinPriceID1Y.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[SOLINDEX].price_change_percentage_1y_in_currency)) as SolidColorBrush;
+                CoinPriceID1Y.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[SOLINDEX].price_change_percentage_1y_in_currency)) as SolidColorBrush;
             }
             else if (CoinCodeName == "litecoin")
             {
@@ -340,19 +340,19 @@ namespace CryptoWidget
                 CoinPriceIDATH.Text = ("£" + CoinAPIData[LTCINDEX].ath);
 
                 CoinPriceID1H.Text = stringSolver.ShortenStringData(CoinAPIData[LTCINDEX].price_change_percentage_1h_in_currency);
-                CoinPriceID1H.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[LTCINDEX].price_change_percentage_1h_in_currency)) as SolidColorBrush;
+                CoinPriceID1H.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[LTCINDEX].price_change_percentage_1h_in_currency)) as SolidColorBrush;
 
                 CoinPriceID24H.Text = stringSolver.ShortenStringData(CoinAPIData[LTCINDEX].price_change_percentage_24h_in_currency);
-                CoinPriceID24H.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[LTCINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+                CoinPriceID24H.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[LTCINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
 
                 CoinPriceID7D.Text = stringSolver.ShortenStringData(CoinAPIData[LTCINDEX].price_change_percentage_7d_in_currency);
-                CoinPriceID7D.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[LTCINDEX].price_change_percentage_7d_in_currency)) as SolidColorBrush;
+                CoinPriceID7D.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[LTCINDEX].price_change_percentage_7d_in_currency)) as SolidColorBrush;
 
                 CoinPriceID30D.Text = stringSolver.ShortenStringData(CoinAPIData[LTCINDEX].price_change_percentage_30d_in_currency);
-                CoinPriceID30D.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[LTCINDEX].price_change_percentage_30d_in_currency)) as SolidColorBrush;
+                CoinPriceID30D.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[LTCINDEX].price_change_percentage_30d_in_currency)) as SolidColorBrush;
 
                 CoinPriceID1Y.Text = stringSolver.ShortenStringData(CoinAPIData[LTCINDEX].price_change_percentage_1y_in_currency);
-                CoinPriceID1Y.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[LTCINDEX].price_change_percentage_1y_in_currency)) as SolidColorBrush;
+                CoinPriceID1Y.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[LTCINDEX].price_change_percentage_1y_in_currency)) as SolidColorBrush;
             }
             else if (CoinCodeName == "chainlink")
             {
@@ -365,19 +365,19 @@ namespace CryptoWidget
                 CoinPriceIDATH.Text = ("£" + CoinAPIData[LINKINDEX].ath);
 
                 CoinPriceID1H.Text = stringSolver.ShortenStringData(CoinAPIData[LINKINDEX].price_change_percentage_1h_in_currency);
-                CoinPriceID1H.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[LINKINDEX].price_change_percentage_1h_in_currency)) as SolidColorBrush;
+                CoinPriceID1H.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[LINKINDEX].price_change_percentage_1h_in_currency)) as SolidColorBrush;
 
                 CoinPriceID24H.Text = stringSolver.ShortenStringData(CoinAPIData[LINKINDEX].price_change_percentage_24h_in_currency);
-                CoinPriceID24H.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[LINKINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+                CoinPriceID24H.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[LINKINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
 
                 CoinPriceID7D.Text = stringSolver.ShortenStringData(CoinAPIData[LINKINDEX].price_change_percentage_7d_in_currency);
-                CoinPriceID7D.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[LINKINDEX].price_change_percentage_7d_in_currency)) as SolidColorBrush;
+                CoinPriceID7D.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[LINKINDEX].price_change_percentage_7d_in_currency)) as SolidColorBrush;
 
                 CoinPriceID30D.Text = stringSolver.ShortenStringData(CoinAPIData[LINKINDEX].price_change_percentage_30d_in_currency);
-                CoinPriceID30D.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[LINKINDEX].price_change_percentage_30d_in_currency)) as SolidColorBrush;
+                CoinPriceID30D.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[LINKINDEX].price_change_percentage_30d_in_currency)) as SolidColorBrush;
 
                 CoinPriceID1Y.Text = stringSolver.ShortenStringData(CoinAPIData[LINKINDEX].price_change_percentage_1y_in_currency);
-                CoinPriceID1Y.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[LINKINDEX].price_change_percentage_1y_in_currency)) as SolidColorBrush;
+                CoinPriceID1Y.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[LINKINDEX].price_change_percentage_1y_in_currency)) as SolidColorBrush;
             }
             else if (CoinCodeName == "ethereumclassic")
             {
@@ -390,19 +390,19 @@ namespace CryptoWidget
                 CoinPriceIDATH.Text = ("£" + CoinAPIData[ETHCINDEX].ath);
 
                 CoinPriceID1H.Text = stringSolver.ShortenStringData(CoinAPIData[ETHCINDEX].price_change_percentage_1h_in_currency);
-                CoinPriceID1H.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[ETHCINDEX].price_change_percentage_1h_in_currency)) as SolidColorBrush;
+                CoinPriceID1H.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[ETHCINDEX].price_change_percentage_1h_in_currency)) as SolidColorBrush;
 
                 CoinPriceID24H.Text = stringSolver.ShortenStringData(CoinAPIData[ETHCINDEX].price_change_percentage_24h_in_currency);
-                CoinPriceID24H.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[ETHCINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+                CoinPriceID24H.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[ETHCINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
 
                 CoinPriceID7D.Text = stringSolver.ShortenStringData(CoinAPIData[ETHCINDEX].price_change_percentage_7d_in_currency);
-                CoinPriceID7D.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[ETHCINDEX].price_change_percentage_7d_in_currency)) as SolidColorBrush;
+                CoinPriceID7D.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[ETHCINDEX].price_change_percentage_7d_in_currency)) as SolidColorBrush;
 
                 CoinPriceID30D.Text = stringSolver.ShortenStringData(CoinAPIData[ETHCINDEX].price_change_percentage_30d_in_currency);
-                CoinPriceID30D.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[ETHCINDEX].price_change_percentage_30d_in_currency)) as SolidColorBrush;
+                CoinPriceID30D.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[ETHCINDEX].price_change_percentage_30d_in_currency)) as SolidColorBrush;
 
                 CoinPriceID1Y.Text = stringSolver.ShortenStringData(CoinAPIData[ETHCINDEX].price_change_percentage_1y_in_currency);
-                CoinPriceID1Y.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[ETHCINDEX].price_change_percentage_1y_in_currency)) as SolidColorBrush;
+                CoinPriceID1Y.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[ETHCINDEX].price_change_percentage_1y_in_currency)) as SolidColorBrush;
             }
             else if (CoinCodeName == "polygon")
             {
@@ -415,19 +415,19 @@ namespace CryptoWidget
                 CoinPriceIDATH.Text = ("£" + CoinAPIData[MATICINDEX].ath);
 
                 CoinPriceID1H.Text = stringSolver.ShortenStringData(CoinAPIData[MATICINDEX].price_change_percentage_1h_in_currency);
-                CoinPriceID1H.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[MATICINDEX].price_change_percentage_1h_in_currency)) as SolidColorBrush;
+                CoinPriceID1H.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[MATICINDEX].price_change_percentage_1h_in_currency)) as SolidColorBrush;
 
                 CoinPriceID24H.Text = stringSolver.ShortenStringData(CoinAPIData[MATICINDEX].price_change_percentage_24h_in_currency);
-                CoinPriceID24H.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[MATICINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+                CoinPriceID24H.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[MATICINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
 
                 CoinPriceID7D.Text = stringSolver.ShortenStringData(CoinAPIData[MATICINDEX].price_change_percentage_7d_in_currency);
-                CoinPriceID7D.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[MATICINDEX].price_change_percentage_7d_in_currency)) as SolidColorBrush;
+                CoinPriceID7D.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[MATICINDEX].price_change_percentage_7d_in_currency)) as SolidColorBrush;
 
                 CoinPriceID30D.Text = stringSolver.ShortenStringData(CoinAPIData[MATICINDEX].price_change_percentage_30d_in_currency);
-                CoinPriceID30D.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[MATICINDEX].price_change_percentage_30d_in_currency)) as SolidColorBrush;
+                CoinPriceID30D.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[MATICINDEX].price_change_percentage_30d_in_currency)) as SolidColorBrush;
 
                 CoinPriceID1Y.Text = stringSolver.ShortenStringData(CoinAPIData[MATICINDEX].price_change_percentage_1y_in_currency);
-                CoinPriceID1Y.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[MATICINDEX].price_change_percentage_1y_in_currency)) as SolidColorBrush;
+                CoinPriceID1Y.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[MATICINDEX].price_change_percentage_1y_in_currency)) as SolidColorBrush;
             }
             else if (CoinCodeName == "wrappedbitcoin")
             {
@@ -440,19 +440,19 @@ namespace CryptoWidget
                 CoinPriceIDATH.Text = ("£" + CoinAPIData[WBTCINDEX].ath);
 
                 CoinPriceID1H.Text = stringSolver.ShortenStringData(CoinAPIData[WBTCINDEX].price_change_percentage_1h_in_currency);
-                CoinPriceID1H.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[WBTCINDEX].price_change_percentage_1h_in_currency)) as SolidColorBrush;
+                CoinPriceID1H.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[WBTCINDEX].price_change_percentage_1h_in_currency)) as SolidColorBrush;
 
                 CoinPriceID24H.Text = stringSolver.ShortenStringData(CoinAPIData[WBTCINDEX].price_change_percentage_24h_in_currency);
-                CoinPriceID24H.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[WBTCINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+                CoinPriceID24H.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[WBTCINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
 
                 CoinPriceID7D.Text = stringSolver.ShortenStringData(CoinAPIData[WBTCINDEX].price_change_percentage_7d_in_currency);
-                CoinPriceID7D.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[WBTCINDEX].price_change_percentage_7d_in_currency)) as SolidColorBrush;
+                CoinPriceID7D.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[WBTCINDEX].price_change_percentage_7d_in_currency)) as SolidColorBrush;
 
                 CoinPriceID30D.Text = stringSolver.ShortenStringData(CoinAPIData[WBTCINDEX].price_change_percentage_30d_in_currency);
-                CoinPriceID30D.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[WBTCINDEX].price_change_percentage_30d_in_currency)) as SolidColorBrush;
+                CoinPriceID30D.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[WBTCINDEX].price_change_percentage_30d_in_currency)) as SolidColorBrush;
 
                 CoinPriceID1Y.Text = stringSolver.ShortenStringData(CoinAPIData[WBTCINDEX].price_change_percentage_1y_in_currency);
-                CoinPriceID1Y.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[WBTCINDEX].price_change_percentage_1y_in_currency)) as SolidColorBrush;
+                CoinPriceID1Y.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[WBTCINDEX].price_change_percentage_1y_in_currency)) as SolidColorBrush;
             }
             else if (CoinCodeName == "internetcomputer")
             {
@@ -465,16 +465,16 @@ namespace CryptoWidget
                 CoinPriceIDATH.Text = ("£" + CoinAPIData[ICPINDEX].ath);
 
                 CoinPriceID1H.Text = stringSolver.ShortenStringData(CoinAPIData[ICPINDEX].price_change_percentage_1h_in_currency);
-                CoinPriceID1H.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[ICPINDEX].price_change_percentage_1h_in_currency)) as SolidColorBrush;
+                CoinPriceID1H.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[ICPINDEX].price_change_percentage_1h_in_currency)) as SolidColorBrush;
 
                 CoinPriceID24H.Text = stringSolver.ShortenStringData(CoinAPIData[ICPINDEX].price_change_percentage_24h_in_currency);
-                CoinPriceID24H.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[ICPINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+                CoinPriceID24H.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[ICPINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
 
                 CoinPriceID7D.Text = stringSolver.ShortenStringData(CoinAPIData[ICPINDEX].price_change_percentage_7d_in_currency);
-                CoinPriceID7D.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[ICPINDEX].price_change_percentage_7d_in_currency)) as SolidColorBrush;
+                CoinPriceID7D.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[ICPINDEX].price_change_percentage_7d_in_currency)) as SolidColorBrush;
 
                 CoinPriceID30D.Text = stringSolver.ShortenStringData(CoinAPIData[ICPINDEX].price_change_percentage_30d_in_currency);
-                CoinPriceID30D.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[ICPINDEX].price_change_percentage_30d_in_currency)) as SolidColorBrush;
+                CoinPriceID30D.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[ICPINDEX].price_change_percentage_30d_in_currency)) as SolidColorBrush;
 
                 if (CoinAPIData[ICPINDEX].price_change_percentage_1y_in_currency == null)
                 {
@@ -485,7 +485,7 @@ namespace CryptoWidget
                 else
                 {
                     CoinPriceID1Y.Text = stringSolver.ShortenStringData(CoinAPIData[ICPINDEX].price_change_percentage_1y_in_currency);
-                    CoinPriceID1Y.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[ICPINDEX].price_change_percentage_1y_in_currency)) as SolidColorBrush;
+                    CoinPriceID1Y.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[ICPINDEX].price_change_percentage_1y_in_currency)) as SolidColorBrush;
                 }
 
                 
@@ -501,19 +501,19 @@ namespace CryptoWidget
                 CoinPriceIDATH.Text = ("£" + CoinAPIData[THETAINDEX].ath);
 
                 CoinPriceID1H.Text = stringSolver.ShortenStringData(CoinAPIData[THETAINDEX].price_change_percentage_1h_in_currency);
-                CoinPriceID1H.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[THETAINDEX].price_change_percentage_1h_in_currency)) as SolidColorBrush;
+                CoinPriceID1H.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[THETAINDEX].price_change_percentage_1h_in_currency)) as SolidColorBrush;
 
                 CoinPriceID24H.Text = stringSolver.ShortenStringData(CoinAPIData[THETAINDEX].price_change_percentage_24h_in_currency);
-                CoinPriceID24H.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[THETAINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+                CoinPriceID24H.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[THETAINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
 
                 CoinPriceID7D.Text = stringSolver.ShortenStringData(CoinAPIData[THETAINDEX].price_change_percentage_7d_in_currency);
-                CoinPriceID7D.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[THETAINDEX].price_change_percentage_7d_in_currency)) as SolidColorBrush;
+                CoinPriceID7D.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[THETAINDEX].price_change_percentage_7d_in_currency)) as SolidColorBrush;
 
                 CoinPriceID30D.Text = stringSolver.ShortenStringData(CoinAPIData[THETAINDEX].price_change_percentage_30d_in_currency);
-                CoinPriceID30D.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[THETAINDEX].price_change_percentage_30d_in_currency)) as SolidColorBrush;
+                CoinPriceID30D.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[THETAINDEX].price_change_percentage_30d_in_currency)) as SolidColorBrush;
 
                 CoinPriceID1Y.Text = stringSolver.ShortenStringData(CoinAPIData[THETAINDEX].price_change_percentage_1y_in_currency);
-                CoinPriceID1Y.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[THETAINDEX].price_change_percentage_1y_in_currency)) as SolidColorBrush;
+                CoinPriceID1Y.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[THETAINDEX].price_change_percentage_1y_in_currency)) as SolidColorBrush;
             }
             else if (CoinCodeName == "stellar")
             {
@@ -526,19 +526,19 @@ namespace CryptoWidget
                 CoinPriceIDATH.Text = ("£" + CoinAPIData[XLMINDEX].ath);
 
                 CoinPriceID1H.Text = stringSolver.ShortenStringData(CoinAPIData[XLMINDEX].price_change_percentage_1h_in_currency);
-                CoinPriceID1H.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[XLMINDEX].price_change_percentage_1h_in_currency)) as SolidColorBrush;
+                CoinPriceID1H.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[XLMINDEX].price_change_percentage_1h_in_currency)) as SolidColorBrush;
 
                 CoinPriceID24H.Text = stringSolver.ShortenStringData(CoinAPIData[XLMINDEX].price_change_percentage_24h_in_currency);
-                CoinPriceID24H.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[XLMINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+                CoinPriceID24H.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[XLMINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
 
                 CoinPriceID7D.Text = stringSolver.ShortenStringData(CoinAPIData[XLMINDEX].price_change_percentage_7d_in_currency);
-                CoinPriceID7D.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[XLMINDEX].price_change_percentage_7d_in_currency)) as SolidColorBrush;
+                CoinPriceID7D.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[XLMINDEX].price_change_percentage_7d_in_currency)) as SolidColorBrush;
 
                 CoinPriceID30D.Text = stringSolver.ShortenStringData(CoinAPIData[XLMINDEX].price_change_percentage_30d_in_currency);
-                CoinPriceID30D.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[XLMINDEX].price_change_percentage_30d_in_currency)) as SolidColorBrush;
+                CoinPriceID30D.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[XLMINDEX].price_change_percentage_30d_in_currency)) as SolidColorBrush;
 
                 CoinPriceID1Y.Text = stringSolver.ShortenStringData(CoinAPIData[XLMINDEX].price_change_percentage_1y_in_currency);
-                CoinPriceID1Y.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[XLMINDEX].price_change_percentage_1y_in_currency)) as SolidColorBrush;
+                CoinPriceID1Y.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[XLMINDEX].price_change_percentage_1y_in_currency)) as SolidColorBrush;
             }
             else if (CoinCodeName == "vechain")
             {
@@ -551,19 +551,19 @@ namespace CryptoWidget
                 CoinPriceIDATH.Text = ("£" + CoinAPIData[VETINDEX].ath);
 
                 CoinPriceID1H.Text = stringSolver.ShortenStringData(CoinAPIData[VETINDEX].price_change_percentage_1h_in_currency);
-                CoinPriceID1H.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[VETINDEX].price_change_percentage_1h_in_currency)) as SolidColorBrush;
+                CoinPriceID1H.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[VETINDEX].price_change_percentage_1h_in_currency)) as SolidColorBrush;
 
                 CoinPriceID24H.Text = stringSolver.ShortenStringData(CoinAPIData[VETINDEX].price_change_percentage_24h_in_currency);
-                CoinPriceID24H.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[VETINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+                CoinPriceID24H.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[VETINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
 
                 CoinPriceID7D.Text = stringSolver.ShortenStringData(CoinAPIData[VETINDEX].price_change_percentage_7d_in_currency);
-                CoinPriceID7D.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[VETINDEX].price_change_percentage_7d_in_currency)) as SolidColorBrush;
+                CoinPriceID7D.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[VETINDEX].price_change_percentage_7d_in_currency)) as SolidColorBrush;
 
                 CoinPriceID30D.Text = stringSolver.ShortenStringData(CoinAPIData[VETINDEX].price_change_percentage_30d_in_currency);
-                CoinPriceID30D.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[VETINDEX].price_change_percentage_30d_in_currency)) as SolidColorBrush;
+                CoinPriceID30D.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[VETINDEX].price_change_percentage_30d_in_currency)) as SolidColorBrush;
 
                 CoinPriceID1Y.Text = stringSolver.ShortenStringData(CoinAPIData[VETINDEX].price_change_percentage_1y_in_currency);
-                CoinPriceID1Y.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[VETINDEX].price_change_percentage_1y_in_currency)) as SolidColorBrush;
+                CoinPriceID1Y.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[VETINDEX].price_change_percentage_1y_in_currency)) as SolidColorBrush;
             }
             else if (CoinCodeName == "dai")
             {
@@ -576,19 +576,19 @@ namespace CryptoWidget
                 CoinPriceIDATH.Text = ("£" + CoinAPIData[DAIINDEX].ath);
 
                 CoinPriceID1H.Text = stringSolver.ShortenStringData(CoinAPIData[DAIINDEX].price_change_percentage_1h_in_currency);
-                CoinPriceID1H.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[DAIINDEX].price_change_percentage_1h_in_currency)) as SolidColorBrush;
+                CoinPriceID1H.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[DAIINDEX].price_change_percentage_1h_in_currency)) as SolidColorBrush;
 
                 CoinPriceID24H.Text = stringSolver.ShortenStringData(CoinAPIData[DAIINDEX].price_change_percentage_24h_in_currency);
-                CoinPriceID24H.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[DAIINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+                CoinPriceID24H.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[DAIINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
 
                 CoinPriceID7D.Text = stringSolver.ShortenStringData(CoinAPIData[DAIINDEX].price_change_percentage_7d_in_currency);
-                CoinPriceID7D.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[DAIINDEX].price_change_percentage_7d_in_currency)) as SolidColorBrush;
+                CoinPriceID7D.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[DAIINDEX].price_change_percentage_7d_in_currency)) as SolidColorBrush;
 
                 CoinPriceID30D.Text = stringSolver.ShortenStringData(CoinAPIData[DAIINDEX].price_change_percentage_30d_in_currency);
-                CoinPriceID30D.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[DAIINDEX].price_change_percentage_30d_in_currency)) as SolidColorBrush;
+                CoinPriceID30D.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[DAIINDEX].price_change_percentage_30d_in_currency)) as SolidColorBrush;
 
                 CoinPriceID1Y.Text = stringSolver.ShortenStringData(CoinAPIData[DAIINDEX].price_change_percentage_1y_in_currency);
-                CoinPriceID1Y.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[DAIINDEX].price_change_percentage_1y_in_currency)) as SolidColorBrush;
+                CoinPriceID1Y.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[DAIINDEX].price_change_percentage_1y_in_currency)) as SolidColorBrush;
             }
             else if (CoinCodeName == "filecoin")
             {
@@ -601,16 +601,16 @@ namespace CryptoWidget
                 CoinPriceIDATH.Text = ("£" + CoinAPIData[FILINDEX].ath);
 
                 CoinPriceID1H.Text = stringSolver.ShortenStringData(CoinAPIData[FILINDEX].price_change_percentage_1h_in_currency);
-                CoinPriceID1H.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[FILINDEX].price_change_percentage_1h_in_currency)) as SolidColorBrush;
+                CoinPriceID1H.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[FILINDEX].price_change_percentage_1h_in_currency)) as SolidColorBrush;
 
                 CoinPriceID24H.Text = stringSolver.ShortenStringData(CoinAPIData[FILINDEX].price_change_percentage_24h_in_currency);
-                CoinPriceID24H.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[FILINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+                CoinPriceID24H.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[FILINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
 
                 CoinPriceID7D.Text = stringSolver.ShortenStringData(CoinAPIData[FILINDEX].price_change_percentage_7d_in_currency);
-                CoinPriceID7D.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[FILINDEX].price_change_percentage_7d_in_currency)) as SolidColorBrush;
+                CoinPriceID7D.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[FILINDEX].price_change_percentage_7d_in_currency)) as SolidColorBrush;
 
                 CoinPriceID30D.Text = stringSolver.ShortenStringData(CoinAPIData[FILINDEX].price_change_percentage_30d_in_currency);
-                CoinPriceID30D.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[FILINDEX].price_change_percentage_30d_in_currency)) as SolidColorBrush;
+                CoinPriceID30D.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[FILINDEX].price_change_percentage_30d_in_currency)) as SolidColorBrush;
 
                 if (CoinAPIData[FILINDEX].price_change_percentage_1y_in_currency == null)
                 {
@@ -621,7 +621,7 @@ namespace CryptoWidget
                 else
                 {
                     CoinPriceID1Y.Text = stringSolver.ShortenStringData(CoinAPIData[FILINDEX].price_change_percentage_1y_in_currency);
-                    CoinPriceID1Y.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[FILINDEX].price_change_percentage_1y_in_currency)) as SolidColorBrush;
+                    CoinPriceID1Y.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[FILINDEX].price_change_percentage_1y_in_currency)) as SolidColorBrush;
                 }
                 
             }
@@ -636,19 +636,55 @@ namespace CryptoWidget
                 CoinPriceIDATH.Text = ("£" + CoinAPIData[TRXINDEX].ath);
 
                 CoinPriceID1H.Text = stringSolver.ShortenStringData(CoinAPIData[TRXINDEX].price_change_percentage_1h_in_currency);
-                CoinPriceID1H.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[TRXINDEX].price_change_percentage_1h_in_currency)) as SolidColorBrush;
+                CoinPriceID1H.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[TRXINDEX].price_change_percentage_1h_in_currency)) as SolidColorBrush;
 
                 CoinPriceID24H.Text = stringSolver.ShortenStringData(CoinAPIData[TRXINDEX].price_change_percentage_24h_in_currency);
-                CoinPriceID24H.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[TRXINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+                CoinPriceID24H.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[TRXINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
 
                 CoinPriceID7D.Text = stringSolver.ShortenStringData(CoinAPIData[TRXINDEX].price_change_percentage_7d_in_currency);
-                CoinPriceID7D.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[TRXINDEX].price_change_percentage_7d_in_currency)) as SolidColorBrush;
+                CoinPriceID7D.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[TRXINDEX].price_change_percentage_7d_in_currency)) as SolidColorBrush;
 
                 CoinPriceID30D.Text = stringSolver.ShortenStringData(CoinAPIData[TRXINDEX].price_change_percentage_30d_in_currency);
-                CoinPriceID30D.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[TRXINDEX].price_change_percentage_30d_in_currency)) as SolidColorBrush;
+                CoinPriceID30D.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[TRXINDEX].price_change_percentage_30d_in_currency)) as SolidColorBrush;
 
                 CoinPriceID1Y.Text = stringSolver.ShortenStringData(CoinAPIData[TRXINDEX].price_change_percentage_1y_in_currency);
-                CoinPriceID1Y.Foreground = brushConverter.ConvertFrom(n.ColourCheck(CoinAPIData[TRXINDEX].price_change_percentage_1y_in_currency)) as SolidColorBrush;
+                CoinPriceID1Y.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[TRXINDEX].price_change_percentage_1y_in_currency)) as SolidColorBrush;
+            }
+            else if (CoinCodeName == "shibainu")
+            {
+                int SHIBINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Shiba Inu");
+
+                CoinImage.Source = new BitmapImage(new Uri("Images/shibainu.png", UriKind.Relative));
+                Cointitle.Text = "Shiba Inu";
+                CoinPriceID.Text = Convert.ToString("£" + CoinAPIData[SHIBINDEX].current_price);
+                
+
+                CoinPriceIDATH.Text = ("£" + CoinAPIData[SHIBINDEX].ath);
+                CoinPriceIDATH.FontSize = 8;
+                CoinPriceID1H.Text = stringSolver.ShortenStringData(CoinAPIData[SHIBINDEX].price_change_percentage_1h_in_currency);
+                CoinPriceID1H.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[SHIBINDEX].price_change_percentage_1h_in_currency)) as SolidColorBrush;
+
+                CoinPriceID24H.Text = stringSolver.ShortenStringData(CoinAPIData[SHIBINDEX].price_change_percentage_24h_in_currency);
+                CoinPriceID24H.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[SHIBINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+
+                CoinPriceID7D.Text = stringSolver.ShortenStringData(CoinAPIData[SHIBINDEX].price_change_percentage_7d_in_currency);
+                CoinPriceID7D.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[SHIBINDEX].price_change_percentage_7d_in_currency)) as SolidColorBrush;
+
+                CoinPriceID30D.Text = stringSolver.ShortenStringData(CoinAPIData[SHIBINDEX].price_change_percentage_30d_in_currency);
+                CoinPriceID30D.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[SHIBINDEX].price_change_percentage_30d_in_currency)) as SolidColorBrush;
+
+                if (CoinAPIData[SHIBINDEX].price_change_percentage_1y_in_currency == null)
+                {
+                    CoinPriceID1Y.Text = "N/A";
+                    Brush DOTColour = brushConverter.ConvertFrom("#DF5F67") as SolidColorBrush;
+                    CoinPriceID1Y.Foreground = DOTColour;
+                }
+                else
+                {
+                    CoinPriceID1Y.Text = stringSolver.ShortenStringData(CoinAPIData[SHIBINDEX].price_change_percentage_1y_in_currency);
+                    CoinPriceID1Y.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[SHIBINDEX].price_change_percentage_1y_in_currency)) as SolidColorBrush;
+                }
+
             }
         }
 

@@ -77,7 +77,7 @@ namespace CryptoWidget
             /// Call API
             var CoinAPIData = await dataLoad.LoadData();
 
-            ColorPriceCheck n = new ColorPriceCheck();
+            ColorPriceCheck colourCheck = new ColorPriceCheck();
             StringSolver stringSolver = new StringSolver();
             APIDataChecker aPIDataChecker = new APIDataChecker();
 
@@ -93,23 +93,19 @@ namespace CryptoWidget
                 CoinPriceATH = ("£" + CoinAPIData[index].ath);
 
                 CoinPrice1H = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_1h_in_currency);
-                CoinPrice1HColour = n.ColourCheck(CoinPrice1H);
+                CoinPrice1HColour = colourCheck.ColourCheck(CoinPrice1H);
 
                 CoinPrice24H = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_24h_in_currency);
-                CoinPrice24HColour = n.ColourCheck(CoinPrice24H);
+                CoinPrice24HColour = colourCheck.ColourCheck(CoinPrice24H);
 
                 CoinPrice7D = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_7d_in_currency);
-                CoinPrice7DColour = n.ColourCheck(CoinPrice7D);
+                CoinPrice7DColour = colourCheck.ColourCheck(CoinPrice7D);
 
                 CoinPrice30D = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_30d_in_currency);
-                CoinPrice30DColour = n.ColourCheck(CoinPrice30D);
+                CoinPrice30DColour = colourCheck.ColourCheck(CoinPrice30D);
 
                 CoinPrice1Y = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_1y_in_currency);
-                CoinPrice1YColour = n.ColourCheck(CoinPrice1Y);
-
-                
-
-                
+                CoinPrice1YColour = colourCheck.ColourCheck(CoinPrice1Y); 
             }
             else if (CoinCodeName == "ethereum")
             {
@@ -121,23 +117,19 @@ namespace CryptoWidget
                 CoinPriceATH = ("£" + CoinAPIData[index].ath);
 
                 CoinPrice1H = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_1h_in_currency);
-                CoinPrice1HColour = n.ColourCheck(CoinPrice1H);
+                CoinPrice1HColour = colourCheck.ColourCheck(CoinPrice1H);
 
                 CoinPrice24H = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_24h_in_currency);
-                CoinPrice24HColour = n.ColourCheck(CoinPrice24H);
+                CoinPrice24HColour = colourCheck.ColourCheck(CoinPrice24H);
 
                 CoinPrice7D = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_7d_in_currency);
-                CoinPrice7DColour = n.ColourCheck(CoinPrice7D);
+                CoinPrice7DColour = colourCheck.ColourCheck(CoinPrice7D);
 
                 CoinPrice30D = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_30d_in_currency);
-                CoinPrice30DColour = n.ColourCheck(CoinPrice30D);
+                CoinPrice30DColour = colourCheck.ColourCheck(CoinPrice30D);
 
                 CoinPrice1Y = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_1y_in_currency);
-                CoinPrice1YColour = n.ColourCheck(CoinPrice1Y);
-
-                
-
-                
+                CoinPrice1YColour = colourCheck.ColourCheck(CoinPrice1Y); 
             }
             else if (CoinCodeName == "cardano")
             {
@@ -150,19 +142,19 @@ namespace CryptoWidget
                 CoinPriceATH = ("£" + CoinAPIData[index].ath);
 
                 CoinPrice1H = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_1h_in_currency);
-                CoinPrice1HColour = n.ColourCheck(CoinPrice1H);
+                CoinPrice1HColour = colourCheck.ColourCheck(CoinPrice1H);
 
                 CoinPrice24H = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_24h_in_currency);
-                CoinPrice24HColour = n.ColourCheck(CoinPrice24H);
+                CoinPrice24HColour = colourCheck.ColourCheck(CoinPrice24H);
 
                 CoinPrice7D = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_7d_in_currency);
-                CoinPrice7DColour = n.ColourCheck(CoinPrice7D);
+                CoinPrice7DColour = colourCheck.ColourCheck(CoinPrice7D);
 
                 CoinPrice30D = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_30d_in_currency);
-                CoinPrice30DColour = n.ColourCheck(CoinPrice30D);
+                CoinPrice30DColour = colourCheck.ColourCheck(CoinPrice30D);
 
                 CoinPrice1Y = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_1y_in_currency);
-                CoinPrice1YColour = n.ColourCheck(CoinPrice1Y);
+                CoinPrice1YColour = colourCheck.ColourCheck(CoinPrice1Y);
 
 
             }
@@ -174,19 +166,19 @@ namespace CryptoWidget
                 CoinPriceATH = ("£" + CoinAPIData[index].ath);
 
                 CoinPrice1H = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_1h_in_currency);
-                CoinPrice1HColour = n.ColourCheck(CoinPrice1H);
+                CoinPrice1HColour = colourCheck.ColourCheck(CoinPrice1H);
 
                 CoinPrice24H = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_24h_in_currency);
-                CoinPrice24HColour = n.ColourCheck(CoinPrice24H);
+                CoinPrice24HColour = colourCheck.ColourCheck(CoinPrice24H);
 
                 CoinPrice7D = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_7d_in_currency);
-                CoinPrice7DColour = n.ColourCheck(CoinPrice7D);
+                CoinPrice7DColour = colourCheck.ColourCheck(CoinPrice7D);
 
                 CoinPrice30D = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_30d_in_currency);
-                CoinPrice30DColour = n.ColourCheck(CoinPrice30D);
+                CoinPrice30DColour = colourCheck.ColourCheck(CoinPrice30D);
 
                 CoinPrice1Y = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_1y_in_currency);
-                CoinPrice1YColour = n.ColourCheck(CoinPrice1Y);
+                CoinPrice1YColour = colourCheck.ColourCheck(CoinPrice1Y);
 
             }
             else if (CoinCodeName == "dogecoin")
@@ -197,19 +189,19 @@ namespace CryptoWidget
                 CoinPriceATH = ("£" + CoinAPIData[index].ath);
 
                 CoinPrice1H = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_1h_in_currency);
-                CoinPrice1HColour = n.ColourCheck(CoinPrice1H);
+                CoinPrice1HColour = colourCheck.ColourCheck(CoinPrice1H);
 
                 CoinPrice24H = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_24h_in_currency);
-                CoinPrice24HColour = n.ColourCheck(CoinPrice24H);
+                CoinPrice24HColour = colourCheck.ColourCheck(CoinPrice24H);
 
                 CoinPrice7D = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_7d_in_currency);
-                CoinPrice7DColour = n.ColourCheck(CoinPrice7D);
+                CoinPrice7DColour = colourCheck.ColourCheck(CoinPrice7D);
 
                 CoinPrice30D = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_30d_in_currency);
-                CoinPrice30DColour = n.ColourCheck(CoinPrice30D);
+                CoinPrice30DColour = colourCheck.ColourCheck(CoinPrice30D);
 
                 CoinPrice1Y = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_1y_in_currency);
-                CoinPrice1YColour = n.ColourCheck(CoinPrice1Y);
+                CoinPrice1YColour = colourCheck.ColourCheck(CoinPrice1Y);
             }
             else if (CoinCodeName == "xrp")
             {
@@ -219,19 +211,19 @@ namespace CryptoWidget
                 CoinPriceATH = ("£" + CoinAPIData[index].ath);
 
                 CoinPrice1H = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_1h_in_currency);
-                CoinPrice1HColour = n.ColourCheck(CoinPrice1H);
+                CoinPrice1HColour = colourCheck.ColourCheck(CoinPrice1H);
 
                 CoinPrice24H = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_24h_in_currency);
-                CoinPrice24HColour = n.ColourCheck(CoinPrice24H);
+                CoinPrice24HColour = colourCheck.ColourCheck(CoinPrice24H);
 
                 CoinPrice7D = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_7d_in_currency);
-                CoinPrice7DColour = n.ColourCheck(CoinPrice7D);
+                CoinPrice7DColour = colourCheck.ColourCheck(CoinPrice7D);
 
                 CoinPrice30D = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_30d_in_currency);
-                CoinPrice30DColour = n.ColourCheck(CoinPrice30D);
+                CoinPrice30DColour = colourCheck.ColourCheck(CoinPrice30D);
 
                 CoinPrice1Y = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_1y_in_currency);
-                CoinPrice1YColour = n.ColourCheck(CoinPrice1Y);
+                CoinPrice1YColour = colourCheck.ColourCheck(CoinPrice1Y);
             }
             else if (CoinCodeName == "polkadot")
             {
@@ -241,16 +233,16 @@ namespace CryptoWidget
                 CoinPriceATH = ("£" + CoinAPIData[index].ath);
 
                 CoinPrice1H = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_1h_in_currency);
-                CoinPrice1HColour = n.ColourCheck(CoinPrice1H);
+                CoinPrice1HColour = colourCheck.ColourCheck(CoinPrice1H);
 
                 CoinPrice24H = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_24h_in_currency);
-                CoinPrice24HColour = n.ColourCheck(CoinPrice24H);
+                CoinPrice24HColour = colourCheck.ColourCheck(CoinPrice24H);
 
                 CoinPrice7D = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_7d_in_currency);
-                CoinPrice7DColour = n.ColourCheck(CoinPrice7D);
+                CoinPrice7DColour = colourCheck.ColourCheck(CoinPrice7D);
 
                 CoinPrice30D = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_30d_in_currency);
-                CoinPrice30DColour = n.ColourCheck(CoinPrice30D);
+                CoinPrice30DColour = colourCheck.ColourCheck(CoinPrice30D);
 
                 if (CoinAPIData[8].price_change_percentage_1y_in_currency == null)
                 {
@@ -260,7 +252,7 @@ namespace CryptoWidget
                 else
                 {
                     CoinPrice1Y = stringSolver.ShortenStringData(CoinAPIData[index].price_change_percentage_1y_in_currency);
-                    CoinPrice1YColour = n.ColourCheck(CoinPrice1Y);
+                    CoinPrice1YColour = colourCheck.ColourCheck(CoinPrice1Y);
                 }
                 
             }
@@ -272,19 +264,19 @@ namespace CryptoWidget
                 CoinPriceATH = ("£" + CoinAPIData[BTCCASHINDEX].ath);
 
                 CoinPrice1H = stringSolver.ShortenStringData(CoinAPIData[BTCCASHINDEX].price_change_percentage_1h_in_currency);
-                CoinPrice1HColour = n.ColourCheck(CoinPrice1H);
+                CoinPrice1HColour = colourCheck.ColourCheck(CoinPrice1H);
 
                 CoinPrice24H = stringSolver.ShortenStringData(CoinAPIData[BTCCASHINDEX].price_change_percentage_24h_in_currency);
-                CoinPrice24HColour = n.ColourCheck(CoinPrice24H);
+                CoinPrice24HColour = colourCheck.ColourCheck(CoinPrice24H);
 
                 CoinPrice7D = stringSolver.ShortenStringData(CoinAPIData[BTCCASHINDEX].price_change_percentage_7d_in_currency);
-                CoinPrice7DColour = n.ColourCheck(CoinPrice7D);
+                CoinPrice7DColour = colourCheck.ColourCheck(CoinPrice7D);
 
                 CoinPrice30D = stringSolver.ShortenStringData(CoinAPIData[BTCCASHINDEX].price_change_percentage_30d_in_currency);
-                CoinPrice30DColour = n.ColourCheck(CoinPrice30D);
+                CoinPrice30DColour = colourCheck.ColourCheck(CoinPrice30D);
 
                 CoinPrice1Y = stringSolver.ShortenStringData(CoinAPIData[BTCCASHINDEX].price_change_percentage_1y_in_currency);
-                CoinPrice1YColour = n.ColourCheck(CoinPrice1Y);
+                CoinPrice1YColour = colourCheck.ColourCheck(CoinPrice1Y);
             }
             else if (CoinCodeName == "uniswap")
             {
@@ -294,16 +286,16 @@ namespace CryptoWidget
                 CoinPriceATH = ("£" + CoinAPIData[UNIINDEX].ath);
 
                 CoinPrice1H = stringSolver.ShortenStringData(CoinAPIData[UNIINDEX].price_change_percentage_1h_in_currency);
-                CoinPrice1HColour = n.ColourCheck(CoinPrice1H);
+                CoinPrice1HColour = colourCheck.ColourCheck(CoinPrice1H);
 
                 CoinPrice24H = stringSolver.ShortenStringData(CoinAPIData[UNIINDEX].price_change_percentage_24h_in_currency);
-                CoinPrice24HColour = n.ColourCheck(CoinPrice24H);
+                CoinPrice24HColour = colourCheck.ColourCheck(CoinPrice24H);
 
                 CoinPrice7D = stringSolver.ShortenStringData(CoinAPIData[UNIINDEX].price_change_percentage_7d_in_currency);
-                CoinPrice7DColour = n.ColourCheck(CoinPrice7D);
+                CoinPrice7DColour = colourCheck.ColourCheck(CoinPrice7D);
 
                 CoinPrice30D = stringSolver.ShortenStringData(CoinAPIData[UNIINDEX].price_change_percentage_30d_in_currency);
-                CoinPrice30DColour = n.ColourCheck(CoinPrice30D);
+                CoinPrice30DColour = colourCheck.ColourCheck(CoinPrice30D);
 
                 if (CoinAPIData[UNIINDEX].price_change_percentage_1y_in_currency == null)
                 {
@@ -313,7 +305,7 @@ namespace CryptoWidget
                 else
                 {
                     CoinPrice1Y = stringSolver.ShortenStringData(CoinAPIData[UNIINDEX].price_change_percentage_1y_in_currency);
-                    CoinPrice1YColour = n.ColourCheck(CoinPrice1Y);
+                    CoinPrice1YColour = colourCheck.ColourCheck(CoinPrice1Y);
                 }
 
                 
@@ -326,19 +318,19 @@ namespace CryptoWidget
                 CoinPriceATH = ("£" + CoinAPIData[SOLINDEX].ath);
 
                 CoinPrice1H = stringSolver.ShortenStringData(CoinAPIData[SOLINDEX].price_change_percentage_1h_in_currency);
-                CoinPrice1HColour = n.ColourCheck(CoinPrice1H);
+                CoinPrice1HColour = colourCheck.ColourCheck(CoinPrice1H);
 
                 CoinPrice24H = stringSolver.ShortenStringData(CoinAPIData[SOLINDEX].price_change_percentage_24h_in_currency);
-                CoinPrice24HColour = n.ColourCheck(CoinPrice24H);
+                CoinPrice24HColour = colourCheck.ColourCheck(CoinPrice24H);
 
                 CoinPrice7D = stringSolver.ShortenStringData(CoinAPIData[SOLINDEX].price_change_percentage_7d_in_currency);
-                CoinPrice7DColour = n.ColourCheck(CoinPrice7D);
+                CoinPrice7DColour = colourCheck.ColourCheck(CoinPrice7D);
 
                 CoinPrice30D = stringSolver.ShortenStringData(CoinAPIData[SOLINDEX].price_change_percentage_30d_in_currency);
-                CoinPrice30DColour = n.ColourCheck(CoinPrice30D);
+                CoinPrice30DColour = colourCheck.ColourCheck(CoinPrice30D);
 
                 CoinPrice1Y = stringSolver.ShortenStringData(CoinAPIData[SOLINDEX].price_change_percentage_1y_in_currency);
-                CoinPrice1YColour = n.ColourCheck(CoinPrice1Y);
+                CoinPrice1YColour = colourCheck.ColourCheck(CoinPrice1Y);
             }
             else if (CoinCodeName == "litecoin")
             {
@@ -348,19 +340,19 @@ namespace CryptoWidget
                 CoinPriceATH = ("£" + CoinAPIData[LTCINDEX].ath);
 
                 CoinPrice1H = stringSolver.ShortenStringData(CoinAPIData[LTCINDEX].price_change_percentage_1h_in_currency);
-                CoinPrice1HColour = n.ColourCheck(CoinPrice1H);
+                CoinPrice1HColour = colourCheck.ColourCheck(CoinPrice1H);
 
                 CoinPrice24H = stringSolver.ShortenStringData(CoinAPIData[LTCINDEX].price_change_percentage_24h_in_currency);
-                CoinPrice24HColour = n.ColourCheck(CoinPrice24H);
+                CoinPrice24HColour = colourCheck.ColourCheck(CoinPrice24H);
 
                 CoinPrice7D = stringSolver.ShortenStringData(CoinAPIData[LTCINDEX].price_change_percentage_7d_in_currency);
-                CoinPrice7DColour = n.ColourCheck(CoinPrice7D);
+                CoinPrice7DColour = colourCheck.ColourCheck(CoinPrice7D);
 
                 CoinPrice30D = stringSolver.ShortenStringData(CoinAPIData[LTCINDEX].price_change_percentage_30d_in_currency);
-                CoinPrice30DColour = n.ColourCheck(CoinPrice30D);
+                CoinPrice30DColour = colourCheck.ColourCheck(CoinPrice30D);
 
                 CoinPrice1Y = stringSolver.ShortenStringData(CoinAPIData[LTCINDEX].price_change_percentage_1y_in_currency);
-                CoinPrice1YColour = n.ColourCheck(CoinPrice1Y);
+                CoinPrice1YColour = colourCheck.ColourCheck(CoinPrice1Y);
             }
             else if (CoinCodeName == "chainlink")
             {
@@ -370,19 +362,19 @@ namespace CryptoWidget
                 CoinPriceATH = ("£" + CoinAPIData[LINKINDEX].ath);
 
                 CoinPrice1H = stringSolver.ShortenStringData(CoinAPIData[LINKINDEX].price_change_percentage_1h_in_currency);
-                CoinPrice1HColour = n.ColourCheck(CoinPrice1H);
+                CoinPrice1HColour = colourCheck.ColourCheck(CoinPrice1H);
 
                 CoinPrice24H = stringSolver.ShortenStringData(CoinAPIData[LINKINDEX].price_change_percentage_24h_in_currency);
-                CoinPrice24HColour = n.ColourCheck(CoinPrice24H);
+                CoinPrice24HColour = colourCheck.ColourCheck(CoinPrice24H);
 
                 CoinPrice7D = stringSolver.ShortenStringData(CoinAPIData[LINKINDEX].price_change_percentage_7d_in_currency);
-                CoinPrice7DColour = n.ColourCheck(CoinPrice7D);
+                CoinPrice7DColour = colourCheck.ColourCheck(CoinPrice7D);
 
                 CoinPrice30D = stringSolver.ShortenStringData(CoinAPIData[LINKINDEX].price_change_percentage_30d_in_currency);
-                CoinPrice30DColour = n.ColourCheck(CoinPrice30D);
+                CoinPrice30DColour = colourCheck.ColourCheck(CoinPrice30D);
 
                 CoinPrice1Y = stringSolver.ShortenStringData(CoinAPIData[LINKINDEX].price_change_percentage_1y_in_currency);
-                CoinPrice1YColour = n.ColourCheck(CoinPrice1Y);
+                CoinPrice1YColour = colourCheck.ColourCheck(CoinPrice1Y);
             }
             else if (CoinCodeName == "ethereumclassic")
             {
@@ -392,19 +384,19 @@ namespace CryptoWidget
                 CoinPriceATH = ("£" + CoinAPIData[ETHCINDEX].ath);
 
                 CoinPrice1H = stringSolver.ShortenStringData(CoinAPIData[ETHCINDEX].price_change_percentage_1h_in_currency);
-                CoinPrice1HColour = n.ColourCheck(CoinPrice1H);
+                CoinPrice1HColour = colourCheck.ColourCheck(CoinPrice1H);
 
                 CoinPrice24H = stringSolver.ShortenStringData(CoinAPIData[ETHCINDEX].price_change_percentage_24h_in_currency);
-                CoinPrice24HColour = n.ColourCheck(CoinPrice24H);
+                CoinPrice24HColour = colourCheck.ColourCheck(CoinPrice24H);
 
                 CoinPrice7D = stringSolver.ShortenStringData(CoinAPIData[ETHCINDEX].price_change_percentage_7d_in_currency);
-                CoinPrice7DColour = n.ColourCheck(CoinPrice7D);
+                CoinPrice7DColour = colourCheck.ColourCheck(CoinPrice7D);
 
                 CoinPrice30D = stringSolver.ShortenStringData(CoinAPIData[ETHCINDEX].price_change_percentage_30d_in_currency);
-                CoinPrice30DColour = n.ColourCheck(CoinPrice30D);
+                CoinPrice30DColour = colourCheck.ColourCheck(CoinPrice30D);
 
                 CoinPrice1Y = stringSolver.ShortenStringData(CoinAPIData[ETHCINDEX].price_change_percentage_1y_in_currency);
-                CoinPrice1YColour = n.ColourCheck(CoinPrice1Y);
+                CoinPrice1YColour = colourCheck.ColourCheck(CoinPrice1Y);
             }
             else if (CoinCodeName == "polygon")
             {
@@ -414,19 +406,19 @@ namespace CryptoWidget
                 CoinPriceATH = ("£" + CoinAPIData[MATICINDEX].ath);
 
                 CoinPrice1H = stringSolver.ShortenStringData(CoinAPIData[MATICINDEX].price_change_percentage_1h_in_currency);
-                CoinPrice1HColour = n.ColourCheck(CoinPrice1H);
+                CoinPrice1HColour = colourCheck.ColourCheck(CoinPrice1H);
 
                 CoinPrice24H = stringSolver.ShortenStringData(CoinAPIData[MATICINDEX].price_change_percentage_24h_in_currency);
-                CoinPrice24HColour = n.ColourCheck(CoinPrice24H);
+                CoinPrice24HColour = colourCheck.ColourCheck(CoinPrice24H);
 
                 CoinPrice7D = stringSolver.ShortenStringData(CoinAPIData[MATICINDEX].price_change_percentage_7d_in_currency);
-                CoinPrice7DColour = n.ColourCheck(CoinPrice7D);
+                CoinPrice7DColour = colourCheck.ColourCheck(CoinPrice7D);
 
                 CoinPrice30D = stringSolver.ShortenStringData(CoinAPIData[MATICINDEX].price_change_percentage_30d_in_currency);
-                CoinPrice30DColour = n.ColourCheck(CoinPrice30D);
+                CoinPrice30DColour = colourCheck.ColourCheck(CoinPrice30D);
 
                 CoinPrice1Y = stringSolver.ShortenStringData(CoinAPIData[MATICINDEX].price_change_percentage_1y_in_currency);
-                CoinPrice1YColour = n.ColourCheck(CoinPrice1Y);
+                CoinPrice1YColour = colourCheck.ColourCheck(CoinPrice1Y);
             }
             else if (CoinCodeName == "wrappedbitcoin")
             {
@@ -436,19 +428,19 @@ namespace CryptoWidget
                 CoinPriceATH = ("£" + CoinAPIData[WBTCINDEX].ath);
 
                 CoinPrice1H = stringSolver.ShortenStringData(CoinAPIData[WBTCINDEX].price_change_percentage_1h_in_currency);
-                CoinPrice1HColour = n.ColourCheck(CoinPrice1H);
+                CoinPrice1HColour = colourCheck.ColourCheck(CoinPrice1H);
 
                 CoinPrice24H = stringSolver.ShortenStringData(CoinAPIData[WBTCINDEX].price_change_percentage_24h_in_currency);
-                CoinPrice24HColour = n.ColourCheck(CoinPrice24H);
+                CoinPrice24HColour = colourCheck.ColourCheck(CoinPrice24H);
 
                 CoinPrice7D = stringSolver.ShortenStringData(CoinAPIData[WBTCINDEX].price_change_percentage_7d_in_currency);
-                CoinPrice7DColour = n.ColourCheck(CoinPrice7D);
+                CoinPrice7DColour = colourCheck.ColourCheck(CoinPrice7D);
 
                 CoinPrice30D = stringSolver.ShortenStringData(CoinAPIData[WBTCINDEX].price_change_percentage_30d_in_currency);
-                CoinPrice30DColour = n.ColourCheck(CoinPrice30D);
+                CoinPrice30DColour = colourCheck.ColourCheck(CoinPrice30D);
 
                 CoinPrice1Y = stringSolver.ShortenStringData(CoinAPIData[WBTCINDEX].price_change_percentage_1y_in_currency);
-                CoinPrice1YColour = n.ColourCheck(CoinPrice1Y);
+                CoinPrice1YColour = colourCheck.ColourCheck(CoinPrice1Y);
             }
             else if (CoinCodeName == "internetcomputer")
             {
@@ -458,16 +450,16 @@ namespace CryptoWidget
                 CoinPriceATH = ("£" + CoinAPIData[ICPINDEX].ath);
 
                 CoinPrice1H = stringSolver.ShortenStringData(CoinAPIData[ICPINDEX].price_change_percentage_1h_in_currency);
-                CoinPrice1HColour = n.ColourCheck(CoinPrice1H);
+                CoinPrice1HColour = colourCheck.ColourCheck(CoinPrice1H);
 
                 CoinPrice24H = stringSolver.ShortenStringData(CoinAPIData[ICPINDEX].price_change_percentage_24h_in_currency);
-                CoinPrice24HColour = n.ColourCheck(CoinPrice24H);
+                CoinPrice24HColour = colourCheck.ColourCheck(CoinPrice24H);
 
                 CoinPrice7D = stringSolver.ShortenStringData(CoinAPIData[ICPINDEX].price_change_percentage_7d_in_currency);
-                CoinPrice7DColour = n.ColourCheck(CoinPrice7D);
+                CoinPrice7DColour = colourCheck.ColourCheck(CoinPrice7D);
 
                 CoinPrice30D = stringSolver.ShortenStringData(CoinAPIData[ICPINDEX].price_change_percentage_30d_in_currency);
-                CoinPrice30DColour = n.ColourCheck(CoinPrice30D);
+                CoinPrice30DColour = colourCheck.ColourCheck(CoinPrice30D);
 
                 if (CoinAPIData[ICPINDEX].price_change_percentage_1y_in_currency == null)
                 {
@@ -477,7 +469,7 @@ namespace CryptoWidget
                 else
                 {
                     CoinPrice1Y = stringSolver.ShortenStringData(CoinAPIData[ICPINDEX].price_change_percentage_1y_in_currency);
-                    CoinPrice1YColour = n.ColourCheck(CoinPrice1Y);
+                    CoinPrice1YColour = colourCheck.ColourCheck(CoinPrice1Y);
                 }
             }
             else if (CoinCodeName == "theta")
@@ -488,19 +480,19 @@ namespace CryptoWidget
                 CoinPriceATH = ("£" + CoinAPIData[THETAINDEX].ath);
 
                 CoinPrice1H = stringSolver.ShortenStringData(CoinAPIData[THETAINDEX].price_change_percentage_1h_in_currency);
-                CoinPrice1HColour = n.ColourCheck(CoinPrice1H);
+                CoinPrice1HColour = colourCheck.ColourCheck(CoinPrice1H);
 
                 CoinPrice24H = stringSolver.ShortenStringData(CoinAPIData[THETAINDEX].price_change_percentage_24h_in_currency);
-                CoinPrice24HColour = n.ColourCheck(CoinPrice24H);
+                CoinPrice24HColour = colourCheck.ColourCheck(CoinPrice24H);
 
                 CoinPrice7D = stringSolver.ShortenStringData(CoinAPIData[THETAINDEX].price_change_percentage_7d_in_currency);
-                CoinPrice7DColour = n.ColourCheck(CoinPrice7D);
+                CoinPrice7DColour = colourCheck.ColourCheck(CoinPrice7D);
 
                 CoinPrice30D = stringSolver.ShortenStringData(CoinAPIData[THETAINDEX].price_change_percentage_30d_in_currency);
-                CoinPrice30DColour = n.ColourCheck(CoinPrice30D);
+                CoinPrice30DColour = colourCheck.ColourCheck(CoinPrice30D);
 
                 CoinPrice1Y = stringSolver.ShortenStringData(CoinAPIData[THETAINDEX].price_change_percentage_1y_in_currency);
-                CoinPrice1YColour = n.ColourCheck(CoinPrice1Y);
+                CoinPrice1YColour = colourCheck.ColourCheck(CoinPrice1Y);
             }
             else if (CoinCodeName == "stellar")
             {
@@ -510,19 +502,19 @@ namespace CryptoWidget
                 CoinPriceATH = ("£" + CoinAPIData[XLMINDEX].ath);
 
                 CoinPrice1H = stringSolver.ShortenStringData(CoinAPIData[XLMINDEX].price_change_percentage_1h_in_currency);
-                CoinPrice1HColour = n.ColourCheck(CoinPrice1H);
+                CoinPrice1HColour = colourCheck.ColourCheck(CoinPrice1H);
 
                 CoinPrice24H = stringSolver.ShortenStringData(CoinAPIData[XLMINDEX].price_change_percentage_24h_in_currency);
-                CoinPrice24HColour = n.ColourCheck(CoinPrice24H);
+                CoinPrice24HColour = colourCheck.ColourCheck(CoinPrice24H);
 
                 CoinPrice7D = stringSolver.ShortenStringData(CoinAPIData[XLMINDEX].price_change_percentage_7d_in_currency);
-                CoinPrice7DColour = n.ColourCheck(CoinPrice7D);
+                CoinPrice7DColour = colourCheck.ColourCheck(CoinPrice7D);
 
                 CoinPrice30D = stringSolver.ShortenStringData(CoinAPIData[XLMINDEX].price_change_percentage_30d_in_currency);
-                CoinPrice30DColour = n.ColourCheck(CoinPrice30D);
+                CoinPrice30DColour = colourCheck.ColourCheck(CoinPrice30D);
 
                 CoinPrice1Y = stringSolver.ShortenStringData(CoinAPIData[XLMINDEX].price_change_percentage_1y_in_currency);
-                CoinPrice1YColour = n.ColourCheck(CoinPrice1Y);
+                CoinPrice1YColour = colourCheck.ColourCheck(CoinPrice1Y);
             }
             else if (CoinCodeName == "vechain")
             {
@@ -532,19 +524,19 @@ namespace CryptoWidget
                 CoinPriceATH = ("£" + CoinAPIData[VETINDEX].ath);
 
                 CoinPrice1H = stringSolver.ShortenStringData(CoinAPIData[VETINDEX].price_change_percentage_1h_in_currency);
-                CoinPrice1HColour = n.ColourCheck(CoinPrice1H);
+                CoinPrice1HColour = colourCheck.ColourCheck(CoinPrice1H);
 
                 CoinPrice24H = stringSolver.ShortenStringData(CoinAPIData[VETINDEX].price_change_percentage_24h_in_currency);
-                CoinPrice24HColour = n.ColourCheck(CoinPrice24H);
+                CoinPrice24HColour = colourCheck.ColourCheck(CoinPrice24H);
 
                 CoinPrice7D = stringSolver.ShortenStringData(CoinAPIData[VETINDEX].price_change_percentage_7d_in_currency);
-                CoinPrice7DColour = n.ColourCheck(CoinPrice7D);
+                CoinPrice7DColour = colourCheck.ColourCheck(CoinPrice7D);
 
                 CoinPrice30D = stringSolver.ShortenStringData(CoinAPIData[VETINDEX].price_change_percentage_30d_in_currency);
-                CoinPrice30DColour = n.ColourCheck(CoinPrice30D);
+                CoinPrice30DColour = colourCheck.ColourCheck(CoinPrice30D);
 
                 CoinPrice1Y = stringSolver.ShortenStringData(CoinAPIData[VETINDEX].price_change_percentage_1y_in_currency);
-                CoinPrice1YColour = n.ColourCheck(CoinPrice1Y);
+                CoinPrice1YColour = colourCheck.ColourCheck(CoinPrice1Y);
             }
             else if (CoinCodeName == "dai")
             {
@@ -554,19 +546,19 @@ namespace CryptoWidget
                 CoinPriceATH = ("£" + CoinAPIData[DAIINDEX].ath);
 
                 CoinPrice1H = stringSolver.ShortenStringData(CoinAPIData[DAIINDEX].price_change_percentage_1h_in_currency);
-                CoinPrice1HColour = n.ColourCheck(CoinPrice1H);
+                CoinPrice1HColour = colourCheck.ColourCheck(CoinPrice1H);
 
                 CoinPrice24H = stringSolver.ShortenStringData(CoinAPIData[DAIINDEX].price_change_percentage_24h_in_currency);
-                CoinPrice24HColour = n.ColourCheck(CoinPrice24H);
+                CoinPrice24HColour = colourCheck.ColourCheck(CoinPrice24H);
 
                 CoinPrice7D = stringSolver.ShortenStringData(CoinAPIData[DAIINDEX].price_change_percentage_7d_in_currency);
-                CoinPrice7DColour = n.ColourCheck(CoinPrice7D);
+                CoinPrice7DColour = colourCheck.ColourCheck(CoinPrice7D);
 
                 CoinPrice30D = stringSolver.ShortenStringData(CoinAPIData[DAIINDEX].price_change_percentage_30d_in_currency);
-                CoinPrice30DColour = n.ColourCheck(CoinPrice30D);
+                CoinPrice30DColour = colourCheck.ColourCheck(CoinPrice30D);
 
                 CoinPrice1Y = stringSolver.ShortenStringData(CoinAPIData[DAIINDEX].price_change_percentage_1y_in_currency);
-                CoinPrice1YColour = n.ColourCheck(CoinPrice1Y);
+                CoinPrice1YColour = colourCheck.ColourCheck(CoinPrice1Y);
             }
             else if (CoinCodeName == "filecoin")
             {
@@ -576,16 +568,16 @@ namespace CryptoWidget
                 CoinPriceATH = ("£" + CoinAPIData[FILINDEX].ath);
 
                 CoinPrice1H = stringSolver.ShortenStringData(CoinAPIData[FILINDEX].price_change_percentage_1h_in_currency);
-                CoinPrice1HColour = n.ColourCheck(CoinPrice1H);
+                CoinPrice1HColour = colourCheck.ColourCheck(CoinPrice1H);
 
                 CoinPrice24H = stringSolver.ShortenStringData(CoinAPIData[FILINDEX].price_change_percentage_24h_in_currency);
-                CoinPrice24HColour = n.ColourCheck(CoinPrice24H);
+                CoinPrice24HColour = colourCheck.ColourCheck(CoinPrice24H);
 
                 CoinPrice7D = stringSolver.ShortenStringData(CoinAPIData[FILINDEX].price_change_percentage_7d_in_currency);
-                CoinPrice7DColour = n.ColourCheck(CoinPrice7D);
+                CoinPrice7DColour = colourCheck.ColourCheck(CoinPrice7D);
 
                 CoinPrice30D = stringSolver.ShortenStringData(CoinAPIData[FILINDEX].price_change_percentage_30d_in_currency);
-                CoinPrice30DColour = n.ColourCheck(CoinPrice30D);
+                CoinPrice30DColour = colourCheck.ColourCheck(CoinPrice30D);
 
                 if (CoinAPIData[FILINDEX].price_change_percentage_1y_in_currency == null)
                 {
@@ -595,7 +587,7 @@ namespace CryptoWidget
                 else
                 {
                     CoinPrice1Y = stringSolver.ShortenStringData(CoinAPIData[FILINDEX].price_change_percentage_1y_in_currency);
-                    CoinPrice1YColour = n.ColourCheck(CoinPrice1Y);
+                    CoinPrice1YColour = colourCheck.ColourCheck(CoinPrice1Y);
                 }
 
                 
@@ -608,19 +600,52 @@ namespace CryptoWidget
                 CoinPriceATH = ("£" + CoinAPIData[TRXINDEX].ath);
 
                 CoinPrice1H = stringSolver.ShortenStringData(CoinAPIData[TRXINDEX].price_change_percentage_1h_in_currency);
-                CoinPrice1HColour = n.ColourCheck(CoinPrice1H);
+                CoinPrice1HColour = colourCheck.ColourCheck(CoinPrice1H);
 
                 CoinPrice24H = stringSolver.ShortenStringData(CoinAPIData[TRXINDEX].price_change_percentage_24h_in_currency);
-                CoinPrice24HColour = n.ColourCheck(CoinPrice24H);
+                CoinPrice24HColour = colourCheck.ColourCheck(CoinPrice24H);
 
                 CoinPrice7D = stringSolver.ShortenStringData(CoinAPIData[TRXINDEX].price_change_percentage_7d_in_currency);
-                CoinPrice7DColour = n.ColourCheck(CoinPrice7D);
+                CoinPrice7DColour = colourCheck.ColourCheck(CoinPrice7D);
 
                 CoinPrice30D = stringSolver.ShortenStringData(CoinAPIData[TRXINDEX].price_change_percentage_30d_in_currency);
-                CoinPrice30DColour = n.ColourCheck(CoinPrice30D);
+                CoinPrice30DColour = colourCheck.ColourCheck(CoinPrice30D);
 
                 CoinPrice1Y = stringSolver.ShortenStringData(CoinAPIData[TRXINDEX].price_change_percentage_1y_in_currency);
-                CoinPrice1YColour = n.ColourCheck(CoinPrice1Y);
+                CoinPrice1YColour = colourCheck.ColourCheck(CoinPrice1Y);
+            }
+            else if (CoinCodeName == "shibainu")
+            {
+                int SHIBINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Shiba Inu");
+                CoinPrice = Convert.ToString("£" + CoinAPIData[SHIBINDEX].current_price);
+
+                CoinPriceATH = ("£" + CoinAPIData[SHIBINDEX].ath);
+                
+
+                CoinPrice1H = stringSolver.ShortenStringData(CoinAPIData[SHIBINDEX].price_change_percentage_1h_in_currency);
+                CoinPrice1HColour = colourCheck.ColourCheck(CoinPrice1H);
+
+                CoinPrice24H = stringSolver.ShortenStringData(CoinAPIData[SHIBINDEX].price_change_percentage_24h_in_currency);
+                CoinPrice24HColour = colourCheck.ColourCheck(CoinPrice24H);
+
+                CoinPrice7D = stringSolver.ShortenStringData(CoinAPIData[SHIBINDEX].price_change_percentage_7d_in_currency);
+                CoinPrice7DColour = colourCheck.ColourCheck(CoinPrice7D);
+
+                CoinPrice30D = stringSolver.ShortenStringData(CoinAPIData[SHIBINDEX].price_change_percentage_30d_in_currency);
+                CoinPrice30DColour = colourCheck.ColourCheck(CoinPrice30D);
+
+                if (CoinAPIData[SHIBINDEX].price_change_percentage_1y_in_currency == null)
+                {
+                    CoinPrice1Y = "N/A";
+
+                }
+                else
+                {
+                    CoinPrice1Y = stringSolver.ShortenStringData(CoinAPIData[SHIBINDEX].price_change_percentage_1y_in_currency);
+                    CoinPrice1YColour = colourCheck.ColourCheck(CoinPrice1Y);
+                }
+
+
             }
 
 

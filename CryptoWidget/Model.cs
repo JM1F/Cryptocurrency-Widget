@@ -123,11 +123,15 @@ namespace CryptoWidget
         public string TRX24HCOLOUR { get; set; }
         public string TRXPRICE { get; set; }
 
+        public string SHIB24H { get; set; }
+        public string SHIB24HCOLOUR { get; set; }
+        public string SHIBPRICE { get; set; }
+
 
 
         private static System.Timers.Timer atimer;
 
-        ColorPriceCheck n = new ColorPriceCheck();
+        ColorPriceCheck colourCheck = new ColorPriceCheck();
         StringSolver stringSolver = new StringSolver();
         APIDataChecker aPIDataChecker = new APIDataChecker();
 
@@ -158,7 +162,7 @@ namespace CryptoWidget
             // Sets updated variables for all MainWindow elemetns.
             BTCPRICE = ("£" + CoinAPIData[BTCINDEX].current_price);
             PCP24H = stringSolver.ShortenStringData(CoinAPIData[BTCINDEX].price_change_percentage_24h_in_currency);
-            PCP24HCOLOUR = n.ColourCheck(PCP24H);
+            PCP24HCOLOUR = colourCheck.ColourCheck(PCP24H);
             // Calls OnPropertyChanged for all variables to update the data element in MainWindow.
             OnPropertyChanged("BTCPRICE");
             OnPropertyChanged("PCP24H");
@@ -168,7 +172,7 @@ namespace CryptoWidget
 
             ETHPRICE = ("£" + CoinAPIData[ETHINDEX].current_price);
             ETH24H = stringSolver.ShortenStringData(CoinAPIData[ETHINDEX].price_change_percentage_24h_in_currency);
-            ETH24HCOLOUR = n.ColourCheck(ETH24H);
+            ETH24HCOLOUR = colourCheck.ColourCheck(ETH24H);
             OnPropertyChanged("ETHPRICE");
             OnPropertyChanged("ETH24H");
             OnPropertyChanged("ETH24HCOLOUR");
@@ -177,7 +181,7 @@ namespace CryptoWidget
 
             ADAPRICE = ("£" + CoinAPIData[ADAINDEX].current_price);
             ADA24H = stringSolver.ShortenStringData(CoinAPIData[ADAINDEX].price_change_percentage_24h_in_currency);
-            ADA24HCOLOUR = n.ColourCheck(ADA24H);
+            ADA24HCOLOUR = colourCheck.ColourCheck(ADA24H);
             OnPropertyChanged("ADAPRICE");
             OnPropertyChanged("ADA24H");
             OnPropertyChanged("ADA24HCOLOUR");
@@ -186,7 +190,7 @@ namespace CryptoWidget
 
             BNBPRICE = ("£" + CoinAPIData[BNBINDEX].current_price);
             BNB24H = stringSolver.ShortenStringData(CoinAPIData[BNBINDEX].price_change_percentage_24h_in_currency);
-            BNB24HCOLOUR = n.ColourCheck(BNB24H);
+            BNB24HCOLOUR = colourCheck.ColourCheck(BNB24H);
             OnPropertyChanged("BNBPRICE");
             OnPropertyChanged("BNB24H");
             OnPropertyChanged("BNB24HCOLOUR");
@@ -195,7 +199,7 @@ namespace CryptoWidget
 
             DOGEPRICE = ("£" + CoinAPIData[DOGEINDEX].current_price);
             DOGE24H = stringSolver.ShortenStringData(CoinAPIData[DOGEINDEX].price_change_percentage_24h_in_currency);
-            DOGE24HCOLOUR = n.ColourCheck(DOGE24H);
+            DOGE24HCOLOUR = colourCheck.ColourCheck(DOGE24H);
             OnPropertyChanged("DOGEPRICE");
             OnPropertyChanged("DOGE24H");
             OnPropertyChanged("DOGE24HCOLOUR");
@@ -204,7 +208,7 @@ namespace CryptoWidget
 
             XRPPRICE = ("£" + CoinAPIData[XRPINDEX].current_price);
             XRP24H = stringSolver.ShortenStringData(CoinAPIData[XRPINDEX].price_change_percentage_24h_in_currency);
-            XRP24HCOLOUR = n.ColourCheck(XRP24H);
+            XRP24HCOLOUR = colourCheck.ColourCheck(XRP24H);
             OnPropertyChanged("XRPPRICE");
             OnPropertyChanged("XRP24H");
             OnPropertyChanged("XRP24HCOLOUR");
@@ -213,7 +217,7 @@ namespace CryptoWidget
 
             DOTPRICE = ("£" + CoinAPIData[DOTINDEX].current_price);
             DOT24H = stringSolver.ShortenStringData(CoinAPIData[DOTINDEX].price_change_percentage_24h_in_currency);
-            DOT24HCOLOUR = n.ColourCheck(DOT24H);
+            DOT24HCOLOUR = colourCheck.ColourCheck(DOT24H);
             OnPropertyChanged("DOTPRICE");
             OnPropertyChanged("DOT24H");
             OnPropertyChanged("DOT24HCOLOUR");
@@ -222,7 +226,7 @@ namespace CryptoWidget
 
             BTCCASHPRICE = ("£" + CoinAPIData[BTCCASHINDEX].current_price);
             BTCCASH24H = stringSolver.ShortenStringData(CoinAPIData[BTCCASHINDEX].price_change_percentage_24h_in_currency);
-            BTCCASH24HCOLOUR = n.ColourCheck(BTCCASH24H);
+            BTCCASH24HCOLOUR = colourCheck.ColourCheck(BTCCASH24H);
             OnPropertyChanged("BTCCASHPRICE");
             OnPropertyChanged("BTCCASH24H");
             OnPropertyChanged("BTCCASH24HCOLOUR");
@@ -231,7 +235,7 @@ namespace CryptoWidget
 
             UNIPRICE = ("£" + CoinAPIData[UNIINDEX].current_price);
             UNI24H = stringSolver.ShortenStringData(CoinAPIData[UNIINDEX].price_change_percentage_24h_in_currency);
-            UNI24HCOLOUR = n.ColourCheck(UNI24H);
+            UNI24HCOLOUR = colourCheck.ColourCheck(UNI24H);
             OnPropertyChanged("UNIPRICE");
             OnPropertyChanged("UNI24H");
             OnPropertyChanged("UNI24HCOLOUR");
@@ -240,7 +244,7 @@ namespace CryptoWidget
 
             SOLPRICE = ("£" + CoinAPIData[SOLINDEX].current_price);
             SOL24H = stringSolver.ShortenStringData(CoinAPIData[SOLINDEX].price_change_percentage_24h_in_currency);
-            SOL24HCOLOUR = n.ColourCheck(SOL24H);
+            SOL24HCOLOUR = colourCheck.ColourCheck(SOL24H);
             OnPropertyChanged("SOLPRICE");
             OnPropertyChanged("SOL24H");
             OnPropertyChanged("SOL24HCOLOUR");
@@ -249,7 +253,7 @@ namespace CryptoWidget
 
             LTCPRICE = ("£" + CoinAPIData[LTCINDEX].current_price);
             LTC24H = stringSolver.ShortenStringData(CoinAPIData[LTCINDEX].price_change_percentage_24h_in_currency);
-            LTC24HCOLOUR = n.ColourCheck(LTC24H);
+            LTC24HCOLOUR = colourCheck.ColourCheck(LTC24H);
             OnPropertyChanged("LTCPRICE");
             OnPropertyChanged("LTC24H");
             OnPropertyChanged("LTC24HCOLOUR");
@@ -258,7 +262,7 @@ namespace CryptoWidget
 
             LINKPRICE = ("£" + CoinAPIData[LINKINDEX].current_price);
             LINK24H = stringSolver.ShortenStringData(CoinAPIData[LINKINDEX].price_change_percentage_24h_in_currency);
-            LINK24HCOLOUR = n.ColourCheck(LINK24H);
+            LINK24HCOLOUR = colourCheck.ColourCheck(LINK24H);
             OnPropertyChanged("LINKPRICE");
             OnPropertyChanged("LINK24H");
             OnPropertyChanged("LINK24HCOLOUR");
@@ -267,7 +271,7 @@ namespace CryptoWidget
 
             ETHCPRICE = ("£" + CoinAPIData[ETHCINDEX].current_price);
             ETHC24H = stringSolver.ShortenStringData(CoinAPIData[ETHCINDEX].price_change_percentage_24h_in_currency);
-            ETHC24HCOLOUR = n.ColourCheck(ETHC24H);
+            ETHC24HCOLOUR = colourCheck.ColourCheck(ETHC24H);
             OnPropertyChanged("ETHCPRICE");
             OnPropertyChanged("ETHC24H");
             OnPropertyChanged("ETHC24HCOLOUR");
@@ -276,7 +280,7 @@ namespace CryptoWidget
 
             MATICPRICE = ("£" + CoinAPIData[MATICINDEX].current_price);
             MATIC24H = stringSolver.ShortenStringData(CoinAPIData[MATICINDEX].price_change_percentage_24h_in_currency);
-            MATIC24HCOLOUR = n.ColourCheck(MATIC24H);
+            MATIC24HCOLOUR = colourCheck.ColourCheck(MATIC24H);
             OnPropertyChanged("MATICPRICE");
             OnPropertyChanged("MATIC24H");
             OnPropertyChanged("MATIC24HCOLOUR");
@@ -285,7 +289,7 @@ namespace CryptoWidget
 
             WBTCPRICE = ("£" + CoinAPIData[WBTCINDEX].current_price);
             WBTC24H = stringSolver.ShortenStringData(CoinAPIData[WBTCINDEX].price_change_percentage_24h_in_currency);
-            WBTC24HCOLOUR = n.ColourCheck(WBTC24H);
+            WBTC24HCOLOUR = colourCheck.ColourCheck(WBTC24H);
             OnPropertyChanged("WBTCPRICE");
             OnPropertyChanged("WBTC24H");
             OnPropertyChanged("WBTC24HCOLOUR");
@@ -294,7 +298,7 @@ namespace CryptoWidget
 
             ICPPRICE = ("£" + CoinAPIData[ICPINDEX].current_price);
             ICP24H = stringSolver.ShortenStringData(CoinAPIData[ICPINDEX].price_change_percentage_24h_in_currency);
-            ICP24HCOLOUR = n.ColourCheck(ICP24H);
+            ICP24HCOLOUR = colourCheck.ColourCheck(ICP24H);
             OnPropertyChanged("ICPPRICE");
             OnPropertyChanged("ICP24H");
             OnPropertyChanged("ICP24HCOLOUR");
@@ -303,7 +307,7 @@ namespace CryptoWidget
 
             THETAPRICE = ("£" + CoinAPIData[THETAINDEX].current_price);
             THETA24H = stringSolver.ShortenStringData(CoinAPIData[THETAINDEX].price_change_percentage_24h_in_currency);
-            THETA24HCOLOUR = n.ColourCheck(THETA24H);
+            THETA24HCOLOUR = colourCheck.ColourCheck(THETA24H);
             OnPropertyChanged("THETAPRICE");
             OnPropertyChanged("THETA24H");
             OnPropertyChanged("THETA24HCOLOUR");
@@ -312,7 +316,7 @@ namespace CryptoWidget
 
             XLMPRICE = ("£" + CoinAPIData[XLMINDEX].current_price);
             XLM24H = stringSolver.ShortenStringData(CoinAPIData[XLMINDEX].price_change_percentage_24h_in_currency);
-            XLM24HCOLOUR = n.ColourCheck(XLM24H);
+            XLM24HCOLOUR = colourCheck.ColourCheck(XLM24H);
             OnPropertyChanged("XLMPRICE");
             OnPropertyChanged("XLM24H");
             OnPropertyChanged("XLM24HCOLOUR");
@@ -321,7 +325,7 @@ namespace CryptoWidget
 
             VETPRICE = ("£" + CoinAPIData[VETINDEX].current_price);
             VET24H = stringSolver.ShortenStringData(CoinAPIData[VETINDEX].price_change_percentage_24h_in_currency);
-            VET24HCOLOUR = n.ColourCheck(VET24H);
+            VET24HCOLOUR = colourCheck.ColourCheck(VET24H);
             OnPropertyChanged("VETPRICE");
             OnPropertyChanged("VET24H");
             OnPropertyChanged("VET24HCOLOUR");
@@ -330,7 +334,7 @@ namespace CryptoWidget
 
             DAIPRICE = ("£" + CoinAPIData[DAIINDEX].current_price);
             DAI24H = stringSolver.ShortenStringData(CoinAPIData[DAIINDEX].price_change_percentage_24h_in_currency);
-            DAI24HCOLOUR = n.ColourCheck(DAI24H);
+            DAI24HCOLOUR = colourCheck.ColourCheck(DAI24H);
             OnPropertyChanged("DAIPRICE");
             OnPropertyChanged("DAI24H");
             OnPropertyChanged("DAI24HCOLOUR");
@@ -339,7 +343,7 @@ namespace CryptoWidget
 
             FILPRICE = ("£" + CoinAPIData[FILINDEX].current_price);
             FIL24H = stringSolver.ShortenStringData(CoinAPIData[FILINDEX].price_change_percentage_24h_in_currency);
-            FIL24HCOLOUR = n.ColourCheck(FIL24H);
+            FIL24HCOLOUR = colourCheck.ColourCheck(FIL24H);
             OnPropertyChanged("FILPRICE");
             OnPropertyChanged("FIL24H");
             OnPropertyChanged("FIL24HCOLOUR");
@@ -348,10 +352,19 @@ namespace CryptoWidget
 
             TRXPRICE = ("£" + CoinAPIData[TRXINDEX].current_price);
             TRX24H = stringSolver.ShortenStringData(CoinAPIData[TRXINDEX].price_change_percentage_24h_in_currency);
-            TRX24HCOLOUR = n.ColourCheck(TRX24H);
+            TRX24HCOLOUR = colourCheck.ColourCheck(TRX24H);
             OnPropertyChanged("TRXPRICE");
             OnPropertyChanged("TRX24H");
             OnPropertyChanged("TRX24HCOLOUR");
+
+            int SHIBINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Shiba Inu");
+
+            SHIBPRICE = ("£" + CoinAPIData[SHIBINDEX].current_price);
+            SHIB24H = stringSolver.ShortenStringData(CoinAPIData[SHIBINDEX].price_change_percentage_24h_in_currency);
+            SHIB24HCOLOUR = colourCheck.ColourCheck(SHIB24H);
+            OnPropertyChanged("SHIBPRICE");
+            OnPropertyChanged("SHIB24H");
+            OnPropertyChanged("SHIB24HCOLOUR");
         }
         
     }

@@ -183,6 +183,24 @@ namespace CryptoWidget
             PriceData24hVET.Text = stringSolver.ShortenStringData(CoinAPIData[VETINDEX].price_change_percentage_24h_in_currency);
             PriceData24hVET.Foreground = new BrushConverter().ConvertFromString(n.ColourCheck(CoinAPIData[VETINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
 
+            int DAIINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Dai");
+
+            DAIPriceName.Text = ("£" + CoinAPIData[DAIINDEX].current_price);
+            PriceData24hDAI.Text = stringSolver.ShortenStringData(CoinAPIData[DAIINDEX].price_change_percentage_24h_in_currency);
+            PriceData24hDAI.Foreground = new BrushConverter().ConvertFromString(n.ColourCheck(CoinAPIData[DAIINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+
+            int FILINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Filecoin");
+
+            FILPriceName.Text = ("£" + CoinAPIData[FILINDEX].current_price);
+            PriceData24hFIL.Text = stringSolver.ShortenStringData(CoinAPIData[FILINDEX].price_change_percentage_24h_in_currency);
+            PriceData24hFIL.Foreground = new BrushConverter().ConvertFromString(n.ColourCheck(CoinAPIData[FILINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+
+            int TRXINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "TRON");
+
+            TRXPriceName.Text = ("£" + CoinAPIData[TRXINDEX].current_price);
+            PriceData24hTRX.Text = stringSolver.ShortenStringData(CoinAPIData[TRXINDEX].price_change_percentage_24h_in_currency);
+            PriceData24hTRX.Foreground = new BrushConverter().ConvertFromString(n.ColourCheck(CoinAPIData[TRXINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+
         }
 
         /// <summary>
@@ -338,6 +356,24 @@ namespace CryptoWidget
             SubWindow vechainwindow = new SubWindow("vechain");
 
             vechainwindow.ShowDialog();
+        }
+        public void Button_ClickDAI(object sender, RoutedEventArgs e)
+        {
+            SubWindow daiwindow = new SubWindow("dai");
+
+            daiwindow.ShowDialog();
+        }
+        public void Button_ClickFIL(object sender, RoutedEventArgs e)
+        {
+            SubWindow filecoinwindow = new SubWindow("filecoin");
+
+            filecoinwindow.ShowDialog();
+        }
+        public void Button_ClickTRX(object sender, RoutedEventArgs e)
+        {
+            SubWindow tronwindow = new SubWindow("tron");
+
+            tronwindow.ShowDialog();
         }
         /// <summary>
         /// Handles the hyperlink request when clicked.

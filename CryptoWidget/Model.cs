@@ -111,6 +111,18 @@ namespace CryptoWidget
         public string VET24HCOLOUR { get; set; }
         public string VETPRICE { get; set; }
 
+        public string DAI24H { get; set; }
+        public string DAI24HCOLOUR { get; set; }
+        public string DAIPRICE { get; set; }
+
+        public string FIL24H { get; set; }
+        public string FIL24HCOLOUR { get; set; }
+        public string FILPRICE { get; set; }
+
+        public string TRX24H { get; set; }
+        public string TRX24HCOLOUR { get; set; }
+        public string TRXPRICE { get; set; }
+
 
 
         private static System.Timers.Timer atimer;
@@ -305,7 +317,7 @@ namespace CryptoWidget
             OnPropertyChanged("XLM24H");
             OnPropertyChanged("XLM24HCOLOUR");
 
-            int VETINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Stellar");
+            int VETINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Vechain");
 
             VETPRICE = ("£" + CoinAPIData[VETINDEX].current_price);
             VET24H = stringSolver.ShortenStringData(CoinAPIData[VETINDEX].price_change_percentage_24h_in_currency);
@@ -313,6 +325,33 @@ namespace CryptoWidget
             OnPropertyChanged("VETPRICE");
             OnPropertyChanged("VET24H");
             OnPropertyChanged("VET24HCOLOUR");
+
+            int DAIINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Dai");
+
+            DAIPRICE = ("£" + CoinAPIData[DAIINDEX].current_price);
+            DAI24H = stringSolver.ShortenStringData(CoinAPIData[DAIINDEX].price_change_percentage_24h_in_currency);
+            DAI24HCOLOUR = n.ColourCheck(DAI24H);
+            OnPropertyChanged("DAIPRICE");
+            OnPropertyChanged("DAI24H");
+            OnPropertyChanged("DAI24HCOLOUR");
+
+            int FILINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Filecoin");
+
+            FILPRICE = ("£" + CoinAPIData[FILINDEX].current_price);
+            FIL24H = stringSolver.ShortenStringData(CoinAPIData[FILINDEX].price_change_percentage_24h_in_currency);
+            FIL24HCOLOUR = n.ColourCheck(FIL24H);
+            OnPropertyChanged("FILPRICE");
+            OnPropertyChanged("FIL24H");
+            OnPropertyChanged("FIL24HCOLOUR");
+
+            int TRXINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Filecoin");
+
+            TRXPRICE = ("£" + CoinAPIData[TRXINDEX].current_price);
+            TRX24H = stringSolver.ShortenStringData(CoinAPIData[TRXINDEX].price_change_percentage_24h_in_currency);
+            TRX24HCOLOUR = n.ColourCheck(TRX24H);
+            OnPropertyChanged("TRXPRICE");
+            OnPropertyChanged("TRX24H");
+            OnPropertyChanged("TRX24HCOLOUR");
         }
         
     }

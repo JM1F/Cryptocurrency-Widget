@@ -103,6 +103,14 @@ namespace CryptoWidget
         public string THETA24HCOLOUR { get; set; }
         public string THETAPRICE { get; set; }
 
+        public string XLM24H { get; set; }
+        public string XLM24HCOLOUR { get; set; }
+        public string XLMPRICE { get; set; }
+
+        public string VET24H { get; set; }
+        public string VET24HCOLOUR { get; set; }
+        public string VETPRICE { get; set; }
+
 
 
         private static System.Timers.Timer atimer;
@@ -287,6 +295,24 @@ namespace CryptoWidget
             OnPropertyChanged("THETAPRICE");
             OnPropertyChanged("THETA24H");
             OnPropertyChanged("THETA24HCOLOUR");
+
+            int XLMINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Stellar");
+
+            XLMPRICE = ("£" + CoinAPIData[XLMINDEX].current_price);
+            XLM24H = stringSolver.ShortenStringData(CoinAPIData[XLMINDEX].price_change_percentage_24h_in_currency);
+            XLM24HCOLOUR = n.ColourCheck(XLM24H);
+            OnPropertyChanged("XLMPRICE");
+            OnPropertyChanged("XLM24H");
+            OnPropertyChanged("XLM24HCOLOUR");
+
+            int VETINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Stellar");
+
+            VETPRICE = ("£" + CoinAPIData[VETINDEX].current_price);
+            VET24H = stringSolver.ShortenStringData(CoinAPIData[VETINDEX].price_change_percentage_24h_in_currency);
+            VET24HCOLOUR = n.ColourCheck(VET24H);
+            OnPropertyChanged("VETPRICE");
+            OnPropertyChanged("VET24H");
+            OnPropertyChanged("VET24HCOLOUR");
         }
         
     }

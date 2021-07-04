@@ -171,6 +171,18 @@ namespace CryptoWidget
             PriceData24hTHETA.Text = stringSolver.ShortenStringData(CoinAPIData[THETAINDEX].price_change_percentage_24h_in_currency);
             PriceData24hTHETA.Foreground = new BrushConverter().ConvertFromString(n.ColourCheck(CoinAPIData[THETAINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
 
+            int XLMINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Stellar");
+
+            XLMPriceName.Text = ("£" + CoinAPIData[XLMINDEX].current_price);
+            PriceData24hXLM.Text = stringSolver.ShortenStringData(CoinAPIData[XLMINDEX].price_change_percentage_24h_in_currency);
+            PriceData24hXLM.Foreground = new BrushConverter().ConvertFromString(n.ColourCheck(CoinAPIData[XLMINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+
+            int VETINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "VeChain");
+
+            VETPriceName.Text = ("£" + CoinAPIData[VETINDEX].current_price);
+            PriceData24hVET.Text = stringSolver.ShortenStringData(CoinAPIData[VETINDEX].price_change_percentage_24h_in_currency);
+            PriceData24hVET.Foreground = new BrushConverter().ConvertFromString(n.ColourCheck(CoinAPIData[VETINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+
         }
 
         /// <summary>
@@ -314,6 +326,18 @@ namespace CryptoWidget
             SubWindow thetawindow = new SubWindow("theta");
 
             thetawindow.ShowDialog();
+        }
+        public void Button_ClickXLM(object sender, RoutedEventArgs e)
+        {
+            SubWindow stellarwindow = new SubWindow("stellar");
+
+            stellarwindow.ShowDialog();
+        }
+        public void Button_ClickVET(object sender, RoutedEventArgs e)
+        {
+            SubWindow vechainwindow = new SubWindow("vechain");
+
+            vechainwindow.ShowDialog();
         }
         /// <summary>
         /// Handles the hyperlink request when clicked.

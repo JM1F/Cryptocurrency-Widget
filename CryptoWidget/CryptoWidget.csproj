@@ -212,5 +212,11 @@
   <ItemGroup>
     <Resource Include="Images\theta.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\stellar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\vechain.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

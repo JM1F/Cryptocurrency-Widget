@@ -615,6 +615,46 @@
 
                     <Rectangle  Fill="#545454" Height="1" Margin="25,1252,25,997" RenderTransformOrigin="0.5,0.5"/>
 
+                    <Button Click="Button_ClickXLM" Height="61" Margin="18,1259,18,930" BorderThickness="0" Background="Transparent" Style="{DynamicResource MainButtons}">
+                        <Grid Width="223" Height="60">
+                            <TextBlock Text="Stellar" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameDataXLM" Margin="65,7,9,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
+
+                            <TextBlock TextAlignment="Center" Foreground="{Binding Path=XLM24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hXLM" Margin="61,44,108,0" Text="{Binding Path=XLM24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="XLMPriceName" Margin="142,44,19,0" Text="{Binding Path=XLMPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+
+
+                            <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
+                            <TextBlock Foreground="White" Margin="158,32,41,17" Text="Price" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
+
+                            <Image Source="/Images/stellar.png" Margin="0,0,163,0" Stretch="None">
+
+                            </Image>
+                        </Grid>
+                    </Button>
+
+                    <Rectangle  Fill="#545454" Height="1" Margin="25,1326,25,923" RenderTransformOrigin="0.5,0.5"/>
+
+                    <Button Click="Button_ClickVET" Height="61" Margin="18,1333,18,856" BorderThickness="0" Background="Transparent" Style="{DynamicResource MainButtons}">
+                        <Grid Width="223" Height="60">
+                            <TextBlock Text="VeChain" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameDataVET" Margin="65,7,9,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
+
+                            <TextBlock TextAlignment="Center" Foreground="{Binding Path=VET24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hVET" Margin="61,44,108,0" Text="{Binding Path=VET24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="VETPriceName" Margin="142,44,19,0" Text="{Binding Path=VETPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+
+
+                            <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
+                            <TextBlock Foreground="White" Margin="158,32,41,17" Text="Price" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
+
+                            <Image Source="/Images/vechain.png" Margin="0,0,163,0" Stretch="None">
+
+                            </Image>
+                        </Grid>
+                    </Button>
+
+                    <Rectangle  Fill="#545454" Height="1" Margin="25,1400,25,849" RenderTransformOrigin="0.5,0.5"/>
+
                     <TextBlock Foreground="White" FontFamily="./resources/#Montserrat Medium" Margin="25,2160,126,60" TextDecorations="None" Style="{DynamicResource HyperlinkStyle}">
                         <Hyperlink NavigateUri="https://github.com/JM1F/Cryptocurrency-Widget/issues" RequestNavigate="Hyperlink_RequestNavigate">
                             Request/Issues

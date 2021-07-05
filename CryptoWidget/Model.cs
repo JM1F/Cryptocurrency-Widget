@@ -127,6 +127,21 @@ namespace CryptoWidget
         public string SHIB24HCOLOUR { get; set; }
         public string SHIBPRICE { get; set; }
 
+        public string XMR24H { get; set; }
+        public string XMR24HCOLOUR { get; set; }
+        public string XMRPRICE { get; set; }
+
+        public string ATOM24H { get; set; }
+        public string ATOM24HCOLOUR { get; set; }
+        public string ATOMPRICE { get; set; }
+
+        public string AAVE24H { get; set; }
+        public string AAVE24HCOLOUR { get; set; }
+        public string AAVEPRICE { get; set; }
+
+        public string EOS24H { get; set; }
+        public string EOS24HCOLOUR { get; set; }
+        public string EOSPRICE { get; set; }
 
 
         private static System.Timers.Timer atimer;
@@ -365,6 +380,42 @@ namespace CryptoWidget
             OnPropertyChanged("SHIBPRICE");
             OnPropertyChanged("SHIB24H");
             OnPropertyChanged("SHIB24HCOLOUR");
+
+            int XMRINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Monero");
+
+            XMRPRICE = ("£" + CoinAPIData[XMRINDEX].current_price);
+            XMR24H = stringSolver.ShortenStringData(CoinAPIData[XMRINDEX].price_change_percentage_24h_in_currency);
+            XMR24HCOLOUR = colourCheck.ColourCheck(XMR24H);
+            OnPropertyChanged("XMRPRICE");
+            OnPropertyChanged("XMR24H");
+            OnPropertyChanged("XMR24HCOLOUR");
+
+            int ATOMINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Cosmos");
+
+            ATOMPRICE = ("£" + CoinAPIData[ATOMINDEX].current_price);
+            ATOM24H = stringSolver.ShortenStringData(CoinAPIData[ATOMINDEX].price_change_percentage_24h_in_currency);
+            ATOM24HCOLOUR = colourCheck.ColourCheck(ATOM24H);
+            OnPropertyChanged("ATOMPRICE");
+            OnPropertyChanged("ATOM24H");
+            OnPropertyChanged("ATOM24HCOLOUR");
+
+            int AAVEINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Aave");
+
+            AAVEPRICE = ("£" + CoinAPIData[AAVEINDEX].current_price);
+            AAVE24H = stringSolver.ShortenStringData(CoinAPIData[AAVEINDEX].price_change_percentage_24h_in_currency);
+            AAVE24HCOLOUR = colourCheck.ColourCheck(AAVE24H);
+            OnPropertyChanged("AAVEPRICE");
+            OnPropertyChanged("AAVE24H");
+            OnPropertyChanged("AAVE24HCOLOUR");
+
+            int EOSINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "EOS");
+
+            EOSPRICE = ("£" + CoinAPIData[EOSINDEX].current_price);
+            EOS24H = stringSolver.ShortenStringData(CoinAPIData[EOSINDEX].price_change_percentage_24h_in_currency);
+            EOS24HCOLOUR = colourCheck.ColourCheck(EOS24H);
+            OnPropertyChanged("EOSPRICE");
+            OnPropertyChanged("EOS24H");
+            OnPropertyChanged("EOS24HCOLOUR");
         }
         
     }

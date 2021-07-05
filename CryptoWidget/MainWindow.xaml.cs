@@ -207,6 +207,30 @@ namespace CryptoWidget
             PriceData24hSHIB.Text = stringSolver.ShortenStringData(CoinAPIData[SHIBINDEX].price_change_percentage_24h_in_currency);
             PriceData24hSHIB.Foreground = new BrushConverter().ConvertFromString(colourCheck.ColourCheck(CoinAPIData[SHIBINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
 
+            int XMRINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Monero");
+
+            XMRPriceName.Text = ("£" + CoinAPIData[XMRINDEX].current_price);
+            PriceData24hXMR.Text = stringSolver.ShortenStringData(CoinAPIData[XMRINDEX].price_change_percentage_24h_in_currency);
+            PriceData24hXMR.Foreground = new BrushConverter().ConvertFromString(colourCheck.ColourCheck(CoinAPIData[XMRINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+
+            int ATOMINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Cosmos");
+
+            ATOMPriceName.Text = ("£" + CoinAPIData[ATOMINDEX].current_price);
+            PriceData24hATOM.Text = stringSolver.ShortenStringData(CoinAPIData[ATOMINDEX].price_change_percentage_24h_in_currency);
+            PriceData24hATOM.Foreground = new BrushConverter().ConvertFromString(colourCheck.ColourCheck(CoinAPIData[ATOMINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+
+            int AAVEINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Aave");
+
+            AAVEPriceName.Text = ("£" + CoinAPIData[AAVEINDEX].current_price);
+            PriceData24hAAVE.Text = stringSolver.ShortenStringData(CoinAPIData[AAVEINDEX].price_change_percentage_24h_in_currency);
+            PriceData24hAAVE.Foreground = new BrushConverter().ConvertFromString(colourCheck.ColourCheck(CoinAPIData[AAVEINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+
+            int EOSINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "EOS");
+
+            EOSPriceName.Text = ("£" + CoinAPIData[EOSINDEX].current_price);
+            PriceData24hEOS.Text = stringSolver.ShortenStringData(CoinAPIData[EOSINDEX].price_change_percentage_24h_in_currency);
+            PriceData24hEOS.Foreground = new BrushConverter().ConvertFromString(colourCheck.ColourCheck(CoinAPIData[EOSINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+
         }
 
         /// <summary>
@@ -386,6 +410,30 @@ namespace CryptoWidget
             SubWindow shibainuwindow = new SubWindow("shibainu");
 
             shibainuwindow.ShowDialog();
+        }
+        public void Button_ClickXMR(object sender, RoutedEventArgs e)
+        {
+            SubWindow monerowindow = new SubWindow("monero");
+
+            monerowindow.ShowDialog();
+        }
+        public void Button_ClickATOM(object sender, RoutedEventArgs e)
+        {
+            SubWindow cosmoswindow = new SubWindow("cosmos");
+
+            cosmoswindow.ShowDialog();
+        }
+        public void Button_ClickAAVE(object sender, RoutedEventArgs e)
+        {
+            SubWindow aavewindow = new SubWindow("aave");
+
+            aavewindow.ShowDialog();
+        }
+        public void Button_ClickEOS(object sender, RoutedEventArgs e)
+        {
+            SubWindow eoswindow = new SubWindow("eos");
+
+            eoswindow.ShowDialog();
         }
         /// <summary>
         /// Handles the hyperlink request when clicked.

@@ -231,6 +231,23 @@ namespace CryptoWidget
             PriceData24hEOS.Text = stringSolver.ShortenStringData(CoinAPIData[EOSINDEX].price_change_percentage_24h_in_currency);
             PriceData24hEOS.Foreground = new BrushConverter().ConvertFromString(colourCheck.ColourCheck(CoinAPIData[EOSINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
 
+            int ALGOINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Algorand");
+
+            ALGOPriceName.Text = ("£" + CoinAPIData[ALGOINDEX].current_price);
+            PriceData24hALGO.Text = stringSolver.ShortenStringData(CoinAPIData[ALGOINDEX].price_change_percentage_24h_in_currency);
+            PriceData24hALGO.Foreground = new BrushConverter().ConvertFromString(colourCheck.ColourCheck(CoinAPIData[ALGOINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+
+            int CAKEINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "PancakeSwap");
+
+            CAKEPriceName.Text = ("£" + CoinAPIData[CAKEINDEX].current_price);
+            PriceData24hCAKE.Text = stringSolver.ShortenStringData(CoinAPIData[CAKEINDEX].price_change_percentage_24h_in_currency);
+            PriceData24hCAKE.Foreground = new BrushConverter().ConvertFromString(colourCheck.ColourCheck(CoinAPIData[CAKEINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+
+            int AMPINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Amp");
+
+            AMPPriceName.Text = ("£" + CoinAPIData[AMPINDEX].current_price);
+            PriceData24hAMP.Text = stringSolver.ShortenStringData(CoinAPIData[AMPINDEX].price_change_percentage_24h_in_currency);
+            PriceData24hAMP.Foreground = new BrushConverter().ConvertFromString(colourCheck.ColourCheck(CoinAPIData[AMPINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
         }
 
         /// <summary>
@@ -434,6 +451,24 @@ namespace CryptoWidget
             SubWindow eoswindow = new SubWindow("eos");
 
             eoswindow.ShowDialog();
+        }
+        public void Button_ClickALGO(object sender, RoutedEventArgs e)
+        {
+            SubWindow algorandwindow = new SubWindow("algorand");
+
+            algorandwindow.ShowDialog();
+        }
+        public void Button_ClickCAKE(object sender, RoutedEventArgs e)
+        {
+            SubWindow pancakeswapwindow = new SubWindow("pancakeswap");
+
+            pancakeswapwindow.ShowDialog();
+        }
+        public void Button_ClickAMP(object sender, RoutedEventArgs e)
+        {
+            SubWindow ampwindow = new SubWindow("amp");
+
+            ampwindow.ShowDialog();
         }
         /// <summary>
         /// Handles the hyperlink request when clicked.

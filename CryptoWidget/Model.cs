@@ -143,6 +143,13 @@ namespace CryptoWidget
         public string EOS24HCOLOUR { get; set; }
         public string EOSPRICE { get; set; }
 
+        public string CAKE24H { get; set; }
+        public string CAKE24HCOLOUR { get; set; }
+        public string CAKEPRICE { get; set; }
+
+        public string AMP24H { get; set; }
+        public string AMP24HCOLOUR { get; set; }
+        public string AMPPRICE { get; set; }
 
         private static System.Timers.Timer atimer;
 
@@ -416,6 +423,24 @@ namespace CryptoWidget
             OnPropertyChanged("EOSPRICE");
             OnPropertyChanged("EOS24H");
             OnPropertyChanged("EOS24HCOLOUR");
+
+            int CAKEINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "PancakeSwap");
+
+            CAKEPRICE = ("£" + CoinAPIData[CAKEINDEX].current_price);
+            CAKE24H = stringSolver.ShortenStringData(CoinAPIData[CAKEINDEX].price_change_percentage_24h_in_currency);
+            CAKE24HCOLOUR = colourCheck.ColourCheck(CAKE24H);
+            OnPropertyChanged("CAKEPRICE");
+            OnPropertyChanged("CAKE24H");
+            OnPropertyChanged("CAKE24HCOLOUR");
+
+            int AMPINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Amp");
+
+            AMPPRICE = ("£" + CoinAPIData[AMPINDEX].current_price);
+            AMP24H = stringSolver.ShortenStringData(CoinAPIData[AMPINDEX].price_change_percentage_24h_in_currency);
+            AMP24HCOLOUR = colourCheck.ColourCheck(AMP24H);
+            OnPropertyChanged("AMPPRICE");
+            OnPropertyChanged("AMP24H");
+            OnPropertyChanged("AMP24HCOLOUR");
         }
         
     }

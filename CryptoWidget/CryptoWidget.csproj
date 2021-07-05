@@ -242,5 +242,14 @@
   <ItemGroup>
     <Resource Include="Images\eos.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\algorand.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\pancakeswap.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\amp.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

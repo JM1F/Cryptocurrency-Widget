@@ -815,7 +815,67 @@
 
                     <Rectangle  Fill="#545454" Height="1" Margin="25,1992,25,257" RenderTransformOrigin="0.5,0.5"/>
 
-                    <TextBlock Foreground="White" FontFamily="./resources/#Montserrat Medium" Margin="25,2160,126,60" TextDecorations="None" Style="{DynamicResource HyperlinkStyle}">
+                    <Button Click="Button_ClickALGO" Height="61" Margin="18,1999,18,190" BorderThickness="0" Background="Transparent" Style="{DynamicResource MainButtons}">
+                        <Grid Width="223" Height="60">
+                            <TextBlock Text="Algorand" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameDataALGO" Margin="65,7,9,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
+
+                            <TextBlock TextAlignment="Center" Foreground="{Binding Path=ALGO24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hALGO" Margin="61,44,108,0" Text="{Binding Path=ALGO24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="ALGOPriceName" Margin="142,44,19,0" Text="{Binding Path=ALGOPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+
+
+                            <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
+                            <TextBlock Foreground="White" Margin="158,32,41,17" Text="Price" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
+
+                            <Image Source="/Images/algorand.png" Margin="0,0,163,0" Stretch="None">
+
+                            </Image>
+                        </Grid>
+                    </Button>
+
+                    <Rectangle  Fill="#545454" Height="1" Margin="25,2066,25,183" RenderTransformOrigin="0.5,0.5"/>
+
+                    <Button Click="Button_ClickCAKE" Height="61" Margin="18,2073,18,116" BorderThickness="0" Background="Transparent" Style="{DynamicResource MainButtons}">
+                        <Grid Width="223" Height="60">
+                            <TextBlock Text="PancakeSwap" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameDataCAKE" Margin="65,7,9,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
+
+                            <TextBlock TextAlignment="Center" Foreground="{Binding Path=CAKE24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hCAKE" Margin="61,44,108,0" Text="{Binding Path=CAKE24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="CAKEPriceName" Margin="142,44,19,0" Text="{Binding Path=CAKEPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+
+
+                            <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
+                            <TextBlock Foreground="White" Margin="158,32,41,17" Text="Price" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
+
+                            <Image Source="/Images/pancakeswap.png" Margin="0,0,163,0" Stretch="None">
+
+                            </Image>
+                        </Grid>
+                    </Button>
+
+                    <Rectangle  Fill="#545454" Height="1" Margin="25,2140,25,109" RenderTransformOrigin="0.5,0.5"/>
+
+                    <Button Click="Button_ClickAMP" Height="61" Margin="18,2147,18,42" BorderThickness="0" Background="Transparent" Style="{DynamicResource MainButtons}">
+                        <Grid Width="223" Height="60">
+                            <TextBlock Text="Amp" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameDataAMP" Margin="65,7,9,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
+
+                            <TextBlock TextAlignment="Center" Foreground="{Binding Path=AMP24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hAMP" Margin="61,44,108,0" Text="{Binding Path=AMP24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="AMPPriceName" Margin="142,44,19,0" Text="{Binding Path=AMPPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+
+
+                            <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
+                            <TextBlock Foreground="White" Margin="158,32,41,17" Text="Price" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
+
+                            <Image Source="/Images/amp.png" Margin="0,0,163,0" Stretch="None">
+
+                            </Image>
+                        </Grid>
+                    </Button>
+
+                    <Rectangle  Fill="#545454" Height="1" Margin="25,2214,25,35" RenderTransformOrigin="0.5,0.5"/>
+
+                    <TextBlock Foreground="White" FontFamily="./resources/#Montserrat Medium" Margin="25,2220,126,0" TextDecorations="None" Style="{DynamicResource HyperlinkStyle}">
                         <Hyperlink NavigateUri="https://github.com/JM1F/Cryptocurrency-Widget/issues" RequestNavigate="Hyperlink_RequestNavigate">
                             Request/Issues
                         </Hyperlink>

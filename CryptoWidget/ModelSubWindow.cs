@@ -750,6 +750,76 @@ namespace CryptoWidget
                 CoinPrice1Y = stringSolver.ShortenStringData(CoinAPIData[EOSINDEX].price_change_percentage_1y_in_currency);
                 CoinPrice1YColour = colourCheck.ColourCheck(CoinPrice1Y);
             }
+            else if (CoinCodeName == "pancakeswap")
+            {
+                int CAKEINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "PancakeSwap");
+
+
+                CoinPrice = Convert.ToString("£" + CoinAPIData[CAKEINDEX].current_price);
+
+                CoinPriceATH = ("£" + CoinAPIData[CAKEINDEX].ath);
+
+
+                CoinPrice1H = stringSolver.ShortenStringData(CoinAPIData[CAKEINDEX].price_change_percentage_1h_in_currency);
+                CoinPrice1HColour = colourCheck.ColourCheck(CoinPrice1H);
+
+                CoinPrice24H = stringSolver.ShortenStringData(CoinAPIData[CAKEINDEX].price_change_percentage_24h_in_currency);
+                CoinPrice24HColour = colourCheck.ColourCheck(CoinPrice24H);
+
+                CoinPrice7D = stringSolver.ShortenStringData(CoinAPIData[CAKEINDEX].price_change_percentage_7d_in_currency);
+                CoinPrice7DColour = colourCheck.ColourCheck(CoinPrice7D);
+
+                CoinPrice30D = stringSolver.ShortenStringData(CoinAPIData[CAKEINDEX].price_change_percentage_30d_in_currency);
+                CoinPrice30DColour = colourCheck.ColourCheck(CoinPrice30D);
+
+                if (CoinAPIData[CAKEINDEX].price_change_percentage_1y_in_currency == null)
+                {
+                    CoinPrice1Y = "N/A";
+
+                }
+                else
+                {
+                    CoinPrice1Y = stringSolver.ShortenStringData(CoinAPIData[CAKEINDEX].price_change_percentage_1y_in_currency);
+                    CoinPrice1YColour = colourCheck.ColourCheck(CoinPrice1Y);
+                }
+
+
+            }
+            else if (CoinCodeName == "amp")
+            {
+                int AMPINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Amp");
+
+
+                CoinPrice = Convert.ToString("£" + CoinAPIData[AMPINDEX].current_price);
+
+                CoinPriceATH = ("£" + CoinAPIData[AMPINDEX].ath);
+
+
+                CoinPrice1H = stringSolver.ShortenStringData(CoinAPIData[AMPINDEX].price_change_percentage_1h_in_currency);
+                CoinPrice1HColour = colourCheck.ColourCheck(CoinPrice1H);
+
+                CoinPrice24H = stringSolver.ShortenStringData(CoinAPIData[AMPINDEX].price_change_percentage_24h_in_currency);
+                CoinPrice24HColour = colourCheck.ColourCheck(CoinPrice24H);
+
+                CoinPrice7D = stringSolver.ShortenStringData(CoinAPIData[AMPINDEX].price_change_percentage_7d_in_currency);
+                CoinPrice7DColour = colourCheck.ColourCheck(CoinPrice7D);
+
+                CoinPrice30D = stringSolver.ShortenStringData(CoinAPIData[AMPINDEX].price_change_percentage_30d_in_currency);
+                CoinPrice30DColour = colourCheck.ColourCheck(CoinPrice30D);
+
+                if (CoinAPIData[AMPINDEX].price_change_percentage_1y_in_currency == null)
+                {
+                    CoinPrice1Y = "N/A";
+
+                }
+                else
+                {
+                    CoinPrice1Y = stringSolver.ShortenStringData(CoinAPIData[AMPINDEX].price_change_percentage_1y_in_currency);
+                    CoinPrice1YColour = colourCheck.ColourCheck(CoinPrice1Y);
+                }
+
+
+            }
 
 
 

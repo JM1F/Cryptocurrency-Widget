@@ -797,6 +797,78 @@ namespace CryptoWidget
                 CoinPriceID1Y.Text = stringSolver.ShortenStringData(CoinAPIData[EOSINDEX].price_change_percentage_1y_in_currency);
                 CoinPriceID1Y.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[EOSINDEX].price_change_percentage_1y_in_currency)) as SolidColorBrush;
             }
+            else if (CoinCodeName == "pancakeswap")
+            {
+                int CAKEINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "PancakeSwap");
+
+                CoinImage.Source = new BitmapImage(new Uri("Images/pancakeswap.png", UriKind.Relative));
+                Cointitle.Text = "CAKE";
+                CoinPriceID.Text = Convert.ToString("£" + CoinAPIData[CAKEINDEX].current_price);
+
+
+                CoinPriceIDATH.Text = ("£" + CoinAPIData[CAKEINDEX].ath);
+
+                CoinPriceID1H.Text = stringSolver.ShortenStringData(CoinAPIData[CAKEINDEX].price_change_percentage_1h_in_currency);
+                CoinPriceID1H.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[CAKEINDEX].price_change_percentage_1h_in_currency)) as SolidColorBrush;
+
+                CoinPriceID24H.Text = stringSolver.ShortenStringData(CoinAPIData[CAKEINDEX].price_change_percentage_24h_in_currency);
+                CoinPriceID24H.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[CAKEINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+
+                CoinPriceID7D.Text = stringSolver.ShortenStringData(CoinAPIData[CAKEINDEX].price_change_percentage_7d_in_currency);
+                CoinPriceID7D.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[CAKEINDEX].price_change_percentage_7d_in_currency)) as SolidColorBrush;
+
+                CoinPriceID30D.Text = stringSolver.ShortenStringData(CoinAPIData[CAKEINDEX].price_change_percentage_30d_in_currency);
+                CoinPriceID30D.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[CAKEINDEX].price_change_percentage_30d_in_currency)) as SolidColorBrush;
+
+                if (CoinAPIData[CAKEINDEX].price_change_percentage_1y_in_currency == null)
+                {
+                    CoinPriceID1Y.Text = "N/A";
+                    Brush DOTColour = brushConverter.ConvertFrom("#DF5F67") as SolidColorBrush;
+                    CoinPriceID1Y.Foreground = DOTColour;
+                }
+                else
+                {
+                    CoinPriceID1Y.Text = stringSolver.ShortenStringData(CoinAPIData[CAKEINDEX].price_change_percentage_1y_in_currency);
+                    CoinPriceID1Y.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[CAKEINDEX].price_change_percentage_1y_in_currency)) as SolidColorBrush;
+                }
+
+            }
+            else if (CoinCodeName == "amp")
+            {
+                int AMPINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Amp");
+
+                CoinImage.Source = new BitmapImage(new Uri("Images/amp.png", UriKind.Relative));
+                Cointitle.Text = "Amp";
+                CoinPriceID.Text = Convert.ToString("£" + CoinAPIData[AMPINDEX].current_price);
+
+
+                CoinPriceIDATH.Text = ("£" + CoinAPIData[AMPINDEX].ath);
+
+                CoinPriceID1H.Text = stringSolver.ShortenStringData(CoinAPIData[AMPINDEX].price_change_percentage_1h_in_currency);
+                CoinPriceID1H.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[AMPINDEX].price_change_percentage_1h_in_currency)) as SolidColorBrush;
+
+                CoinPriceID24H.Text = stringSolver.ShortenStringData(CoinAPIData[AMPINDEX].price_change_percentage_24h_in_currency);
+                CoinPriceID24H.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[AMPINDEX].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+
+                CoinPriceID7D.Text = stringSolver.ShortenStringData(CoinAPIData[AMPINDEX].price_change_percentage_7d_in_currency);
+                CoinPriceID7D.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[AMPINDEX].price_change_percentage_7d_in_currency)) as SolidColorBrush;
+
+                CoinPriceID30D.Text = stringSolver.ShortenStringData(CoinAPIData[AMPINDEX].price_change_percentage_30d_in_currency);
+                CoinPriceID30D.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[AMPINDEX].price_change_percentage_30d_in_currency)) as SolidColorBrush;
+
+                if (CoinAPIData[AMPINDEX].price_change_percentage_1y_in_currency == null)
+                {
+                    CoinPriceID1Y.Text = "N/A";
+                    Brush DOTColour = brushConverter.ConvertFrom("#DF5F67") as SolidColorBrush;
+                    CoinPriceID1Y.Foreground = DOTColour;
+                }
+                else
+                {
+                    CoinPriceID1Y.Text = stringSolver.ShortenStringData(CoinAPIData[AMPINDEX].price_change_percentage_1y_in_currency);
+                    CoinPriceID1Y.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[AMPINDEX].price_change_percentage_1y_in_currency)) as SolidColorBrush;
+                }
+
+            }
         }
 
 

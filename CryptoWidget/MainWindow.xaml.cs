@@ -45,8 +45,11 @@ namespace CryptoWidget
             }
             APIHelper.InitializeClient();
             InitializeComponent();
+
             this.DataContext = new Model();
+
             
+
         }
         /// <summary>
         /// Gets data from API and changes button sytles and content depending on what button data is required.
@@ -257,7 +260,7 @@ namespace CryptoWidget
         /// <param name="e"></param>
         private async void Window_Loaded(object sender, RoutedEventArgs e)
         {     
-            await GetDataAsync();  
+            await GetDataAsync();
         }
 
         /// <summary>
@@ -277,6 +280,7 @@ namespace CryptoWidget
         private void exitButton_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+            
         }
         /// <summary>
         /// Minimises the window when the minimise button is clicked.
@@ -479,6 +483,23 @@ namespace CryptoWidget
         {
             Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri));
             e.Handled = true;
+        }
+
+        public void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            /*
+            Model.atimer.Stop();
+
+            string CurrencyValue = e.AddedItems[0].ToString();
+            await GetDataAsync(CurrencyValue);
+            
+
+            Console.WriteLine(CurrencyValue);
+
+            this.DataContext = new Model();
+            */
+
+            Console.WriteLine("Hello");
         }
     }
 }

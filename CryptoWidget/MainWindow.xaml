@@ -1,8 +1,9 @@
-﻿<Window x:Class="CryptoWidget.MainWindow" 
+﻿<Window 
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:cryptowidget="clr-namespace:CryptoWidget" d:DataContext="{d:DesignInstance Type=cryptowidget:Model}"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:cryptowidget="clr-namespace:CryptoWidget" xmlns:Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2" x:Class="CryptoWidget.MainWindow" 
+        d:DataContext="{d:DesignInstance Type={x:Type cryptowidget:Model}}"
         mc:Ignorable="d" Loaded="Window_Loaded"
         Title="CryptoWidget" Height="300" Width="250" WindowStartupLocation="CenterScreen"
         WindowStyle="None"
@@ -110,7 +111,7 @@
         </Style>
 
 
-        <Style x:Key="scroll_thumb_style" TargetType="Thumb" >
+        <Style x:Key="scroll_thumb_style" TargetType="{x:Type Thumb}" >
             <Setter Property="SnapsToDevicePixels" Value="True"/>
             <Setter Property="OverridesDefaultStyle" Value="true"/>
             <Setter Property="IsTabStop" Value="false"/>
@@ -122,11 +123,10 @@
             <Setter Property="Template">
 
                 <Setter.Value>
-                    <ControlTemplate TargetType="Thumb" >
-                        <Rectangle x:Name="thumbSlider"  Width="8"  Fill="#282828 " RadiusX="5" RadiusY="5"  >
-                        </Rectangle>
+                    <ControlTemplate TargetType="{x:Type Thumb}" >
+                        <Rectangle x:Name="thumbSlider"  Width="8"  Fill="#282828 " RadiusX="5" RadiusY="5"  />
                         <ControlTemplate.Triggers>
-                            <EventTrigger RoutedEvent="MouseEnter">
+                            <EventTrigger RoutedEvent="UIElement.MouseEnter">
                                 <BeginStoryboard>
                                     <Storyboard>
 
@@ -134,7 +134,7 @@
                                     </Storyboard>
                                 </BeginStoryboard>
                             </EventTrigger>
-                            <EventTrigger RoutedEvent="MouseLeave">
+                            <EventTrigger RoutedEvent="UIElement.MouseLeave">
                                 <BeginStoryboard>
                                     <Storyboard>
                                         <DoubleAnimation To="1" Duration="0:0:0.3" Storyboard.TargetName="thumbSlider" Storyboard.TargetProperty="Opacity"/>
@@ -159,7 +159,7 @@
             <Setter Property="Foreground" Value="red"/>
 
 
-            
+
             <Setter Property="MinWidth" Value="{Binding Width, RelativeSource={RelativeSource Self}}"/>
             <Setter Property="Template">
                 <Setter.Value>
@@ -183,7 +183,7 @@
 
         </Style>
 
-        
+
         <Style x:Key="MainButtons" TargetType="{x:Type Button}">
             <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
             <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
@@ -216,14 +216,14 @@
                                 <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
                                 <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
                             </Trigger>
-                            <EventTrigger RoutedEvent="MouseEnter">
+                            <EventTrigger RoutedEvent="UIElement.MouseEnter">
                                 <BeginStoryboard>
                                     <Storyboard>
                                         <DoubleAnimation To="0.7" Duration="0:0:0.3"  Storyboard.TargetProperty="Opacity"/>
                                     </Storyboard>
                                 </BeginStoryboard>
                             </EventTrigger>
-                            <EventTrigger RoutedEvent="MouseLeave">
+                            <EventTrigger RoutedEvent="UIElement.MouseLeave">
                                 <BeginStoryboard>
                                     <Storyboard>
                                         <DoubleAnimation To="1" Duration="0:0:0.3"  Storyboard.TargetProperty="Opacity"/>
@@ -235,21 +235,358 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        
-        
+
+
         <Style x:Key="HyperlinkStyle" TargetType="{x:Type TextBlock}">
-            <Setter Property="TextWrapping" Value="NoWrap"/>
-            <Setter Property="TextTrimming" Value="None"/>
             <Style.Resources>
-                <Style TargetType="Hyperlink">
-                    
-                    <Setter Property="Foreground" Value="{Binding Foreground,RelativeSource={RelativeSource FindAncestor,AncestorType=TextBlock}}"/>
-                    <Setter Property="TextDecorations" Value="{Binding TextDecorations,RelativeSource={RelativeSource FindAncestor,AncestorType=TextBlock}}"/>
-                    <Setter Property="FontFamily" Value="{Binding FontFamily,RelativeSource={RelativeSource FindAncestor,AncestorType=TextBlock}}"/>
-                    
+                <Style TargetType="{x:Type Hyperlink}">
+
+                    <Setter Property="Foreground" Value="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type TextBlock}}}"/>
+                    <Setter Property="TextDecorations" Value="{Binding TextDecorations, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type TextBlock}}}"/>
+                    <Setter Property="FontFamily" Value="{Binding FontFamily, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type TextBlock}}}"/>
+
                 </Style>
             </Style.Resources>
 
+            <Setter Property="TextWrapping" Value="NoWrap"/>
+            <Setter Property="TextTrimming" Value="None"/>
+
+        </Style>
+
+
+
+        <SolidColorBrush x:Key="ComboBox.Static.Border" Color="#FFACACAC"/>
+        <SolidColorBrush x:Key="ComboBox.Static.Editable.Background" Color="#545454"/>
+        <SolidColorBrush x:Key="ComboBox.Static.Editable.Border" Color="#FFABADB3"/>
+        <SolidColorBrush x:Key="ComboBox.Static.Editable.Button.Background" Color="Transparent"/>
+        <SolidColorBrush x:Key="ComboBox.Static.Editable.Button.Border" Color="Transparent"/>
+        <SolidColorBrush x:Key="ComboBox.MouseOver.Glyph" Color="#FF000000"/>
+        <SolidColorBrush x:Key="ComboBox.MouseOver.Background" Color="#545454"/>
+
+        <SolidColorBrush x:Key="ComboBox.MouseOver.Border" Color="#545454"/>
+        <SolidColorBrush x:Key="ComboBox.MouseOver.Editable.Background" Color="#545454"/>
+        <SolidColorBrush x:Key="ComboBox.MouseOver.Editable.Border" Color="#FF7EB4EA"/>
+        <SolidColorBrush x:Key="ComboBox.MouseOver.Editable.Button.Background" Color="#545454"/>
+
+        <SolidColorBrush x:Key="ComboBox.MouseOver.Editable.Button.Border" Color="red"/>
+        <SolidColorBrush x:Key="ComboBox.Pressed.Glyph" Color="#FF000000"/>
+
+        <SolidColorBrush x:Key="ComboBox.Pressed.Border" Color="#FF569DE5"/>
+        <SolidColorBrush x:Key="ComboBox.Pressed.Editable.Background" Color="#545454"/>
+        <SolidColorBrush x:Key="ComboBox.Pressed.Editable.Border" Color="#FF569DE5"/>
+
+        <SolidColorBrush x:Key="ComboBox.Pressed.Editable.Button.Border" Color="#FF569DE5"/>
+        <SolidColorBrush x:Key="ComboBox.Disabled.Glyph" Color="#FFBFBFBF"/>
+        <SolidColorBrush x:Key="ComboBox.Disabled.Background" Color="#FFF0F0F0"/>
+        <SolidColorBrush x:Key="ComboBox.Disabled.Border" Color="#FFD9D9D9"/>
+        <SolidColorBrush x:Key="ComboBox.Disabled.Editable.Background" Color="#545454"/>
+        <SolidColorBrush x:Key="ComboBox.Disabled.Editable.Border" Color="#FFBFBFBF"/>
+        <SolidColorBrush x:Key="ComboBox.Disabled.Editable.Button.Background" Color="Transparent"/>
+        <SolidColorBrush x:Key="ComboBox.Disabled.Editable.Button.Border" Color="Transparent"/>
+        <SolidColorBrush x:Key="ComboBox.Static.Glyph" Color="#FF606060"/>
+
+        <Style x:Key="ComboBoxToggleButton" TargetType="{x:Type ToggleButton}">
+            <Setter Property="OverridesDefaultStyle" Value="true"/>
+            <Setter Property="IsTabStop" Value="false"/>
+            <Setter Property="Focusable" Value="false"/>
+            <Setter Property="ClickMode" Value="Press"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ToggleButton}">
+                        <Border x:Name="templateRoot" CornerRadius="5" SnapsToDevicePixels="true" Background="#111111" BorderThickness="1" BorderBrush="#282828">
+                            <Border x:Name="splitBorder" Width="10" SnapsToDevicePixels="true" Margin="0" HorizontalAlignment="Right" BorderThickness="1" BorderBrush="Transparent">
+                                <Path x:Name="arrow" VerticalAlignment="Center" Margin="1.541,4.5,2.459,4.5" HorizontalAlignment="Center" Fill="white" Data="F1 M 0,0 L 2.667,2.66665 L 5.3334,0 L 5.3334,-1.78168 L 2.6667,0.88501 L0,-1.78168 L0,0 Z" Stretch="Fill" Width="4"/>
+                            </Border>
+                        </Border>
+                        <ControlTemplate.Triggers>
+
+
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" Value="true"/>
+                                    <Condition Binding="{Binding IsEditable, RelativeSource={RelativeSource AncestorType={x:Type ComboBox}}}" Value="false"/>
+                                </MultiDataTrigger.Conditions>
+                                <Setter Property="Background" TargetName="templateRoot" Value="{StaticResource ComboBox.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="templateRoot" Value="{StaticResource ComboBox.MouseOver.Border}"/>
+                            </MultiDataTrigger>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" Value="true"/>
+                                    <Condition Binding="{Binding IsEditable, RelativeSource={RelativeSource AncestorType={x:Type ComboBox}}}" Value="true"/>
+                                </MultiDataTrigger.Conditions>
+
+                            </MultiDataTrigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Fill" TargetName="arrow" Value="{StaticResource ComboBox.Pressed.Glyph}"/>
+                            </Trigger>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding IsPressed, RelativeSource={RelativeSource Self}}" Value="true"/>
+                                    <Condition Binding="{Binding IsEditable, RelativeSource={RelativeSource AncestorType={x:Type ComboBox}}}" Value="false"/>
+                                </MultiDataTrigger.Conditions>
+                                <Setter Property="Background" TargetName="templateRoot" Value="#313131"/>
+                                <Setter Property="BorderBrush" TargetName="templateRoot" Value="#313131"/>
+                            </MultiDataTrigger>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding IsPressed, RelativeSource={RelativeSource Self}}" Value="true"/>
+                                    <Condition Binding="{Binding IsEditable, RelativeSource={RelativeSource AncestorType={x:Type ComboBox}}}" Value="true"/>
+                                </MultiDataTrigger.Conditions>
+
+                            </MultiDataTrigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Fill" TargetName="arrow" Value="{StaticResource ComboBox.Disabled.Glyph}"/>
+                            </Trigger>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding IsEnabled, RelativeSource={RelativeSource Self}}" Value="false"/>
+                                    <Condition Binding="{Binding IsEditable, RelativeSource={RelativeSource AncestorType={x:Type ComboBox}}}" Value="false"/>
+                                </MultiDataTrigger.Conditions>
+                                <Setter Property="Background" TargetName="templateRoot" Value="{StaticResource ComboBox.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="templateRoot" Value="{StaticResource ComboBox.Disabled.Border}"/>
+                            </MultiDataTrigger>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding IsEnabled, RelativeSource={RelativeSource Self}}" Value="false"/>
+                                    <Condition Binding="{Binding IsEditable, RelativeSource={RelativeSource AncestorType={x:Type ComboBox}}}" Value="true"/>
+                                </MultiDataTrigger.Conditions>
+                                <Setter Property="Background" TargetName="templateRoot" Value="{StaticResource ComboBox.Disabled.Editable.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="templateRoot" Value="{StaticResource ComboBox.Disabled.Editable.Border}"/>
+                                <Setter Property="Background" TargetName="splitBorder" Value="{StaticResource ComboBox.Disabled.Editable.Button.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="splitBorder" Value="{StaticResource ComboBox.Disabled.Editable.Button.Border}"/>
+                            </MultiDataTrigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <ControlTemplate x:Key="ComboBoxTemplate" TargetType="{x:Type ComboBox}">
+            <Grid x:Name="templateRoot" SnapsToDevicePixels="true">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition MinWidth="{DynamicResource {x:Static SystemParameters.VerticalScrollBarWidthKey}}" Width="0"/>
+                </Grid.ColumnDefinitions>
+                <Popup x:Name="PART_Popup" AllowsTransparency="true" Grid.ColumnSpan="2" IsOpen="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Margin="1" PopupAnimation="{DynamicResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" Placement="Bottom">
+                    <Themes:SystemDropShadowChrome x:Name="shadow" Color="Transparent" MaxHeight="{TemplateBinding MaxDropDownHeight}" MinWidth="{Binding ActualWidth, ElementName=templateRoot}">
+                        <Border x:Name="dropDownBorder" BorderBrush="{DynamicResource {x:Static SystemColors.WindowFrameBrushKey}}" BorderThickness="1" Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}">
+                            <ScrollViewer x:Name="DropDownScrollViewer">
+                                <Grid x:Name="grid" RenderOptions.ClearTypeHint="Enabled">
+                                    <Canvas x:Name="canvas" HorizontalAlignment="Left" Height="0" VerticalAlignment="Top" Width="0">
+                                        <Rectangle x:Name="opaqueRect" Fill="{Binding Background, ElementName=dropDownBorder}" Height="{Binding ActualHeight, ElementName=dropDownBorder}" Width="{Binding ActualWidth, ElementName=dropDownBorder}"/>
+                                    </Canvas>
+                                    <ItemsPresenter x:Name="ItemsPresenter" KeyboardNavigation.DirectionalNavigation="Contained" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                </Grid>
+                            </ScrollViewer>
+                        </Border>
+                    </Themes:SystemDropShadowChrome>
+                </Popup>
+                <ToggleButton x:Name="toggleButton" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Grid.ColumnSpan="2" IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Style="{StaticResource ComboBoxToggleButton}"/>
+                <ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}" ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}" Content="{TemplateBinding SelectionBoxItem}" ContentStringFormat="{TemplateBinding SelectionBoxItemStringFormat}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" IsHitTestVisible="false" Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+            </Grid>
+            <ControlTemplate.Triggers>
+                <Trigger Property="HasDropShadow" SourceName="PART_Popup" Value="true">
+                    <Setter Property="Margin" TargetName="shadow" Value="0,0,5,5"/>
+                    <Setter Property="Color" TargetName="shadow" Value="#71000000"/>
+                </Trigger>
+                <Trigger Property="HasItems" Value="false">
+                    <Setter Property="Height" TargetName="dropDownBorder" Value="95"/>
+                </Trigger>
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property="IsGrouping" Value="true"/>
+                        <Condition Property="VirtualizingPanel.IsVirtualizingWhenGrouping" Value="false"/>
+                    </MultiTrigger.Conditions>
+                    <Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
+                </MultiTrigger>
+                <Trigger Property="ScrollViewer.CanContentScroll" SourceName="DropDownScrollViewer" Value="false">
+                    <Setter Property="Canvas.Top" TargetName="opaqueRect" Value="{Binding VerticalOffset, ElementName=DropDownScrollViewer}"/>
+                    <Setter Property="Canvas.Left" TargetName="opaqueRect" Value="{Binding HorizontalOffset, ElementName=DropDownScrollViewer}"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+        <SolidColorBrush x:Key="TextBox.Static.Background" Color="#FFFFFFFF"/>
+
+        <Style x:Key="ComboBoxEditableTextBox" TargetType="{x:Type TextBox}">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="AllowDrop" Value="true"/>
+            <Setter Property="MinWidth" Value="0"/>
+            <Setter Property="MinHeight" Value="0"/>
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+            <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
+            <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+            <Setter Property="FontSize" Value="10"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBox}">
+                        <ScrollViewer x:Name="PART_ContentHost" Background="Transparent" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <ControlTemplate x:Key="ComboBoxEditableTemplate" TargetType="{x:Type ComboBox}">
+            <Grid x:Name="templateRoot" SnapsToDevicePixels="true">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition MinWidth="{DynamicResource {x:Static SystemParameters.VerticalScrollBarWidthKey}}" Width="0"/>
+                </Grid.ColumnDefinitions>
+                <Popup x:Name="PART_Popup" AllowsTransparency="true" Grid.ColumnSpan="2" IsOpen="{Binding IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}}" PopupAnimation="{DynamicResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" Placement="Bottom">
+                    <Themes:SystemDropShadowChrome x:Name="shadow" Color="Transparent" MaxHeight="{TemplateBinding MaxDropDownHeight}" MinWidth="{Binding ActualWidth, ElementName=templateRoot}">
+                        <Border x:Name="dropDownBorder" BorderBrush="{DynamicResource {x:Static SystemColors.WindowFrameBrushKey}}" BorderThickness="1" Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}">
+                            <ScrollViewer x:Name="DropDownScrollViewer">
+                                <Grid x:Name="grid" RenderOptions.ClearTypeHint="Enabled">
+                                    <Canvas x:Name="canvas" HorizontalAlignment="Left" Height="0" VerticalAlignment="Top" Width="0">
+                                        <Rectangle x:Name="opaqueRect" Fill="{Binding Background, ElementName=dropDownBorder}" Height="{Binding ActualHeight, ElementName=dropDownBorder}" Width="{Binding ActualWidth, ElementName=dropDownBorder}"/>
+                                    </Canvas>
+                                    <ItemsPresenter x:Name="ItemsPresenter" KeyboardNavigation.DirectionalNavigation="Contained" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                </Grid>
+                            </ScrollViewer>
+                        </Border>
+                    </Themes:SystemDropShadowChrome>
+                </Popup>
+                <ToggleButton x:Name="toggleButton" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Grid.ColumnSpan="2" IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Style="{StaticResource ComboBoxToggleButton}"/>
+                <Border x:Name="border" Background="{StaticResource TextBox.Static.Background}" Margin="{TemplateBinding BorderThickness}">
+                    <TextBox x:Name="PART_EditableTextBox" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" IsReadOnly="{Binding IsReadOnly, RelativeSource={RelativeSource TemplatedParent}}" Margin="{TemplateBinding Padding}" Style="{StaticResource ComboBoxEditableTextBox}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                </Border>
+            </Grid>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsEnabled" Value="false">
+                    <Setter Property="Opacity" TargetName="border" Value="0.56"/>
+                </Trigger>
+                <Trigger Property="IsKeyboardFocusWithin" Value="true">
+                    <Setter Property="Foreground" Value="Black"/>
+                </Trigger>
+                <Trigger Property="HasDropShadow" SourceName="PART_Popup" Value="true">
+                    <Setter Property="Margin" TargetName="shadow" Value="0,0,5,5"/>
+                    <Setter Property="Color" TargetName="shadow" Value="#71000000"/>
+                </Trigger>
+                <Trigger Property="HasItems" Value="false">
+                    <Setter Property="Height" TargetName="dropDownBorder" Value="95"/>
+                </Trigger>
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property="IsGrouping" Value="true"/>
+                        <Condition Property="VirtualizingPanel.IsVirtualizingWhenGrouping" Value="false"/>
+                    </MultiTrigger.Conditions>
+                    <Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
+                </MultiTrigger>
+                <Trigger Property="ScrollViewer.CanContentScroll" SourceName="DropDownScrollViewer" Value="false">
+                    <Setter Property="Canvas.Top" TargetName="opaqueRect" Value="{Binding VerticalOffset, ElementName=DropDownScrollViewer}"/>
+                    <Setter Property="Canvas.Left" TargetName="opaqueRect" Value="{Binding HorizontalOffset, ElementName=DropDownScrollViewer}"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+
+        <Style x:Key="ComboBoxStyle1" TargetType="{x:Type ComboBox}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="red"/>
+            <Setter Property="BorderBrush" Value="orange"/>
+            <Setter Property="FontSize" Value="9"/>
+            <Setter Property="Foreground" Value="Blue"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="Padding" Value="6,3,5,3"/>
+            <Setter Property="ScrollViewer.CanContentScroll" Value="true"/>
+            <Setter Property="ScrollViewer.PanningMode" Value="Both"/>
+            <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+            <Setter Property="Template" Value="{StaticResource ComboBoxTemplate}"/>
+            <Style.Triggers>
+                <Trigger Property="IsEditable" Value="true">
+                    <Setter Property="IsTabStop" Value="false"/>
+                    <Setter Property="Padding" Value="2"/>
+                    <Setter Property="Template" Value="{StaticResource ComboBoxEditableTemplate}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <SolidColorBrush x:Key="ComboBoxItem.ItemsviewHover.Background" Color="#1F26A0DA"/>
+        <SolidColorBrush x:Key="ComboBoxItem.ItemsviewHover.Border" Color="#A826A0DA"/>
+        <SolidColorBrush x:Key="ComboBoxItem.ItemsviewSelected.Background" Color="#3D26A0DA"/>
+        <SolidColorBrush x:Key="ComboBoxItem.ItemsviewSelected.Border" Color="#FF26A0DA"/>
+        <SolidColorBrush x:Key="ComboBoxItem.ItemsviewSelectedHover.Background" Color="#2E0080FF"/>
+        <SolidColorBrush x:Key="ComboBoxItem.ItemsviewSelectedHover.Border" Color="#99006CD9"/>
+        <SolidColorBrush x:Key="ComboBoxItem.ItemsviewSelectedNoFocus.Background" Color="#3DDADADA"/>
+        <SolidColorBrush x:Key="ComboBoxItem.ItemsviewSelectedNoFocus.Border" Color="#FFDADADA"/>
+        <SolidColorBrush x:Key="ComboBoxItem.ItemsviewFocus.Border" Color="#FF26A0DA"/>
+        <SolidColorBrush x:Key="ComboBoxItem.ItemsviewHoverFocus.Background" Color="#5426A0DA"/>
+        <SolidColorBrush x:Key="ComboBoxItem.ItemsviewHoverFocus.Border" Color="#FF26A0DA"/>
+        
+        <Style x:Key="ComboBoxItemStyle1" TargetType="{x:Type ComboBoxItem}">
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="Padding" Value="4,1"/>
+            <Setter Property="HorizontalContentAlignment" Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+            <Setter Property="VerticalContentAlignment" Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+            <Setter Property="Background" Value="Blue"/>
+            <Setter Property="BorderBrush" Value="Orange"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ComboBoxItem}">
+                        <Border x:Name="Bd" CornerRadius="5" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true">
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="TextElement.Foreground" TargetName="Bd" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                            </Trigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsSelected" Value="False"/>
+                                    <Condition Property="IsMouseOver" Value="True"/>
+                                    <Condition Property="IsKeyboardFocused" Value="False"/>
+                                </MultiTrigger.Conditions>
+                                <Setter Property="Background" TargetName="Bd" Value="{StaticResource ComboBoxItem.ItemsviewHover.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="Bd" Value="{StaticResource ComboBoxItem.ItemsviewHover.Border}"/>
+                            </MultiTrigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsSelected" Value="True"/>
+                                    <Condition Property="IsMouseOver" Value="False"/>
+                                    <Condition Property="IsKeyboardFocused" Value="True"/>
+                                </MultiTrigger.Conditions>
+                                <Setter Property="Background" TargetName="Bd" Value="{StaticResource ComboBoxItem.ItemsviewSelected.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="Bd" Value="{StaticResource ComboBoxItem.ItemsviewSelected.Border}"/>
+                            </MultiTrigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsSelected" Value="True"/>
+                                    <Condition Property="IsMouseOver" Value="True"/>
+                                </MultiTrigger.Conditions>
+                                <Setter Property="Background" TargetName="Bd" Value="{StaticResource ComboBoxItem.ItemsviewSelectedHover.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="Bd" Value="{StaticResource ComboBoxItem.ItemsviewSelectedHover.Border}"/>
+                            </MultiTrigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsSelected" Value="True"/>
+                                    <Condition Property="IsMouseOver" Value="False"/>
+                                    <Condition Property="IsKeyboardFocused" Value="False"/>
+                                </MultiTrigger.Conditions>
+                                <Setter Property="Background" TargetName="Bd" Value="{StaticResource ComboBoxItem.ItemsviewSelectedNoFocus.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="Bd" Value="{StaticResource ComboBoxItem.ItemsviewSelectedNoFocus.Border}"/>
+                            </MultiTrigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsSelected" Value="False"/>
+                                    <Condition Property="IsMouseOver" Value="False"/>
+                                    <Condition Property="IsKeyboardFocused" Value="True"/>
+                                </MultiTrigger.Conditions>
+                                <Setter Property="BorderBrush" TargetName="Bd" Value="{StaticResource ComboBoxItem.ItemsviewFocus.Border}"/>
+                            </MultiTrigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsSelected" Value="False"/>
+                                    <Condition Property="IsMouseOver" Value="True"/>
+                                    <Condition Property="IsKeyboardFocused" Value="True"/>
+                                </MultiTrigger.Conditions>
+                                <Setter Property="Background" TargetName="Bd" Value="{StaticResource ComboBoxItem.ItemsviewHoverFocus.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="Bd" Value="{StaticResource ComboBoxItem.ItemsviewHoverFocus.Border}"/>
+                            </MultiTrigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
 
 
@@ -260,14 +597,13 @@
 
     <Border CornerRadius="15" BorderThickness="20" BorderBrush="#161616">
 
-        <Grid Name="HomeView" Background="#161616 ">
+        <Grid x:Name="HomeView" Background="#161616 ">
             <Grid.RowDefinitions>
                 <RowDefinition Height="31*"/>
                 <RowDefinition Height="99*"/>
             </Grid.RowDefinitions>
 
-            <Rectangle Fill="#282828 " Margin="-20,20,-20,40.667">
-            </Rectangle>
+            <Rectangle Fill="#282828 " Margin="-20,20,-20,40.667"/>
 
 
             <ScrollViewer  VerticalScrollBarVisibility="Auto" BorderThickness="0" Background="Transparent" Grid.RowSpan="2" Foreground="Transparent" Margin="-20,26,-20,7">
@@ -278,17 +614,15 @@
                         <Grid Width="223" Height="61">
                             <TextBlock Text="Bitcoin" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameData" Margin="65,7,49,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="{Binding Path=PCP24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24h" Margin="61,44,108,0" Text="{Binding Path=PCP24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="{Binding PCP24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24h" Margin="61,44,108,0" Text="{Binding PCP24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="BTCPriceName" Margin="142,44,27,0" Text="{Binding Path=BTCPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="BTCPriceName" Margin="142,44,27,0" Text="{Binding BTCPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
 
                             <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
                             <TextBlock Foreground="White" Margin="158,32,41,17" Text="Price" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
 
-                            <Image Source="/Images/bitcoin.png" Margin="0,0,163,0">
-
-                            </Image>
+                            <Image Source="/Images/bitcoin.png" Margin="0,0,163,0"/>
                         </Grid>
                     </Button>
                     <Rectangle  Fill="#545454" Margin="25,69,25,2180" Height="1"/>
@@ -297,17 +631,15 @@
                         <Grid Width="223" Height="60">
                             <TextBlock Text="Ethereum" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameDataETH" Margin="65,7,49,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="{Binding Path=ETH24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hETH" Margin="61,44,108,0" Text="{Binding Path=ETH24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="{Binding ETH24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hETH" Margin="61,44,108,0" Text="{Binding ETH24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="ETHPriceName" Margin="142,44,27,0" Text="{Binding Path=ETHPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="ETHPriceName" Margin="142,44,27,0" Text="{Binding ETHPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
 
                             <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
                             <TextBlock Foreground="White" Margin="158,32,41,17" Text="Price" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
 
-                            <Image Source="/Images/ethereum.png" Margin="0,0,163,0" Stretch="None">
-
-                            </Image>
+                            <Image Source="/Images/ethereum.png" Margin="0,0,163,0" Stretch="None"/>
                         </Grid>
                     </Button>
 
@@ -318,17 +650,15 @@
                         <Grid Width="223" Height="60">
                             <TextBlock Text="Cardano" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameDataADA" Margin="65,7,49,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="{Binding Path=ADA24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hADA" Margin="61,44,108,0" Text="{Binding Path=ADA24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="{Binding ADA24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hADA" Margin="61,44,108,0" Text="{Binding ADA24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="ADAPriceName" Margin="142,44,27,0" Text="{Binding Path=ADAPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="ADAPriceName" Margin="142,44,27,0" Text="{Binding ADAPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
 
                             <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
                             <TextBlock Foreground="White" Margin="158,32,41,17" Text="Price" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
 
-                            <Image Source="/Images/cardano.png" Margin="0,0,163,0" Stretch="None">
-
-                            </Image>
+                            <Image Source="/Images/cardano.png" Margin="0,0,163,0" Stretch="None"/>
                         </Grid>
                     </Button>
 
@@ -338,17 +668,15 @@
                         <Grid Width="223" Height="60">
                             <TextBlock Text="Binance Coin" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameDataBNB" Margin="65,7,49,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="{Binding Path=BNB24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hBNB" Margin="61,44,108,0" Text="{Binding Path=BNB24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="{Binding BNB24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hBNB" Margin="61,44,108,0" Text="{Binding BNB24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="BNBPriceName" Margin="142,44,27,0" Text="{Binding Path=BNBPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="BNBPriceName" Margin="142,44,27,0" Text="{Binding BNBPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
 
                             <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
                             <TextBlock Foreground="White" Margin="158,32,41,17" Text="Price" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
 
-                            <Image Source="/Images/binancecoin.png" Margin="0,0,163,0" Stretch="None">
-
-                            </Image>
+                            <Image Source="/Images/binancecoin.png" Margin="0,0,163,0" Stretch="None"/>
                         </Grid>
                     </Button>
 
@@ -358,17 +686,15 @@
                         <Grid Width="223" Height="60">
                             <TextBlock Text="Dogecoin" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameDataDOGE" Margin="65,7,49,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="{Binding Path=DOGE24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hDOGE" Margin="61,44,108,0" Text="{Binding Path=DOGE24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="{Binding DOGE24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hDOGE" Margin="61,44,108,0" Text="{Binding DOGE24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="DOGEPriceName" Margin="142,44,19,0" Text="{Binding Path=DOGEPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="DOGEPriceName" Margin="142,44,19,0" Text="{Binding DOGEPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
 
                             <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
                             <TextBlock Foreground="White" Margin="158,32,41,17" Text="Price" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
 
-                            <Image Source="/Images/dogecoin.png" Margin="0,0,163,0" Stretch="None">
-
-                            </Image>
+                            <Image Source="/Images/dogecoin.png" Margin="0,0,163,0" Stretch="None"/>
                         </Grid>
                     </Button>
 
@@ -379,17 +705,15 @@
                         <Grid Width="223" Height="60">
                             <TextBlock Text="XRP" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameDataXRP" Margin="65,7,49,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="{Binding Path=XRP24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hXRP" Margin="61,44,108,0" Text="{Binding Path=XRP24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="{Binding XRP24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hXRP" Margin="61,44,108,0" Text="{Binding XRP24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="XRPPriceName" Margin="142,44,19,0" Text="{Binding Path=XRPPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="XRPPriceName" Margin="142,44,19,0" Text="{Binding XRPPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
 
                             <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
                             <TextBlock Foreground="White" Margin="158,32,41,17" Text="Price" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
 
-                            <Image Source="/Images/ripple.png" Margin="0,0,163,0" Stretch="None">
-
-                            </Image>
+                            <Image Source="/Images/ripple.png" Margin="0,0,163,0" Stretch="None"/>
                         </Grid>
                     </Button>
 
@@ -399,17 +723,15 @@
                         <Grid Width="223" Height="60">
                             <TextBlock Text="Polkadot" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameDataDOT" Margin="65,7,49,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="{Binding Path=DOT24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hDOT" Margin="61,44,108,0" Text="{Binding Path=DOT24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="{Binding DOT24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hDOT" Margin="61,44,108,0" Text="{Binding DOT24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="DOTPriceName" Margin="142,44,19,0" Text="{Binding Path=DOTPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="DOTPriceName" Margin="142,44,19,0" Text="{Binding DOTPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
 
                             <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
                             <TextBlock Foreground="White" Margin="158,32,41,17" Text="Price" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
 
-                            <Image Source="/Images/polkadot.png" Margin="0,0,163,0" Stretch="None">
-
-                            </Image>
+                            <Image Source="/Images/polkadot.png" Margin="0,0,163,0" Stretch="None"/>
                         </Grid>
                     </Button>
 
@@ -419,17 +741,15 @@
                         <Grid Width="223" Height="60">
                             <TextBlock Text="Bitcoin Cash" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameDataBTCCASH" Margin="65,7,49,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="{Binding Path=BTCCASH24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hBTCCASH" Margin="61,44,108,0" Text="{Binding Path=BTCCASH24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="{Binding BTCCASH24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hBTCCASH" Margin="61,44,108,0" Text="{Binding BTCCASH24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="BTCCASHPriceName" Margin="142,44,19,0" Text="{Binding Path=BTCCASHPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="BTCCASHPriceName" Margin="142,44,19,0" Text="{Binding BTCCASHPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
 
                             <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
                             <TextBlock Foreground="White" Margin="158,32,41,17" Text="Price" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
 
-                            <Image Source="/Images/bitcoincash.png" Margin="0,0,163,0" Stretch="None">
-
-                            </Image>
+                            <Image Source="/Images/bitcoincash.png" Margin="0,0,163,0" Stretch="None"/>
                         </Grid>
                     </Button>
 
@@ -439,17 +759,15 @@
                         <Grid Width="223" Height="60">
                             <TextBlock Text="Uniswap" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameDataUNI" Margin="65,7,49,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="{Binding Path=UNI24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hUNI" Margin="61,44,108,0" Text="{Binding Path=UNI24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="{Binding UNI24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hUNI" Margin="61,44,108,0" Text="{Binding UNI24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="UNIPriceName" Margin="142,44,19,0" Text="{Binding Path=UNIPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="UNIPriceName" Margin="142,44,19,0" Text="{Binding UNIPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
 
                             <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
                             <TextBlock Foreground="White" Margin="158,32,41,17" Text="Price" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
 
-                            <Image Source="/Images/uniswap.png" Margin="0,0,163,0" Stretch="None">
-
-                            </Image>
+                            <Image Source="/Images/uniswap.png" Margin="0,0,163,0" Stretch="None"/>
                         </Grid>
                     </Button>
 
@@ -459,17 +777,15 @@
                         <Grid Width="223" Height="60">
                             <TextBlock Text="Solana" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameDataSOL" Margin="65,7,49,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="{Binding Path=SOL24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hSOL" Margin="61,44,108,0" Text="{Binding Path=SOL24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="{Binding SOL24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hSOL" Margin="61,44,108,0" Text="{Binding SOL24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="SOLPriceName" Margin="142,44,19,0" Text="{Binding Path=SOLPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="SOLPriceName" Margin="142,44,19,0" Text="{Binding SOLPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
 
                             <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
                             <TextBlock Foreground="White" Margin="158,32,41,17" Text="Price" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
 
-                            <Image Source="/Images/solana.png" Margin="0,0,163,0" Stretch="None">
-
-                            </Image>
+                            <Image Source="/Images/solana.png" Margin="0,0,163,0" Stretch="None"/>
                         </Grid>
                     </Button>
 
@@ -479,17 +795,15 @@
                         <Grid Width="223" Height="60">
                             <TextBlock Text="Litecoin" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameDataLTC" Margin="65,7,49,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="{Binding Path=LTC24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hLTC" Margin="61,44,108,0" Text="{Binding Path=LTC24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="{Binding LTC24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hLTC" Margin="61,44,108,0" Text="{Binding LTC24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="LTCPriceName" Margin="142,44,19,0" Text="{Binding Path=LTCPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="LTCPriceName" Margin="142,44,19,0" Text="{Binding LTCPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
 
                             <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
                             <TextBlock Foreground="White" Margin="158,32,41,17" Text="Price" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
 
-                            <Image Source="/Images/litecoin.png" Margin="0,0,163,0" Stretch="None">
-
-                            </Image>
+                            <Image Source="/Images/litecoin.png" Margin="0,0,163,0" Stretch="None"/>
                         </Grid>
                     </Button>
 
@@ -499,37 +813,33 @@
                         <Grid Width="223" Height="60">
                             <TextBlock Text="Chainlink" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameDataLINK" Margin="65,7,49,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="{Binding Path=LINK24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hLINK" Margin="61,44,108,0" Text="{Binding Path=LINK24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="{Binding LINK24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hLINK" Margin="61,44,108,0" Text="{Binding LINK24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="LINKPriceName" Margin="142,44,19,0" Text="{Binding Path=LINKPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="LINKPriceName" Margin="142,44,19,0" Text="{Binding LINKPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
 
                             <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
                             <TextBlock Foreground="White" Margin="158,32,41,17" Text="Price" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
 
-                            <Image Source="/Images/chainlink.png" Margin="0,0,163,0" Stretch="None">
-
-                            </Image>
+                            <Image Source="/Images/chainlink.png" Margin="0,0,163,0" Stretch="None"/>
                         </Grid>
                     </Button>
 
                     <Rectangle  Fill="#545454" Height="1" Margin="25,882,25,1367" RenderTransformOrigin="0.5,0.5"/>
-                    
+
                     <Button Click="Button_ClickETHC" Height="61" Margin="18,889,18,1300" BorderThickness="0" Background="Transparent" Style="{DynamicResource MainButtons}">
                         <Grid Width="223" Height="60">
                             <TextBlock Text="Ethereum Classic" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameDataETHC" Margin="65,7,9,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="{Binding Path=ETHC24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hETHC" Margin="61,44,108,0" Text="{Binding Path=ETHC24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="{Binding ETHC24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hETHC" Margin="61,44,108,0" Text="{Binding ETHC24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="ETHCPriceName" Margin="142,44,19,0" Text="{Binding Path=ETHCPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="ETHCPriceName" Margin="142,44,19,0" Text="{Binding ETHCPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
 
                             <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
                             <TextBlock Foreground="White" Margin="158,32,41,17" Text="Price" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
 
-                            <Image Source="/Images/ethereumclassic.png" Margin="0,0,163,0" Stretch="None">
-
-                            </Image>
+                            <Image Source="/Images/ethereumclassic.png" Margin="0,0,163,0" Stretch="None"/>
                         </Grid>
                     </Button>
 
@@ -539,17 +849,15 @@
                         <Grid Width="223" Height="60">
                             <TextBlock Text="Polygon" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameDataMATIC" Margin="65,7,9,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="{Binding Path=MATIC24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hMATIC" Margin="61,44,108,0" Text="{Binding Path=MATIC24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="{Binding MATIC24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hMATIC" Margin="61,44,108,0" Text="{Binding MATIC24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="MATICPriceName" Margin="142,44,19,0" Text="{Binding Path=MATICPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="MATICPriceName" Margin="142,44,19,0" Text="{Binding MATICPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
 
                             <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
                             <TextBlock Foreground="White" Margin="158,32,41,17" Text="Price" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
 
-                            <Image Source="/Images/polygon.png" Margin="0,0,163,0" Stretch="None">
-
-                            </Image>
+                            <Image Source="/Images/polygon.png" Margin="0,0,163,0" Stretch="None"/>
                         </Grid>
                     </Button>
 
@@ -559,17 +867,15 @@
                         <Grid Width="223" Height="60">
                             <TextBlock Text="Wrapped Bitcoin" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameDataWBTC" Margin="65,7,9,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="{Binding Path=WBTC24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hWBTC" Margin="61,44,108,0" Text="{Binding Path=WBTC24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="{Binding WBTC24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hWBTC" Margin="61,44,108,0" Text="{Binding WBTC24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="WBTCPriceName" Margin="142,44,19,0" Text="{Binding Path=WBTCPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="WBTCPriceName" Margin="142,44,19,0" Text="{Binding WBTCPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
 
                             <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
                             <TextBlock Foreground="White" Margin="158,32,41,17" Text="Price" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
 
-                            <Image Source="/Images/wrappedbitcoin.png" Margin="0,0,163,0" Stretch="None">
-
-                            </Image>
+                            <Image Source="/Images/wrappedbitcoin.png" Margin="0,0,163,0" Stretch="None"/>
                         </Grid>
                     </Button>
 
@@ -579,17 +885,15 @@
                         <Grid Width="223" Height="60">
                             <TextBlock Text="Internet Computer" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameDataICP" Margin="57,7,9,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="{Binding Path=ICP24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hICP" Margin="61,44,108,0" Text="{Binding Path=ICP24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="{Binding ICP24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hICP" Margin="61,44,108,0" Text="{Binding ICP24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="ICPPriceName" Margin="142,44,19,0" Text="{Binding Path=ICPPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="ICPPriceName" Margin="142,44,19,0" Text="{Binding ICPPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
 
                             <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
                             <TextBlock Foreground="White" Margin="158,32,41,17" Text="Price" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
 
-                            <Image Source="/Images/internetcomputer.png" Margin="0,0,163,0" Stretch="None">
-
-                            </Image>
+                            <Image Source="/Images/internetcomputer.png" Margin="0,0,163,0" Stretch="None"/>
                         </Grid>
                     </Button>
 
@@ -599,17 +903,15 @@
                         <Grid Width="223" Height="60">
                             <TextBlock Text="Theta" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameDataTHETA" Margin="65,7,9,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="{Binding Path=THETA24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hTHETA" Margin="61,44,108,0" Text="{Binding Path=THETA24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="{Binding THETA24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hTHETA" Margin="61,44,108,0" Text="{Binding THETA24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="THETAPriceName" Margin="142,44,19,0" Text="{Binding Path=THETAPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="THETAPriceName" Margin="142,44,19,0" Text="{Binding THETAPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
 
                             <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
                             <TextBlock Foreground="White" Margin="158,32,41,17" Text="Price" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
 
-                            <Image Source="/Images/theta.png" Margin="0,0,163,0" Stretch="None">
-
-                            </Image>
+                            <Image Source="/Images/theta.png" Margin="0,0,163,0" Stretch="None"/>
                         </Grid>
                     </Button>
 
@@ -619,17 +921,15 @@
                         <Grid Width="223" Height="60">
                             <TextBlock Text="Stellar" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameDataXLM" Margin="65,7,9,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="{Binding Path=XLM24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hXLM" Margin="61,44,108,0" Text="{Binding Path=XLM24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="{Binding XLM24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hXLM" Margin="61,44,108,0" Text="{Binding XLM24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="XLMPriceName" Margin="142,44,19,0" Text="{Binding Path=XLMPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="XLMPriceName" Margin="142,44,19,0" Text="{Binding XLMPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
 
                             <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
                             <TextBlock Foreground="White" Margin="158,32,41,17" Text="Price" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
 
-                            <Image Source="/Images/stellar.png" Margin="0,0,163,0" Stretch="None">
-
-                            </Image>
+                            <Image Source="/Images/stellar.png" Margin="0,0,163,0" Stretch="None"/>
                         </Grid>
                     </Button>
 
@@ -639,17 +939,15 @@
                         <Grid Width="223" Height="60">
                             <TextBlock Text="VeChain" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameDataVET" Margin="65,7,9,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="{Binding Path=VET24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hVET" Margin="61,44,108,0" Text="{Binding Path=VET24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="{Binding VET24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hVET" Margin="61,44,108,0" Text="{Binding VET24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="VETPriceName" Margin="142,44,19,0" Text="{Binding Path=VETPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="VETPriceName" Margin="142,44,19,0" Text="{Binding VETPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
 
                             <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
                             <TextBlock Foreground="White" Margin="158,32,41,17" Text="Price" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
 
-                            <Image Source="/Images/vechain.png" Margin="0,0,163,0" Stretch="None">
-
-                            </Image>
+                            <Image Source="/Images/vechain.png" Margin="0,0,163,0" Stretch="None"/>
                         </Grid>
                     </Button>
 
@@ -659,17 +957,15 @@
                         <Grid Width="223" Height="60">
                             <TextBlock Text="Dai" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameDataDAI" Margin="65,7,9,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="{Binding Path=DAI24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hDAI" Margin="61,44,108,0" Text="{Binding Path=DAI24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="{Binding DAI24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hDAI" Margin="61,44,108,0" Text="{Binding DAI24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="DAIPriceName" Margin="142,44,19,0" Text="{Binding Path=DAIPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="DAIPriceName" Margin="142,44,19,0" Text="{Binding DAIPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
 
                             <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
                             <TextBlock Foreground="White" Margin="158,32,41,17" Text="Price" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
 
-                            <Image Source="/Images/dai.png" Margin="0,0,163,0" Stretch="None">
-
-                            </Image>
+                            <Image Source="/Images/dai.png" Margin="0,0,163,0" Stretch="None"/>
                         </Grid>
                     </Button>
 
@@ -679,17 +975,15 @@
                         <Grid Width="223" Height="60">
                             <TextBlock Text="Filecoin" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameDataFIL" Margin="65,7,9,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="{Binding Path=FIL24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hFIL" Margin="61,44,108,0" Text="{Binding Path=FIL24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="{Binding FIL24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hFIL" Margin="61,44,108,0" Text="{Binding FIL24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="FILPriceName" Margin="142,44,19,0" Text="{Binding Path=FILPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="FILPriceName" Margin="142,44,19,0" Text="{Binding FILPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
 
                             <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
                             <TextBlock Foreground="White" Margin="158,32,41,17" Text="Price" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
 
-                            <Image Source="/Images/filecoin.png" Margin="0,0,163,0" Stretch="None">
-
-                            </Image>
+                            <Image Source="/Images/filecoin.png" Margin="0,0,163,0" Stretch="None"/>
                         </Grid>
                     </Button>
 
@@ -699,17 +993,15 @@
                         <Grid Width="223" Height="60">
                             <TextBlock Text="TRON" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameDataTRX" Margin="65,7,9,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="{Binding Path=TRX24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hTRX" Margin="61,44,108,0" Text="{Binding Path=TRX24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="{Binding TRX24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hTRX" Margin="61,44,108,0" Text="{Binding TRX24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="TRXPriceName" Margin="142,44,19,0" Text="{Binding Path=TRXPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="TRXPriceName" Margin="142,44,19,0" Text="{Binding TRXPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
 
                             <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
                             <TextBlock Foreground="White" Margin="158,32,41,17" Text="Price" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
 
-                            <Image Source="/Images/tron.png" Margin="0,0,163,0" Stretch="None">
-
-                            </Image>
+                            <Image Source="/Images/tron.png" Margin="0,0,163,0" Stretch="None"/>
                         </Grid>
                     </Button>
 
@@ -719,17 +1011,15 @@
                         <Grid Width="223" Height="60">
                             <TextBlock Text="Shiba Inu" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameDataSHIB" Margin="65,7,9,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="{Binding Path=SHIB24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hSHIB" Margin="61,44,108,0" Text="{Binding Path=SHIB24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="{Binding SHIB24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hSHIB" Margin="61,44,108,0" Text="{Binding SHIB24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="SHIBPriceName" Margin="142,44,19,0" Text="{Binding Path=SHIBPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="SHIBPriceName" Margin="142,44,19,0" Text="{Binding SHIBPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
 
                             <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
                             <TextBlock Foreground="White" Margin="158,32,41,17" Text="Price" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
 
-                            <Image Source="/Images/shibainu.png" Margin="0,0,163,0" Stretch="None">
-
-                            </Image>
+                            <Image Source="/Images/shibainu.png" Margin="0,0,163,0" Stretch="None"/>
                         </Grid>
                     </Button>
 
@@ -739,17 +1029,15 @@
                         <Grid Width="223" Height="60">
                             <TextBlock Text="Monero" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameDataXMR" Margin="65,7,9,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="{Binding Path=XMR24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hXMR" Margin="61,44,108,0" Text="{Binding Path=XMR24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="{Binding XMR24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hXMR" Margin="61,44,108,0" Text="{Binding XMR24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="XMRPriceName" Margin="142,44,19,0" Text="{Binding Path=XMRPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="XMRPriceName" Margin="142,44,19,0" Text="{Binding XMRPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
 
                             <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
                             <TextBlock Foreground="White" Margin="158,32,41,17" Text="Price" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
 
-                            <Image Source="/Images/monero.png" Margin="0,0,163,0" Stretch="None">
-
-                            </Image>
+                            <Image Source="/Images/monero.png" Margin="0,0,163,0" Stretch="None"/>
                         </Grid>
                     </Button>
 
@@ -759,17 +1047,15 @@
                         <Grid Width="223" Height="60">
                             <TextBlock Text="Cosmos" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameDataATOM" Margin="65,7,9,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="{Binding Path=ATOM24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hATOM" Margin="61,44,108,0" Text="{Binding Path=ATOM24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="{Binding ATOM24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hATOM" Margin="61,44,108,0" Text="{Binding ATOM24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="ATOMPriceName" Margin="142,44,19,0" Text="{Binding Path=ATOMPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="ATOMPriceName" Margin="142,44,19,0" Text="{Binding ATOMPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
 
                             <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
                             <TextBlock Foreground="White" Margin="158,32,41,17" Text="Price" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
 
-                            <Image Source="/Images/cosmos.png" Margin="0,0,163,0" Stretch="None">
-
-                            </Image>
+                            <Image Source="/Images/cosmos.png" Margin="0,0,163,0" Stretch="None"/>
                         </Grid>
                     </Button>
 
@@ -779,17 +1065,15 @@
                         <Grid Width="223" Height="60">
                             <TextBlock Text="Aave" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameDataAAVE" Margin="65,7,9,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="{Binding Path=AAVE24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hAAVE" Margin="61,44,108,0" Text="{Binding Path=AAVE24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="{Binding AAVE24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hAAVE" Margin="61,44,108,0" Text="{Binding AAVE24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="AAVEPriceName" Margin="142,44,19,0" Text="{Binding Path=AAVEPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="AAVEPriceName" Margin="142,44,19,0" Text="{Binding AAVEPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
 
                             <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
                             <TextBlock Foreground="White" Margin="158,32,41,17" Text="Price" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
 
-                            <Image Source="/Images/aave.png" Margin="0,0,163,0" Stretch="None">
-
-                            </Image>
+                            <Image Source="/Images/aave.png" Margin="0,0,163,0" Stretch="None"/>
                         </Grid>
                     </Button>
 
@@ -799,17 +1083,15 @@
                         <Grid Width="223" Height="60">
                             <TextBlock Text="EOS" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameDataEOS" Margin="65,7,9,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="{Binding Path=EOS24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hEOS" Margin="61,44,108,0" Text="{Binding Path=EOS24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="{Binding EOS24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hEOS" Margin="61,44,108,0" Text="{Binding EOS24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="EOSPriceName" Margin="142,44,19,0" Text="{Binding Path=EOSPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="EOSPriceName" Margin="142,44,19,0" Text="{Binding EOSPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
 
                             <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
                             <TextBlock Foreground="White" Margin="158,32,41,17" Text="Price" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
 
-                            <Image Source="/Images/eos.png" Margin="0,0,163,0" Stretch="None">
-
-                            </Image>
+                            <Image Source="/Images/eos.png" Margin="0,0,163,0" Stretch="None"/>
                         </Grid>
                     </Button>
 
@@ -818,18 +1100,17 @@
                     <Button Click="Button_ClickALGO" Height="61" Margin="18,1999,18,190" BorderThickness="0" Background="Transparent" Style="{DynamicResource MainButtons}">
                         <Grid Width="223" Height="60">
                             <TextBlock Text="Algorand" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameDataALGO" Margin="65,7,9,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
-
-                            <TextBlock TextAlignment="Center" Foreground="{Binding Path=ALGO24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hALGO" Margin="61,44,108,0" Text="{Binding Path=ALGO24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
-
-                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="ALGOPriceName" Margin="142,44,19,0" Text="{Binding Path=ALGOPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
-
+                            <Viewbox>
+                                <TextBlock TextAlignment="Center" Foreground="{Binding ALGO24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hALGO" Margin="61,44,108,0" Text="{Binding ALGO24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            </Viewbox>
+                            <Viewbox>
+                                <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="ALGOPriceName" Margin="142,44,19,0" Text="{Binding ALGOPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            </Viewbox>
 
                             <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
                             <TextBlock Foreground="White" Margin="158,32,41,17" Text="Price" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
 
-                            <Image Source="/Images/algorand.png" Margin="0,0,163,0" Stretch="None">
-
-                            </Image>
+                            <Image Source="/Images/algorand.png" Margin="0,0,163,0" Stretch="None"/>
                         </Grid>
                     </Button>
 
@@ -839,17 +1120,15 @@
                         <Grid Width="223" Height="60">
                             <TextBlock Text="PancakeSwap" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameDataCAKE" Margin="65,7,9,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="{Binding Path=CAKE24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hCAKE" Margin="61,44,108,0" Text="{Binding Path=CAKE24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="{Binding CAKE24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hCAKE" Margin="61,44,108,0" Text="{Binding CAKE24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="CAKEPriceName" Margin="142,44,19,0" Text="{Binding Path=CAKEPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="CAKEPriceName" Margin="142,44,19,0" Text="{Binding CAKEPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
 
                             <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
                             <TextBlock Foreground="White" Margin="158,32,41,17" Text="Price" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
 
-                            <Image Source="/Images/pancakeswap.png" Margin="0,0,163,0" Stretch="None">
-
-                            </Image>
+                            <Image Source="/Images/pancakeswap.png" Margin="0,0,163,0" Stretch="None"/>
                         </Grid>
                     </Button>
 
@@ -859,27 +1138,21 @@
                         <Grid Width="223" Height="60">
                             <TextBlock Text="Amp" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameDataAMP" Margin="65,7,9,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="{Binding Path=AMP24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hAMP" Margin="61,44,108,0" Text="{Binding Path=AMP24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="{Binding AMP24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hAMP" Margin="61,44,108,0" Text="{Binding AMP24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="AMPPriceName" Margin="142,44,19,0" Text="{Binding Path=AMPPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="AMPPriceName" Margin="142,44,19,0" Text="{Binding AMPPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
 
                             <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
                             <TextBlock Foreground="White" Margin="158,32,41,17" Text="Price" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
 
-                            <Image Source="/Images/amp.png" Margin="0,0,163,0" Stretch="None">
-
-                            </Image>
+                            <Image Source="/Images/amp.png" Margin="0,0,163,0" Stretch="None"/>
                         </Grid>
                     </Button>
 
                     <Rectangle  Fill="#545454" Height="1" Margin="25,2214,25,35" RenderTransformOrigin="0.5,0.5"/>
 
-                    <TextBlock Foreground="White" FontFamily="./resources/#Montserrat Medium" Margin="25,2220,126,0" TextDecorations="None" Style="{DynamicResource HyperlinkStyle}">
-                        <Hyperlink NavigateUri="https://github.com/JM1F/Cryptocurrency-Widget/issues" RequestNavigate="Hyperlink_RequestNavigate">
-                            Request/Issues
-                        </Hyperlink>
-                    </TextBlock>
+                    <TextBlock Foreground="White" FontFamily="./resources/#Montserrat Medium" Margin="25,2220,126,0" TextDecorations="None" Style="{DynamicResource HyperlinkStyle}"><Hyperlink NavigateUri="https://github.com/JM1F/Cryptocurrency-Widget/issues" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Request/Issues"/></Hyperlink></TextBlock>
 
 
                 </Grid>
@@ -888,9 +1161,7 @@
 
 
 
-            <Border CornerRadius="15,15,0,0" BorderThickness="20" BorderBrush="#111111" Margin="-20,-20,-20,41.667">
-
-            </Border>
+            <Border CornerRadius="15,15,0,0" BorderThickness="20" BorderBrush="#111111" Margin="-20,-20,-20,41.667"/>
 
             <TextBlock x:Name="title" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Cryptocurrency Widget" VerticalAlignment="Top" Width="234" TextAlignment="Left" Foreground="white" FontSize="14"  FontFamily="./resources/#Montserrat Medium" Margin="-4,-8,-20,0" Focusable="False" FontStyle="Normal" Height="20"/>
 
@@ -902,24 +1173,42 @@
 
 
             <Button x:Name="exitButton"  Margin="203,-17,-8,63.667" Click="exitButton_Click" BorderThickness="1" BorderBrush="#282828"  Background="#111111" Foreground="white"  Style="{DynamicResource exitButton}" >
-                <TextBlock Text="X" Margin="-4,0,-2,-1" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Width="15" Height="15" FontFamily="./resources/#Montserrat Medium"/>
 
                 <Button.Resources>
-                    <Style TargetType="Border">
+                    <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="30"/>
                     </Style>
                 </Button.Resources>
+                <TextBlock Text="X" Margin="-4,0,-2,-1" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Width="15" Height="15" FontFamily="./resources/#Montserrat Medium"/>
+
             </Button>
 
             <Button x:Name="minimiseButton" Click="Minimisebutton_Click" Width="15" Height="15" Margin="185,-17,10,63.667" Foreground="White" BorderBrush="#282828" Background="#111111" Style="{DynamicResource minimiseButton}">
-                <TextBlock Text="_" Width="15" Height="43" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" FontSize="18"/>
                 <Button.Resources>
-                    <Style TargetType="Border">
+                    <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="30"/>
                     </Style>
                 </Button.Resources>
+                <TextBlock Text="_" Width="15" Height="43" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" FontSize="18"/>
             </Button>
 
+
+            <ComboBox Height="16" Style="{DynamicResource ComboBoxStyle1}" SelectedIndex="0" SelectionChanged="ComboBox_SelectionChanged" Name="CurrencyCombobox" Foreground="White" Margin="0,193,0,-11" Grid.Row="1">
+                <ComboBoxItem Name="GBPComboItem" Style="{DynamicResource ComboBoxItemStyle1}" >
+                    <TextBlock Background="Transparent" Foreground="white"><Run Text="$USD"/></TextBlock>
+                </ComboBoxItem>
+                <ComboBoxItem Style="{DynamicResource ComboBoxItemStyle1}">
+                    
+                        <TextBlock Foreground="white"><Run Text="£GBP"/></TextBlock>
+                    
+                </ComboBoxItem>
+                <ComboBoxItem Style="{DynamicResource ComboBoxItemStyle1}">
+                    
+                        <TextBlock Foreground="white"><Run Text="€EUR"/></TextBlock>
+                    
+                </ComboBoxItem>
+            </ComboBox>
+             
 
 
         </Grid>

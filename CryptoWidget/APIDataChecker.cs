@@ -25,6 +25,7 @@ namespace CryptoWidget
                 // Checks if the data name is the same as the parameter CoinName.
                 if (Data[i].Name == CoinName)
                 {
+                    
                     return i;
                 }
                 

@@ -143,6 +143,10 @@ namespace CryptoWidget
         public string EOS24HCOLOUR { get; set; }
         public string EOSPRICE { get; set; }
 
+        public string ALGO24H { get; set; }
+        public string ALGO24HCOLOUR { get; set; }
+        public string ALGOPRICE { get; set; }
+
         public string CAKE24H { get; set; }
         public string CAKE24HCOLOUR { get; set; }
         public string CAKEPRICE { get; set; }
@@ -151,7 +155,7 @@ namespace CryptoWidget
         public string AMP24HCOLOUR { get; set; }
         public string AMPPRICE { get; set; }
 
-        private static System.Timers.Timer atimer;
+        public static System.Timers.Timer atimer;
 
         ColorPriceCheck colourCheck = new ColorPriceCheck();
         StringSolver stringSolver = new StringSolver();
@@ -160,9 +164,10 @@ namespace CryptoWidget
         /// <summary>
         /// Set up for a minute timer.
         /// </summary>
+        
         public void setTimer()
         {
-            atimer = new System.Timers.Timer(60000);
+            atimer = new System.Timers.Timer(6000);
             // When the timer elapses atimer_Elapsed is called.
             atimer.Elapsed += atimer_Elapsed;
             atimer.AutoReset = true;
@@ -175,6 +180,7 @@ namespace CryptoWidget
         /// <param name="e"></param>
         private async void atimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
+            
             // Call API
             var CoinAPIData = await dataLoad.LoadData();
 
@@ -423,6 +429,16 @@ namespace CryptoWidget
             OnPropertyChanged("EOSPRICE");
             OnPropertyChanged("EOS24H");
             OnPropertyChanged("EOS24HCOLOUR");
+
+
+            int ALGOINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Algorand");
+
+            ALGOPRICE = ("£" + CoinAPIData[ALGOINDEX].current_price);
+            ALGO24H = stringSolver.ShortenStringData(CoinAPIData[ALGOINDEX].price_change_percentage_24h_in_currency);
+            ALGO24HCOLOUR = colourCheck.ColourCheck(ALGO24H);
+            OnPropertyChanged("ALGOPRICE");
+            OnPropertyChanged("ALGO24H");
+            OnPropertyChanged("ALGO24HCOLOUR");
 
             int CAKEINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "PancakeSwap");
 

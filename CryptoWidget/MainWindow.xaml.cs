@@ -28,6 +28,9 @@ namespace CryptoWidget
         // Generate mutex
         Mutex WindowMutex = new Mutex(true, "817c2420-b9e5-4ea2-973d-33a28ef33ea6");
 
+        public string CurrencyValue { get; set; }
+
+        public Model model1 { get; set; }
 
         /// <summary>
         /// Main window Initialize
@@ -45,10 +48,11 @@ namespace CryptoWidget
             }
             APIHelper.InitializeClient();
             InitializeComponent();
+            CurrencyValue = "System.Windows.Controls.ComboBoxItem: £GBP";
+            model1 = new Model("System.Windows.Controls.ComboBoxItem: £GBP");
+            this.DataContext = model1;
 
-            this.DataContext = new Model();
-
-            
+            CurrencyCombobox.SelectionChanged += new SelectionChangedEventHandler(ComboBox_SelectionChanged);
 
         }
         /// <summary>
@@ -63,7 +67,7 @@ namespace CryptoWidget
             APIDataChecker aPIDataChecker = new APIDataChecker();
 
             // Loads data
-            var CoinAPIData = await dataLoad.LoadData();
+            var CoinAPIData = await dataLoad.LoadData(CurrencyValue);
 
             
             // Searches for index of specific coin, so if market cap flips coin can still be displayed.
@@ -259,7 +263,8 @@ namespace CryptoWidget
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private async void Window_Loaded(object sender, RoutedEventArgs e)
-        {     
+        {
+            
             await GetDataAsync();
         }
 
@@ -485,21 +490,21 @@ namespace CryptoWidget
             e.Handled = true;
         }
 
-        public void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        public async void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            /*
-            Model.atimer.Stop();
 
-            string CurrencyValue = e.AddedItems[0].ToString();
-            await GetDataAsync(CurrencyValue);
+            Model.atimer.Stop();
             
 
+            CurrencyValue = CurrencyCombobox.SelectedItem.ToString();
+            model1 = new Model(CurrencyValue);
+            
+            
+
+            
+            await GetDataAsync();
+
             Console.WriteLine(CurrencyValue);
-
-            this.DataContext = new Model();
-            */
-
-            Console.WriteLine("Hello");
         }
     }
 }

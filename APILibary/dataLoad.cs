@@ -14,22 +14,40 @@ namespace APILibary
     public class dataLoad
     {
         
-        public static async Task<IList<ReturnModel>> LoadData()
+
+        public static async Task<IList<ReturnModel>> LoadData(string CurrencyValue)
         {
-            
-            
+
+
+            string URL = "";
+
+            if (CurrencyValue == "System.Windows.Controls.ComboBoxItem: £GBP")
+            {
+
+                Console.WriteLine("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+
+                URL = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=gbp&order=market_cap_desc&per_page=50&sparkline=false&price_change_percentage=1h%2C24h%2C7d%2C30d%2C1y";
+            }
+            else if (CurrencyValue == "System.Windows.Controls.ComboBoxItem: $USD") 
+            {
+                Console.WriteLine("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb");
+                URL = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=50&sparkline=false&price_change_percentage=1h%2C24h%2C7d%2C30d%2C1y";
+            }
+            else if (CurrencyValue == "System.Windows.Controls.ComboBoxItem: €EUR")
+            {
+                Console.WriteLine("ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc");
+                URL = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&order=market_cap_desc&per_page=50&sparkline=false&price_change_percentage=1h%2C24h%2C7d%2C30d%2C1y";
+            }
+
+            Console.WriteLine(URL);
             // API URL 
-            
-            
-            string URL = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=gbp&order=market_cap_desc&per_page=50&sparkline=false&price_change_percentage=1h%2C24h%2C7d%2C30d%2C1y";
-                
-            
 
             using (HttpResponseMessage response = await APIHelper.APIClient.GetAsync(URL))
             {
                 // Check if API call successful
                 if (response.IsSuccessStatusCode)
                 {
+                    
                     IList<ReturnModel> NewData = await response.Content.ReadAsAsync<IList<ReturnModel>>();
                     return NewData;
                 }

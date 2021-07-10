@@ -76,7 +76,7 @@ namespace CryptoWidget
         {
             /// Call API
             
-            var CoinAPIData = await dataLoad.LoadData();
+            var CoinAPIData = await dataLoad.LoadData("GBP");
 
             ColorPriceCheck colourCheck = new ColorPriceCheck();
             StringSolver stringSolver = new StringSolver();

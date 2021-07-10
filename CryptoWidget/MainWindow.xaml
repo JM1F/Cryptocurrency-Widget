@@ -1193,7 +1193,7 @@
             </Button>
 
 
-            <ComboBox Height="16" Style="{DynamicResource ComboBoxStyle1}" SelectedIndex="0" SelectionChanged="ComboBox_SelectionChanged" Name="CurrencyCombobox" Foreground="White" Margin="0,193,0,-11" Grid.Row="1">
+            <ComboBox Height="16" Style="{DynamicResource ComboBoxStyle1}" SelectedIndex="1"  Name="CurrencyCombobox" Foreground="White" Margin="0,193,0,-11" Grid.Row="1">
                 <ComboBoxItem Name="GBPComboItem" Style="{DynamicResource ComboBoxItemStyle1}" >
                     <TextBlock Background="Transparent" Foreground="white"><Run Text="$USD"/></TextBlock>
                 </ComboBoxItem>

@@ -28,10 +28,12 @@ namespace CryptoWidget
             this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         
-        public Model()
+        public Model(string Currency)
         {
+            CURRENCYVALUE = Currency;
             //Starts Timer
             setTimer();
+            
         }
 
         // Sets variables for each coin
@@ -155,12 +157,15 @@ namespace CryptoWidget
         public string AMP24HCOLOUR { get; set; }
         public string AMPPRICE { get; set; }
 
+        public string CURRENCYVALUE { get; set; }
+
         public static System.Timers.Timer atimer;
 
         ColorPriceCheck colourCheck = new ColorPriceCheck();
         StringSolver stringSolver = new StringSolver();
         APIDataChecker aPIDataChecker = new APIDataChecker();
 
+        
         /// <summary>
         /// Set up for a minute timer.
         /// </summary>
@@ -180,13 +185,16 @@ namespace CryptoWidget
         /// <param name="e"></param>
         private async void atimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
+            Console.WriteLine(CURRENCYVALUE);
             
-            // Call API
-            var CoinAPIData = await dataLoad.LoadData();
+            
 
+            // Call API
+            var CoinAPIData = await dataLoad.LoadData(CURRENCYVALUE);
+            
             // Check index for coin.
             int BTCINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Bitcoin");
-
+            Console.WriteLine(CoinAPIData[BTCINDEX].current_price);
             // Sets updated variables for all MainWindow elemetns.
             BTCPRICE = ("£" + CoinAPIData[BTCINDEX].current_price);
             PCP24H = stringSolver.ShortenStringData(CoinAPIData[BTCINDEX].price_change_percentage_24h_in_currency);

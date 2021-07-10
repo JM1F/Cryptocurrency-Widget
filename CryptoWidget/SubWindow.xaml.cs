@@ -36,6 +36,7 @@ namespace CryptoWidget
             CoinCodeName = CoinType;
 
             this.Owner = App.Current.MainWindow;
+
             // Set data context to the model for the sub window.
             this.DataContext = new ModelSubWindow(CoinCodeName);
 
@@ -48,7 +49,7 @@ namespace CryptoWidget
         public async Task GetBeginningData()
         {
             // Call API data
-            var CoinAPIData = await dataLoad.LoadData();
+            var CoinAPIData = await dataLoad.LoadData("GBP");
             // Calls classes for the checks the data have to go through.
             ColorPriceCheck colourCheck = new ColorPriceCheck();
             StringSolver stringSolver = new StringSolver();

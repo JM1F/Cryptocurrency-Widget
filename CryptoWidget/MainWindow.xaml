@@ -255,9 +255,9 @@
 
 
 
-        <SolidColorBrush x:Key="ComboBox.Static.Border" Color="#FFACACAC"/>
-        <SolidColorBrush x:Key="ComboBox.Static.Editable.Background" Color="#545454"/>
-        <SolidColorBrush x:Key="ComboBox.Static.Editable.Border" Color="#FFABADB3"/>
+        <SolidColorBrush x:Key="ComboBox.Static.Border" Color="pink"/>
+        <SolidColorBrush x:Key="ComboBox.Static.Editable.Background" Color="pink"/>
+        <SolidColorBrush x:Key="ComboBox.Static.Editable.Border" Color="pink"/>
         <SolidColorBrush x:Key="ComboBox.Static.Editable.Button.Background" Color="Transparent"/>
         <SolidColorBrush x:Key="ComboBox.Static.Editable.Button.Border" Color="Transparent"/>
         <SolidColorBrush x:Key="ComboBox.MouseOver.Glyph" Color="#FF000000"/>
@@ -299,8 +299,6 @@
                             </Border>
                         </Border>
                         <ControlTemplate.Triggers>
-
-
                             <MultiDataTrigger>
                                 <MultiDataTrigger.Conditions>
                                     <Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" Value="true"/>
@@ -367,9 +365,9 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition MinWidth="{DynamicResource {x:Static SystemParameters.VerticalScrollBarWidthKey}}" Width="0"/>
                 </Grid.ColumnDefinitions>
-                <Popup x:Name="PART_Popup" AllowsTransparency="true" Grid.ColumnSpan="2" IsOpen="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Margin="1" PopupAnimation="{DynamicResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" Placement="Bottom">
+                <Popup  x:Name="PART_Popup" AllowsTransparency="true" Grid.ColumnSpan="2" IsOpen="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Margin="1" PopupAnimation="{DynamicResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" Placement="Bottom">
                     <Themes:SystemDropShadowChrome x:Name="shadow" Color="Transparent" MaxHeight="{TemplateBinding MaxDropDownHeight}" MinWidth="{Binding ActualWidth, ElementName=templateRoot}">
-                        <Border x:Name="dropDownBorder" BorderBrush="{DynamicResource {x:Static SystemColors.WindowFrameBrushKey}}" BorderThickness="1" Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}">
+                        <Border CornerRadius="5" x:Name="dropDownBorder" BorderBrush="#545454" BorderThickness="3" Background="#545454">
                             <ScrollViewer x:Name="DropDownScrollViewer">
                                 <Grid x:Name="grid" RenderOptions.ClearTypeHint="Enabled">
                                     <Canvas x:Name="canvas" HorizontalAlignment="Left" Height="0" VerticalAlignment="Top" Width="0">
@@ -516,15 +514,13 @@
             <Setter Property="Padding" Value="4,1"/>
             <Setter Property="HorizontalContentAlignment" Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
             <Setter Property="VerticalContentAlignment" Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
-            <Setter Property="Background" Value="Blue"/>
-            <Setter Property="BorderBrush" Value="Orange"/>
-            <Setter Property="BorderThickness" Value="2"/>
-            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderThickness" Value="0"/>
+
             <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type ComboBoxItem}">
-                        <Border x:Name="Bd" CornerRadius="5" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true">
+                        <Border x:Name="Bd" CornerRadius="5" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="#545454" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true">
                             <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                         </Border>
                         <ControlTemplate.Triggers>
@@ -1193,22 +1189,20 @@
             </Button>
 
 
-            <ComboBox Height="16" Style="{DynamicResource ComboBoxStyle1}" SelectedIndex="1"  Name="CurrencyCombobox" Foreground="White" Margin="0,193,0,-11" Grid.Row="1">
-                <ComboBoxItem Name="GBPComboItem" Style="{DynamicResource ComboBoxItemStyle1}" >
-                    <TextBlock Background="Transparent" Foreground="white"><Run Text="$USD"/></TextBlock>
+            <ComboBox Height="16" Style="{DynamicResource ComboBoxStyle1}" SelectedIndex="1"  Name="CurrencyCombobox" Foreground="White" Margin="0,193,153,-11" Grid.Row="1" VerticalAlignment="Center" Background="black">
+                <ComboBoxItem Name="GBPComboItem" Style="{DynamicResource ComboBoxItemStyle1}">
+                    <TextBlock Background="Transparent" Foreground="white"><Run Text="$ USD"/></TextBlock>
                 </ComboBoxItem>
                 <ComboBoxItem Style="{DynamicResource ComboBoxItemStyle1}">
-                    
-                        <TextBlock Foreground="white"><Run Text="£GBP"/></TextBlock>
-                    
+                    <TextBlock TextAlignment="Center" Foreground="white" ><Run Text="£ GBP"/></TextBlock>
                 </ComboBoxItem>
                 <ComboBoxItem Style="{DynamicResource ComboBoxItemStyle1}">
-                    
-                        <TextBlock Foreground="white"><Run Text="€EUR"/></TextBlock>
-                    
+                    <TextBlock Foreground="white"><Run Text="€ EUR"/></TextBlock>
                 </ComboBoxItem>
             </ComboBox>
-             
+
+            <TextBlock TextAlignment="Center" Foreground="#404040" Margin="184,193,0,-11" Grid.Row="1" FontSize="9" ><Run Text="v1.1"/></TextBlock>
+
 
 
         </Grid>

@@ -21,21 +21,21 @@ namespace APILibary
 
             string URL = "";
 
-            if (CurrencyValue == "System.Windows.Controls.ComboBoxItem: £GBP")
+            if (CurrencyValue == "System.Windows.Controls.ComboBoxItem: £ GBP")
             {
 
-                Console.WriteLine("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+                
 
                 URL = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=gbp&order=market_cap_desc&per_page=50&sparkline=false&price_change_percentage=1h%2C24h%2C7d%2C30d%2C1y";
             }
-            else if (CurrencyValue == "System.Windows.Controls.ComboBoxItem: $USD") 
+            else if (CurrencyValue == "System.Windows.Controls.ComboBoxItem: $ USD") 
             {
-                Console.WriteLine("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb");
+                
                 URL = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=50&sparkline=false&price_change_percentage=1h%2C24h%2C7d%2C30d%2C1y";
             }
-            else if (CurrencyValue == "System.Windows.Controls.ComboBoxItem: €EUR")
+            else if (CurrencyValue == "System.Windows.Controls.ComboBoxItem: € EUR")
             {
-                Console.WriteLine("ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc");
+                
                 URL = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&order=market_cap_desc&per_page=50&sparkline=false&price_change_percentage=1h%2C24h%2C7d%2C30d%2C1y";
             }
 

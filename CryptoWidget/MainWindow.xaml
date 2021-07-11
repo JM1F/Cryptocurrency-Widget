@@ -612,7 +612,7 @@
 
                             <TextBlock TextAlignment="Center" Foreground="{Binding PCP24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24h" Margin="61,44,108,0" Text="{Binding PCP24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="BTCPriceName" Margin="142,44,27,0" Text="{Binding BTCPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="BTCPriceName" Margin="138,44,21,0" Text="{Binding BTCPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
 
                             <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
@@ -629,7 +629,7 @@
 
                             <TextBlock TextAlignment="Center" Foreground="{Binding ETH24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hETH" Margin="61,44,108,0" Text="{Binding ETH24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="ETHPriceName" Margin="142,44,27,0" Text="{Binding ETHPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="ETHPriceName" Margin="138,44,21,0" Text="{Binding ETHPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
 
                             <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
@@ -648,7 +648,7 @@
 
                             <TextBlock TextAlignment="Center" Foreground="{Binding ADA24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hADA" Margin="61,44,108,0" Text="{Binding ADA24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="ADAPriceName" Margin="142,44,27,0" Text="{Binding ADAPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="ADAPriceName" Margin="138,44,21,0" Text="{Binding ADAPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
 
                             <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
@@ -666,7 +666,7 @@
 
                             <TextBlock TextAlignment="Center" Foreground="{Binding BNB24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hBNB" Margin="61,44,108,0" Text="{Binding BNB24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="BNBPriceName" Margin="142,44,27,0" Text="{Binding BNBPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="BNBPriceName" Margin="138,44,21,0" Text="{Binding BNBPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
 
                             <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
@@ -684,7 +684,7 @@
 
                             <TextBlock TextAlignment="Center" Foreground="{Binding DOGE24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hDOGE" Margin="61,44,108,0" Text="{Binding DOGE24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="DOGEPriceName" Margin="142,44,19,0" Text="{Binding DOGEPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="DOGEPriceName" Margin="138,44,21,0" Text="{Binding DOGEPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
 
                             <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
@@ -703,7 +703,7 @@
 
                             <TextBlock TextAlignment="Center" Foreground="{Binding XRP24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hXRP" Margin="61,44,108,0" Text="{Binding XRP24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="XRPPriceName" Margin="142,44,19,0" Text="{Binding XRPPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="XRPPriceName" Margin="138,44,21,0" Text="{Binding XRPPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
 
                             <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
@@ -721,7 +721,7 @@
 
                             <TextBlock TextAlignment="Center" Foreground="{Binding DOT24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hDOT" Margin="61,44,108,0" Text="{Binding DOT24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="DOTPriceName" Margin="142,44,19,0" Text="{Binding DOTPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="DOTPriceName" Margin="138,44,21,0" Text="{Binding DOTPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
 
                             <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
@@ -739,7 +739,7 @@
 
                             <TextBlock TextAlignment="Center" Foreground="{Binding BTCCASH24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hBTCCASH" Margin="61,44,108,0" Text="{Binding BTCCASH24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="BTCCASHPriceName" Margin="142,44,19,0" Text="{Binding BTCCASHPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="BTCCASHPriceName" Margin="138,44,21,0" Text="{Binding BTCCASHPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
 
                             <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
@@ -757,7 +757,7 @@
 
                             <TextBlock TextAlignment="Center" Foreground="{Binding UNI24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hUNI" Margin="61,44,108,0" Text="{Binding UNI24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="UNIPriceName" Margin="142,44,19,0" Text="{Binding UNIPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="UNIPriceName" Margin="138,44,21,0" Text="{Binding UNIPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
 
                             <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
@@ -775,7 +775,7 @@
 
                             <TextBlock TextAlignment="Center" Foreground="{Binding SOL24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hSOL" Margin="61,44,108,0" Text="{Binding SOL24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="SOLPriceName" Margin="142,44,19,0" Text="{Binding SOLPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="SOLPriceName" Margin="138,44,21,0" Text="{Binding SOLPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
 
                             <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
@@ -793,7 +793,7 @@
 
                             <TextBlock TextAlignment="Center" Foreground="{Binding LTC24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hLTC" Margin="61,44,108,0" Text="{Binding LTC24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="LTCPriceName" Margin="142,44,19,0" Text="{Binding LTCPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="LTCPriceName" Margin="138,44,21,0" Text="{Binding LTCPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
 
                             <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
@@ -811,7 +811,7 @@
 
                             <TextBlock TextAlignment="Center" Foreground="{Binding LINK24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hLINK" Margin="61,44,108,0" Text="{Binding LINK24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="LINKPriceName" Margin="142,44,19,0" Text="{Binding LINKPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="LINKPriceName" Margin="138,44,21,0" Text="{Binding LINKPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
 
                             <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
@@ -829,7 +829,7 @@
 
                             <TextBlock TextAlignment="Center" Foreground="{Binding ETHC24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hETHC" Margin="61,44,108,0" Text="{Binding ETHC24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="ETHCPriceName" Margin="142,44,19,0" Text="{Binding ETHCPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="ETHCPriceName" Margin="138,44,21,0" Text="{Binding ETHCPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
 
                             <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
@@ -847,7 +847,7 @@
 
                             <TextBlock TextAlignment="Center" Foreground="{Binding MATIC24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hMATIC" Margin="61,44,108,0" Text="{Binding MATIC24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="MATICPriceName" Margin="142,44,19,0" Text="{Binding MATICPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="MATICPriceName" Margin="138,44,21,0" Text="{Binding MATICPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
 
                             <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
@@ -865,7 +865,7 @@
 
                             <TextBlock TextAlignment="Center" Foreground="{Binding WBTC24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hWBTC" Margin="61,44,108,0" Text="{Binding WBTC24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="WBTCPriceName" Margin="142,44,19,0" Text="{Binding WBTCPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="WBTCPriceName" Margin="138,44,21,0" Text="{Binding WBTCPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
 
                             <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
@@ -883,7 +883,7 @@
 
                             <TextBlock TextAlignment="Center" Foreground="{Binding ICP24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hICP" Margin="61,44,108,0" Text="{Binding ICP24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="ICPPriceName" Margin="142,44,19,0" Text="{Binding ICPPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="ICPPriceName" Margin="138,44,21,0" Text="{Binding ICPPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
 
                             <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
@@ -901,7 +901,7 @@
 
                             <TextBlock TextAlignment="Center" Foreground="{Binding THETA24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hTHETA" Margin="61,44,108,0" Text="{Binding THETA24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="THETAPriceName" Margin="142,44,19,0" Text="{Binding THETAPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="THETAPriceName" Margin="138,44,21,0" Text="{Binding THETAPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
 
                             <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
@@ -919,7 +919,7 @@
 
                             <TextBlock TextAlignment="Center" Foreground="{Binding XLM24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hXLM" Margin="61,44,108,0" Text="{Binding XLM24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="XLMPriceName" Margin="142,44,19,0" Text="{Binding XLMPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="XLMPriceName" Margin="138,44,21,0" Text="{Binding XLMPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
 
                             <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
@@ -937,7 +937,7 @@
 
                             <TextBlock TextAlignment="Center" Foreground="{Binding VET24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hVET" Margin="61,44,108,0" Text="{Binding VET24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="VETPriceName" Margin="142,44,19,0" Text="{Binding VETPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="VETPriceName" Margin="138,44,21,0" Text="{Binding VETPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
 
                             <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
@@ -955,7 +955,7 @@
 
                             <TextBlock TextAlignment="Center" Foreground="{Binding DAI24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hDAI" Margin="61,44,108,0" Text="{Binding DAI24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="DAIPriceName" Margin="142,44,19,0" Text="{Binding DAIPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="DAIPriceName" Margin="138,44,21,0" Text="{Binding DAIPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
 
                             <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
@@ -973,7 +973,7 @@
 
                             <TextBlock TextAlignment="Center" Foreground="{Binding FIL24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hFIL" Margin="61,44,108,0" Text="{Binding FIL24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="FILPriceName" Margin="142,44,19,0" Text="{Binding FILPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="FILPriceName" Margin="138,44,21,0" Text="{Binding FILPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
 
                             <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
@@ -991,7 +991,7 @@
 
                             <TextBlock TextAlignment="Center" Foreground="{Binding TRX24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hTRX" Margin="61,44,108,0" Text="{Binding TRX24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="TRXPriceName" Margin="142,44,19,0" Text="{Binding TRXPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="TRXPriceName" Margin="130,44,15,0" Text="{Binding TRXPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
 
                             <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
@@ -1009,7 +1009,7 @@
 
                             <TextBlock TextAlignment="Center" Foreground="{Binding SHIB24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hSHIB" Margin="61,44,108,0" Text="{Binding SHIB24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="SHIBPriceName" Margin="142,44,19,0" Text="{Binding SHIBPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="SHIBPriceName" Margin="138,44,21,0" Text="{Binding SHIBPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
 
                             <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
@@ -1027,7 +1027,7 @@
 
                             <TextBlock TextAlignment="Center" Foreground="{Binding XMR24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hXMR" Margin="61,44,108,0" Text="{Binding XMR24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="XMRPriceName" Margin="142,44,19,0" Text="{Binding XMRPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="XMRPriceName" Margin="138,44,21,0" Text="{Binding XMRPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
 
                             <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
@@ -1045,7 +1045,7 @@
 
                             <TextBlock TextAlignment="Center" Foreground="{Binding ATOM24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hATOM" Margin="61,44,108,0" Text="{Binding ATOM24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="ATOMPriceName" Margin="142,44,19,0" Text="{Binding ATOMPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="ATOMPriceName" Margin="138,44,21,0" Text="{Binding ATOMPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
 
                             <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
@@ -1063,7 +1063,7 @@
 
                             <TextBlock TextAlignment="Center" Foreground="{Binding AAVE24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hAAVE" Margin="61,44,108,0" Text="{Binding AAVE24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="AAVEPriceName" Margin="142,44,19,0" Text="{Binding AAVEPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="AAVEPriceName" Margin="138,44,21,0" Text="{Binding AAVEPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
 
                             <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
@@ -1081,7 +1081,7 @@
 
                             <TextBlock TextAlignment="Center" Foreground="{Binding EOS24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hEOS" Margin="61,44,108,0" Text="{Binding EOS24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="EOSPriceName" Margin="142,44,19,0" Text="{Binding EOSPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="EOSPriceName" Margin="138,44,21,0" Text="{Binding EOSPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
 
                             <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
@@ -1096,12 +1096,11 @@
                     <Button Click="Button_ClickALGO" Height="61" Margin="18,1999,18,190" BorderThickness="0" Background="Transparent" Style="{DynamicResource MainButtons}">
                         <Grid Width="223" Height="60">
                             <TextBlock Text="Algorand" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameDataALGO" Margin="65,7,9,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
-                            <Viewbox>
-                                <TextBlock TextAlignment="Center" Foreground="{Binding ALGO24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hALGO" Margin="61,44,108,0" Text="{Binding ALGO24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
-                            </Viewbox>
-                            <Viewbox>
-                                <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="ALGOPriceName" Margin="142,44,19,0" Text="{Binding ALGOPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
-                            </Viewbox>
+                            
+                            <TextBlock TextAlignment="Center" Foreground="{Binding ALGO24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hALGO" Margin="61,44,108,0" Text="{Binding ALGO24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="ALGOPriceName" Margin="138,44,21,0" Text="{Binding ALGOPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            
 
                             <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
                             <TextBlock Foreground="White" Margin="158,32,41,17" Text="Price" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
@@ -1118,7 +1117,7 @@
 
                             <TextBlock TextAlignment="Center" Foreground="{Binding CAKE24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hCAKE" Margin="61,44,108,0" Text="{Binding CAKE24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="CAKEPriceName" Margin="142,44,19,0" Text="{Binding CAKEPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="CAKEPriceName" Margin="138,44,21,0" Text="{Binding CAKEPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
 
                             <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
@@ -1136,7 +1135,7 @@
 
                             <TextBlock TextAlignment="Center" Foreground="{Binding AMP24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hAMP" Margin="61,44,108,0" Text="{Binding AMP24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
-                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="AMPPriceName" Margin="142,44,19,0" Text="{Binding AMPPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="AMPPriceName" Margin="130,44,15,0" Text="{Binding AMPPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
 
 
                             <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>

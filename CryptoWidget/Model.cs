@@ -194,7 +194,7 @@ namespace CryptoWidget
             // Check index for coin.
             int BTCINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Bitcoin");
             
-            Console.WriteLine(CoinAPIData[BTCINDEX].current_price);
+            
             // Sets updated variables for all MainWindow elemetns.
             BTCPRICE = (SttringCurrency + CoinAPIData[BTCINDEX].current_price);
             PCP24H = stringSolver.ShortenStringData(CoinAPIData[BTCINDEX].price_change_percentage_24h_in_currency);
@@ -384,7 +384,7 @@ namespace CryptoWidget
             OnPropertyChanged("FIL24H");
             OnPropertyChanged("FIL24HCOLOUR");
 
-            int TRXINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Filecoin");
+            int TRXINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "TRON");
 
             TRXPRICE = (SttringCurrency + CoinAPIData[TRXINDEX].current_price);
             TRX24H = stringSolver.ShortenStringData(CoinAPIData[TRXINDEX].price_change_percentage_24h_in_currency);

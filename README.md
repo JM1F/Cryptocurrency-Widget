@@ -31,6 +31,16 @@ When the button is clicked a new sub-window is opened with the data for the time
 This sub-window can also be moved around and closed when finished with. This window will also auto update each minute.
 </p>
 
+## Update Log
+
+__*13/07/2021*__
+  
+  * Added currency changer for currencies: USD, GBP, EUR.
+  * Added coins: Uniswap, Solana, Litecoin, Chainlink, Ethereum Classic, Polygon, Wrapped Bitcoin, Interenet Computer, Theta, Stellar, VeChain, Dai, Filecoin, TRON,       Shiba Inu, Monero, Cosmos, Aave, EOS, Algorand, PancakeSwap, Amp.
+  * Fixed small issues.
+
+
+
 ## How to Request or Submit an Issue
 
 If you want to submit a request for a new Cryptocurrency to be added to the widget or have an issue please post it on this [page](https://github.com/JM1F/Cryptocurrency-Widget/issues) or click the link on the application itself. 

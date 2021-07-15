@@ -12,14 +12,14 @@ When you open the application a window like this will open with all the current 
 </p>
   
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/71614127/123333743-0a25c900-d53a-11eb-99bc-597defb02847.png">
+  <img src="https://user-images.githubusercontent.com/71614127/125785569-c92f64cd-783b-4722-8524-9ba24401c106.png">
 </p>
 <p align="center">
 Each currency will auto update each minute and you are also able to scroll up and down to see the other currencies.
 If you want more details on a currency you can click on a button.
 </p>
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/71614127/123335654-b1a3fb00-d53c-11eb-9fd2-d3de077d1834.png">
+  <img src="https://user-images.githubusercontent.com/71614127/125785617-db30dd1a-992f-41b2-bf89-3fef101670b8.png">
 </p>
 <p align="center">
 When the button is clicked a new sub-window is opened with the data for the time frames: 1 hour, 24 Hour, 7 days, 30 days, 1 year. It also displays the all time high and current price.

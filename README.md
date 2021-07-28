@@ -54,11 +54,21 @@ If you want to submit a request for a new Cryptocurrency to be added to the widg
 If you want to support the development, any donations will be greatly appreciated :)
 
 
-Bitcoin (BTC): **bc1q0gnpmlhmzcvh4293lj3vxntpjypakvthmvl2sf** or **1MeuofwLtAgZxta2hoQpqyiMcHyDHb9RFx**
+<ins>Bitcoin (BTC):</ins> 
 
-Ethereum (ETH): **0x6a26262e2525683b86A59D1Df5b71736D0b3D5Df**
+**bc1q0gnpmlhmzcvh4293lj3vxntpjypakvthmvl2sf** or
 
-Cardano (ADA): **addr1q9sxqglh9nchccvyjzvzc3fvpn0d2qz8u5mr85fmrs6pvymqvq3lwt8303scfyyc93zjcrx765qy0efkx0gnk8p5zcfs57enhs** or **Ae2tdPwUPEZF8GBpaQdoW7V8mKYqdeP6hhw3M9fXoKXy1G3VGzqfzCjrcLi**
+**1MeuofwLtAgZxta2hoQpqyiMcHyDHb9RFx**
+
+<ins>Ethereum (ETH):</ins>
+
+**0x6a26262e2525683b86A59D1Df5b71736D0b3D5Df**
+
+<ins>Cardano (ADA):</ins>
+
+**addr1q9sxqglh9nchccvyjzvzc3fvpn0d2qz8u5mr85fmrs6pvymqvq3lwt8303scfyyc93zjcrx765qy0efkx0gnk8p5zcfs57enhs** or 
+
+**Ae2tdPwUPEZF8GBpaQdoW7V8mKYqdeP6hhw3M9fXoKXy1G3VGzqfzCjrcLi**
 
                
 ## Download

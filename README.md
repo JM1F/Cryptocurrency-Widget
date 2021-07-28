@@ -58,7 +58,9 @@ If you want to support the development, any donations will be greatly appreciate
 
 <ins>Bitcoin (BTC):</ins> 
 
-**bc1q0gnpmlhmzcvh4293lj3vxntpjypakvthmvl2sf** or
+**bc1q0gnpmlhmzcvh4293lj3vxntpjypakvthmvl2sf** 
+
+or
 
 **1MeuofwLtAgZxta2hoQpqyiMcHyDHb9RFx**
 
@@ -68,7 +70,9 @@ If you want to support the development, any donations will be greatly appreciate
 
 <ins>Cardano (ADA):</ins>
 
-**addr1q9sxqglh9nchccvyjzvzc3fvpn0d2qz8u5mr85fmrs6pvymqvq3lwt8303scfyyc93zjcrx765qy0efkx0gnk8p5zcfs57enhs** or 
+**addr1q9sxqglh9nchccvyjzvzc3fvpn0d2qz8u5mr85fmrs6pvymqvq3lwt8303scfyyc93zjcrx765qy0efkx0gnk8p5zcfs57enhs** 
+
+or 
 
 **Ae2tdPwUPEZF8GBpaQdoW7V8mKYqdeP6hhw3M9fXoKXy1G3VGzqfzCjrcLi**
 

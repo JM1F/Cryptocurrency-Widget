@@ -13,7 +13,6 @@ namespace APILibary
     /// </summary>
     public static class APIHelper
     {
-
         public static HttpClient APIClient { get; set; }
 
         public static void InitializeClient()

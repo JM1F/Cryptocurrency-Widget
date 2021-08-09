@@ -172,7 +172,7 @@ namespace CryptoWidget
         
         public void setTimer()
         {
-            atimer = new System.Timers.Timer(6000);
+            atimer = new System.Timers.Timer(30000);
             // When the timer elapses atimer_Elapsed is called.
             atimer.Elapsed += atimer_Elapsed;
             atimer.AutoReset = true;

@@ -52,8 +52,6 @@ namespace CryptoWidget
         public string CoinPrice1YColour { get; set; }
         public string CoinPriceATH { get; set; }
 
-        
-
         public static System.Timers.Timer atimer;
 
         /// <summary>
@@ -61,7 +59,7 @@ namespace CryptoWidget
         /// </summary>
         public void setTimer()
         {
-            atimer = new System.Timers.Timer(6000);
+            atimer = new System.Timers.Timer(30000);
             // When the timer elapses atimer_Elapsed is called.
             atimer.Elapsed += atimer_Elapsed;
             atimer.AutoReset = true;
@@ -303,15 +301,12 @@ namespace CryptoWidget
                 if (CoinAPIData[UNIINDEX].price_change_percentage_1y_in_currency == null)
                 {
                     CoinPrice1Y = "N/A";
-                   
                 }
                 else
                 {
                     CoinPrice1Y = stringSolver.ShortenStringData(CoinAPIData[UNIINDEX].price_change_percentage_1y_in_currency);
                     CoinPrice1YColour = colourCheck.ColourCheck(CoinPrice1Y);
                 }
-
-                
             }
             else if (CoinCodeName == "solana")
             {
@@ -467,7 +462,6 @@ namespace CryptoWidget
                 if (CoinAPIData[ICPINDEX].price_change_percentage_1y_in_currency == null)
                 {
                     CoinPrice1Y = "N/A";
-
                 }
                 else
                 {
@@ -585,15 +579,12 @@ namespace CryptoWidget
                 if (CoinAPIData[FILINDEX].price_change_percentage_1y_in_currency == null)
                 {
                     CoinPrice1Y = "N/A";
-
                 }
                 else
                 {
                     CoinPrice1Y = stringSolver.ShortenStringData(CoinAPIData[FILINDEX].price_change_percentage_1y_in_currency);
                     CoinPrice1YColour = colourCheck.ColourCheck(CoinPrice1Y);
                 }
-
-                
             }
             else if (CoinCodeName == "tron")
             {
@@ -642,15 +633,12 @@ namespace CryptoWidget
                 if (CoinAPIData[SHIBINDEX].price_change_percentage_1y_in_currency == null)
                 {
                     CoinPrice1Y = "N/A";
-
                 }
                 else
                 {
                     CoinPrice1Y = stringSolver.ShortenStringData(CoinAPIData[SHIBINDEX].price_change_percentage_1y_in_currency);
                     CoinPrice1YColour = colourCheck.ColourCheck(CoinPrice1Y);
                 }
-
-
             }
             else if (CoinCodeName == "monero")
             {
@@ -700,11 +688,9 @@ namespace CryptoWidget
             {
                 int AAVEINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "Aave");
 
-
                 CoinPrice = Convert.ToString(StringCurrency + CoinAPIData[AAVEINDEX].current_price);
 
                 CoinPriceATH = (StringCurrency + CoinAPIData[AAVEINDEX].ath);
-
 
                 CoinPrice1H = stringSolver.ShortenStringData(CoinAPIData[AAVEINDEX].price_change_percentage_1h_in_currency);
                 CoinPrice1HColour = colourCheck.ColourCheck(CoinPrice1H);
@@ -721,15 +707,12 @@ namespace CryptoWidget
                 if (CoinAPIData[AAVEINDEX].price_change_percentage_1y_in_currency == null)
                 {
                     CoinPrice1Y = "N/A";
-
                 }
                 else
                 {
                     CoinPrice1Y = stringSolver.ShortenStringData(CoinAPIData[AAVEINDEX].price_change_percentage_1y_in_currency);
                     CoinPrice1YColour = colourCheck.ColourCheck(CoinPrice1Y);
                 }
-
-
             }
             else if (CoinCodeName == "eos")
             {
@@ -779,11 +762,9 @@ namespace CryptoWidget
             {
                 int CAKEINDEX = aPIDataChecker.IndexCheck(CoinAPIData, "PancakeSwap");
 
-
                 CoinPrice = Convert.ToString(StringCurrency + CoinAPIData[CAKEINDEX].current_price);
 
                 CoinPriceATH = (StringCurrency + CoinAPIData[CAKEINDEX].ath);
-
 
                 CoinPrice1H = stringSolver.ShortenStringData(CoinAPIData[CAKEINDEX].price_change_percentage_1h_in_currency);
                 CoinPrice1HColour = colourCheck.ColourCheck(CoinPrice1H);
@@ -800,15 +781,12 @@ namespace CryptoWidget
                 if (CoinAPIData[CAKEINDEX].price_change_percentage_1y_in_currency == null)
                 {
                     CoinPrice1Y = "N/A";
-
                 }
                 else
                 {
                     CoinPrice1Y = stringSolver.ShortenStringData(CoinAPIData[CAKEINDEX].price_change_percentage_1y_in_currency);
                     CoinPrice1YColour = colourCheck.ColourCheck(CoinPrice1Y);
                 }
-
-
             }
             else if (CoinCodeName == "amp")
             {
@@ -842,11 +820,7 @@ namespace CryptoWidget
                     CoinPrice1Y = stringSolver.ShortenStringData(CoinAPIData[AMPINDEX].price_change_percentage_1y_in_currency);
                     CoinPrice1YColour = colourCheck.ColourCheck(CoinPrice1Y);
                 }
-
-
             }
-
-
 
             OnPropertyChanged("CoinPrice");
 

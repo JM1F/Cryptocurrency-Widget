@@ -18,14 +18,10 @@ namespace APILibary
         public static async Task<IList<ReturnModel>> LoadData(string CurrencyValue)
         {
 
-
             string URL = "";
 
             if (CurrencyValue == "System.Windows.Controls.ComboBoxItem: £ GBP")
             {
-
-                
-
                 URL = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=gbp&order=market_cap_desc&per_page=50&sparkline=false&price_change_percentage=1h%2C24h%2C7d%2C30d%2C1y";
             }
             else if (CurrencyValue == "System.Windows.Controls.ComboBoxItem: $ USD") 
@@ -47,7 +43,6 @@ namespace APILibary
                 // Check if API call successful
                 if (response.IsSuccessStatusCode)
                 {
-                    
                     IList<ReturnModel> NewData = await response.Content.ReadAsAsync<IList<ReturnModel>>();
                     return NewData;
                 }

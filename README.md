@@ -72,4 +72,4 @@ If you want to support the development, any donations will be greatly appreciate
 
 * Only available on Windows.
 
-* You can download the widget ***<ins>[HERE](https://github.com/JM1F/Cryptocurrency-Widget/releases/download/v1.0/CryptocurrencyWidget.zip)</ins>***
+* You can download the widget ***<ins>[HERE](https://github.com/JM1F/Cryptocurrency-Widget/releases/download/v1.1/CryptoWidget.v1.1.zip)</ins>***

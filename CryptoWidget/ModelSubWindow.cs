@@ -7,6 +7,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Media;
 
 namespace CryptoWidget
 {
@@ -206,42 +207,80 @@ namespace CryptoWidget
             {
                 CoinIndex = aPIDataChecker.IndexCheck(CoinAPIData, "Amp");
             }
+            BrushConverter brushConverter = new BrushConverter();
 
-                CoinPrice = Convert.ToString(StringCurrency + CoinAPIData[CoinIndex].current_price);
+            CoinPrice = Convert.ToString(StringCurrency + CoinAPIData[CoinIndex].current_price);
 
-                CoinPriceATH = (StringCurrency + CoinAPIData[CoinIndex].ath);
+            CoinPriceATH = (StringCurrency + CoinAPIData[CoinIndex].ath);
 
-
+            if (CoinAPIData[CoinIndex].price_change_percentage_1h_in_currency == null)
+            {
+                CoinPrice1H = "N/A";
+            }
+            else
+            {
                 CoinPrice1H = stringSolver.ShortenStringData(CoinAPIData[CoinIndex].price_change_percentage_1h_in_currency);
                 CoinPrice1HColour = colourCheck.ColourCheck(CoinPrice1H);
+            }
 
+            if (CoinAPIData[CoinIndex].price_change_percentage_24h_in_currency == null)
+            {
+                CoinPrice24H = "N/A";
+            }
+            else
+            {
                 CoinPrice24H = stringSolver.ShortenStringData(CoinAPIData[CoinIndex].price_change_percentage_24h_in_currency);
                 CoinPrice24HColour = colourCheck.ColourCheck(CoinPrice24H);
+            }
 
+            if (CoinAPIData[CoinIndex].price_change_percentage_7d_in_currency == null)
+            {
+                CoinPrice7D = "N/A";
+            }
+            else
+            {
                 CoinPrice7D = stringSolver.ShortenStringData(CoinAPIData[CoinIndex].price_change_percentage_7d_in_currency);
                 CoinPrice7DColour = colourCheck.ColourCheck(CoinPrice7D);
+            }
 
+            if (CoinAPIData[CoinIndex].price_change_percentage_30d_in_currency == null)
+            {
+                CoinPrice30D = "N/A";
+            }
+            else
+            {
                 CoinPrice30D = stringSolver.ShortenStringData(CoinAPIData[CoinIndex].price_change_percentage_30d_in_currency);
                 CoinPrice30DColour = colourCheck.ColourCheck(CoinPrice30D);
+            }
 
-                OnPropertyChanged("CoinPrice");
+            if (CoinAPIData[CoinIndex].price_change_percentage_1y_in_currency == null)
+            {
+                CoinPrice1Y = "N/A";
+            }
+            else
+            {
+                CoinPrice1Y = stringSolver.ShortenStringData(CoinAPIData[CoinIndex].price_change_percentage_1y_in_currency);
+                CoinPrice1YColour = colourCheck.ColourCheck(CoinPrice1Y);
+            }
 
-                OnPropertyChanged("CoinPriceATH");
+            OnPropertyChanged("CoinPrice");
 
-                OnPropertyChanged("CoinPrice1H");
-                OnPropertyChanged("CoinPrice1HColour");
+            OnPropertyChanged("CoinPriceATH");
 
-                OnPropertyChanged("CoinPrice24H");
-                OnPropertyChanged("CoinPrice24HColour");
+            OnPropertyChanged("CoinPrice1H");
+            OnPropertyChanged("CoinPrice1HColour");
 
-                OnPropertyChanged("CoinPrice7D");
-                OnPropertyChanged("CoinPrice7DColour");
+            OnPropertyChanged("CoinPrice24H");
+            OnPropertyChanged("CoinPrice24HColour");
 
-                OnPropertyChanged("CoinPrice30D");
-                OnPropertyChanged("CoinPrice30DColour");
+            OnPropertyChanged("CoinPrice7D");
+            OnPropertyChanged("CoinPrice7DColour");
 
-                OnPropertyChanged("CoinPrice1Y");
-                OnPropertyChanged("CoinPrice1YColour");
+            OnPropertyChanged("CoinPrice30D");
+            OnPropertyChanged("CoinPrice30DColour");
+
+            OnPropertyChanged("CoinPrice1Y");
+            OnPropertyChanged("CoinPrice1YColour");
 
             }
         

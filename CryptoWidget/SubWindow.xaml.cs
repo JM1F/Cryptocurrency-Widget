@@ -273,28 +273,57 @@ namespace CryptoWidget
                 Cointitle.Text = "Amp";
 
             }
+            Brush NAColour = brushConverter.ConvertFrom("#DF5F67") as SolidColorBrush;
 
             CoinPriceID.Text = Convert.ToString(StringCurrency + CoinAPIData[CoinIndex].current_price);
 
             CoinPriceIDATH.Text = (StringCurrency + CoinAPIData[CoinIndex].ath);
 
-            CoinPriceID1H.Text = stringSolver.ShortenStringData(CoinAPIData[CoinIndex].price_change_percentage_1h_in_currency);
-            CoinPriceID1H.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[CoinIndex].price_change_percentage_1h_in_currency)) as SolidColorBrush;
-
-            CoinPriceID24H.Text = stringSolver.ShortenStringData(CoinAPIData[CoinIndex].price_change_percentage_24h_in_currency);
-            CoinPriceID24H.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[CoinIndex].price_change_percentage_24h_in_currency)) as SolidColorBrush;
-
-            CoinPriceID7D.Text = stringSolver.ShortenStringData(CoinAPIData[CoinIndex].price_change_percentage_7d_in_currency);
-            CoinPriceID7D.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[CoinIndex].price_change_percentage_7d_in_currency)) as SolidColorBrush;
-
-            CoinPriceID30D.Text = stringSolver.ShortenStringData(CoinAPIData[CoinIndex].price_change_percentage_30d_in_currency);
-            CoinPriceID30D.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[CoinIndex].price_change_percentage_30d_in_currency)) as SolidColorBrush;
-
+      
+            if (CoinAPIData[CoinIndex].price_change_percentage_1h_in_currency == null)
+            {
+                CoinPriceID1Y.Text = "N/A";
+                CoinPriceID1Y.Foreground = NAColour;
+            }
+            else
+            {
+                CoinPriceID1H.Text = stringSolver.ShortenStringData(CoinAPIData[CoinIndex].price_change_percentage_1h_in_currency);
+                CoinPriceID1H.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[CoinIndex].price_change_percentage_1h_in_currency)) as SolidColorBrush;
+            }
+            if (CoinAPIData[CoinIndex].price_change_percentage_24h_in_currency == null)
+            {
+                CoinPriceID1Y.Text = "N/A";
+                CoinPriceID1Y.Foreground = NAColour;
+            }
+            else
+            {
+                CoinPriceID24H.Text = stringSolver.ShortenStringData(CoinAPIData[CoinIndex].price_change_percentage_24h_in_currency);
+                CoinPriceID24H.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[CoinIndex].price_change_percentage_24h_in_currency)) as SolidColorBrush;
+            }
+            if (CoinAPIData[CoinIndex].price_change_percentage_7d_in_currency == null)
+            {
+                CoinPriceID1Y.Text = "N/A";
+                CoinPriceID1Y.Foreground = NAColour;
+            }
+            else
+            {
+                CoinPriceID7D.Text = stringSolver.ShortenStringData(CoinAPIData[CoinIndex].price_change_percentage_7d_in_currency);
+                CoinPriceID7D.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[CoinIndex].price_change_percentage_7d_in_currency)) as SolidColorBrush;
+            }
+            if (CoinAPIData[CoinIndex].price_change_percentage_30d_in_currency == null)
+            {
+                CoinPriceID1Y.Text = "N/A";
+                CoinPriceID1Y.Foreground = NAColour;
+            }
+            else
+            {
+                CoinPriceID30D.Text = stringSolver.ShortenStringData(CoinAPIData[CoinIndex].price_change_percentage_30d_in_currency);
+                CoinPriceID30D.Foreground = brushConverter.ConvertFrom(colourCheck.ColourCheck(CoinAPIData[CoinIndex].price_change_percentage_30d_in_currency)) as SolidColorBrush;
+            }
             if (CoinAPIData[CoinIndex].price_change_percentage_1y_in_currency == null)
             {
                 CoinPriceID1Y.Text = "N/A";
-                Brush DOTColour = brushConverter.ConvertFrom("#DF5F67") as SolidColorBrush;
-                CoinPriceID1Y.Foreground = DOTColour;
+                CoinPriceID1Y.Foreground = NAColour;
             }
             else
             {

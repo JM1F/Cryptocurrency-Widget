@@ -276,7 +276,7 @@ namespace CryptoWidget
         /// <param name="e"></param>
         private void titleBar_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            this.DragMove();
+            DragMove();
         }
         /// <summary>
         /// Closes the window when the exit button is clicked.
@@ -285,7 +285,7 @@ namespace CryptoWidget
         /// <param name="e"></param>
         private void exitButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            Close();
             
         }
         /// <summary>
@@ -295,7 +295,7 @@ namespace CryptoWidget
         /// <param name="e"></param>
         private void Minimisebutton_Click(object sender, RoutedEventArgs e)
         {
-            this.WindowState = WindowState.Minimized;
+            WindowState = WindowState.Minimized;
         }
 
         // Seperate buttons for the coins. When they are clicked a sub window is opened with the specific details.
@@ -307,10 +307,8 @@ namespace CryptoWidget
         }
         public void Button_ClickETH(object sender, RoutedEventArgs e)
         {
-           
             SubWindow ethwindow = new SubWindow("ethereum", CurrencyValue);
             ethwindow.ShowDialog();
-
         }
         public void Button_ClickADA(object sender, RoutedEventArgs e)
         {

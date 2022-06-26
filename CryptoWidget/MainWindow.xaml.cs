@@ -330,7 +330,7 @@ namespace CryptoWidget
         }
         public void Button_ClickXRP(object sender, RoutedEventArgs e)
         {
-            SubWindow xrpwindow = new SubWindow("xrp", CurrencyValue);
+            SubWindow xrpwindow = new SubWindow("ripple", CurrencyValue);
 
             xrpwindow.ShowDialog();
         }
@@ -342,7 +342,7 @@ namespace CryptoWidget
         }
         public void Button_ClickBTCCASH(object sender, RoutedEventArgs e)
         {
-            SubWindow bitcoincashwindow = new SubWindow("bitcoincash", CurrencyValue);
+            SubWindow bitcoincashwindow = new SubWindow("bitcoin-cash", CurrencyValue);
 
             bitcoincashwindow.ShowDialog();
         }
@@ -372,31 +372,31 @@ namespace CryptoWidget
         }
         public void Button_ClickETHC(object sender, RoutedEventArgs e)
         {
-            SubWindow ethereumclassicwindow = new SubWindow("ethereumclassic", CurrencyValue);
+            SubWindow ethereumclassicwindow = new SubWindow("ethereum-classic", CurrencyValue);
 
             ethereumclassicwindow.ShowDialog();
         }
         public void Button_ClickMATIC(object sender, RoutedEventArgs e)
         {
-            SubWindow polygonwindow = new SubWindow("polygon", CurrencyValue);
+            SubWindow polygonwindow = new SubWindow("matic-network", CurrencyValue);
 
             polygonwindow.ShowDialog();
         }
         public void Button_ClickWBTC(object sender, RoutedEventArgs e)
         {
-            SubWindow wrappedbitcoinwindow = new SubWindow("wrappedbitcoin", CurrencyValue);
+            SubWindow wrappedbitcoinwindow = new SubWindow("wrapped-bitcoin", CurrencyValue);
 
             wrappedbitcoinwindow.ShowDialog();
         }
         public void Button_ClickICP(object sender, RoutedEventArgs e)
         {
-            SubWindow interentcomputerwindow = new SubWindow("internetcomputer", CurrencyValue);
+            SubWindow interentcomputerwindow = new SubWindow("internet-computer", CurrencyValue);
 
             interentcomputerwindow.ShowDialog();
         }
         public void Button_ClickTHETA(object sender, RoutedEventArgs e)
         {
-            SubWindow thetawindow = new SubWindow("theta", CurrencyValue);
+            SubWindow thetawindow = new SubWindow("theta-token", CurrencyValue);
 
             thetawindow.ShowDialog();
         }
@@ -432,7 +432,7 @@ namespace CryptoWidget
         }
         public void Button_ClickSHIB(object sender, RoutedEventArgs e)
         {
-            SubWindow shibainuwindow = new SubWindow("shibainu", CurrencyValue);
+            SubWindow shibainuwindow = new SubWindow("shiba-inu", CurrencyValue);
 
             shibainuwindow.ShowDialog();
         }
@@ -468,13 +468,13 @@ namespace CryptoWidget
         }
         public void Button_ClickCAKE(object sender, RoutedEventArgs e)
         {
-            SubWindow pancakeswapwindow = new SubWindow("pancakeswap", CurrencyValue);
+            SubWindow pancakeswapwindow = new SubWindow("pancakeswap-token", CurrencyValue);
 
             pancakeswapwindow.ShowDialog();
         }
         public void Button_ClickAMP(object sender, RoutedEventArgs e)
         {
-            SubWindow ampwindow = new SubWindow("amp", CurrencyValue);
+            SubWindow ampwindow = new SubWindow("amp-token", CurrencyValue);
 
             ampwindow.ShowDialog();
         }

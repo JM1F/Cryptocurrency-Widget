@@ -55,10 +55,10 @@
     <ApplicationIcon>icon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>6751675A32DC612A7F4E4401436DF68FA4653789</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>457DBBED0F83880F53BBA0CADBA86DD82AA6DBE4</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>CryptoWidget_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>CryptoWidget_1_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
@@ -131,6 +131,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="CryptoWidget_1_TemporaryKey.pfx" />
     <None Include="CryptoWidget_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

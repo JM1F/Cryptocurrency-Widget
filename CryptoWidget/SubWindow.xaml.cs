@@ -24,7 +24,7 @@ namespace CryptoWidget
     public partial class SubWindow : Window
     {
         // Coin name for sub window type.
-        public static string CoinCodeName;
+        public string CoinCodeName { get; set; }
         public string CURRENCYVALUE { get; set; }
         public int CoinIndex { get; set; }
 
@@ -61,218 +61,16 @@ namespace CryptoWidget
 
             string StringCurrency = CURRENCYVALUE[38].ToString();
 
-            // Checks the coin code name
-            if (CoinCodeName == "bitcoin")
-            {
-                // Checks index of coin.
-                CoinIndex = aPIDataChecker.IndexCheck(CoinAPIData, "Bitcoin");
-                // Set the image to current coin.
-                CoinImage.Source = new BitmapImage(new Uri("Images/bitcoin.png", UriKind.Relative));
-                
-                Cointitle.Text = "Bitcoin";
-            }
-            else if (CoinCodeName == "ethereum")
-            {
-                // Repeat...
-                CoinIndex = aPIDataChecker.IndexCheck(CoinAPIData, "Ethereum");
-                CoinImage.Source = new BitmapImage(new Uri("Images/ethereum.png", UriKind.Relative));
-                Cointitle.Text = "Ethereum";
-            }
-            else if (CoinCodeName == "cardano")
-            {
-                CoinIndex = aPIDataChecker.IndexCheck(CoinAPIData, "Cardano");
-                CoinImage.Source = new BitmapImage(new Uri("Images/cardano.png", UriKind.Relative));
-                Cointitle.Text = "Cardano";
-            }
-            else if (CoinCodeName == "binancecoin")
-            {
-                CoinIndex = aPIDataChecker.IndexCheck(CoinAPIData, "Binance Coin");
-                CoinImage.Source = new BitmapImage(new Uri("Images/binancecoin.png", UriKind.Relative));
-                Cointitle.Text = "Binance";
-            }
-            else if (CoinCodeName == "dogecoin")
-            {
-                CoinIndex = aPIDataChecker.IndexCheck(CoinAPIData, "Dogecoin");
-                CoinImage.Source = new BitmapImage(new Uri("Images/dogecoin.png", UriKind.Relative));
-                Cointitle.Text = "Dogecoin";
-            }
-            else if (CoinCodeName == "xrp")
-            {
-                CoinIndex = aPIDataChecker.IndexCheck(CoinAPIData, "XRP");
-                CoinImage.Source = new BitmapImage(new Uri("Images/ripple.png", UriKind.Relative));
-                Cointitle.Text = "XRP";
-            }
-            else if (CoinCodeName == "polkadot")
-            {
-                CoinIndex = aPIDataChecker.IndexCheck(CoinAPIData, "Polkadot");
 
-                CoinImage.Source = new BitmapImage(new Uri("Images/polkadot.png", UriKind.Relative));
-                Cointitle.Text = "Polkadot";
-            }
-            else if (CoinCodeName == "bitcoincash")
-            {
-                CoinIndex = aPIDataChecker.IndexCheck(CoinAPIData, "Bitcoin Cash");
+            // Checks index of coin.
+            Console.WriteLine(CoinCodeName);
+            CoinIndex = aPIDataChecker.IndexCheck(CoinAPIData, CoinCodeName);
+            Console.WriteLine(CoinIndex);
+            // Set the image to current coin.
+            CoinImage.Source = new BitmapImage(new Uri(changeAPIImageSize(CoinAPIData[CoinIndex].image)));
 
-                CoinImage.Source = new BitmapImage(new Uri("Images/bitcoincash.png", UriKind.Relative));
-                Cointitle.Text = "Bitcoin $";
-            }
-            else if (CoinCodeName == "uniswap")
-            {
-                CoinIndex = aPIDataChecker.IndexCheck(CoinAPIData, "Uniswap");
+            Cointitle.Text = CoinAPIData[CoinIndex].Name;
 
-                CoinImage.Source = new BitmapImage(new Uri("Images/uniswap.png", UriKind.Relative));
-                Cointitle.Text = "Uniswap";
-            }
-            else if (CoinCodeName == "solana")
-            {
-                CoinIndex = aPIDataChecker.IndexCheck(CoinAPIData, "Solana");
-
-                CoinImage.Source = new BitmapImage(new Uri("Images/solana.png", UriKind.Relative));
-                Cointitle.Text = "Solana";
-            }
-            else if (CoinCodeName == "litecoin")
-            {
-                CoinIndex = aPIDataChecker.IndexCheck(CoinAPIData, "Litecoin");
-
-                CoinImage.Source = new BitmapImage(new Uri("Images/litecoin.png", UriKind.Relative));
-                Cointitle.Text = "Litecoin";
-            }
-            else if (CoinCodeName == "chainlink")
-            {
-                CoinIndex = aPIDataChecker.IndexCheck(CoinAPIData, "Chainlink");
-
-                CoinImage.Source = new BitmapImage(new Uri("Images/chainlink.png", UriKind.Relative));
-                Cointitle.Text = "Chainlink";
-            }
-            else if (CoinCodeName == "ethereumclassic")
-            {
-                CoinIndex = aPIDataChecker.IndexCheck(CoinAPIData, "Ethereum Classic");
-
-                CoinImage.Source = new BitmapImage(new Uri("Images/ethereumclassic.png", UriKind.Relative));
-                Cointitle.Text = "ETC";
-            }
-            else if (CoinCodeName == "polygon")
-            {
-                CoinIndex = aPIDataChecker.IndexCheck(CoinAPIData, "Polygon");
-
-                CoinImage.Source = new BitmapImage(new Uri("Images/polygon.png", UriKind.Relative));
-                Cointitle.Text = "Polygon";
-            }
-            else if (CoinCodeName == "wrappedbitcoin")
-            {
-                CoinIndex = aPIDataChecker.IndexCheck(CoinAPIData, "Wrapped Bitcoin");
-
-                CoinImage.Source = new BitmapImage(new Uri("Images/wrappedbitcoin.png", UriKind.Relative));
-                Cointitle.Text = "WBTC";
-            }
-            else if (CoinCodeName == "internetcomputer")
-            {
-                CoinIndex = aPIDataChecker.IndexCheck(CoinAPIData, "Internet Computer");
-
-                CoinImage.Source = new BitmapImage(new Uri("Images/internetcomputer.png", UriKind.Relative));
-                Cointitle.Text = "ICP";
-            }
-            else if (CoinCodeName == "theta")
-            {
-                CoinIndex = aPIDataChecker.IndexCheck(CoinAPIData, "Theta Network");
-
-                CoinImage.Source = new BitmapImage(new Uri("Images/theta.png", UriKind.Relative));
-                Cointitle.Text = "Theta";
-            }
-            else if (CoinCodeName == "stellar")
-            {
-                CoinIndex = aPIDataChecker.IndexCheck(CoinAPIData, "Stellar");
-
-                CoinImage.Source = new BitmapImage(new Uri("Images/stellar.png", UriKind.Relative));
-                Cointitle.Text = "Stellar";
-            }
-            else if (CoinCodeName == "vechain")
-            {
-                CoinIndex = aPIDataChecker.IndexCheck(CoinAPIData, "VeChain");
-
-                CoinImage.Source = new BitmapImage(new Uri("Images/vechain.png", UriKind.Relative));
-                Cointitle.Text = "VeChain";
-            }
-            else if (CoinCodeName == "dai")
-            {
-                CoinIndex = aPIDataChecker.IndexCheck(CoinAPIData, "Dai");
-
-                CoinImage.Source = new BitmapImage(new Uri("Images/dai.png", UriKind.Relative));
-                Cointitle.Text = "Dai";
-            }
-            else if (CoinCodeName == "filecoin")
-            {
-                CoinIndex = aPIDataChecker.IndexCheck(CoinAPIData, "Filecoin");
-
-                CoinImage.Source = new BitmapImage(new Uri("Images/filecoin.png", UriKind.Relative));
-                Cointitle.Text = "Filecoin";
-            }
-            else if (CoinCodeName == "tron")
-            {
-                CoinIndex = aPIDataChecker.IndexCheck(CoinAPIData, "TRON");
-
-                CoinImage.Source = new BitmapImage(new Uri("Images/tron.png", UriKind.Relative));
-                Cointitle.Text = "TRON";
-            }
-            else if (CoinCodeName == "shibainu")
-            {
-                CoinIndex = aPIDataChecker.IndexCheck(CoinAPIData, "Shiba Inu");
-
-                CoinImage.Source = new BitmapImage(new Uri("Images/shibainu.png", UriKind.Relative));
-                Cointitle.Text = "Shiba Inu";
-            }
-            else if (CoinCodeName == "monero")
-            {
-                CoinIndex = aPIDataChecker.IndexCheck(CoinAPIData, "Monero");
-
-                CoinImage.Source = new BitmapImage(new Uri("Images/monero.png", UriKind.Relative));
-                Cointitle.Text = "Monero";
-            }
-            else if (CoinCodeName == "cosmos")
-            {
-                CoinIndex = aPIDataChecker.IndexCheck(CoinAPIData, "Cosmos");
-
-                CoinImage.Source = new BitmapImage(new Uri("Images/cosmos.png", UriKind.Relative));
-                Cointitle.Text = "Cosmos";
-            }
-            else if (CoinCodeName == "aave")
-            {
-                CoinIndex = aPIDataChecker.IndexCheck(CoinAPIData, "Aave");
-
-                CoinImage.Source = new BitmapImage(new Uri("Images/AAVE.png", UriKind.Relative));
-                Cointitle.Text = "Aave";
-
-            }
-            else if (CoinCodeName == "eos")
-            {
-                CoinIndex = aPIDataChecker.IndexCheck(CoinAPIData, "EOS");
-
-                CoinImage.Source = new BitmapImage(new Uri("Images/eos.png", UriKind.Relative));
-                Cointitle.Text = "EOS";
-            }
-            else if (CoinCodeName == "algorand")
-            {
-                CoinIndex = aPIDataChecker.IndexCheck(CoinAPIData, "Algorand");
-
-                CoinImage.Source = new BitmapImage(new Uri("Images/algorand.png", UriKind.Relative));
-                Cointitle.Text = "Algorand";
-            }
-            else if (CoinCodeName == "pancakeswap")
-            {
-                CoinIndex = aPIDataChecker.IndexCheck(CoinAPIData, "PancakeSwap");
-
-                CoinImage.Source = new BitmapImage(new Uri("Images/pancakeswap.png", UriKind.Relative));
-                Cointitle.Text = "CAKE";
-
-            }
-            else if (CoinCodeName == "amp")
-            {
-                CoinIndex = aPIDataChecker.IndexCheck(CoinAPIData, "Amp");
-
-                CoinImage.Source = new BitmapImage(new Uri("Images/amp.png", UriKind.Relative));
-                Cointitle.Text = "Amp";
-
-            }
             Brush NAColour = brushConverter.ConvertFrom("#DF5F67") as SolidColorBrush;
 
             CoinPriceID.Text = Convert.ToString(StringCurrency + CoinAPIData[CoinIndex].current_price);
@@ -367,6 +165,11 @@ namespace CryptoWidget
             this.Close();
             
             
+        }
+        public string changeAPIImageSize(string originalURL)
+        {
+            string newURL = originalURL.Replace("/large/", "/small/");
+            return newURL;
         }
     }
 }

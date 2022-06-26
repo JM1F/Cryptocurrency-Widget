@@ -23,7 +23,7 @@ namespace CryptoWidget
             // Loops through the data from the API 
             for (int i = 0; i < Data.Count; i++) {
                 // Checks if the data name is the same as the parameter CoinName.
-                if (Data[i].Name == CoinName)
+                if (Data[i].ID == CoinName)
                 {
                     
                     return i;

@@ -508,7 +508,7 @@
         <SolidColorBrush x:Key="ComboBoxItem.ItemsviewFocus.Border" Color="#FF26A0DA"/>
         <SolidColorBrush x:Key="ComboBoxItem.ItemsviewHoverFocus.Background" Color="#5426A0DA"/>
         <SolidColorBrush x:Key="ComboBoxItem.ItemsviewHoverFocus.Border" Color="#FF26A0DA"/>
-        
+
         <Style x:Key="ComboBoxItemStyle1" TargetType="{x:Type ComboBoxItem}">
             <Setter Property="SnapsToDevicePixels" Value="True"/>
             <Setter Property="Padding" Value="4,1"/>
@@ -594,15 +594,19 @@
     <Border CornerRadius="15" BorderThickness="20" BorderBrush="#161616">
 
         <Grid x:Name="HomeView" Background="#161616 ">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="29*"/>
+                <ColumnDefinition Width="76*"/>
+            </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="31*"/>
                 <RowDefinition Height="99*"/>
             </Grid.RowDefinitions>
 
-            <Rectangle Fill="#282828 " Margin="-20,20,-20,40.667"/>
+            <Rectangle Fill="#282828 " Margin="-20,20,-20,41" Grid.ColumnSpan="2"/>
 
 
-            <ScrollViewer  VerticalScrollBarVisibility="Auto" BorderThickness="0" Background="Transparent" Grid.RowSpan="2" Foreground="Transparent" Margin="-20,26,-20,7">
+            <ScrollViewer  VerticalScrollBarVisibility="Auto" BorderThickness="0" Background="Transparent" Grid.RowSpan="2" Foreground="Transparent" Margin="-20,26,-20,7" Grid.ColumnSpan="2">
 
                 <Grid Height="2250" Width="250" >
 
@@ -1096,11 +1100,11 @@
                     <Button Click="Button_ClickALGO" Height="61" Margin="18,1999,18,190" BorderThickness="0" Background="Transparent" Style="{DynamicResource MainButtons}">
                         <Grid Width="223" Height="60">
                             <TextBlock Text="Algorand" TextDecorations="Underline" Foreground="white" FontFamily="./resources/#Montserrat Medium" x:Name="NameDataALGO" Margin="65,7,9,35" FontSize="16" RenderTransformOrigin="0.5,0.5"/>
-                            
+
                             <TextBlock TextAlignment="Center" Foreground="{Binding ALGO24HCOLOUR, Mode=TwoWay, TargetNullValue={x:Null}}" FontFamily="./resources/#Montserrat Medium" x:Name="PriceData24hALGO" Margin="61,44,108,0" Text="{Binding ALGO24H, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
-                            
+
                             <TextBlock TextAlignment="Center" Foreground="White" FontFamily="./resources/#Montserrat Medium" x:Name="ALGOPriceName" Margin="138,44,21,0" Text="{Binding ALGOPRICE, Mode=TwoWay}" RenderTransformOrigin="0.5,0.5"/>
-                            
+
 
                             <TextBlock Foreground="White" Margin="77,32,122,17" Text="24HR" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
                             <TextBlock Foreground="White" Margin="158,32,41,17" Text="Price" TextAlignment="Center" FontFamily="./resources/#Montserrat Medium" FontWeight="Bold" FontSize="8"/>
@@ -1156,29 +1160,29 @@
 
 
 
-            <Border CornerRadius="15,15,0,0" BorderThickness="20" BorderBrush="#111111" Margin="-20,-20,-20,41.667"/>
+            <Border CornerRadius="15,15,0,0" BorderThickness="20" BorderBrush="#111111" Margin="-20,-20,-20,42" Grid.ColumnSpan="2"/>
 
-            <TextBlock x:Name="title" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Cryptocurrency Widget" VerticalAlignment="Top" Width="234" TextAlignment="Left" Foreground="white" FontSize="14"  FontFamily="./resources/#Montserrat Medium" Margin="-4,-8,-20,0" Focusable="False" FontStyle="Normal" Height="20"/>
+            <TextBlock x:Name="title" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Cryptocurrency Widget" VerticalAlignment="Top" Width="190" TextAlignment="Left" Foreground="white" FontSize="15"  FontFamily="./resources/#Montserrat Medium" Margin="-5,-5,0,0" Focusable="False" FontStyle="Normal" Height="20" FontWeight="Bold" Grid.ColumnSpan="2"/>
 
 
 
-            <Border  CornerRadius="15,15,0,0" BorderThickness="20"  Margin="-20,-20,-20,41.667">
+            <Border  CornerRadius="15,15,0,0" BorderThickness="20"  Margin="-20,-20,-20,42" Grid.ColumnSpan="2">
                 <Rectangle x:Name="invisibleGrabBar"  HorizontalAlignment="Left" Height="40"  VerticalAlignment="Top" Width="250" MouseDown="titleBar_MouseDown" Fill="Black" Opacity="0.001" Margin="-20,-20,-20,-19"/>
             </Border>
 
 
-            <Button x:Name="exitButton"  Margin="203,-17,-8,63.667" Click="exitButton_Click" BorderThickness="1" BorderBrush="#282828"  Background="#111111" Foreground="white"  Style="{DynamicResource exitButton}" >
+            <Button x:Name="exitButton"  Margin="147,-10,-10,57" Click="exitButton_Click" BorderThickness="1" BorderBrush="#282828"  Background="#111111" Foreground="white"  Style="{DynamicResource exitButton}" Grid.Column="1" >
 
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="30"/>
                     </Style>
                 </Button.Resources>
-                <TextBlock Text="X" Margin="-4,0,-2,-1" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Width="15" Height="15" FontFamily="./resources/#Montserrat Medium"/>
+                <TextBlock Text="X" Margin="-4,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" TextAlignment="Center" Width="15" Height="14" FontFamily="./resources/#Montserrat Medium"/>
 
             </Button>
 
-            <Button x:Name="minimiseButton" Click="Minimisebutton_Click" Width="15" Height="15" Margin="185,-17,10,63.667" Foreground="White" BorderBrush="#282828" Background="#111111" Style="{DynamicResource minimiseButton}">
+            <Button x:Name="minimiseButton" Click="Minimisebutton_Click" Width="15" Height="15" Margin="127,-10,10,57" Foreground="White" BorderBrush="#282828" Background="#111111" Style="{DynamicResource minimiseButton}" Grid.Column="1">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="30"/>
@@ -1188,7 +1192,7 @@
             </Button>
 
 
-            <ComboBox Height="16" Style="{DynamicResource ComboBoxStyle1}" SelectedIndex="1"  Name="CurrencyCombobox" Foreground="White" Margin="0,193,153,-11" Grid.Row="1" VerticalAlignment="Center" Background="black">
+            <ComboBox Height="16" Style="{DynamicResource ComboBoxStyle1}" SelectedIndex="1"  Name="CurrencyCombobox" Foreground="White" Margin="0,193,1,0" Grid.Row="1" VerticalAlignment="Top" Background="black">
                 <ComboBoxItem Name="GBPComboItem" Style="{DynamicResource ComboBoxItemStyle1}">
                     <TextBlock Background="Transparent" Foreground="white"><Run Text="$ USD"/></TextBlock>
                 </ComboBoxItem>
@@ -1200,7 +1204,7 @@
                 </ComboBoxItem>
             </ComboBox>
 
-            <TextBlock TextAlignment="Center" Foreground="#404040" Margin="184,193,0,-11" Grid.Row="1" FontSize="9" ><Run Text="v1.1"/></TextBlock>
+            <TextBlock TextAlignment="Center" Foreground="#404040" Margin="126,193,0,-11" Grid.Row="1" FontSize="9" Grid.Column="1" ><Run Text="v1.1"/></TextBlock>
 
 
 

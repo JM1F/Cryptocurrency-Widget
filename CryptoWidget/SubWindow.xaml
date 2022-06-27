@@ -79,22 +79,28 @@
 
 
 
-            <Image Margin="-9,-6,69,91" Name="CoinImage" Height="50" MaxHeight="70" MaxWidth="60" Stretch="None"/>
-            <TextBlock Name="Cointitle"  Foreground="White" Margin="42,-6,-3,116" TextAlignment="Center" FontSize="14" FontFamily="./resources/#Montserrat Medium" TextDecorations="Underline"/>
-            <TextBlock Text="Price" Foreground="White" Margin="62,20,22,100" TextAlignment="Center" FontSize="10" FontFamily="./resources/#Montserrat Medium"/>
-            <TextBlock  Name="CoinPriceID" Margin="41,36,0,83" FontFamily="./resources/#Montserrat Medium" TextAlignment="Center" Text="{Binding CoinPrice, Mode=TwoWay}" Foreground="White" TextWrapping="WrapWithOverflow"/>
+            <Image Margin="-15,5,75,80" Name="CoinImage" Height="50" MaxHeight="70" MaxWidth="60" Stretch="None"/>
+            <Viewbox StretchDirection="DownOnly" Stretch="Uniform" Margin="40,5,-15,112">
+                <TextBlock Name="Cointitle"  Foreground="White" TextAlignment="Center" FontSize="14" FontFamily="./resources/#Montserrat Medium"  TextDecorations="Underline" FontWeight="Bold"/>
+            </Viewbox>
 
-            <Rectangle Margin="-15,57,-15,77" Fill="#545454"/>
+            <TextBlock Text="Price" Foreground="White" Margin="68,24,12,99" TextAlignment="Center" FontSize="10" FontFamily="./resources/#Montserrat Medium"/>
 
-            <TextBlock Text="Time Frame" Margin="-9,61,70,62" FontSize="8" Foreground="#d1d1d1" FontFamily="./resources/#Montserrat Medium"/>
-            <TextBlock Text="%" Margin="56,61,47,62" FontSize="8" Foreground="#d1d1d1" FontFamily="./resources/#Montserrat Medium"/>
-            <TextBlock Text="ATH" Margin="94,61,-8,62" FontSize="8" Foreground="#d1d1d1" FontFamily="./resources/#Montserrat Medium" TextAlignment="Center" FontStretch="Medium" TextWrapping="WrapWithOverflow"/>
+            <Viewbox StretchDirection="DownOnly" Stretch="Uniform" Margin="40,37,-15,80">
+                <TextBlock  Name="CoinPriceID" FontFamily="./resources/#Montserrat Medium" TextAlignment="Center" Text="{Binding CoinPrice, Mode=TwoWay}" Foreground="White" TextWrapping="WrapWithOverflow" FontWeight="Bold"/>
+            </Viewbox>
+
+            <Rectangle Margin="-15,58,-15,76" Fill="#545454"/>
+
+            <TextBlock Text="Time Frame" Margin="-10,61,70,62" FontSize="8" Foreground="#d1d1d1" FontFamily="./resources/#Montserrat Medium" HorizontalAlignment="Center" FontWeight="Bold"/>
+            <TextBlock Text="%" Margin="52,61,0,64" FontSize="8" Foreground="#d1d1d1" FontFamily="./resources/#Montserrat Medium" HorizontalAlignment="Left" Width="10" Height="10" TextAlignment="Center" FontWeight="Bold"/>
+            <TextBlock Text="ATH" Margin="90,61,-4,62" FontSize="8" Foreground="#d1d1d1" FontFamily="./resources/#Montserrat Medium" TextAlignment="Center" FontStretch="Medium" TextWrapping="WrapWithOverflow" FontWeight="Bold"/>
 
 
 
 
 
-            <Rectangle x:Name="invisibleGrabBar"  HorizontalAlignment="Left" Height="30"  VerticalAlignment="Top" Width="150" MouseDown="titleBar_MouseDown" Fill="Black" Opacity="0.001" Margin="-20,-20,-20,-10"/>
+            <Rectangle x:Name="invisibleGrabBar"  HorizontalAlignment="Center" Height="22"  VerticalAlignment="Top" Width="150" MouseDown="titleBar_MouseDown" Fill="Black" Opacity="0.001" Margin="0,-20,0,0"/>
             <Button x:Name="exitButton" Click="exitButton_Click" BorderThickness="1" BorderBrush="#161616"  Background="#111111" Foreground="white"  Style="{DynamicResource exitButton}" Margin="110,-15,-15,135" >
                 <TextBlock Text="X" Margin="-4,0,-2,-1" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Width="15" Height="15" FontFamily="./resources/#Montserrat Medium"/>
 
@@ -104,21 +110,31 @@
                     </Style>
                 </Button.Resources>
             </Button>
-            <TextBlock Text="1H" Margin="-9,76,70,47" FontSize="10" Foreground="white" Background="Transparent" FontFamily="./resources/#Montserrat Medium" TextAlignment="Center"/>
-            <TextBlock Text="24H" Margin="-9,91,70,32" FontSize="10" Foreground="white" Background="Transparent" FontFamily="./resources/#Montserrat Medium" TextAlignment="Center"/>
-            <TextBlock Text="7D" Margin="-9,106,70,17" FontSize="10" Foreground="white" Background="Transparent" FontFamily="./resources/#Montserrat Medium" TextAlignment="Center"/>
-            <TextBlock Text="30D" Margin="-9,121,70,2" FontSize="10" Foreground="white" Background="Transparent" FontFamily="./resources/#Montserrat Medium" TextAlignment="Center"/>
-            <TextBlock Text="1Y" Margin="-9,136,70,-13" FontSize="10" Foreground="white" Background="Transparent" FontFamily="./resources/#Montserrat Medium" TextAlignment="Center"/>
+            <TextBlock Text="1H" Margin="9,75,0,48" FontSize="10" Foreground="white" Background="Transparent" FontFamily="./resources/#Montserrat Medium" TextAlignment="Center" HorizontalAlignment="Left"/>
+            <TextBlock Text="24H" Margin="4,90,0,33" FontSize="10" Foreground="white" Background="Transparent" FontFamily="./resources/#Montserrat Medium" TextAlignment="Center" HorizontalAlignment="Left"/>
+            <TextBlock Text="7D" Margin="7,105,0,18" FontSize="10" Foreground="white" Background="Transparent" FontFamily="./resources/#Montserrat Medium" TextAlignment="Center" HorizontalAlignment="Left"/>
+            <TextBlock Text="30D" Margin="4,120,0,3" FontSize="10" Foreground="white" Background="Transparent" FontFamily="./resources/#Montserrat Medium" TextAlignment="Center" HorizontalAlignment="Left"/>
+            <TextBlock Text="1Y" Margin="8,135,89,-12" FontSize="10" Foreground="white" Background="Transparent" FontFamily="./resources/#Montserrat Medium" TextAlignment="Center"/>
 
-            <TextBlock Name="CoinPriceID1H" Text="{Binding CoinPrice1H, Mode=TwoWay}" Margin="38,76,29,47" FontSize="10" Foreground="{Binding CoinPrice1HColour, TargetNullValue={x:Null}}" Background="Transparent" FontFamily="./resources/#Montserrat Medium" TextAlignment="Center"/>
-            <TextBlock Name="CoinPriceID24H" Text="{Binding CoinPrice24H, Mode=TwoWay}" Margin="38,91,29,32" FontSize="10" Foreground="{Binding CoinPrice24HColour, TargetNullValue={x:Null}}" Background="Transparent" FontFamily="./resources/#Montserrat Medium" TextAlignment="Center"/>
-            <TextBlock Name="CoinPriceID7D" Text="{Binding CoinPrice7D, Mode=TwoWay}" Margin="38,106,29,17" FontSize="10" Foreground="{Binding CoinPrice7DColour, TargetNullValue={x:Null}}" Background="Transparent" FontFamily="./resources/#Montserrat Medium" TextAlignment="Center"/>
-            <TextBlock Name="CoinPriceID30D" Text="{Binding CoinPrice30D, Mode=TwoWay}" Margin="38,121,29,2" FontSize="10" Foreground="{Binding CoinPrice30DColour, TargetNullValue={x:Null}}" Background="Transparent" FontFamily="./resources/#Montserrat Medium" TextAlignment="Center"/>
-            <TextBlock Name="CoinPriceID1Y" Text="{Binding CoinPrice1Y, Mode=TwoWay}" Margin="38,136,17,-13" FontSize="10" Foreground="{Binding CoinPrice1YColour, TargetNullValue={x:Null}}" Background="Transparent" FontFamily="./resources/#Montserrat Medium" TextAlignment="Center"/>
-            <Viewbox StretchDirection="DownOnly" Stretch="Uniform" Margin="82,75,-17,46" UseLayoutRounding="False">
-                <TextBlock x:Name="CoinPriceIDATH" Text="{Binding CoinPriceATH, Mode=TwoWay}" Foreground="White" Background="Transparent" FontFamily="./resources/#Montserrat Medium" TextAlignment="Center" FontWeight="Bold"/>
+            <Viewbox StretchDirection="DownOnly" Stretch="Uniform" Margin="36,89,32,32" UseLayoutRounding="False">
+                <TextBlock Name="CoinPriceID24H" Text="{Binding CoinPrice24H, Mode=TwoWay}" Foreground="{Binding CoinPrice24HColour, TargetNullValue={x:Null}}" Background="Transparent" FontFamily="./resources/#Montserrat Medium" TextAlignment="Center" FontWeight="Bold"/>
             </Viewbox>
-
+            <Viewbox StretchDirection="DownOnly" Stretch="Uniform" Margin="36,74,32,47" UseLayoutRounding="False">
+                <TextBlock Name="CoinPriceID1H" Text="{Binding CoinPrice1H, Mode=TwoWay}" Foreground="{Binding CoinPrice1HColour, TargetNullValue={x:Null}}" Background="Transparent" FontFamily="./resources/#Montserrat Medium" TextAlignment="Center" FontWeight="Bold"/>
+            </Viewbox>
+            <Viewbox StretchDirection="DownOnly" Stretch="Uniform" UseLayoutRounding="False" Margin="80,74,-14,47">
+                <TextBlock Name="CoinPriceIDATH" Text="{Binding CoinPriceATH, Mode=TwoWay}" Foreground="White" Background="Transparent" FontFamily="./resources/#Montserrat Medium" TextAlignment="Center" FontWeight="Bold"/>
+            </Viewbox>
+            <Viewbox StretchDirection="DownOnly" Stretch="Uniform" Margin="36,104,32,17" UseLayoutRounding="False">
+                <TextBlock x:Name="CoinPriceID7D" Text="{Binding CoinPrice7D, Mode=TwoWay}" Foreground="{Binding CoinPrice7DColour, TargetNullValue={x:Null}}" Background="Transparent" FontFamily="./resources/#Montserrat Medium" TextAlignment="Center" FontWeight="Bold"/>
+            </Viewbox>
+            <Viewbox StretchDirection="DownOnly" Stretch="Uniform" Margin="36,119,32,2" UseLayoutRounding="False">
+                <TextBlock x:Name="CoinPriceID30D" Text="{Binding CoinPrice30D, Mode=TwoWay}" Foreground="{Binding CoinPrice30DColour, TargetNullValue={x:Null}}" Background="Transparent" FontFamily="./resources/#Montserrat Medium" TextAlignment="Center" FontWeight="Bold"/>
+            </Viewbox>
+            <Viewbox StretchDirection="DownOnly" Stretch="Uniform" Margin="36,134,32,-13" UseLayoutRounding="False">
+                <TextBlock x:Name="CoinPriceID1Y" Text="{Binding CoinPrice1Y, Mode=TwoWay}" Foreground="{Binding CoinPrice1YColour, TargetNullValue={x:Null}}" Background="Transparent" FontFamily="./resources/#Montserrat Medium" TextAlignment="Center" FontWeight="Bold"/>
+            </Viewbox>
+            <Rectangle Margin="-15,1,-15,133" Fill="#545454"/>
 
 
         </Grid>

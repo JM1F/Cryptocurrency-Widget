@@ -63,9 +63,7 @@ namespace CryptoWidget
 
 
             // Checks index of coin.
-            Console.WriteLine(CoinCodeName);
             CoinIndex = aPIDataChecker.IndexCheck(CoinAPIData, CoinCodeName);
-            Console.WriteLine(CoinIndex);
             // Set the image to current coin.
             CoinImage.Source = new BitmapImage(new Uri(changeAPIImageSize(CoinAPIData[CoinIndex].image)));
 

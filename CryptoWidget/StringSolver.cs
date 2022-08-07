@@ -13,7 +13,7 @@ namespace CryptoWidget
     {
         public string ShortenStringData(string StringData)
         {
-            // Change string data to delcimal.
+            // Change string data to decimal.
             decimal DecimalData = decimal.Parse(StringData);
             // "F" cuts down the string data to 2 decimal places
             string NewStringData = DecimalData.ToString("F");
@@ -24,11 +24,9 @@ namespace CryptoWidget
                 // returns current string if the value is negative, this is because the API automatically adds the minus in the string.
                 return NewStringData;
             }
-            else
-            {
-                // returns string with an added plus if the value is positive.
-                return ("+" + NewStringData);
-            }
+
+            // returns string with an added plus if the value is positive.
+            return ("+" + NewStringData);
         }
     }
 }
